@@ -1,0 +1,2 @@
+# PRIPROC_CSO_WESNOTH
+Test
