@@ -1,11 +1,31 @@
 window.onload = function() {
 	
-	var game = new Phaser.Game(1000, 1000, Phaser.CANVAS, "", {preload: onPreload, create: onCreate});                
+     var game = new Phaser.Game("100%", "120%", Phaser.CANVAS, "", {preload: onPreload, create: onCreate});                
+     
+     var mapDict = getMaps();
+     var mapName = "PRIPOC_MAPA_1";
+     var map = MapToGrid(mapDict[mapName]);
+     var starting_positions = extractStartingPositions(map);
+     removeStartingPositions(map);
+     console.log(map);
+     var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
 
-	var hexagonWidth = 60;
-	var hexagonHeight = 60;
-	var gridSizeX = 20;
-	var gridSizeY = 20;
+     const image_path_prefix = "images/terrain/";
+     const image_path_postfix = ".png";
+
+     var playerQueue = new Queue();
+     playerQueue.shift = function(){ var temp = this.dequeue(); console.log(temp); this.enqueue(temp);};
+     playerQueue.enqueue('Lukas');
+     playerQueue.enqueue('Martin');
+     playerQueue.enqueue('a Martin');
+
+     var hexagonWidth = 280;
+	var hexagonHeight = 280;
+     //var gridSizeX = map[0].length;
+     //var gridSizeY = map.length;
+     var gridSizeX = map[0].length;
+     var gridSizeY = map.length;
+     console.log(gridSizeX, gridSizeY);
 	var columns = [Math.ceil(gridSizeY/2),Math.floor(gridSizeY/2)];
      var moveIndex;
      var sectorWidth = hexagonWidth/4*3;
@@ -13,29 +33,49 @@ window.onload = function() {
      var gradient = (hexagonWidth/4)/(hexagonHeight/2);
      var marker;
      var hexagonGroup;
-
-     var hexagons = [[{'name' : 'monstera'}], [{'name' : 'monsterb'}]]
+     var hexagons = Create2DArray(gridSizeX, gridSizeY/2);
 
 	function onPreload() {
-		game.load.image("hexagon", "images/terrain/green.png");
-          game.load.image("marker", "images/terrain/abyss.png");
-          game.load.image("unit", "images/units/dirkfang.png");
+          game.load.image("marker", "images/marker.png");
+
+          for(key in terrain_dict) {
+               game.load.image(terrain_dict[key]["symbol_image"], image_path_prefix + terrain_dict[key]["symbol_image"] + image_path_postfix);
+          }
 	}
 
 	function onCreate() {
 		hexagonGroup = game.add.group();
-		game.stage.backgroundColor = "#ffffff"
-	     for(var i = 0; i < gridSizeX/2; i ++){
-			for(var j = 0; j < gridSizeY; j ++){
-				if(gridSizeX%2==0 || i+1<gridSizeX/2 || j%2==0){
-					var hexagonX = hexagonWidth*i*1.5+(hexagonWidth/4*3)*(j%2);
-					var hexagonY = hexagonHeight*j/2;	
-                         var hexagon = game.add.sprite(hexagonX,hexagonY,"hexagon");
+          game.stage.backgroundColor = "#ffffff";
+
+	     for(var i = 0; i < /*gridSizeX*/gridSizeY; i ++){
+			for(var j = 0; j < /*gridSizeY*/gridSizeX; j ++){
+				//if(gridSizeX%2==0 || i+1<gridSizeX/2 || j%2==0){
+                         //var hexagonX = hexagonWidth*i*1.5+(hexagonWidth/4*3)*(j%2);
+                         //var hexagonY = hexagonHeight*j/2;
+                         var hexagonX = hexagonWidth * j * 0.75;
+                         var hexagonY = hexagonHeight*i + j%2*hexagonHeight/2;
+                         
+                         console.log(i, j);
+                         /*console.log(map[i][j]);*/
+                         var image = terrain_dict[map[i][j]]["symbol_image"];
+
+                         var hexagon = game.add.sprite(hexagonX,hexagonY,image);
+                         hexagon.scale.setTo(4,4)
+
+                         /*var style = { font: "10px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                         text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
+                         //text.anchor.set(0.5);
+                         hexagonGroup.add(text);*/
+
+                         hexagon.grid_x = j;
+                         hexagon.grid_y = i;
 
                          hexagon.inputEnabled = true;
-		               hexagon.events.onInputDown.add(do_shit, this);
+                         hexagon.events.onInputDown.add(hexagon_clicked, this);
+
+                         hexagons[i][j] = hexagon;
                          hexagonGroup.add(hexagon);
-				}
+				//}
 			}
 		}
 		hexagonGroup.y = (game.height-hexagonHeight*Math.ceil(gridSizeY/2))/2;
@@ -53,7 +93,7 @@ window.onload = function() {
           moveIndex = game.input.addMoveCallback(placeMarker, this);
 
 	}
-     
+
      function checkHex(){
           var candidateX = Math.floor((game.input.worldX-hexagonGroup.x)/sectorWidth);
           var candidateY = Math.floor((game.input.worldY-hexagonGroup.y)/sectorHeight);
@@ -86,11 +126,12 @@ window.onload = function() {
           return [candidateX,candidateY];
      }
      
-     function placeMarker(posX,posY){
+     function placeMarker(hexagon){
           t = checkHex()
           posX = t[0]
           posY = t[1]
-          $( "#start" ).text(posX);
+
+          $( "#start" ).text(posX + "," + posY);
 
 		if(posX<0 || posY<0 || posX>=gridSizeX || posY>columns[posX%2]-1){
 			marker.visible=false;
@@ -108,15 +149,37 @@ window.onload = function() {
 		}
 	}
      
-     function do_shit(hexagon) {
-          t = checkHex()
-          posX = t[0]
-          posY = t[1]
-          
-          x = hexagon.world.x;
-          y = hexagon.world.y;
-     
-          //hexagon.destroy();
-          game.add.sprite(x,y,"unit");
+     function hexagon_clicked(hexagon) {
+
+     }
+
+     /*  function do_shit(hexagon) {
+               t = checkHex()
+               posX = t[0]
+               posY = t[1]
+               
+               x = hexagon.world.x;
+               y = hexagon.world.y;
+
+               grid_x = hexagon.grid_x;
+               grid_y = hexagon.grid_y;
+
+               console.log(grid_x, grid_y);
+               console.log(hexagons[grid_x][grid_y]);
+
+               //hexagon.destroy();
+               game.add.sprite(x,y,"unit");
+          }*/
+
+     function Create2DArray(x, y) {
+          console.log("Creating array " + x + ", " + y);
+
+          var array = new Array(x);
+
+          for (var i = 0; i < x; i++) {
+               array[i] = new Array(y);
+          }
+
+          return array;
      }
 }
