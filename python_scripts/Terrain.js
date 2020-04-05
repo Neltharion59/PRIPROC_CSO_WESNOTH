@@ -108,7 +108,7 @@ function createTerrainDict() {
 	terrain_dict["^Do"] = {};
 	terrain_dict["^Do"]["symbol_image"] = "sand/desert-oasis";
 	terrain_dict["^Do"]["default_base"] = "Dd";
-	terrain_dict["^Do"]["heals"] = "8";
+	terrain_dict["^Do"]["heals"] = 8;
 	terrain_dict["^Do"]["editor_group"] = ['desert'];
 
 	terrain_dict["^Dr"] = {};
@@ -552,209 +552,209 @@ function createTerrainDict() {
 	terrain_dict["^Vda"] = {};
 	terrain_dict["^Vda"]["symbol_image"] = "village/desert-tile";
 	terrain_dict["^Vda"]["default_base"] = "Dd";
-	terrain_dict["^Vda"]["heals"] = "8";
+	terrain_dict["^Vda"]["heals"] = 8;
 	terrain_dict["^Vda"]["gives_income"] = true;
 	terrain_dict["^Vda"]["editor_group"] = ['village', 'desert'];
 
 	terrain_dict["^Vdr"] = {};
 	terrain_dict["^Vdr"]["symbol_image"] = "village/desert-ruin-tile";
 	terrain_dict["^Vdr"]["default_base"] = "Dd";
-	terrain_dict["^Vdr"]["heals"] = "8";
+	terrain_dict["^Vdr"]["heals"] = 8;
 	terrain_dict["^Vdr"]["gives_income"] = true;
 	terrain_dict["^Vdr"]["editor_group"] = ['village', 'desert'];
 
 	terrain_dict["^Vdt"] = {};
 	terrain_dict["^Vdt"]["symbol_image"] = "village/desert-camp-tile";
 	terrain_dict["^Vdt"]["default_base"] = "Dd";
-	terrain_dict["^Vdt"]["heals"] = "8";
+	terrain_dict["^Vdt"]["heals"] = 8;
 	terrain_dict["^Vdt"]["gives_income"] = true;
 	terrain_dict["^Vdt"]["editor_group"] = ['village', 'desert'];
 
 	terrain_dict["^Vct"] = {};
 	terrain_dict["^Vct"]["symbol_image"] = "village/camp-tile";
 	terrain_dict["^Vct"]["default_base"] = "Re";
-	terrain_dict["^Vct"]["heals"] = "8";
+	terrain_dict["^Vct"]["heals"] = 8;
 	terrain_dict["^Vct"]["gives_income"] = true;
 	terrain_dict["^Vct"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vo"] = {};
 	terrain_dict["^Vo"]["symbol_image"] = "village/orc-tile";
 	terrain_dict["^Vo"]["default_base"] = "Gd";
-	terrain_dict["^Vo"]["heals"] = "8";
+	terrain_dict["^Vo"]["heals"] = 8;
 	terrain_dict["^Vo"]["gives_income"] = true;
 	terrain_dict["^Vo"]["editor_group"] = ['village'];
 
 	terrain_dict["^Voa"] = {};
 	terrain_dict["^Voa"]["symbol_image"] = "village/orc-snow-tile";
 	terrain_dict["^Voa"]["default_base"] = "Aa";
-	terrain_dict["^Voa"]["heals"] = "8";
+	terrain_dict["^Voa"]["heals"] = 8;
 	terrain_dict["^Voa"]["gives_income"] = true;
 	terrain_dict["^Voa"]["editor_group"] = ['village', 'frozen'];
 
 	terrain_dict["^Vea"] = {};
 	terrain_dict["^Vea"]["symbol_image"] = "village/elven-snow-tile";
 	terrain_dict["^Vea"]["default_base"] = "Aa";
-	terrain_dict["^Vea"]["heals"] = "8";
+	terrain_dict["^Vea"]["heals"] = 8;
 	terrain_dict["^Vea"]["gives_income"] = true;
 	terrain_dict["^Vea"]["editor_group"] = ['village', 'frozen'];
 
 	terrain_dict["^Ve"] = {};
 	terrain_dict["^Ve"]["symbol_image"] = "village/elven-tile";
 	terrain_dict["^Ve"]["default_base"] = "Gg";
-	terrain_dict["^Ve"]["heals"] = "8";
+	terrain_dict["^Ve"]["heals"] = 8;
 	terrain_dict["^Ve"]["gives_income"] = true;
 	terrain_dict["^Ve"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vh"] = {};
 	terrain_dict["^Vh"]["symbol_image"] = "village/human-tile";
 	terrain_dict["^Vh"]["default_base"] = "Gs";
-	terrain_dict["^Vh"]["heals"] = "8";
+	terrain_dict["^Vh"]["heals"] = 8;
 	terrain_dict["^Vh"]["gives_income"] = true;
 	terrain_dict["^Vh"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vha"] = {};
 	terrain_dict["^Vha"]["symbol_image"] = "village/snow-tile";
 	terrain_dict["^Vha"]["default_base"] = "Aa";
-	terrain_dict["^Vha"]["heals"] = "8";
+	terrain_dict["^Vha"]["heals"] = 8;
 	terrain_dict["^Vha"]["gives_income"] = true;
 	terrain_dict["^Vha"]["editor_group"] = ['village', 'frozen'];
 
 	terrain_dict["^Vhr"] = {};
 	terrain_dict["^Vhr"]["symbol_image"] = "village/human-cottage-ruin-tile";
 	terrain_dict["^Vhr"]["default_base"] = "Gd";
-	terrain_dict["^Vhr"]["heals"] = "8";
+	terrain_dict["^Vhr"]["heals"] = 8;
 	terrain_dict["^Vhr"]["gives_income"] = true;
 	terrain_dict["^Vhr"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vhc"] = {};
 	terrain_dict["^Vhc"]["symbol_image"] = "village/human-city-tile";
 	terrain_dict["^Vhc"]["default_base"] = "Rr";
-	terrain_dict["^Vhc"]["heals"] = "8";
+	terrain_dict["^Vhc"]["heals"] = 8;
 	terrain_dict["^Vhc"]["gives_income"] = true;
 	terrain_dict["^Vhc"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vwm"] = {};
 	terrain_dict["^Vwm"]["symbol_image"] = "misc/windmill-tile";
 	terrain_dict["^Vwm"]["default_base"] = "Gg";
-	terrain_dict["^Vwm"]["heals"] = "8";
+	terrain_dict["^Vwm"]["heals"] = 8;
 	terrain_dict["^Vwm"]["gives_income"] = true;
 	terrain_dict["^Vwm"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vhca"] = {};
 	terrain_dict["^Vhca"]["symbol_image"] = "village/human-city-snow-tile";
 	terrain_dict["^Vhca"]["default_base"] = "Rrc";
-	terrain_dict["^Vhca"]["heals"] = "8";
+	terrain_dict["^Vhca"]["heals"] = 8;
 	terrain_dict["^Vhca"]["gives_income"] = true;
 	terrain_dict["^Vhca"]["editor_group"] = ['village', 'frozen'];
 
 	terrain_dict["^Vhcr"] = {};
 	terrain_dict["^Vhcr"]["symbol_image"] = "village/human-city-ruin-tile";
 	terrain_dict["^Vhcr"]["default_base"] = "Rp";
-	terrain_dict["^Vhcr"]["heals"] = "8";
+	terrain_dict["^Vhcr"]["heals"] = 8;
 	terrain_dict["^Vhcr"]["gives_income"] = true;
 	terrain_dict["^Vhcr"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vhh"] = {};
 	terrain_dict["^Vhh"]["symbol_image"] = "village/human-hills-tile";
 	terrain_dict["^Vhh"]["default_base"] = "Hh";
-	terrain_dict["^Vhh"]["heals"] = "8";
+	terrain_dict["^Vhh"]["heals"] = 8;
 	terrain_dict["^Vhh"]["gives_income"] = true;
 	terrain_dict["^Vhh"]["editor_group"] = ['village', 'rough'];
 
 	terrain_dict["^Vhha"] = {};
 	terrain_dict["^Vhha"]["symbol_image"] = "village/human-snow-hills-tile";
 	terrain_dict["^Vhha"]["default_base"] = "Ha";
-	terrain_dict["^Vhha"]["heals"] = "8";
+	terrain_dict["^Vhha"]["heals"] = 8;
 	terrain_dict["^Vhha"]["gives_income"] = true;
 	terrain_dict["^Vhha"]["editor_group"] = ['village', 'frozen', 'rough'];
 
 	terrain_dict["^Vhhr"] = {};
 	terrain_dict["^Vhhr"]["symbol_image"] = "village/human-hills-ruin-tile";
 	terrain_dict["^Vhhr"]["default_base"] = "Hhd";
-	terrain_dict["^Vhhr"]["heals"] = "8";
+	terrain_dict["^Vhhr"]["heals"] = 8;
 	terrain_dict["^Vhhr"]["gives_income"] = true;
 	terrain_dict["^Vhhr"]["editor_group"] = ['village', 'rough'];
 
 	terrain_dict["^Vht"] = {};
 	terrain_dict["^Vht"]["symbol_image"] = "village/tropical-tile";
 	terrain_dict["^Vht"]["default_base"] = "Gs";
-	terrain_dict["^Vht"]["heals"] = "8";
+	terrain_dict["^Vht"]["heals"] = 8;
 	terrain_dict["^Vht"]["gives_income"] = true;
 	terrain_dict["^Vht"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vd"] = {};
 	terrain_dict["^Vd"]["symbol_image"] = "village/drake-tile";
 	terrain_dict["^Vd"]["default_base"] = "Rr";
-	terrain_dict["^Vd"]["heals"] = "8";
+	terrain_dict["^Vd"]["heals"] = 8;
 	terrain_dict["^Vd"]["gives_income"] = true;
 	terrain_dict["^Vd"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vu"] = {};
 	terrain_dict["^Vu"]["symbol_image"] = "village/cave-tile";
 	terrain_dict["^Vu"]["default_base"] = "Uu";
-	terrain_dict["^Vu"]["heals"] = "8";
+	terrain_dict["^Vu"]["heals"] = 8;
 	terrain_dict["^Vu"]["gives_income"] = true;
 	terrain_dict["^Vu"]["editor_group"] = ['village', 'cave'];
 
 	terrain_dict["^Vud"] = {};
 	terrain_dict["^Vud"]["symbol_image"] = "village/dwarven-tile";
 	terrain_dict["^Vud"]["default_base"] = "Uu";
-	terrain_dict["^Vud"]["heals"] = "8";
+	terrain_dict["^Vud"]["heals"] = 8;
 	terrain_dict["^Vud"]["gives_income"] = true;
 	terrain_dict["^Vud"]["editor_group"] = ['village', 'cave'];
 
 	terrain_dict["^Vc"] = {};
 	terrain_dict["^Vc"]["symbol_image"] = "village/hut-tile";
 	terrain_dict["^Vc"]["default_base"] = "Gs";
-	terrain_dict["^Vc"]["heals"] = "8";
+	terrain_dict["^Vc"]["heals"] = 8;
 	terrain_dict["^Vc"]["gives_income"] = true;
 	terrain_dict["^Vc"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vca"] = {};
 	terrain_dict["^Vca"]["symbol_image"] = "village/hut-snow-tile";
 	terrain_dict["^Vca"]["default_base"] = "Aa";
-	terrain_dict["^Vca"]["heals"] = "8";
+	terrain_dict["^Vca"]["heals"] = 8;
 	terrain_dict["^Vca"]["gives_income"] = true;
 	terrain_dict["^Vca"]["editor_group"] = ['village', 'frozen'];
 
 	terrain_dict["^Vl"] = {};
 	terrain_dict["^Vl"]["symbol_image"] = "village/log-cabin-tile";
 	terrain_dict["^Vl"]["default_base"] = "Gs";
-	terrain_dict["^Vl"]["heals"] = "8";
+	terrain_dict["^Vl"]["heals"] = 8;
 	terrain_dict["^Vl"]["gives_income"] = true;
 	terrain_dict["^Vl"]["editor_group"] = ['village'];
 
 	terrain_dict["^Vla"] = {};
 	terrain_dict["^Vla"]["symbol_image"] = "village/log-cabin-snow-tile";
 	terrain_dict["^Vla"]["default_base"] = "Aa";
-	terrain_dict["^Vla"]["heals"] = "8";
+	terrain_dict["^Vla"]["heals"] = 8;
 	terrain_dict["^Vla"]["gives_income"] = true;
 	terrain_dict["^Vla"]["editor_group"] = ['village', 'frozen'];
 
 	terrain_dict["^Vaa"] = {};
 	terrain_dict["^Vaa"]["symbol_image"] = "village/igloo-tile";
 	terrain_dict["^Vaa"]["default_base"] = "Aa";
-	terrain_dict["^Vaa"]["heals"] = "8";
+	terrain_dict["^Vaa"]["heals"] = 8;
 	terrain_dict["^Vaa"]["gives_income"] = true;
 	terrain_dict["^Vaa"]["editor_group"] = ['village', 'frozen'];
 
 	terrain_dict["^Vhs"] = {};
 	terrain_dict["^Vhs"]["symbol_image"] = "village/swampwater-tile";
 	terrain_dict["^Vhs"]["default_base"] = "Ss";
-	terrain_dict["^Vhs"]["heals"] = "8";
+	terrain_dict["^Vhs"]["heals"] = 8;
 	terrain_dict["^Vhs"]["gives_income"] = true;
 	terrain_dict["^Vhs"]["editor_group"] = ['water', 'village'];
 
 	terrain_dict["^Vm"] = {};
 	terrain_dict["^Vm"]["symbol_image"] = "village/coast-tile";
 	terrain_dict["^Vm"]["default_base"] = "Ww";
-	terrain_dict["^Vm"]["heals"] = "8";
+	terrain_dict["^Vm"]["heals"] = 8;
 	terrain_dict["^Vm"]["gives_income"] = true;
 	terrain_dict["^Vm"]["editor_group"] = ['water', 'village'];
 
 	terrain_dict["^Vov"] = {};
 	terrain_dict["^Vov"]["symbol_image"] = "fog/fog1";
-	terrain_dict["^Vov"]["heals"] = "8";
+	terrain_dict["^Vov"]["heals"] = 8;
 	terrain_dict["^Vov"]["gives_income"] = true;
 	terrain_dict["^Vov"]["editor_group"] = ['village', 'special'];
 

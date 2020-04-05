@@ -3,6 +3,11 @@ def to_string(var):
         return "true"
     if var == "no":
         return "false"
+    try:
+        int(var)
+        return var
+    except Exception as _:
+        pass
     if type(var) == str:
         return "\"" + var + "\""
     return str(var)
@@ -44,7 +49,6 @@ with open('terrain.cfg') as fp:
 
 f = open("Terrain.js", "w+")
 f.write("function createTerrainDict() {\n\tterrain_dict = {};\n\n")
-
 for terrain in terrains:
     f.write("\tterrain_dict[\"" + terrain["string"] + "\"] = {};\n")
     for key in terrain:
@@ -52,6 +56,5 @@ for terrain in terrains:
             continue
         f.write("\tterrain_dict[\"" + terrain["string"] + "\"][\"" + key + "\"] = " + to_string(terrain[key]) + ";\n")
     f.write("\n")
-
 f.write("\treturn terrain_dict;\n}")
 

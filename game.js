@@ -7,11 +7,14 @@ window.onload = function() {
      var map = MapToGrid(mapDict[mapName]);
      var starting_positions = extractStartingPositions(map);
      removeStartingPositions(map);
-     console.log(map);
+     
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
+     var race_dict = createRaceDict();
+     console.log(race_dict);
 
      const image_path_prefix = "images/terrain/";
      const image_path_postfix = ".png";
+
 
      var playerQueue = new Queue();
      playerQueue.shift = function(){ var temp = this.dequeue(); console.log(temp); this.enqueue(temp);};
@@ -25,7 +28,6 @@ window.onload = function() {
      //var gridSizeY = map.length;
      var gridSizeX = map[0].length;
      var gridSizeY = map.length;
-     console.log(gridSizeX, gridSizeY);
 	var columns = [Math.ceil(gridSizeY/2),Math.floor(gridSizeY/2)];
      var moveIndex;
      var sectorWidth = hexagonWidth/4*3;
@@ -55,7 +57,7 @@ window.onload = function() {
                          var hexagonX = hexagonWidth * j * 0.75;
                          var hexagonY = hexagonHeight*i + j%2*hexagonHeight/2;
                          
-                         console.log(i, j);
+                         //console.log(i, j);
                          /*console.log(map[i][j]);*/
                          var image = terrain_dict[map[i][j]]["symbol_image"];
 
