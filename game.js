@@ -10,7 +10,9 @@ window.onload = function() {
      
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
      var race_dict = createRaceDict();
-     console.log(race_dict);
+     var movement_type_dict = createMovementDict();
+     var unit_dict = createUnitDict();
+     console.log(unit_dict);
 
      const image_path_prefix = "images/terrain/";
      const image_path_postfix = ".png";
@@ -49,35 +51,31 @@ window.onload = function() {
 		hexagonGroup = game.add.group();
           game.stage.backgroundColor = "#ffffff";
 
-	     for(var i = 0; i < /*gridSizeX*/gridSizeY; i ++){
-			for(var j = 0; j < /*gridSizeY*/gridSizeX; j ++){
-				//if(gridSizeX%2==0 || i+1<gridSizeX/2 || j%2==0){
-                         //var hexagonX = hexagonWidth*i*1.5+(hexagonWidth/4*3)*(j%2);
-                         //var hexagonY = hexagonHeight*j/2;
-                         var hexagonX = hexagonWidth * j * 0.75;
-                         var hexagonY = hexagonHeight*i + j%2*hexagonHeight/2;
-                         
-                         //console.log(i, j);
-                         /*console.log(map[i][j]);*/
-                         var image = terrain_dict[map[i][j]]["symbol_image"];
+	     for(var i = 0; i < gridSizeY; i ++) {
+			for(var j = 0; j < gridSizeX; j ++) {
+                    var hexagonX = hexagonWidth * j * 0.75;
+                    var hexagonY = hexagonHeight*i + j%2*hexagonHeight/2;
+                    
+                    //console.log(i, j);
+                    /*console.log(map[i][j]);*/
+                    var image = terrain_dict[map[i][j]]["symbol_image"];
 
-                         var hexagon = game.add.sprite(hexagonX,hexagonY,image);
-                         hexagon.scale.setTo(4,4)
+                    var hexagon = game.add.sprite(hexagonX,hexagonY,image);
+                    hexagon.scale.setTo(4,4)
 
-                         /*var style = { font: "10px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
-                         text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
-                         //text.anchor.set(0.5);
-                         hexagonGroup.add(text);*/
+                    /*var style = { font: "10px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                    text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
+                    //text.anchor.set(0.5);
+                    hexagonGroup.add(text);*/
 
-                         hexagon.grid_x = j;
-                         hexagon.grid_y = i;
+                    hexagon.grid_x = j;
+                    hexagon.grid_y = i;
 
-                         hexagon.inputEnabled = true;
-                         hexagon.events.onInputDown.add(hexagon_clicked, this);
+                    hexagon.inputEnabled = true;
+                    hexagon.events.onInputDown.add(hexagon_clicked, this);
 
-                         hexagons[i][j] = hexagon;
-                         hexagonGroup.add(hexagon);
-				//}
+                    hexagons[i][j] = hexagon;
+                    hexagonGroup.add(hexagon);
 			}
 		}
 		hexagonGroup.y = (game.height-hexagonHeight*Math.ceil(gridSizeY/2))/2;
@@ -174,8 +172,6 @@ window.onload = function() {
           }*/
 
      function Create2DArray(x, y) {
-          console.log("Creating array " + x + ", " + y);
-
           var array = new Array(x);
 
           for (var i = 0; i < x; i++) {

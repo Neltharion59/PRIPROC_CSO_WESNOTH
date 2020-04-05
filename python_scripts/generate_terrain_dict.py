@@ -57,4 +57,3 @@ for terrain in terrains:
         f.write("\tterrain_dict[\"" + terrain["string"] + "\"][\"" + key + "\"] = " + to_string(terrain[key]) + ";\n")
     f.write("\n")
 f.write("\treturn terrain_dict;\n}")
-

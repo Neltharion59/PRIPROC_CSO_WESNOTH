@@ -5,8 +5,10 @@ tag_close_pattern = re.compile("\[\/[A-Za-z]+\]")
 trait_pattern = re.compile("\{TRAIT_[A-Z]+\}")
 
 superdict = {}
-attr_ignore_list = ["description", "name", "male_name", "female_name", "plural_name", "<header>text",
-                    "Drakesoriginatedfromanarchipelagoofvolcanicislandscalled<ref>dst"]
+attr_ignore_lists = {
+    "race": ["description", "name", "male_name", "female_name", "plural_name", "<header>text",
+    "Drakesoriginatedfromanarchipelagoofvolcanicislandscalled<ref>dst"]
+}
 
 
 def append_to_dict(dict_in, key, item):
@@ -22,6 +24,12 @@ def append_to_dict(dict_in, key, item):
 
 
 def to_string(var):
+    if isinstance(var, dict):
+        for key in var:
+            try:
+                var[key] = int(var[key])
+            except Exception as _:
+                pass
     if var == "yes":
         return "true"
     if var == "no":
@@ -66,7 +74,7 @@ with open('units.cfg') as fp:
             tokens = line.split("=")
 
             name = tokens[0].replace(" ", "")
-            if name in attr_ignore_list:
+            if tag_stack[-1] in attr_ignore_lists and name in attr_ignore_lists[tag_stack[-1]]:
                 continue
 
             value = tokens[1]
@@ -99,9 +107,7 @@ for race in superdict["race"]:
         race["undead_variation"] = "null"
     racedict[idt] = race
 del superdict['traits']
-
-print(racedict)
-print(racedict['dwarf'])
+del superdict['race']
 
 f = open("Races.js", "w+")
 f.write("function createRaceDict() {\n\trace_dict = {};\n\n")
@@ -111,3 +117,22 @@ for race in racedict:
             f.write("\trace_dict[\"" + race + "\"][\"" + key + "\"] = " + to_string(racedict[race][key]) + ";\n")
         f.write("\n")
 f.write("\treturn race_dict;\n}")
+
+
+
+movedict = {}
+for move in superdict["movetype"]:
+    idt = move["name"]
+    del move["name"]
+    movedict[idt] = move
+del superdict['movetype']
+
+f = open("Movement.js", "w+")
+f.write("function createMovementDict() {\n\tmovement_dict = {};\n\n")
+for movement in movedict:
+        f.write("\tmovement_dict[\"" + movement + "\"] = {};\n")
+        for key in movedict[movement]:
+            f.write("\tmovement_dict[\"" + movement + "\"][\"" + key + "\"] = " + to_string(movedict[movement][key]) + ";\n")
+        f.write("\n")
+f.write("\treturn movement_dict;\n}")
+
