@@ -9,6 +9,7 @@ window.onload = function() {
      removeStartingPositions(map);
      
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
+     console.log(terrain_dict);
      var race_dict = createRaceDict();
      var movement_type_dict = createMovementDict();
      var unit_dict = createUnitDict();
@@ -17,6 +18,8 @@ window.onload = function() {
      const image_path_prefix = "images/terrain/";
      const image_path_postfix = ".png";
 
+     console.log(terrain_dict);
+     console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map));
 
      var playerQueue = new Queue();
      playerQueue.shift = function(){ var temp = this.dequeue(); console.log(temp); this.enqueue(temp);};
@@ -63,10 +66,10 @@ window.onload = function() {
                     var hexagon = game.add.sprite(hexagonX,hexagonY,image);
                     hexagon.scale.setTo(4,4)
 
-                    /*var style = { font: "10px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                    var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
                     text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
                     //text.anchor.set(0.5);
-                    hexagonGroup.add(text);*/
+                    hexagonGroup.add(text);
 
                     hexagon.grid_x = j;
                     hexagon.grid_y = i;

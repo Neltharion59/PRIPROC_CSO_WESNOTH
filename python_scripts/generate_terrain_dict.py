@@ -1,3 +1,5 @@
+import re;
+
 def to_string(var):
     if var == "yes":
         return "true"
@@ -13,9 +15,15 @@ def to_string(var):
     return str(var)
 
 
+def type_correction(var):
+    if var in ["grassland", "road", "dirt"]:
+        return "flat"
+    return var
+
+
 terrains = []
 desired_attrs = ["symbol_image", "string", "default_base", "heals",
-                 "gives_income", "editor_group", "recruit_onto", "recruit_from"]
+                 "gives_income", "name", "recruit_onto", "recruit_from"]
 
 with open('terrain.cfg') as fp:
 
@@ -32,6 +40,15 @@ with open('terrain.cfg') as fp:
             if current_terrain is None:
                 continue
 
+            if "name" in line:
+                line = line.replace("_", "")
+                parts = re.split(r"""("[^"]*"|'[^']*')""", line)
+                parts[::2] = map(lambda s: "".join(s.split()), parts[::2])
+                line = "".join(parts)
+                line = line.replace(" ", "_")
+                line = line.lower()
+                line = line.replace("\"", "")
+
             tokens = line.split("=")
             name = tokens[0].replace(" ", "")
             if name not in desired_attrs:
@@ -42,8 +59,8 @@ with open('terrain.cfg') as fp:
             value = value.replace(" ", "")
             value = value.replace("\\", "\\\\")
             value = value.replace("\n", "")
-            if name == "editor_group":
-                value = value.split(",")
+            if name == "name":
+                value = type_correction(value)
 
             current_terrain[name] = value
 
