@@ -102,8 +102,8 @@ function CalculateMoveCost(unit_movement_cost_dict, terrain_dict, terrain_descri
 
     var terrain = terrain_dict[terrain_description];
    // console.log("terrain:");
-   // console.log(terrain);
-    if(!(terrain["name"] in unit_movement_cost_dict)) {
+    //console.log(terrain);
+    if(terrain["impassable"] || !(terrain["name"] in unit_movement_cost_dict)) {
         return 0;
     }
    // console.log("terrain_dict: ");
