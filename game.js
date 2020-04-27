@@ -19,9 +19,18 @@ window.onload = function() {
      const image_path_postfix = ".png";
 
      console.log(terrain_dict);
-     console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map));
+    // console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map));
+
+    var sides_dict = createSidesDict();
+    console.log(sides_dict);
 
      var playerQueue = new Queue();
+
+     var player1 = {"id": 1, "units":[]};
+     var player2 = {"id": 2, "units":[]};
+
+     var human_unit_pool = ["Spearman"];
+
      playerQueue.shift = function(){ var temp = this.dequeue(); console.log(temp); this.enqueue(temp);};
      playerQueue.enqueue('Lukas');
      playerQueue.enqueue('Martin');
