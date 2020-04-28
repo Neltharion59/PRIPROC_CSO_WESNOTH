@@ -73,20 +73,19 @@ function onlyUnique(value, index, self) {
 }
 
 function extractStartingPositions(map) {
-    var startingPositionDict = {}
+    var startingPositions = []
 
     for(var i = 0; i<map.length; i++) {
         for(var j = 0; j<map[i].length; j++) {
             if(!map[i][j].includes(" ")) {
                 continue;
             } else {
-                var tokens = map[i][j].split(" ");
-                startingPositionDict[parseInt(tokens[0])] = [i, j];
+                startingPositions.push([i, j]);
             }
         }
     }
 
-    return startingPositionDict;
+    return startingPositions;
 }
 
 function removeStartingPositions(map) {

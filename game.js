@@ -9,32 +9,48 @@ window.onload = function() {
      removeStartingPositions(map);
      
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
-     console.log(terrain_dict);
+     console.log(map);
      var race_dict = createRaceDict();
      var movement_type_dict = createMovementDict();
      var unit_dict = createUnitDict();
-     console.log(unit_dict);
 
-     const image_path_prefix = "images/terrain/";
+     const image_path_prefix_terrain = "images/terrain/";
+     const image_path_prefix_units = "images/";
      const image_path_postfix = ".png";
 
-     console.log(terrain_dict);
     // console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map));
 
-    var sides_dict = createSidesDict();
-    console.log(sides_dict);
+     var sides_dict = createSidesDict();
+     var sides_list = [];
+     Object.keys(sides_dict).forEach(function(key) {
+          if(key != "Dunefolk") {
+               sides_list.push(key);
+          }
+     });
 
      var playerQueue = new Queue();
+     var UniqueSides = [];
+     for(var i = 0; i < starting_positions.length; i++) {
+          var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)]};
+          var leader = {
+               "is_leader": true,
+               "type": sides_dict[player["side"]]["leader"][Math.floor(Math.random() * sides_dict[player["side"]]["leader"].length)]
+          };
+          leader["hp"] = unit_dict[leader["type"]]["hitpoints"];
+          leader["xp"] = 0;
+          leader["x"] = starting_positions[i][0];
+          leader["y"] = starting_positions[i][1];
+          leader["player_id"] = i + 1;
 
-     var player1 = {"id": 1, "units":[]};
-     var player2 = {"id": 2, "units":[]};
+          player["units"].push(leader);
 
-     var human_unit_pool = ["Spearman"];
+          playerQueue.enqueue(player);
 
-     playerQueue.shift = function(){ var temp = this.dequeue(); console.log(temp); this.enqueue(temp);};
-     playerQueue.enqueue('Lukas');
-     playerQueue.enqueue('Martin');
-     playerQueue.enqueue('a Martin');
+          if(!UniqueSides.includes(player["side"])) {
+               UniqueSides.push(player["side"]);
+          }
+     }
+     playerQueue.shift = function(){ var temp = this.dequeue(); this.enqueue(temp);};
 
      var hexagonWidth = 280;
 	var hexagonHeight = 280;
@@ -55,8 +71,17 @@ window.onload = function() {
           game.load.image("marker", "images/marker.png");
 
           for(key in terrain_dict) {
-               game.load.image(terrain_dict[key]["symbol_image"], image_path_prefix + terrain_dict[key]["symbol_image"] + image_path_postfix);
+               game.load.image(terrain_dict[key]["symbol_image"], image_path_prefix_terrain + terrain_dict[key]["symbol_image"] + image_path_postfix);
           }
+          
+          UniqueSides.forEach(side => {
+               sides_dict[side]["recruit"].forEach(unit => {
+                    game.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
+               });
+               sides_dict[side]["leader"].forEach(unit => {
+                    game.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
+               });
+          });
 	}
 
 	function onCreate() {
@@ -82,6 +107,9 @@ window.onload = function() {
 
                     hexagon.grid_x = j;
                     hexagon.grid_y = i;
+                    hexagon.hexagonX = hexagonX;
+                    hexagon.hexagonY = hexagonY;
+                    hexagon.unit = null;
 
                     hexagon.inputEnabled = true;
                     hexagon.events.onInputDown.add(hexagon_clicked, this);
@@ -89,7 +117,28 @@ window.onload = function() {
                     hexagons[i][j] = hexagon;
                     hexagonGroup.add(hexagon);
 			}
-		}
+          }
+          
+          var first_player_id = undefined;
+          while(first_player_id != playerQueue.peek()["id"]) {
+               var current_player = playerQueue.peek();
+
+               if(first_player_id == undefined) {
+                    first_player_id = current_player["id"];
+               }
+
+               var image = unit_dict[current_player["units"][0]["type"]]["image"];
+               var x = current_player["units"][0]["x"];
+               var y = current_player["units"][0]["y"];
+
+               var unit = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY,image);
+               unit.scale.setTo(4,4);
+               hexagonGroup.add(unit);
+
+               hexagons[x][y].unit = unit;
+               playerQueue.shift();
+          }
+
 		hexagonGroup.y = (game.height-hexagonHeight*Math.ceil(gridSizeY/2))/2;
           if(gridSizeY%2==0){
                hexagonGroup.y-=hexagonHeight/4;
