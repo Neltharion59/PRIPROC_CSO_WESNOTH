@@ -60,7 +60,7 @@ string_pattern = re.compile(".*\".*\".*")
 weird_property_pattern = re.compile(".*\{.*\}.*")
 units = []
 attr_ignore_lists = {
-    "unit_type": ["profile", "description", "die_sound", "small_profile", "movement_type"],
+    "unit_type": ["profile", "description", "die_sound", "small_profile"],
     "attack": ["icon"]
 }
 ignore_tags = ["attack_anim", "filter_attack", "frame", "missile_frame", "standing_anim", "attack_sound_frame",

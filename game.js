@@ -44,6 +44,7 @@ window.onload = function() {
           leader["x"] = starting_positions[i][0];
           leader["y"] = starting_positions[i][1];
           leader["player_id"] = i + 1;
+          leader["move_points"] = 0;
 
           player["units"].push(leader);
 
@@ -54,7 +55,7 @@ window.onload = function() {
           }
      }
      playerQueue.shift = function(){ var temp = this.dequeue(); this.enqueue(temp);};
-
+     //playerQueue.gameIsOver = function() {}
 
      var hexagonWidth = 280;
 	var hexagonHeight = 280;
@@ -93,9 +94,12 @@ window.onload = function() {
 
      var humanMoving = false;
      var gameOver = false;
+     var end_turn_button = null;
+     var turn_count = 0;
 
 	function onPreload() {
           game.load.image("marker", "images/marker.png");
+          game.load.image("end_turn", "images/sword.png");
 
           for(key in terrain_dict) {
                game.load.image(terrain_dict[key]["symbol_image"], image_path_prefix_terrain + terrain_dict[key]["symbol_image"] + image_path_postfix);
@@ -146,6 +150,14 @@ window.onload = function() {
 			}
           }
           
+          var x = hexagonGroup.width/2;
+          var y = -500;
+
+          end_turn_button = game.add.sprite(x,y,"end_turn");
+          hexagonGroup.add(end_turn_button);
+          end_turn_button.inputEnabled = true;
+          end_turn_button.events.onInputDown.add(clickEndTurn, this);
+
           var first_player_id = undefined;
           while(first_player_id != playerQueue.peek()["id"]) {
                var current_player = playerQueue.peek();
@@ -185,39 +197,61 @@ window.onload = function() {
 	}
 
      function playGame() {
+          //console.log("b4 game over check");
+          console.log(gameOver);
           if(gameOver) {
                return;
           }
+          //console.log("after game over check");
+          gameOver = (playerQueue.getLength() <= 1);
 
-          gameOver = (playerQueue.getLength() > 1);
-
+          //console.log("b4 loop");
           while(nextTurn() && !gameOver) {
-               gameOver = (playerQueue.getLength() > 1);
+               //console.log("in loop");
+               gameOver = (playerQueue.getLength() <= 1);
           }
+          //console.log("after loop");
      }
 
      function nextTurn() {
+          if(playerQueue.peek()["id"] == 1) {
+               turn_count++;
+               console.log("Turn number:" + turn_count);
+          }
           recruit();
           
+          for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
+               playerQueue.peek()["units"][i]["move_points"] = unit_dict[playerQueue.peek()["units"][i]["type"]]["movement"];
+          }
+
           if(playerQueue.peek()["AI"]) {
+               end_turn_button.visible = false;
                var movements = calculateMoveOrders();
-               performMoving(movements);
+               console.log(movements);
+               //performMoving(movements);
                playerQueue.shift();
                return true;
           } else {
                humanMoving = true;
+
+               end_turn_button.visible = true;
+
                return false;
           }
      }
 
      function clickEndTurn() {
+          console.log("Clicked end turn");
+
           if(!humanMoving) {
                return;
           }
+          //console.log("Human moving test passed");
 
           humanMoving = false;
           playerQueue.shift();
 
+          //console.log("about ot playGame");
           playGame();
      }
 
@@ -226,10 +260,10 @@ window.onload = function() {
           var leader = null;
           for(var i = 0; i<playerQueue.peek()["units"].length; i++)
           {
-               console.log("checking unit " + i);
+               //console.log("checking unit " + i);
                if(playerQueue.peek()["units"][i]["is_leader"]) {
                     leader = playerQueue.peek()["units"][i];
-                    console.log("found leader");
+                   // console.log("found leader");
                     break;
                }
           }
@@ -280,9 +314,10 @@ window.onload = function() {
                     "xp": 0,
                     "x": x,
                     "y": y,
-                    "player_id": playerQueue.peek()["id"]
+                    "player_id": playerQueue.peek()["id"],
+                    "move_points": 0
                };
-               unitMatrix[x, y] = unit;
+               unitMatrix[x][y] = unit;
                playerQueue.peek()["units"].push(unit);
                playerQueue.peek()["gold"] -= unit_dict[hireType]["cost"];
 
@@ -292,6 +327,26 @@ window.onload = function() {
                hexagonGroup.add(unit_sprite);
                hexagons[x][y].unit = unit_sprite;
           }
+     }
+
+     function calculateMoveOrders() {
+          var possible_movements = [];
+          for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
+               possible_movements.push(GetPossibleMovements(
+                    playerQueue.peek()["units"][i]["x"],
+                    playerQueue.peek()["units"][i]["y"],
+                    playerQueue.peek()["units"][i]["move_points"],
+                    movement_type_dict[unit_dict[playerQueue.peek()["units"][i]["type"]]["movement_type"]],
+                    terrain_dict,
+                    map,
+                    unitMatrix,
+                    playerQueue.peek()["id"]
+               ));
+          };
+
+          console.log(possible_movements);
+          var selectedMovements = MovementCalculationRandom(possible_movements);
+          return selectedMovements;
      }
 
      function checkHex(){

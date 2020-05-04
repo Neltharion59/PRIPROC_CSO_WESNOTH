@@ -7,6 +7,7 @@ function createUnitDict() {
 	unit_dict["BloodBat"]["race"] = "bats";
 	unit_dict["BloodBat"]["image"] = "units/undead/bloodbat-se-3.png";
 	unit_dict["BloodBat"]["hitpoints"] = 27;
+	unit_dict["BloodBat"]["movement_type"] = "smallfly";
 	unit_dict["BloodBat"]["movement"] = 9;
 	unit_dict["BloodBat"]["experience"] = 70;
 	unit_dict["BloodBat"]["level"] = 1;
@@ -24,6 +25,7 @@ function createUnitDict() {
 	unit_dict["DreadBat"]["race"] = "bats";
 	unit_dict["DreadBat"]["image"] = "units/undead/dreadbat-se-3.png";
 	unit_dict["DreadBat"]["hitpoints"] = 33;
+	unit_dict["DreadBat"]["movement_type"] = "smallfly";
 	unit_dict["DreadBat"]["movement"] = 9;
 	unit_dict["DreadBat"]["experience"] = 100;
 	unit_dict["DreadBat"]["level"] = 2;
@@ -41,6 +43,7 @@ function createUnitDict() {
 	unit_dict["VampireBat"]["race"] = "bats";
 	unit_dict["VampireBat"]["image"] = "units/undead/bat-se-3.png";
 	unit_dict["VampireBat"]["hitpoints"] = 16;
+	unit_dict["VampireBat"]["movement_type"] = "smallfly";
 	unit_dict["VampireBat"]["movement"] = 8;
 	unit_dict["VampireBat"]["experience"] = 22;
 	unit_dict["VampireBat"]["level"] = 0;
@@ -58,6 +61,7 @@ function createUnitDict() {
 	unit_dict["Boat"]["race"] = "mechanical";
 	unit_dict["Boat"]["image"] = "units/transport/boat.png";
 	unit_dict["Boat"]["hitpoints"] = 1;
+	unit_dict["Boat"]["movement_type"] = "float";
 	unit_dict["Boat"]["movement"] = 5;
 	unit_dict["Boat"]["experience"] = 50;
 	unit_dict["Boat"]["level"] = 1;
@@ -72,6 +76,7 @@ function createUnitDict() {
 	unit_dict["Galleon"]["race"] = "mechanical";
 	unit_dict["Galleon"]["image"] = "units/transport/galleon.png";
 	unit_dict["Galleon"]["hitpoints"] = 1;
+	unit_dict["Galleon"]["movement_type"] = "float";
 	unit_dict["Galleon"]["movement"] = 10;
 	unit_dict["Galleon"]["experience"] = 50;
 	unit_dict["Galleon"]["level"] = 1;
@@ -86,6 +91,7 @@ function createUnitDict() {
 	unit_dict["PirateGalleon"]["race"] = "mechanical";
 	unit_dict["PirateGalleon"]["image"] = "units/transport/pirate-galleon.png";
 	unit_dict["PirateGalleon"]["hitpoints"] = 35;
+	unit_dict["PirateGalleon"]["movement_type"] = "float";
 	unit_dict["PirateGalleon"]["movement"] = 5;
 	unit_dict["PirateGalleon"]["experience"] = 50;
 	unit_dict["PirateGalleon"]["level"] = 1;
@@ -101,6 +107,7 @@ function createUnitDict() {
 	unit_dict["TransportGalleon"]["race"] = "mechanical";
 	unit_dict["TransportGalleon"]["image"] = "units/transport/transport-galleon.png";
 	unit_dict["TransportGalleon"]["hitpoints"] = 30;
+	unit_dict["TransportGalleon"]["movement_type"] = "float";
 	unit_dict["TransportGalleon"]["movement"] = 6;
 	unit_dict["TransportGalleon"]["experience"] = 50;
 	unit_dict["TransportGalleon"]["level"] = 1;
@@ -116,6 +123,7 @@ function createUnitDict() {
 	unit_dict["DrakeArbiter"]["race"] = "drake";
 	unit_dict["DrakeArbiter"]["image"] = "units/drakes/arbiter.png";
 	unit_dict["DrakeArbiter"]["hitpoints"] = 62;
+	unit_dict["DrakeArbiter"]["movement_type"] = "drakefoot";
 	unit_dict["DrakeArbiter"]["movement"] = 5;
 	unit_dict["DrakeArbiter"]["experience"] = 105;
 	unit_dict["DrakeArbiter"]["level"] = 2;
@@ -132,6 +140,7 @@ function createUnitDict() {
 	unit_dict["ArmageddonDrake"]["race"] = "drake";
 	unit_dict["ArmageddonDrake"]["image"] = "units/drakes/armageddon.png";
 	unit_dict["ArmageddonDrake"]["hitpoints"] = 98;
+	unit_dict["ArmageddonDrake"]["movement_type"] = "drakefly";
 	unit_dict["ArmageddonDrake"]["movement"] = 5;
 	unit_dict["ArmageddonDrake"]["experience"] = 200;
 	unit_dict["ArmageddonDrake"]["level"] = 4;
@@ -148,6 +157,7 @@ function createUnitDict() {
 	unit_dict["DrakeBlademaster"]["race"] = "drake";
 	unit_dict["DrakeBlademaster"]["image"] = "units/drakes/blademaster.png";
 	unit_dict["DrakeBlademaster"]["hitpoints"] = 80;
+	unit_dict["DrakeBlademaster"]["movement_type"] = "drakefly";
 	unit_dict["DrakeBlademaster"]["movement"] = 6;
 	unit_dict["DrakeBlademaster"]["experience"] = 150;
 	unit_dict["DrakeBlademaster"]["level"] = 3;
@@ -163,6 +173,7 @@ function createUnitDict() {
 	unit_dict["DrakeBurner"]["race"] = "drake";
 	unit_dict["DrakeBurner"]["image"] = "units/drakes/burner.png";
 	unit_dict["DrakeBurner"]["hitpoints"] = 42;
+	unit_dict["DrakeBurner"]["movement_type"] = "drakefly";
 	unit_dict["DrakeBurner"]["movement"] = 5;
 	unit_dict["DrakeBurner"]["experience"] = 43;
 	unit_dict["DrakeBurner"]["level"] = 1;
@@ -178,6 +189,7 @@ function createUnitDict() {
 	unit_dict["DrakeClasher"]["race"] = "drake";
 	unit_dict["DrakeClasher"]["image"] = "units/drakes/clasher.png";
 	unit_dict["DrakeClasher"]["hitpoints"] = 43;
+	unit_dict["DrakeClasher"]["movement_type"] = "drakefoot";
 	unit_dict["DrakeClasher"]["movement"] = 5;
 	unit_dict["DrakeClasher"]["experience"] = 45;
 	unit_dict["DrakeClasher"]["level"] = 1;
@@ -195,6 +207,7 @@ function createUnitDict() {
 	unit_dict["DrakeEnforcer"]["image"] = "units/drakes/enforcer.png";
 	unit_dict["DrakeEnforcer"]["#image_moving"] = "units/drakes/enforcer-flying.png";
 	unit_dict["DrakeEnforcer"]["hitpoints"] = 85;
+	unit_dict["DrakeEnforcer"]["movement_type"] = "drakefoot";
 	unit_dict["DrakeEnforcer"]["movement"] = 5;
 	unit_dict["DrakeEnforcer"]["experience"] = 150;
 	unit_dict["DrakeEnforcer"]["level"] = 3;
@@ -211,6 +224,7 @@ function createUnitDict() {
 	unit_dict["DrakeFighter"]["race"] = "drake";
 	unit_dict["DrakeFighter"]["image"] = "units/drakes/fighter.png";
 	unit_dict["DrakeFighter"]["hitpoints"] = 39;
+	unit_dict["DrakeFighter"]["movement_type"] = "drakefly";
 	unit_dict["DrakeFighter"]["movement"] = 6;
 	unit_dict["DrakeFighter"]["experience"] = 42;
 	unit_dict["DrakeFighter"]["level"] = 1;
@@ -226,6 +240,7 @@ function createUnitDict() {
 	unit_dict["FireDrake"]["race"] = "drake";
 	unit_dict["FireDrake"]["image"] = "units/drakes/fire.png";
 	unit_dict["FireDrake"]["hitpoints"] = 63;
+	unit_dict["FireDrake"]["movement_type"] = "drakefly";
 	unit_dict["FireDrake"]["movement"] = 5;
 	unit_dict["FireDrake"]["experience"] = 80;
 	unit_dict["FireDrake"]["level"] = 2;
@@ -242,6 +257,7 @@ function createUnitDict() {
 	unit_dict["DrakeFlameheart"]["race"] = "drake";
 	unit_dict["DrakeFlameheart"]["image"] = "units/drakes/flameheart.png";
 	unit_dict["DrakeFlameheart"]["hitpoints"] = 72;
+	unit_dict["DrakeFlameheart"]["movement_type"] = "drakefly";
 	unit_dict["DrakeFlameheart"]["movement"] = 5;
 	unit_dict["DrakeFlameheart"]["experience"] = 150;
 	unit_dict["DrakeFlameheart"]["level"] = 3;
@@ -258,6 +274,7 @@ function createUnitDict() {
 	unit_dict["DrakeFlare"]["race"] = "drake";
 	unit_dict["DrakeFlare"]["image"] = "units/drakes/flare.png";
 	unit_dict["DrakeFlare"]["hitpoints"] = 55;
+	unit_dict["DrakeFlare"]["movement_type"] = "drakefly";
 	unit_dict["DrakeFlare"]["movement"] = 5;
 	unit_dict["DrakeFlare"]["experience"] = 80;
 	unit_dict["DrakeFlare"]["level"] = 2;
@@ -274,6 +291,7 @@ function createUnitDict() {
 	unit_dict["DrakeGlider"]["race"] = "drake";
 	unit_dict["DrakeGlider"]["image"] = "units/drakes/glider.png";
 	unit_dict["DrakeGlider"]["hitpoints"] = 32;
+	unit_dict["DrakeGlider"]["movement_type"] = "drakeglide";
 	unit_dict["DrakeGlider"]["movement"] = 8;
 	unit_dict["DrakeGlider"]["experience"] = 35;
 	unit_dict["DrakeGlider"]["level"] = 1;
@@ -289,6 +307,7 @@ function createUnitDict() {
 	unit_dict["HurricaneDrake"]["race"] = "drake";
 	unit_dict["HurricaneDrake"]["image"] = "units/drakes/hurricane.png";
 	unit_dict["HurricaneDrake"]["hitpoints"] = 58;
+	unit_dict["HurricaneDrake"]["movement_type"] = "drakeglide2";
 	unit_dict["HurricaneDrake"]["movement"] = 9;
 	unit_dict["HurricaneDrake"]["experience"] = 150;
 	unit_dict["HurricaneDrake"]["level"] = 3;
@@ -307,6 +326,7 @@ function createUnitDict() {
 	unit_dict["InfernoDrake"]["race"] = "drake";
 	unit_dict["InfernoDrake"]["image"] = "units/drakes/inferno.png";
 	unit_dict["InfernoDrake"]["hitpoints"] = 82;
+	unit_dict["InfernoDrake"]["movement_type"] = "drakefly";
 	unit_dict["InfernoDrake"]["movement"] = 5;
 	unit_dict["InfernoDrake"]["experience"] = 150;
 	unit_dict["InfernoDrake"]["level"] = 3;
@@ -323,6 +343,7 @@ function createUnitDict() {
 	unit_dict["SkyDrake"]["race"] = "drake";
 	unit_dict["SkyDrake"]["image"] = "units/drakes/sky.png";
 	unit_dict["SkyDrake"]["hitpoints"] = 45;
+	unit_dict["SkyDrake"]["movement_type"] = "drakeglide2";
 	unit_dict["SkyDrake"]["movement"] = 9;
 	unit_dict["SkyDrake"]["experience"] = 80;
 	unit_dict["SkyDrake"]["level"] = 2;
@@ -342,6 +363,7 @@ function createUnitDict() {
 	unit_dict["DrakeThrasher"]["image"] = "units/drakes/slasher.png";
 	unit_dict["DrakeThrasher"]["#image_moving"] = "units/drakes/thrasher-flying.png";
 	unit_dict["DrakeThrasher"]["hitpoints"] = 66;
+	unit_dict["DrakeThrasher"]["movement_type"] = "drakefoot";
 	unit_dict["DrakeThrasher"]["movement"] = 5;
 	unit_dict["DrakeThrasher"]["experience"] = 95;
 	unit_dict["DrakeThrasher"]["level"] = 2;
@@ -358,6 +380,7 @@ function createUnitDict() {
 	unit_dict["DrakeWarden"]["race"] = "drake";
 	unit_dict["DrakeWarden"]["image"] = "units/drakes/warden.png";
 	unit_dict["DrakeWarden"]["hitpoints"] = 82;
+	unit_dict["DrakeWarden"]["movement_type"] = "drakefoot";
 	unit_dict["DrakeWarden"]["movement"] = 5;
 	unit_dict["DrakeWarden"]["experience"] = 150;
 	unit_dict["DrakeWarden"]["level"] = 3;
@@ -374,6 +397,7 @@ function createUnitDict() {
 	unit_dict["DrakeWarrior"]["race"] = "drake";
 	unit_dict["DrakeWarrior"]["image"] = "units/drakes/warrior.png";
 	unit_dict["DrakeWarrior"]["hitpoints"] = 60;
+	unit_dict["DrakeWarrior"]["movement_type"] = "drakefly";
 	unit_dict["DrakeWarrior"]["movement"] = 6;
 	unit_dict["DrakeWarrior"]["experience"] = 70;
 	unit_dict["DrakeWarrior"]["level"] = 2;
@@ -388,6 +412,7 @@ function createUnitDict() {
 	unit_dict["DuneAlchemist"]["name"] = "DuneAlchemist";
 	unit_dict["DuneAlchemist"]["race"] = "dunefolk";
 	unit_dict["DuneAlchemist"]["hitpoints"] = 41;
+	unit_dict["DuneAlchemist"]["movement_type"] = "dunefoot";
 	unit_dict["DuneAlchemist"]["movement"] = 5;
 	unit_dict["DuneAlchemist"]["experience"] = 100;
 	unit_dict["DuneAlchemist"]["level"] = 2;
@@ -404,6 +429,7 @@ function createUnitDict() {
 	unit_dict["DuneApothecary"]["name"] = "DuneApothecary";
 	unit_dict["DuneApothecary"]["race"] = "dunefolk";
 	unit_dict["DuneApothecary"]["hitpoints"] = 45;
+	unit_dict["DuneApothecary"]["movement_type"] = "dunefoot";
 	unit_dict["DuneApothecary"]["abilities"] = {};
 	unit_dict["DuneApothecary"]["movement"] = 5;
 	unit_dict["DuneApothecary"]["experience"] = 100;
@@ -420,6 +446,7 @@ function createUnitDict() {
 	unit_dict["DuneBlademaster"]["name"] = "DuneBlademaster";
 	unit_dict["DuneBlademaster"]["race"] = "dunefolk";
 	unit_dict["DuneBlademaster"]["hitpoints"] = 69;
+	unit_dict["DuneBlademaster"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneBlademaster"]["movement"] = 5;
 	unit_dict["DuneBlademaster"]["level"] = 3;
 	unit_dict["DuneBlademaster"]["alignment"] = "lawful";
@@ -435,6 +462,7 @@ function createUnitDict() {
 	unit_dict["DuneBurner"]["race"] = "dunefolk";
 	unit_dict["DuneBurner"]["gender"] = "male,female";
 	unit_dict["DuneBurner"]["hitpoints"] = 34;
+	unit_dict["DuneBurner"]["movement_type"] = "dunefoot";
 	unit_dict["DuneBurner"]["movement"] = 5;
 	unit_dict["DuneBurner"]["experience"] = 40;
 	unit_dict["DuneBurner"]["level"] = 1;
@@ -452,6 +480,7 @@ function createUnitDict() {
 	unit_dict["DuneCaptain"]["race"] = "dunefolk";
 	unit_dict["DuneCaptain"]["leading_anim"] = {'start_time': -150};
 	unit_dict["DuneCaptain"]["hitpoints"] = 48;
+	unit_dict["DuneCaptain"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneCaptain"]["movement"] = 5;
 	unit_dict["DuneCaptain"]["experience"] = 86;
 	unit_dict["DuneCaptain"]["level"] = 2;
@@ -467,6 +496,7 @@ function createUnitDict() {
 	unit_dict["DuneCataphract"]["name"] = "DuneCataphract";
 	unit_dict["DuneCataphract"]["race"] = "dunefolk";
 	unit_dict["DuneCataphract"]["hitpoints"] = 71;
+	unit_dict["DuneCataphract"]["movement_type"] = "dunearmoredhorse";
 	unit_dict["DuneCataphract"]["movement"] = 7;
 	unit_dict["DuneCataphract"]["experience"] = 150;
 	unit_dict["DuneCataphract"]["level"] = 3;
@@ -484,6 +514,7 @@ function createUnitDict() {
 	unit_dict["DuneExplorer"]["name"] = "DuneExplorer";
 	unit_dict["DuneExplorer"]["race"] = "dunefolk";
 	unit_dict["DuneExplorer"]["hitpoints"] = 46;
+	unit_dict["DuneExplorer"]["movement_type"] = "dunefoot";
 	unit_dict["DuneExplorer"]["movement"] = 6;
 	unit_dict["DuneExplorer"]["experience"] = 80;
 	unit_dict["DuneExplorer"]["level"] = 2;
@@ -501,6 +532,7 @@ function createUnitDict() {
 	unit_dict["DuneFalconer"]["race"] = "dunefolk";
 	unit_dict["DuneFalconer"]["gender"] = "female";
 	unit_dict["DuneFalconer"]["hitpoints"] = 36;
+	unit_dict["DuneFalconer"]["movement_type"] = "duneelusivefoot";
 	unit_dict["DuneFalconer"]["movement"] = 6;
 	unit_dict["DuneFalconer"]["vision"] = 8;
 	unit_dict["DuneFalconer"]["vision_costs"] = {'cave': 3, 'shallow_water': 1, 'reef': 1, 'swamp_water': 1, 'sand': 1, 'deep_water': 1};
@@ -523,6 +555,7 @@ function createUnitDict() {
 	unit_dict["DuneFiretrooper"]["race"] = "dunefolk";
 	unit_dict["DuneFiretrooper"]["gender"] = "male,female";
 	unit_dict["DuneFiretrooper"]["hitpoints"] = 57;
+	unit_dict["DuneFiretrooper"]["movement_type"] = "dunefoot";
 	unit_dict["DuneFiretrooper"]["movement"] = 5;
 	unit_dict["DuneFiretrooper"]["experience"] = 150;
 	unit_dict["DuneFiretrooper"]["level"] = 3;
@@ -542,6 +575,7 @@ function createUnitDict() {
 	unit_dict["DuneHarrier"]["race"] = "dunefolk";
 	unit_dict["DuneHarrier"]["gender"] = "female";
 	unit_dict["DuneHarrier"]["hitpoints"] = 53;
+	unit_dict["DuneHarrier"]["movement_type"] = "duneelusivefoot";
 	unit_dict["DuneHarrier"]["movement"] = 7;
 	unit_dict["DuneHarrier"]["experience"] = 150;
 	unit_dict["DuneHarrier"]["level"] = 3;
@@ -557,6 +591,7 @@ function createUnitDict() {
 	unit_dict["DuneHerbalist"]["name"] = "DuneHerbalist";
 	unit_dict["DuneHerbalist"]["race"] = "dunefolk";
 	unit_dict["DuneHerbalist"]["hitpoints"] = 32;
+	unit_dict["DuneHerbalist"]["movement_type"] = "dunefoot";
 	unit_dict["DuneHerbalist"]["abilities"] = {'ability': 'ABILITY_HEALS'};
 	unit_dict["DuneHerbalist"]["movement"] = 5;
 	unit_dict["DuneHerbalist"]["experience"] = 39;
@@ -573,6 +608,7 @@ function createUnitDict() {
 	unit_dict["DuneHorseArcher"]["name"] = "DuneHorseArcher";
 	unit_dict["DuneHorseArcher"]["race"] = "dunefolk";
 	unit_dict["DuneHorseArcher"]["hitpoints"] = 44;
+	unit_dict["DuneHorseArcher"]["movement_type"] = "dunehorse";
 	unit_dict["DuneHorseArcher"]["movement"] = 8;
 	unit_dict["DuneHorseArcher"]["experience"] = 90;
 	unit_dict["DuneHorseArcher"]["level"] = 2;
@@ -588,6 +624,7 @@ function createUnitDict() {
 	unit_dict["DuneLuminary"]["name"] = "DuneLuminary";
 	unit_dict["DuneLuminary"]["race"] = "dunefolk";
 	unit_dict["DuneLuminary"]["hitpoints"] = 52;
+	unit_dict["DuneLuminary"]["movement_type"] = "dunefoot";
 	unit_dict["DuneLuminary"]["abilities"] = {'ability': 'ABILITY_CURES'};
 	unit_dict["DuneLuminary"]["movement"] = 5;
 	unit_dict["DuneLuminary"]["experience"] = 150;
@@ -603,6 +640,7 @@ function createUnitDict() {
 	unit_dict["DuneMarauder"]["name"] = "DuneMarauder";
 	unit_dict["DuneMarauder"]["race"] = "dunefolk";
 	unit_dict["DuneMarauder"]["hitpoints"] = 58;
+	unit_dict["DuneMarauder"]["movement_type"] = "dunehorse";
 	unit_dict["DuneMarauder"]["movement"] = 9;
 	unit_dict["DuneMarauder"]["experience"] = 150;
 	unit_dict["DuneMarauder"]["level"] = 3;
@@ -621,6 +659,7 @@ function createUnitDict() {
 	unit_dict["DuneParagon"]["name"] = "DuneParagon";
 	unit_dict["DuneParagon"]["race"] = "dunefolk";
 	unit_dict["DuneParagon"]["hitpoints"] = 82;
+	unit_dict["DuneParagon"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneParagon"]["traits"] = ['TRAIT_FEARLESS'];
 	unit_dict["DuneParagon"]["movement"] = 5;
 	unit_dict["DuneParagon"]["experience"] = 200;
@@ -636,6 +675,7 @@ function createUnitDict() {
 	unit_dict["DuneRaider"]["name"] = "DuneRaider";
 	unit_dict["DuneRaider"]["race"] = "dunefolk";
 	unit_dict["DuneRaider"]["hitpoints"] = 45;
+	unit_dict["DuneRaider"]["movement_type"] = "dunehorse";
 	unit_dict["DuneRaider"]["movement"] = 9;
 	unit_dict["DuneRaider"]["experience"] = 70;
 	unit_dict["DuneRaider"]["level"] = 2;
@@ -654,6 +694,7 @@ function createUnitDict() {
 	unit_dict["DuneRider"]["name"] = "DuneRider";
 	unit_dict["DuneRider"]["race"] = "dunefolk";
 	unit_dict["DuneRider"]["hitpoints"] = 34;
+	unit_dict["DuneRider"]["movement_type"] = "dunehorse";
 	unit_dict["DuneRider"]["movement"] = 8;
 	unit_dict["DuneRider"]["experience"] = 42;
 	unit_dict["DuneRider"]["level"] = 1;
@@ -669,6 +710,7 @@ function createUnitDict() {
 	unit_dict["DuneRover"]["name"] = "DuneRover";
 	unit_dict["DuneRover"]["race"] = "dunefolk";
 	unit_dict["DuneRover"]["hitpoints"] = 32;
+	unit_dict["DuneRover"]["movement_type"] = "dunefoot";
 	unit_dict["DuneRover"]["movement"] = 5;
 	unit_dict["DuneRover"]["experience"] = 43;
 	unit_dict["DuneRover"]["level"] = 1;
@@ -685,6 +727,7 @@ function createUnitDict() {
 	unit_dict["DuneScorcher"]["race"] = "dunefolk";
 	unit_dict["DuneScorcher"]["gender"] = "male,female";
 	unit_dict["DuneScorcher"]["hitpoints"] = 47;
+	unit_dict["DuneScorcher"]["movement_type"] = "dunefoot";
 	unit_dict["DuneScorcher"]["movement"] = 5;
 	unit_dict["DuneScorcher"]["experience"] = 70;
 	unit_dict["DuneScorcher"]["level"] = 2;
@@ -702,6 +745,7 @@ function createUnitDict() {
 	unit_dict["DuneSkirmisher"]["race"] = "dunefolk";
 	unit_dict["DuneSkirmisher"]["gender"] = "female";
 	unit_dict["DuneSkirmisher"]["hitpoints"] = 29;
+	unit_dict["DuneSkirmisher"]["movement_type"] = "duneelusivefoot";
 	unit_dict["DuneSkirmisher"]["movement"] = 6;
 	unit_dict["DuneSkirmisher"]["experience"] = 34;
 	unit_dict["DuneSkirmisher"]["level"] = 1;
@@ -718,6 +762,7 @@ function createUnitDict() {
 	unit_dict["DuneSkyHunter"]["race"] = "dunefolk";
 	unit_dict["DuneSkyHunter"]["gender"] = "female";
 	unit_dict["DuneSkyHunter"]["hitpoints"] = 52;
+	unit_dict["DuneSkyHunter"]["movement_type"] = "duneelusivefoot";
 	unit_dict["DuneSkyHunter"]["movement"] = 6;
 	unit_dict["DuneSkyHunter"]["vision"] = 10;
 	unit_dict["DuneSkyHunter"]["vision_costs"] = {'cave': 3, 'shallow_water': 1, 'reef': 1, 'swamp_water': 1, 'sand': 1, 'deep_water': 1};
@@ -739,6 +784,7 @@ function createUnitDict() {
 	unit_dict["DuneSoldier"]["name"] = "DuneSoldier";
 	unit_dict["DuneSoldier"]["race"] = "dunefolk";
 	unit_dict["DuneSoldier"]["hitpoints"] = 41;
+	unit_dict["DuneSoldier"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneSoldier"]["movement"] = 5;
 	unit_dict["DuneSoldier"]["experience"] = 43;
 	unit_dict["DuneSoldier"]["level"] = 1;
@@ -753,6 +799,7 @@ function createUnitDict() {
 	unit_dict["DuneSpearguard"]["name"] = "DuneSpearguard";
 	unit_dict["DuneSpearguard"]["race"] = "dunefolk";
 	unit_dict["DuneSpearguard"]["hitpoints"] = 53;
+	unit_dict["DuneSpearguard"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneSpearguard"]["movement"] = 5;
 	unit_dict["DuneSpearguard"]["experience"] = 75;
 	unit_dict["DuneSpearguard"]["level"] = 2;
@@ -768,6 +815,7 @@ function createUnitDict() {
 	unit_dict["DuneSpearmaster"]["name"] = "DuneSpearmaster";
 	unit_dict["DuneSpearmaster"]["race"] = "dunefolk";
 	unit_dict["DuneSpearmaster"]["hitpoints"] = 67;
+	unit_dict["DuneSpearmaster"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneSpearmaster"]["movement"] = 5;
 	unit_dict["DuneSpearmaster"]["experience"] = 150;
 	unit_dict["DuneSpearmaster"]["level"] = 3;
@@ -784,6 +832,7 @@ function createUnitDict() {
 	unit_dict["DuneStrider"]["race"] = "dunefolk";
 	unit_dict["DuneStrider"]["gender"] = "female";
 	unit_dict["DuneStrider"]["hitpoints"] = 39;
+	unit_dict["DuneStrider"]["movement_type"] = "duneelusivefoot";
 	unit_dict["DuneStrider"]["movement"] = 6;
 	unit_dict["DuneStrider"]["experience"] = 74;
 	unit_dict["DuneStrider"]["level"] = 2;
@@ -799,6 +848,7 @@ function createUnitDict() {
 	unit_dict["DuneSunderer"]["name"] = "DuneSunderer";
 	unit_dict["DuneSunderer"]["race"] = "dunefolk";
 	unit_dict["DuneSunderer"]["hitpoints"] = 55;
+	unit_dict["DuneSunderer"]["movement_type"] = "dunearmoredhorse";
 	unit_dict["DuneSunderer"]["movement"] = 7;
 	unit_dict["DuneSunderer"]["experience"] = 76;
 	unit_dict["DuneSunderer"]["level"] = 2;
@@ -815,6 +865,7 @@ function createUnitDict() {
 	unit_dict["DuneSwordsman"]["name"] = "DuneSwordsman";
 	unit_dict["DuneSwordsman"]["race"] = "dunefolk";
 	unit_dict["DuneSwordsman"]["hitpoints"] = 56;
+	unit_dict["DuneSwordsman"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneSwordsman"]["movement"] = 5;
 	unit_dict["DuneSwordsman"]["experience"] = 75;
 	unit_dict["DuneSwordsman"]["level"] = 2;
@@ -830,6 +881,7 @@ function createUnitDict() {
 	unit_dict["DuneWarmaster"]["race"] = "dunefolk";
 	unit_dict["DuneWarmaster"]["leading_anim"] = {'start_time': -150};
 	unit_dict["DuneWarmaster"]["hitpoints"] = 57;
+	unit_dict["DuneWarmaster"]["movement_type"] = "dunearmoredfoot";
 	unit_dict["DuneWarmaster"]["movement"] = 5;
 	unit_dict["DuneWarmaster"]["experience"] = 150;
 	unit_dict["DuneWarmaster"]["level"] = 3;
@@ -845,6 +897,7 @@ function createUnitDict() {
 	unit_dict["DuneWayfarer"]["name"] = "DuneWayfarer";
 	unit_dict["DuneWayfarer"]["race"] = "dunefolk";
 	unit_dict["DuneWayfarer"]["hitpoints"] = 62;
+	unit_dict["DuneWayfarer"]["movement_type"] = "dunefoot";
 	unit_dict["DuneWayfarer"]["movement"] = 6;
 	unit_dict["DuneWayfarer"]["experience"] = 150;
 	unit_dict["DuneWayfarer"]["level"] = 3;
@@ -861,6 +914,7 @@ function createUnitDict() {
 	unit_dict["DuneWindbolt"]["name"] = "DuneWindbolt";
 	unit_dict["DuneWindbolt"]["race"] = "dunefolk";
 	unit_dict["DuneWindbolt"]["hitpoints"] = 52;
+	unit_dict["DuneWindbolt"]["movement_type"] = "dunehorse";
 	unit_dict["DuneWindbolt"]["movement"] = 8;
 	unit_dict["DuneWindbolt"]["experience"] = 150;
 	unit_dict["DuneWindbolt"]["level"] = 3;
@@ -878,6 +932,7 @@ function createUnitDict() {
 	unit_dict["WyvernRider"]["race"] = "monster";
 	unit_dict["WyvernRider"]["image"] = "units/dunefolk/wyvern-rider.png";
 	unit_dict["WyvernRider"]["hitpoints"] = 85;
+	unit_dict["WyvernRider"]["movement_type"] = "fly";
 	unit_dict["WyvernRider"]["movement"] = 7;
 	unit_dict["WyvernRider"]["experience"] = 50;
 	unit_dict["WyvernRider"]["level"] = 4;
@@ -894,6 +949,7 @@ function createUnitDict() {
 	unit_dict["DwarvishArcanister"]["race"] = "dwarf";
 	unit_dict["DwarvishArcanister"]["image"] = "units/dwarves/arcanister.png";
 	unit_dict["DwarvishArcanister"]["hitpoints"] = 54;
+	unit_dict["DwarvishArcanister"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishArcanister"]["resistance"] = {'blade': 50, 'pierce': 50, 'impact': 50};
 	unit_dict["DwarvishArcanister"]["movement"] = 4;
 	unit_dict["DwarvishArcanister"]["level"] = 4;
@@ -910,6 +966,7 @@ function createUnitDict() {
 	unit_dict["DwarvishBerserker"]["race"] = "dwarf";
 	unit_dict["DwarvishBerserker"]["image"] = "units/dwarves/berserker/berserker.png";
 	unit_dict["DwarvishBerserker"]["hitpoints"] = 48;
+	unit_dict["DwarvishBerserker"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishBerserker"]["movement"] = 5;
 	unit_dict["DwarvishBerserker"]["experience"] = 100;
 	unit_dict["DwarvishBerserker"]["level"] = 2;
@@ -927,6 +984,7 @@ function createUnitDict() {
 	unit_dict["DwarvishDragonguard"]["race"] = "dwarf";
 	unit_dict["DwarvishDragonguard"]["image"] = "units/dwarves/dragonguard/dragonguard.png";
 	unit_dict["DwarvishDragonguard"]["hitpoints"] = 59;
+	unit_dict["DwarvishDragonguard"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishDragonguard"]["movement"] = 4;
 	unit_dict["DwarvishDragonguard"]["experience"] = 150;
 	unit_dict["DwarvishDragonguard"]["level"] = 3;
@@ -944,6 +1002,7 @@ function createUnitDict() {
 	unit_dict["DwarvishExplorer"]["race"] = "dwarf";
 	unit_dict["DwarvishExplorer"]["image"] = "units/dwarves/explorer.png";
 	unit_dict["DwarvishExplorer"]["hitpoints"] = 60;
+	unit_dict["DwarvishExplorer"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishExplorer"]["movement"] = 5;
 	unit_dict["DwarvishExplorer"]["experience"] = 150;
 	unit_dict["DwarvishExplorer"]["level"] = 3;
@@ -959,6 +1018,7 @@ function createUnitDict() {
 	unit_dict["DwarvishFighter"]["race"] = "dwarf";
 	unit_dict["DwarvishFighter"]["image"] = "units/dwarves/fighter.png";
 	unit_dict["DwarvishFighter"]["hitpoints"] = 38;
+	unit_dict["DwarvishFighter"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishFighter"]["movement"] = 4;
 	unit_dict["DwarvishFighter"]["experience"] = 41;
 	unit_dict["DwarvishFighter"]["level"] = 1;
@@ -975,6 +1035,7 @@ function createUnitDict() {
 	unit_dict["DwarvishGuardsman"]["race"] = "dwarf";
 	unit_dict["DwarvishGuardsman"]["image"] = "units/dwarves/guard.png";
 	unit_dict["DwarvishGuardsman"]["hitpoints"] = 42;
+	unit_dict["DwarvishGuardsman"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishGuardsman"]["movement"] = 4;
 	unit_dict["DwarvishGuardsman"]["experience"] = 47;
 	unit_dict["DwarvishGuardsman"]["level"] = 1;
@@ -992,6 +1053,7 @@ function createUnitDict() {
 	unit_dict["DwarvishLord"]["race"] = "dwarf";
 	unit_dict["DwarvishLord"]["image"] = "units/dwarves/lord.png";
 	unit_dict["DwarvishLord"]["hitpoints"] = 74;
+	unit_dict["DwarvishLord"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishLord"]["movement"] = 4;
 	unit_dict["DwarvishLord"]["experience"] = 150;
 	unit_dict["DwarvishLord"]["level"] = 3;
@@ -1009,6 +1071,7 @@ function createUnitDict() {
 	unit_dict["DwarvishPathfinder"]["race"] = "dwarf";
 	unit_dict["DwarvishPathfinder"]["image"] = "units/dwarves/pathfinder.png";
 	unit_dict["DwarvishPathfinder"]["hitpoints"] = 45;
+	unit_dict["DwarvishPathfinder"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishPathfinder"]["resistance"] = {'blade': 90, 'pierce': 90, 'impact': 90};
 	unit_dict["DwarvishPathfinder"]["movement"] = 5;
 	unit_dict["DwarvishPathfinder"]["experience"] = 60;
@@ -1025,6 +1088,7 @@ function createUnitDict() {
 	unit_dict["DwarvishRunemaster"]["race"] = "dwarf";
 	unit_dict["DwarvishRunemaster"]["image"] = "units/dwarves/runemaster.png";
 	unit_dict["DwarvishRunemaster"]["hitpoints"] = 48;
+	unit_dict["DwarvishRunemaster"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishRunemaster"]["resistance"] = {'blade': 50, 'pierce': 60, 'impact': 60};
 	unit_dict["DwarvishRunemaster"]["movement"] = 4;
 	unit_dict["DwarvishRunemaster"]["level"] = 3;
@@ -1041,6 +1105,7 @@ function createUnitDict() {
 	unit_dict["DwarvishRunesmith"]["race"] = "dwarf";
 	unit_dict["DwarvishRunesmith"]["image"] = "units/dwarves/runesmith.png";
 	unit_dict["DwarvishRunesmith"]["hitpoints"] = 40;
+	unit_dict["DwarvishRunesmith"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishRunesmith"]["resistance"] = {'blade': 60, 'pierce': 70, 'impact': 70};
 	unit_dict["DwarvishRunesmith"]["movement"] = 4;
 	unit_dict["DwarvishRunesmith"]["level"] = 2;
@@ -1057,6 +1122,7 @@ function createUnitDict() {
 	unit_dict["DwarvishScout"]["race"] = "dwarf";
 	unit_dict["DwarvishScout"]["image"] = "units/dwarves/scout.png";
 	unit_dict["DwarvishScout"]["hitpoints"] = 30;
+	unit_dict["DwarvishScout"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishScout"]["resistance"] = {'blade': 90, 'pierce': 90, 'impact': 90};
 	unit_dict["DwarvishScout"]["movement"] = 5;
 	unit_dict["DwarvishScout"]["experience"] = 30;
@@ -1073,6 +1139,7 @@ function createUnitDict() {
 	unit_dict["DwarvishSentinel"]["race"] = "dwarf";
 	unit_dict["DwarvishSentinel"]["image"] = "units/dwarves/sentinel.png";
 	unit_dict["DwarvishSentinel"]["hitpoints"] = 68;
+	unit_dict["DwarvishSentinel"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishSentinel"]["movement"] = 4;
 	unit_dict["DwarvishSentinel"]["experience"] = 150;
 	unit_dict["DwarvishSentinel"]["level"] = 3;
@@ -1091,6 +1158,7 @@ function createUnitDict() {
 	unit_dict["DwarvishStalwart"]["race"] = "dwarf";
 	unit_dict["DwarvishStalwart"]["image"] = "units/dwarves/stalwart.png";
 	unit_dict["DwarvishStalwart"]["hitpoints"] = 54;
+	unit_dict["DwarvishStalwart"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishStalwart"]["movement"] = 4;
 	unit_dict["DwarvishStalwart"]["experience"] = 85;
 	unit_dict["DwarvishStalwart"]["level"] = 2;
@@ -1108,6 +1176,7 @@ function createUnitDict() {
 	unit_dict["DwarvishSteelclad"]["race"] = "dwarf";
 	unit_dict["DwarvishSteelclad"]["image"] = "units/dwarves/steelclad.png";
 	unit_dict["DwarvishSteelclad"]["hitpoints"] = 55;
+	unit_dict["DwarvishSteelclad"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishSteelclad"]["movement"] = 4;
 	unit_dict["DwarvishSteelclad"]["experience"] = 74;
 	unit_dict["DwarvishSteelclad"]["level"] = 2;
@@ -1125,6 +1194,7 @@ function createUnitDict() {
 	unit_dict["DwarvishThunderer"]["race"] = "dwarf";
 	unit_dict["DwarvishThunderer"]["image"] = "units/dwarves/thunderer/thunderer.png";
 	unit_dict["DwarvishThunderer"]["hitpoints"] = 34;
+	unit_dict["DwarvishThunderer"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishThunderer"]["movement"] = 4;
 	unit_dict["DwarvishThunderer"]["experience"] = 40;
 	unit_dict["DwarvishThunderer"]["level"] = 1;
@@ -1143,6 +1213,7 @@ function createUnitDict() {
 	unit_dict["DwarvishThunderguard"]["race"] = "dwarf";
 	unit_dict["DwarvishThunderguard"]["image"] = "units/dwarves/thunderguard/thunderguard.png";
 	unit_dict["DwarvishThunderguard"]["hitpoints"] = 47;
+	unit_dict["DwarvishThunderguard"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishThunderguard"]["movement"] = 4;
 	unit_dict["DwarvishThunderguard"]["experience"] = 95;
 	unit_dict["DwarvishThunderguard"]["level"] = 2;
@@ -1159,6 +1230,7 @@ function createUnitDict() {
 	unit_dict["DwarvishUlfserker"]["race"] = "dwarf";
 	unit_dict["DwarvishUlfserker"]["image"] = "units/dwarves/ulfserker.png";
 	unit_dict["DwarvishUlfserker"]["hitpoints"] = 34;
+	unit_dict["DwarvishUlfserker"]["movement_type"] = "dwarvishfoot";
 	unit_dict["DwarvishUlfserker"]["movement"] = 5;
 	unit_dict["DwarvishUlfserker"]["experience"] = 42;
 	unit_dict["DwarvishUlfserker"]["level"] = 1;
@@ -1177,6 +1249,7 @@ function createUnitDict() {
 	unit_dict["ElvishArcher"]["gender"] = "male,female";
 	unit_dict["ElvishArcher"]["image"] = "units/elves-wood/archer.png";
 	unit_dict["ElvishArcher"]["hitpoints"] = 29;
+	unit_dict["ElvishArcher"]["movement_type"] = "woodland";
 	unit_dict["ElvishArcher"]["movement"] = 6;
 	unit_dict["ElvishArcher"]["experience"] = 44;
 	unit_dict["ElvishArcher"]["level"] = 1;
@@ -1194,6 +1267,7 @@ function createUnitDict() {
 	unit_dict["ElvishAvenger"]["gender"] = "male,female";
 	unit_dict["ElvishAvenger"]["image"] = "units/elves-wood/avenger.png";
 	unit_dict["ElvishAvenger"]["hitpoints"] = 55;
+	unit_dict["ElvishAvenger"]["movement_type"] = "woodland";
 	unit_dict["ElvishAvenger"]["movement"] = 6;
 	unit_dict["ElvishAvenger"]["experience"] = 150;
 	unit_dict["ElvishAvenger"]["level"] = 3;
@@ -1214,6 +1288,7 @@ function createUnitDict() {
 	unit_dict["ElvishCaptain"]["image"] = "units/elves-wood/captain.png";
 	unit_dict["ElvishCaptain"]["leading_anim"] = {'start_time': -150};
 	unit_dict["ElvishCaptain"]["hitpoints"] = 47;
+	unit_dict["ElvishCaptain"]["movement_type"] = "woodland";
 	unit_dict["ElvishCaptain"]["movement"] = 5;
 	unit_dict["ElvishCaptain"]["experience"] = 90;
 	unit_dict["ElvishCaptain"]["level"] = 2;
@@ -1230,6 +1305,7 @@ function createUnitDict() {
 	unit_dict["ElvishChampion"]["race"] = "elf";
 	unit_dict["ElvishChampion"]["image"] = "units/elves-wood/champion.png";
 	unit_dict["ElvishChampion"]["hitpoints"] = 70;
+	unit_dict["ElvishChampion"]["movement_type"] = "woodland";
 	unit_dict["ElvishChampion"]["movement"] = 5;
 	unit_dict["ElvishChampion"]["experience"] = 150;
 	unit_dict["ElvishChampion"]["level"] = 3;
@@ -1246,6 +1322,7 @@ function createUnitDict() {
 	unit_dict["ElvishDruid"]["gender"] = "female";
 	unit_dict["ElvishDruid"]["image"] = "units/elves-wood/druid.png";
 	unit_dict["ElvishDruid"]["hitpoints"] = 36;
+	unit_dict["ElvishDruid"]["movement_type"] = "woodland";
 	unit_dict["ElvishDruid"]["movement"] = 5;
 	unit_dict["ElvishDruid"]["experience"] = 80;
 	unit_dict["ElvishDruid"]["level"] = 2;
@@ -1263,6 +1340,7 @@ function createUnitDict() {
 	unit_dict["ElvishEnchantress"]["gender"] = "female";
 	unit_dict["ElvishEnchantress"]["image"] = "units/elves-wood/enchantress.png";
 	unit_dict["ElvishEnchantress"]["hitpoints"] = 50;
+	unit_dict["ElvishEnchantress"]["movement_type"] = "woodland";
 	unit_dict["ElvishEnchantress"]["movement"] = 5;
 	unit_dict["ElvishEnchantress"]["experience"] = 180;
 	unit_dict["ElvishEnchantress"]["level"] = 3;
@@ -1279,6 +1357,7 @@ function createUnitDict() {
 	unit_dict["ElvishFighter"]["race"] = "elf";
 	unit_dict["ElvishFighter"]["image"] = "units/elves-wood/fighter.png";
 	unit_dict["ElvishFighter"]["hitpoints"] = 33;
+	unit_dict["ElvishFighter"]["movement_type"] = "woodland";
 	unit_dict["ElvishFighter"]["movement"] = 5;
 	unit_dict["ElvishFighter"]["experience"] = 40;
 	unit_dict["ElvishFighter"]["level"] = 1;
@@ -1294,6 +1373,7 @@ function createUnitDict() {
 	unit_dict["ElvishHero"]["race"] = "elf";
 	unit_dict["ElvishHero"]["image"] = "units/elves-wood/hero.png";
 	unit_dict["ElvishHero"]["hitpoints"] = 51;
+	unit_dict["ElvishHero"]["movement_type"] = "woodland";
 	unit_dict["ElvishHero"]["movement"] = 5;
 	unit_dict["ElvishHero"]["experience"] = 90;
 	unit_dict["ElvishHero"]["level"] = 2;
@@ -1309,6 +1389,7 @@ function createUnitDict() {
 	unit_dict["ElvishHighLord"]["race"] = "elf";
 	unit_dict["ElvishHighLord"]["image"] = "units/elves-wood/high-lord.png";
 	unit_dict["ElvishHighLord"]["hitpoints"] = 63;
+	unit_dict["ElvishHighLord"]["movement_type"] = "woodland";
 	unit_dict["ElvishHighLord"]["movement"] = 6;
 	unit_dict["ElvishHighLord"]["experience"] = 150;
 	unit_dict["ElvishHighLord"]["level"] = 3;
@@ -1326,6 +1407,7 @@ function createUnitDict() {
 	unit_dict["ElvishLady"]["race"] = "elf";
 	unit_dict["ElvishLady"]["image"] = "units/elves-wood/lady.png";
 	unit_dict["ElvishLady"]["hitpoints"] = 47;
+	unit_dict["ElvishLady"]["movement_type"] = "woodland";
 	unit_dict["ElvishLady"]["movement"] = 6;
 	unit_dict["ElvishLady"]["experience"] = 150;
 	unit_dict["ElvishLady"]["level"] = 3;
@@ -1342,6 +1424,7 @@ function createUnitDict() {
 	unit_dict["ElvishLord"]["race"] = "elf";
 	unit_dict["ElvishLord"]["image"] = "units/elves-wood/lord.png";
 	unit_dict["ElvishLord"]["hitpoints"] = 51;
+	unit_dict["ElvishLord"]["movement_type"] = "woodland";
 	unit_dict["ElvishLord"]["movement"] = 6;
 	unit_dict["ElvishLord"]["experience"] = 120;
 	unit_dict["ElvishLord"]["level"] = 2;
@@ -1358,6 +1441,7 @@ function createUnitDict() {
 	unit_dict["ElvishMarksman"]["gender"] = "male,female";
 	unit_dict["ElvishMarksman"]["image"] = "units/elves-wood/marksman.png";
 	unit_dict["ElvishMarksman"]["hitpoints"] = 37;
+	unit_dict["ElvishMarksman"]["movement_type"] = "woodland";
 	unit_dict["ElvishMarksman"]["movement"] = 6;
 	unit_dict["ElvishMarksman"]["experience"] = 80;
 	unit_dict["ElvishMarksman"]["level"] = 2;
@@ -1376,6 +1460,7 @@ function createUnitDict() {
 	unit_dict["ElvishMarshal"]["image"] = "units/elves-wood/marshal.png";
 	unit_dict["ElvishMarshal"]["leading_anim"] = {'start_time': -150};
 	unit_dict["ElvishMarshal"]["hitpoints"] = 62;
+	unit_dict["ElvishMarshal"]["movement_type"] = "woodland";
 	unit_dict["ElvishMarshal"]["movement"] = 5;
 	unit_dict["ElvishMarshal"]["experience"] = 150;
 	unit_dict["ElvishMarshal"]["level"] = 3;
@@ -1392,6 +1477,7 @@ function createUnitDict() {
 	unit_dict["ElvishOutrider"]["race"] = "elf";
 	unit_dict["ElvishOutrider"]["image"] = "units/elves-wood/outrider/outrider.png";
 	unit_dict["ElvishOutrider"]["hitpoints"] = 57;
+	unit_dict["ElvishOutrider"]["movement_type"] = "woodland";
 	unit_dict["ElvishOutrider"]["movement"] = 10;
 	unit_dict["ElvishOutrider"]["experience"] = 150;
 	unit_dict["ElvishOutrider"]["level"] = 3;
@@ -1411,6 +1497,7 @@ function createUnitDict() {
 	unit_dict["ElvishRanger"]["gender"] = "male,female";
 	unit_dict["ElvishRanger"]["image"] = "units/elves-wood/ranger.png";
 	unit_dict["ElvishRanger"]["hitpoints"] = 42;
+	unit_dict["ElvishRanger"]["movement_type"] = "woodland";
 	unit_dict["ElvishRanger"]["movement"] = 6;
 	unit_dict["ElvishRanger"]["experience"] = 90;
 	unit_dict["ElvishRanger"]["level"] = 2;
@@ -1430,6 +1517,7 @@ function createUnitDict() {
 	unit_dict["ElvishRider"]["race"] = "elf";
 	unit_dict["ElvishRider"]["image"] = "units/elves-wood/rider/rider.png";
 	unit_dict["ElvishRider"]["hitpoints"] = 46;
+	unit_dict["ElvishRider"]["movement_type"] = "woodland";
 	unit_dict["ElvishRider"]["movement"] = 10;
 	unit_dict["ElvishRider"]["experience"] = 75;
 	unit_dict["ElvishRider"]["level"] = 2;
@@ -1448,6 +1536,7 @@ function createUnitDict() {
 	unit_dict["ElvishScout"]["image"] = "units/elves-wood/scout/scout.png";
 	unit_dict["ElvishScout"]["race"] = "elf";
 	unit_dict["ElvishScout"]["hitpoints"] = 32;
+	unit_dict["ElvishScout"]["movement_type"] = "woodland";
 	unit_dict["ElvishScout"]["movement"] = 9;
 	unit_dict["ElvishScout"]["experience"] = 32;
 	unit_dict["ElvishScout"]["level"] = 1;
@@ -1467,6 +1556,7 @@ function createUnitDict() {
 	unit_dict["ElvishShaman"]["gender"] = "female";
 	unit_dict["ElvishShaman"]["image"] = "units/elves-wood/shaman.png";
 	unit_dict["ElvishShaman"]["hitpoints"] = 26;
+	unit_dict["ElvishShaman"]["movement_type"] = "woodland";
 	unit_dict["ElvishShaman"]["movement"] = 5;
 	unit_dict["ElvishShaman"]["experience"] = 32;
 	unit_dict["ElvishShaman"]["level"] = 1;
@@ -1484,6 +1574,7 @@ function createUnitDict() {
 	unit_dict["ElvishSharpshooter"]["gender"] = "male,female";
 	unit_dict["ElvishSharpshooter"]["image"] = "units/elves-wood/sharpshooter.png";
 	unit_dict["ElvishSharpshooter"]["hitpoints"] = 47;
+	unit_dict["ElvishSharpshooter"]["movement_type"] = "woodland";
 	unit_dict["ElvishSharpshooter"]["movement"] = 6;
 	unit_dict["ElvishSharpshooter"]["experience"] = 150;
 	unit_dict["ElvishSharpshooter"]["level"] = 3;
@@ -1502,6 +1593,7 @@ function createUnitDict() {
 	unit_dict["ElvishShyde"]["image"] = "units/elves-wood/shyde.png";
 	unit_dict["ElvishShyde"]["halo"] = "halo/elven/shyde-stationary-halo[1~6].png:150";
 	unit_dict["ElvishShyde"]["hitpoints"] = 46;
+	unit_dict["ElvishShyde"]["movement_type"] = "woodlandfloat";
 	unit_dict["ElvishShyde"]["movement"] = 6;
 	unit_dict["ElvishShyde"]["experience"] = 150;
 	unit_dict["ElvishShyde"]["level"] = 3;
@@ -1519,6 +1611,7 @@ function createUnitDict() {
 	unit_dict["ElvishSorceress"]["gender"] = "female";
 	unit_dict["ElvishSorceress"]["image"] = "units/elves-wood/sorceress.png";
 	unit_dict["ElvishSorceress"]["hitpoints"] = 41;
+	unit_dict["ElvishSorceress"]["movement_type"] = "woodland";
 	unit_dict["ElvishSorceress"]["movement"] = 5;
 	unit_dict["ElvishSorceress"]["experience"] = 100;
 	unit_dict["ElvishSorceress"]["level"] = 2;
@@ -1537,6 +1630,7 @@ function createUnitDict() {
 	unit_dict["ElvishSylph"]["image"] = "units/elves-wood/sylph.png";
 	unit_dict["ElvishSylph"]["halo"] = "halo/elven/shyde-stationary-halo[1~6].png:150";
 	unit_dict["ElvishSylph"]["hitpoints"] = 60;
+	unit_dict["ElvishSylph"]["movement_type"] = "woodlandfloat";
 	unit_dict["ElvishSylph"]["movement"] = 6;
 	unit_dict["ElvishSylph"]["experience"] = 200;
 	unit_dict["ElvishSylph"]["level"] = 4;
@@ -1554,6 +1648,7 @@ function createUnitDict() {
 	unit_dict["FogClearer"]["image"] = "misc/blank-hex.png";
 	unit_dict["FogClearer"]["traits"] = ['TRAIT_LOYAL', 'TRAIT_AGED'];
 	unit_dict["FogClearer"]["hitpoints"] = 1;
+	unit_dict["FogClearer"]["movement_type"] = "fly";
 	unit_dict["FogClearer"]["movement"] = 1;
 	unit_dict["FogClearer"]["experience"] = 1;
 	unit_dict["FogClearer"]["level"] = 1;
@@ -1570,6 +1665,7 @@ function createUnitDict() {
 	unit_dict["DirewolfRider"]["race"] = "wolf";
 	unit_dict["DirewolfRider"]["image"] = "units/goblins/direwolver.png";
 	unit_dict["DirewolfRider"]["hitpoints"] = 61;
+	unit_dict["DirewolfRider"]["movement_type"] = "orcishfoot";
 	unit_dict["DirewolfRider"]["movement"] = 10;
 	unit_dict["DirewolfRider"]["experience"] = 150;
 	unit_dict["DirewolfRider"]["level"] = 3;
@@ -1585,6 +1681,7 @@ function createUnitDict() {
 	unit_dict["GoblinImpaler"]["race"] = "goblin";
 	unit_dict["GoblinImpaler"]["image"] = "units/goblins/impaler.png";
 	unit_dict["GoblinImpaler"]["hitpoints"] = 26;
+	unit_dict["GoblinImpaler"]["movement_type"] = "orcishfoot";
 	unit_dict["GoblinImpaler"]["movement"] = 5;
 	unit_dict["GoblinImpaler"]["experience"] = 50;
 	unit_dict["GoblinImpaler"]["level"] = 1;
@@ -1601,6 +1698,7 @@ function createUnitDict() {
 	unit_dict["GoblinKnight"]["race"] = "wolf";
 	unit_dict["GoblinKnight"]["image"] = "units/goblins/knight.png";
 	unit_dict["GoblinKnight"]["hitpoints"] = 49;
+	unit_dict["GoblinKnight"]["movement_type"] = "orcishfoot";
 	unit_dict["GoblinKnight"]["movement"] = 9;
 	unit_dict["GoblinKnight"]["experience"] = 65;
 	unit_dict["GoblinKnight"]["level"] = 2;
@@ -1617,6 +1715,7 @@ function createUnitDict() {
 	unit_dict["GoblinPillager"]["race"] = "wolf";
 	unit_dict["GoblinPillager"]["image"] = "units/goblins/pillager.png";
 	unit_dict["GoblinPillager"]["hitpoints"] = 44;
+	unit_dict["GoblinPillager"]["movement_type"] = "orcishfoot";
 	unit_dict["GoblinPillager"]["movement"] = 9;
 	unit_dict["GoblinPillager"]["experience"] = 100;
 	unit_dict["GoblinPillager"]["level"] = 2;
@@ -1633,6 +1732,7 @@ function createUnitDict() {
 	unit_dict["GoblinRouser"]["race"] = "goblin";
 	unit_dict["GoblinRouser"]["image"] = "units/goblins/rouser.png";
 	unit_dict["GoblinRouser"]["hitpoints"] = 31;
+	unit_dict["GoblinRouser"]["movement_type"] = "orcishfoot";
 	unit_dict["GoblinRouser"]["movement"] = 5;
 	unit_dict["GoblinRouser"]["experience"] = 50;
 	unit_dict["GoblinRouser"]["level"] = 1;
@@ -1649,6 +1749,7 @@ function createUnitDict() {
 	unit_dict["GoblinSpearman"]["race"] = "goblin";
 	unit_dict["GoblinSpearman"]["image"] = "units/goblins/spearman.png";
 	unit_dict["GoblinSpearman"]["hitpoints"] = 18;
+	unit_dict["GoblinSpearman"]["movement_type"] = "orcishfoot";
 	unit_dict["GoblinSpearman"]["movement"] = 5;
 	unit_dict["GoblinSpearman"]["experience"] = 18;
 	unit_dict["GoblinSpearman"]["level"] = 0;
@@ -1665,6 +1766,7 @@ function createUnitDict() {
 	unit_dict["WolfRider"]["race"] = "wolf";
 	unit_dict["WolfRider"]["image"] = "units/goblins/wolf-rider.png";
 	unit_dict["WolfRider"]["hitpoints"] = 32;
+	unit_dict["WolfRider"]["movement_type"] = "orcishfoot";
 	unit_dict["WolfRider"]["movement"] = 8;
 	unit_dict["WolfRider"]["experience"] = 30;
 	unit_dict["WolfRider"]["level"] = 1;
@@ -1682,6 +1784,7 @@ function createUnitDict() {
 	unit_dict["Gryphon"]["race"] = "gryphon";
 	unit_dict["Gryphon"]["image"] = "units/monsters/gryphon.png";
 	unit_dict["Gryphon"]["hitpoints"] = 44;
+	unit_dict["Gryphon"]["movement_type"] = "fly";
 	unit_dict["Gryphon"]["movement"] = 9;
 	unit_dict["Gryphon"]["experience"] = 100;
 	unit_dict["Gryphon"]["level"] = 2;
@@ -1699,6 +1802,7 @@ function createUnitDict() {
 	unit_dict["GryphonMaster"]["race"] = "gryphon";
 	unit_dict["GryphonMaster"]["image"] = "units/dwarves/gryphon-master.png";
 	unit_dict["GryphonMaster"]["hitpoints"] = 51;
+	unit_dict["GryphonMaster"]["movement_type"] = "fly";
 	unit_dict["GryphonMaster"]["movement"] = 10;
 	unit_dict["GryphonMaster"]["experience"] = 100;
 	unit_dict["GryphonMaster"]["level"] = 2;
@@ -1716,6 +1820,7 @@ function createUnitDict() {
 	unit_dict["GryphonRider"]["race"] = "gryphon";
 	unit_dict["GryphonRider"]["image"] = "units/dwarves/gryphon-rider.png";
 	unit_dict["GryphonRider"]["hitpoints"] = 34;
+	unit_dict["GryphonRider"]["movement_type"] = "fly";
 	unit_dict["GryphonRider"]["movement"] = 8;
 	unit_dict["GryphonRider"]["experience"] = 38;
 	unit_dict["GryphonRider"]["level"] = 1;
@@ -1733,6 +1838,7 @@ function createUnitDict() {
 	unit_dict["Horseman"]["race"] = "human";
 	unit_dict["Horseman"]["image"] = "units/human-loyalists/horseman/horseman.png";
 	unit_dict["Horseman"]["hitpoints"] = 38;
+	unit_dict["Horseman"]["movement_type"] = "mounted";
 	unit_dict["Horseman"]["movement"] = 8;
 	unit_dict["Horseman"]["experience"] = 44;
 	unit_dict["Horseman"]["level"] = 1;
@@ -1751,6 +1857,7 @@ function createUnitDict() {
 	unit_dict["GrandKnight"]["image"] = "units/human-loyalists/grand-knight/grand-knight.png";
 	unit_dict["GrandKnight"]["image_icon"] = "units/human-loyalists/grand-knight/grand-knight.png~CROP(5,10,72,72)";
 	unit_dict["GrandKnight"]["hitpoints"] = 78;
+	unit_dict["GrandKnight"]["movement_type"] = "mounted";
 	unit_dict["GrandKnight"]["movement"] = 7;
 	unit_dict["GrandKnight"]["experience"] = 150;
 	unit_dict["GrandKnight"]["level"] = 3;
@@ -1768,6 +1875,7 @@ function createUnitDict() {
 	unit_dict["Knight"]["image"] = "units/human-loyalists/knight/knight.png";
 	unit_dict["Knight"]["image_icon"] = "units/human-loyalists/knight/knight.png~CROP(5,5,72,72)";
 	unit_dict["Knight"]["hitpoints"] = 58;
+	unit_dict["Knight"]["movement_type"] = "mounted";
 	unit_dict["Knight"]["movement"] = 8;
 	unit_dict["Knight"]["experience"] = 120;
 	unit_dict["Knight"]["level"] = 2;
@@ -1785,6 +1893,7 @@ function createUnitDict() {
 	unit_dict["Lancer"]["race"] = "human";
 	unit_dict["Lancer"]["image"] = "units/human-loyalists/lancer/lancer.png";
 	unit_dict["Lancer"]["hitpoints"] = 50;
+	unit_dict["Lancer"]["movement_type"] = "mounted";
 	unit_dict["Lancer"]["movement"] = 10;
 	unit_dict["Lancer"]["experience"] = 100;
 	unit_dict["Lancer"]["level"] = 2;
@@ -1802,6 +1911,7 @@ function createUnitDict() {
 	unit_dict["Paladin"]["image"] = "units/human-loyalists/paladin/paladin.png";
 	unit_dict["Paladin"]["image_icon"] = "units/human-loyalists/paladin/paladin.png~CROP(8,10,72,72)";
 	unit_dict["Paladin"]["hitpoints"] = 65;
+	unit_dict["Paladin"]["movement_type"] = "mounted";
 	unit_dict["Paladin"]["movement"] = 8;
 	unit_dict["Paladin"]["experience"] = 150;
 	unit_dict["Paladin"]["level"] = 3;
@@ -1821,6 +1931,7 @@ function createUnitDict() {
 	unit_dict["Bowman"]["gender"] = "male";
 	unit_dict["Bowman"]["image"] = "units/human-loyalists/bowman.png";
 	unit_dict["Bowman"]["hitpoints"] = 33;
+	unit_dict["Bowman"]["movement_type"] = "smallfoot";
 	unit_dict["Bowman"]["movement"] = 5;
 	unit_dict["Bowman"]["experience"] = 39;
 	unit_dict["Bowman"]["level"] = 1;
@@ -1836,6 +1947,7 @@ function createUnitDict() {
 	unit_dict["Cavalier"]["race"] = "human";
 	unit_dict["Cavalier"]["image"] = "units/human-loyalists/cavalier/cavalier.png";
 	unit_dict["Cavalier"]["hitpoints"] = 64;
+	unit_dict["Cavalier"]["movement_type"] = "mounted";
 	unit_dict["Cavalier"]["movement"] = 9;
 	unit_dict["Cavalier"]["experience"] = 150;
 	unit_dict["Cavalier"]["level"] = 3;
@@ -1853,6 +1965,7 @@ function createUnitDict() {
 	unit_dict["Cavalryman"]["race"] = "human";
 	unit_dict["Cavalryman"]["image"] = "units/human-loyalists/cavalryman/cavalryman.png";
 	unit_dict["Cavalryman"]["hitpoints"] = 34;
+	unit_dict["Cavalryman"]["movement_type"] = "mounted";
 	unit_dict["Cavalryman"]["movement"] = 8;
 	unit_dict["Cavalryman"]["experience"] = 40;
 	unit_dict["Cavalryman"]["level"] = 1;
@@ -1871,6 +1984,7 @@ function createUnitDict() {
 	unit_dict["Dragoon"]["race"] = "human";
 	unit_dict["Dragoon"]["image"] = "units/human-loyalists/dragoon/dragoon.png";
 	unit_dict["Dragoon"]["hitpoints"] = 49;
+	unit_dict["Dragoon"]["movement_type"] = "mounted";
 	unit_dict["Dragoon"]["movement"] = 9;
 	unit_dict["Dragoon"]["experience"] = 95;
 	unit_dict["Dragoon"]["level"] = 2;
@@ -1888,6 +2002,7 @@ function createUnitDict() {
 	unit_dict["Duelist"]["race"] = "human";
 	unit_dict["Duelist"]["image"] = "units/human-loyalists/duelist.png";
 	unit_dict["Duelist"]["hitpoints"] = 44;
+	unit_dict["Duelist"]["movement_type"] = "elusivefoot";
 	unit_dict["Duelist"]["movement"] = 7;
 	unit_dict["Duelist"]["experience"] = 90;
 	unit_dict["Duelist"]["level"] = 2;
@@ -1906,6 +2021,7 @@ function createUnitDict() {
 	unit_dict["Fencer"]["race"] = "human";
 	unit_dict["Fencer"]["image"] = "units/human-loyalists/fencer.png";
 	unit_dict["Fencer"]["hitpoints"] = 28;
+	unit_dict["Fencer"]["movement_type"] = "elusivefoot";
 	unit_dict["Fencer"]["movement"] = 6;
 	unit_dict["Fencer"]["experience"] = 42;
 	unit_dict["Fencer"]["level"] = 1;
@@ -1925,6 +2041,7 @@ function createUnitDict() {
 	unit_dict["General"]["image"] = "units/human-loyalists/general.png";
 	unit_dict["General"]["leading_anim"] = {'start_time': -150};
 	unit_dict["General"]["hitpoints"] = 50;
+	unit_dict["General"]["movement_type"] = "smallfoot";
 	unit_dict["General"]["movement"] = 6;
 	unit_dict["General"]["level"] = 3;
 	unit_dict["General"]["alignment"] = "lawful";
@@ -1943,6 +2060,7 @@ function createUnitDict() {
 	unit_dict["GrandMarshal"]["image"] = "units/human-loyalists/marshal.png";
 	unit_dict["GrandMarshal"]["leading_anim"] = {'start_time': -150};
 	unit_dict["GrandMarshal"]["hitpoints"] = 60;
+	unit_dict["GrandMarshal"]["movement_type"] = "smallfoot";
 	unit_dict["GrandMarshal"]["movement"] = 6;
 	unit_dict["GrandMarshal"]["experience"] = 200;
 	unit_dict["GrandMarshal"]["level"] = 4;
@@ -1961,6 +2079,7 @@ function createUnitDict() {
 	unit_dict["Halberdier"]["race"] = "human";
 	unit_dict["Halberdier"]["image"] = "units/human-loyalists/halberdier.png";
 	unit_dict["Halberdier"]["hitpoints"] = 72;
+	unit_dict["Halberdier"]["movement_type"] = "smallfoot";
 	unit_dict["Halberdier"]["movement"] = 5;
 	unit_dict["Halberdier"]["experience"] = 150;
 	unit_dict["Halberdier"]["level"] = 3;
@@ -1978,6 +2097,7 @@ function createUnitDict() {
 	unit_dict["HeavyInfantryman"]["traits"] = ['TRAIT_FEARLESS'];
 	unit_dict["HeavyInfantryman"]["image"] = "units/human-loyalists/heavyinfantry.png";
 	unit_dict["HeavyInfantryman"]["hitpoints"] = 38;
+	unit_dict["HeavyInfantryman"]["movement_type"] = "armoredfoot";
 	unit_dict["HeavyInfantryman"]["movement"] = 4;
 	unit_dict["HeavyInfantryman"]["experience"] = 40;
 	unit_dict["HeavyInfantryman"]["level"] = 1;
@@ -1994,6 +2114,7 @@ function createUnitDict() {
 	unit_dict["IronMauler"]["traits"] = ['TRAIT_FEARLESS'];
 	unit_dict["IronMauler"]["image"] = "units/human-loyalists/siegetrooper.png";
 	unit_dict["IronMauler"]["hitpoints"] = 64;
+	unit_dict["IronMauler"]["movement_type"] = "armoredfoot";
 	unit_dict["IronMauler"]["movement"] = 4;
 	unit_dict["IronMauler"]["experience"] = 150;
 	unit_dict["IronMauler"]["level"] = 3;
@@ -2009,6 +2130,7 @@ function createUnitDict() {
 	unit_dict["Javelineer"]["race"] = "human";
 	unit_dict["Javelineer"]["image"] = "units/human-loyalists/javelineer.png";
 	unit_dict["Javelineer"]["hitpoints"] = 48;
+	unit_dict["Javelineer"]["movement_type"] = "smallfoot";
 	unit_dict["Javelineer"]["movement"] = 5;
 	unit_dict["Javelineer"]["experience"] = 100;
 	unit_dict["Javelineer"]["level"] = 2;
@@ -2025,6 +2147,7 @@ function createUnitDict() {
 	unit_dict["Lieutenant"]["race"] = "human";
 	unit_dict["Lieutenant"]["image"] = "units/human-loyalists/lieutenant.png";
 	unit_dict["Lieutenant"]["hitpoints"] = 40;
+	unit_dict["Lieutenant"]["movement_type"] = "smallfoot";
 	unit_dict["Lieutenant"]["movement"] = 6;
 	unit_dict["Lieutenant"]["experience"] = 80;
 	unit_dict["Lieutenant"]["level"] = 2;
@@ -2043,6 +2166,7 @@ function createUnitDict() {
 	unit_dict["Longbowman"]["gender"] = "male";
 	unit_dict["Longbowman"]["image"] = "units/human-loyalists/longbowman.png";
 	unit_dict["Longbowman"]["hitpoints"] = 51;
+	unit_dict["Longbowman"]["movement_type"] = "smallfoot";
 	unit_dict["Longbowman"]["movement"] = 5;
 	unit_dict["Longbowman"]["experience"] = 68;
 	unit_dict["Longbowman"]["level"] = 2;
@@ -2058,6 +2182,7 @@ function createUnitDict() {
 	unit_dict["MasteratArms"]["race"] = "human";
 	unit_dict["MasteratArms"]["image"] = "units/human-loyalists/master-at-arms.png";
 	unit_dict["MasteratArms"]["hitpoints"] = 57;
+	unit_dict["MasteratArms"]["movement_type"] = "elusivefoot";
 	unit_dict["MasteratArms"]["movement"] = 7;
 	unit_dict["MasteratArms"]["experience"] = 150;
 	unit_dict["MasteratArms"]["level"] = 3;
@@ -2077,6 +2202,7 @@ function createUnitDict() {
 	unit_dict["MasterBowman"]["gender"] = "male";
 	unit_dict["MasterBowman"]["image"] = "units/human-loyalists/masterbowman.png";
 	unit_dict["MasterBowman"]["hitpoints"] = 67;
+	unit_dict["MasterBowman"]["movement_type"] = "smallfoot";
 	unit_dict["MasterBowman"]["movement"] = 5;
 	unit_dict["MasterBowman"]["experience"] = 150;
 	unit_dict["MasterBowman"]["level"] = 3;
@@ -2092,6 +2218,7 @@ function createUnitDict() {
 	unit_dict["Pikeman"]["race"] = "human";
 	unit_dict["Pikeman"]["image"] = "units/human-loyalists/pikeman.png";
 	unit_dict["Pikeman"]["hitpoints"] = 55;
+	unit_dict["Pikeman"]["movement_type"] = "smallfoot";
 	unit_dict["Pikeman"]["movement"] = 5;
 	unit_dict["Pikeman"]["experience"] = 65;
 	unit_dict["Pikeman"]["level"] = 2;
@@ -2109,6 +2236,7 @@ function createUnitDict() {
 	unit_dict["RoyalGuard"]["race"] = "human";
 	unit_dict["RoyalGuard"]["image"] = "units/human-loyalists/royalguard.png";
 	unit_dict["RoyalGuard"]["hitpoints"] = 74;
+	unit_dict["RoyalGuard"]["movement_type"] = "smallfoot";
 	unit_dict["RoyalGuard"]["movement"] = 6;
 	unit_dict["RoyalGuard"]["experience"] = 150;
 	unit_dict["RoyalGuard"]["level"] = 3;
@@ -2125,6 +2253,7 @@ function createUnitDict() {
 	unit_dict["Sergeant"]["race"] = "human";
 	unit_dict["Sergeant"]["image"] = "units/human-loyalists/sergeant.png";
 	unit_dict["Sergeant"]["hitpoints"] = 32;
+	unit_dict["Sergeant"]["movement_type"] = "smallfoot";
 	unit_dict["Sergeant"]["movement"] = 6;
 	unit_dict["Sergeant"]["experience"] = 32;
 	unit_dict["Sergeant"]["level"] = 1;
@@ -2142,6 +2271,7 @@ function createUnitDict() {
 	unit_dict["ShockTrooper"]["traits"] = ['TRAIT_FEARLESS'];
 	unit_dict["ShockTrooper"]["image"] = "units/human-loyalists/shocktrooper.png";
 	unit_dict["ShockTrooper"]["hitpoints"] = 52;
+	unit_dict["ShockTrooper"]["movement_type"] = "armoredfoot";
 	unit_dict["ShockTrooper"]["movement"] = 4;
 	unit_dict["ShockTrooper"]["experience"] = 110;
 	unit_dict["ShockTrooper"]["level"] = 2;
@@ -2157,6 +2287,7 @@ function createUnitDict() {
 	unit_dict["Spearman"]["race"] = "human";
 	unit_dict["Spearman"]["image"] = "units/human-loyalists/spearman.png";
 	unit_dict["Spearman"]["hitpoints"] = 36;
+	unit_dict["Spearman"]["movement_type"] = "smallfoot";
 	unit_dict["Spearman"]["movement"] = 5;
 	unit_dict["Spearman"]["experience"] = 42;
 	unit_dict["Spearman"]["level"] = 1;
@@ -2173,6 +2304,7 @@ function createUnitDict() {
 	unit_dict["Swordsman"]["race"] = "human";
 	unit_dict["Swordsman"]["image"] = "units/human-loyalists/swordsman.png";
 	unit_dict["Swordsman"]["hitpoints"] = 55;
+	unit_dict["Swordsman"]["movement_type"] = "smallfoot";
 	unit_dict["Swordsman"]["movement"] = 5;
 	unit_dict["Swordsman"]["experience"] = 60;
 	unit_dict["Swordsman"]["level"] = 2;
@@ -2190,6 +2322,7 @@ function createUnitDict() {
 	unit_dict["Mage"]["gender"] = "male,female";
 	unit_dict["Mage"]["image"] = "units/human-magi/mage.png";
 	unit_dict["Mage"]["hitpoints"] = 24;
+	unit_dict["Mage"]["movement_type"] = "smallfoot";
 	unit_dict["Mage"]["movement"] = 5;
 	unit_dict["Mage"]["experience"] = 54;
 	unit_dict["Mage"]["level"] = 1;
@@ -2208,6 +2341,7 @@ function createUnitDict() {
 	unit_dict["ArchMage"]["gender"] = "male,female";
 	unit_dict["ArchMage"]["image"] = "units/human-magi/arch-mage.png";
 	unit_dict["ArchMage"]["hitpoints"] = 54;
+	unit_dict["ArchMage"]["movement_type"] = "smallfoot";
 	unit_dict["ArchMage"]["movement"] = 5;
 	unit_dict["ArchMage"]["experience"] = 220;
 	unit_dict["ArchMage"]["level"] = 3;
@@ -2225,6 +2359,7 @@ function createUnitDict() {
 	unit_dict["ElderMage"]["race"] = "human";
 	unit_dict["ElderMage"]["image"] = "units/human-magi/elder-mage.png";
 	unit_dict["ElderMage"]["hitpoints"] = 60;
+	unit_dict["ElderMage"]["movement_type"] = "smallfoot";
 	unit_dict["ElderMage"]["resistance"] = {'fire': 80};
 	unit_dict["ElderMage"]["movement"] = 6;
 	unit_dict["ElderMage"]["experience"] = 250;
@@ -2242,6 +2377,7 @@ function createUnitDict() {
 	unit_dict["GreatMage"]["gender"] = "male,female";
 	unit_dict["GreatMage"]["image"] = "units/human-magi/great-mage.png";
 	unit_dict["GreatMage"]["hitpoints"] = 65;
+	unit_dict["GreatMage"]["movement_type"] = "smallfoot";
 	unit_dict["GreatMage"]["movement"] = 5;
 	unit_dict["GreatMage"]["experience"] = 200;
 	unit_dict["GreatMage"]["level"] = 4;
@@ -2261,6 +2397,7 @@ function createUnitDict() {
 	unit_dict["MageofLight"]["image"] = "units/human-magi/white-cleric.png";
 	unit_dict["MageofLight"]["halo"] = "halo/illuminates-aura.png";
 	unit_dict["MageofLight"]["hitpoints"] = 47;
+	unit_dict["MageofLight"]["movement_type"] = "smallfoot";
 	unit_dict["MageofLight"]["movement"] = 5;
 	unit_dict["MageofLight"]["experience"] = 150;
 	unit_dict["MageofLight"]["level"] = 3;
@@ -2280,6 +2417,7 @@ function createUnitDict() {
 	unit_dict["RedMage"]["gender"] = "male,female";
 	unit_dict["RedMage"]["image"] = "units/human-magi/red-mage.png";
 	unit_dict["RedMage"]["hitpoints"] = 42;
+	unit_dict["RedMage"]["movement_type"] = "smallfoot";
 	unit_dict["RedMage"]["movement"] = 5;
 	unit_dict["RedMage"]["experience"] = 100;
 	unit_dict["RedMage"]["level"] = 2;
@@ -2298,6 +2436,7 @@ function createUnitDict() {
 	unit_dict["SilverMage"]["gender"] = "male,female";
 	unit_dict["SilverMage"]["image"] = "units/human-magi/silver-mage.png";
 	unit_dict["SilverMage"]["hitpoints"] = 48;
+	unit_dict["SilverMage"]["movement_type"] = "smallfoot";
 	unit_dict["SilverMage"]["movement"] = 6;
 	unit_dict["SilverMage"]["experience"] = 150;
 	unit_dict["SilverMage"]["level"] = 3;
@@ -2318,6 +2457,7 @@ function createUnitDict() {
 	unit_dict["WhiteMage"]["gender"] = "male,female";
 	unit_dict["WhiteMage"]["image"] = "units/human-magi/white-mage.png";
 	unit_dict["WhiteMage"]["hitpoints"] = 35;
+	unit_dict["WhiteMage"]["movement_type"] = "smallfoot";
 	unit_dict["WhiteMage"]["movement"] = 5;
 	unit_dict["WhiteMage"]["experience"] = 136;
 	unit_dict["WhiteMage"]["level"] = 2;
@@ -2337,6 +2477,7 @@ function createUnitDict() {
 	unit_dict["Outlaw"]["gender"] = "male,female";
 	unit_dict["Outlaw"]["image"] = "units/human-outlaws/outlaw.png";
 	unit_dict["Outlaw"]["hitpoints"] = 42;
+	unit_dict["Outlaw"]["movement_type"] = "elusivefoot";
 	unit_dict["Outlaw"]["movement"] = 7;
 	unit_dict["Outlaw"]["level"] = 2;
 	unit_dict["Outlaw"]["alignment"] = "chaotic";
@@ -2354,6 +2495,7 @@ function createUnitDict() {
 	unit_dict["Assassin"]["gender"] = "male,female";
 	unit_dict["Assassin"]["image"] = "units/human-outlaws/assassin.png";
 	unit_dict["Assassin"]["hitpoints"] = 51;
+	unit_dict["Assassin"]["movement_type"] = "elusivefoot";
 	unit_dict["Assassin"]["movement"] = 6;
 	unit_dict["Assassin"]["experience"] = 150;
 	unit_dict["Assassin"]["level"] = 3;
@@ -2371,6 +2513,7 @@ function createUnitDict() {
 	unit_dict["Bandit"]["race"] = "human";
 	unit_dict["Bandit"]["image"] = "units/human-outlaws/bandit.png";
 	unit_dict["Bandit"]["hitpoints"] = 50;
+	unit_dict["Bandit"]["movement_type"] = "smallfoot";
 	unit_dict["Bandit"]["movement"] = 5;
 	unit_dict["Bandit"]["level"] = 2;
 	unit_dict["Bandit"]["alignment"] = "chaotic";
@@ -2387,6 +2530,7 @@ function createUnitDict() {
 	unit_dict["Footpad"]["gender"] = "male,female";
 	unit_dict["Footpad"]["image"] = "units/human-outlaws/footpad.png";
 	unit_dict["Footpad"]["hitpoints"] = 30;
+	unit_dict["Footpad"]["movement_type"] = "elusivefoot";
 	unit_dict["Footpad"]["movement"] = 7;
 	unit_dict["Footpad"]["experience"] = 36;
 	unit_dict["Footpad"]["level"] = 1;
@@ -2404,6 +2548,7 @@ function createUnitDict() {
 	unit_dict["Fugitive"]["gender"] = "male,female";
 	unit_dict["Fugitive"]["image"] = "units/human-outlaws/fugitive.png";
 	unit_dict["Fugitive"]["hitpoints"] = 62;
+	unit_dict["Fugitive"]["movement_type"] = "elusivefoot";
 	unit_dict["Fugitive"]["movement"] = 7;
 	unit_dict["Fugitive"]["experience"] = 150;
 	unit_dict["Fugitive"]["level"] = 3;
@@ -2421,6 +2566,7 @@ function createUnitDict() {
 	unit_dict["Highwayman"]["race"] = "human";
 	unit_dict["Highwayman"]["image"] = "units/human-outlaws/highwayman.png";
 	unit_dict["Highwayman"]["hitpoints"] = 70;
+	unit_dict["Highwayman"]["movement_type"] = "smallfoot";
 	unit_dict["Highwayman"]["movement"] = 5;
 	unit_dict["Highwayman"]["experience"] = 150;
 	unit_dict["Highwayman"]["level"] = 3;
@@ -2437,6 +2583,7 @@ function createUnitDict() {
 	unit_dict["Rogue"]["gender"] = "male,female";
 	unit_dict["Rogue"]["image"] = "units/human-outlaws/rogue.png";
 	unit_dict["Rogue"]["hitpoints"] = 40;
+	unit_dict["Rogue"]["movement_type"] = "elusivefoot";
 	unit_dict["Rogue"]["movement"] = 6;
 	unit_dict["Rogue"]["experience"] = 70;
 	unit_dict["Rogue"]["level"] = 2;
@@ -2454,6 +2601,7 @@ function createUnitDict() {
 	unit_dict["Ruffian"]["race"] = "human";
 	unit_dict["Ruffian"]["image"] = "units/human-peasants/ruffian.png";
 	unit_dict["Ruffian"]["hitpoints"] = 16;
+	unit_dict["Ruffian"]["movement_type"] = "smallfoot";
 	unit_dict["Ruffian"]["movement"] = 5;
 	unit_dict["Ruffian"]["experience"] = 18;
 	unit_dict["Ruffian"]["level"] = 0;
@@ -2470,6 +2618,7 @@ function createUnitDict() {
 	unit_dict["Thief"]["gender"] = "male,female";
 	unit_dict["Thief"]["image"] = "units/human-outlaws/thief.png";
 	unit_dict["Thief"]["hitpoints"] = 24;
+	unit_dict["Thief"]["movement_type"] = "elusivefoot";
 	unit_dict["Thief"]["movement"] = 6;
 	unit_dict["Thief"]["experience"] = 28;
 	unit_dict["Thief"]["level"] = 1;
@@ -2487,6 +2636,7 @@ function createUnitDict() {
 	unit_dict["Thug"]["race"] = "human";
 	unit_dict["Thug"]["image"] = "units/human-outlaws/thug.png";
 	unit_dict["Thug"]["hitpoints"] = 32;
+	unit_dict["Thug"]["movement_type"] = "smallfoot";
 	unit_dict["Thug"]["movement"] = 5;
 	unit_dict["Thug"]["experience"] = 42;
 	unit_dict["Thug"]["level"] = 1;
@@ -2503,6 +2653,7 @@ function createUnitDict() {
 	unit_dict["Peasant"]["gender"] = "male";
 	unit_dict["Peasant"]["image"] = "units/human-peasants/peasant.png";
 	unit_dict["Peasant"]["hitpoints"] = 18;
+	unit_dict["Peasant"]["movement_type"] = "smallfoot";
 	unit_dict["Peasant"]["movement"] = 5;
 	unit_dict["Peasant"]["experience"] = 23;
 	unit_dict["Peasant"]["level"] = 0;
@@ -2519,6 +2670,7 @@ function createUnitDict() {
 	unit_dict["RoyalWarrior"]["gender"] = "male";
 	unit_dict["RoyalWarrior"]["image"] = "units/human-loyalists/royal-warrior.png";
 	unit_dict["RoyalWarrior"]["hitpoints"] = 64;
+	unit_dict["RoyalWarrior"]["movement_type"] = "armoredfoot";
 	unit_dict["RoyalWarrior"]["movement"] = 6;
 	unit_dict["RoyalWarrior"]["experience"] = 150;
 	unit_dict["RoyalWarrior"]["level"] = 3;
@@ -2535,6 +2687,7 @@ function createUnitDict() {
 	unit_dict["Woodsman"]["gender"] = "male";
 	unit_dict["Woodsman"]["image"] = "units/human-peasants/woodsman.png";
 	unit_dict["Woodsman"]["hitpoints"] = 18;
+	unit_dict["Woodsman"]["movement_type"] = "smallfoot";
 	unit_dict["Woodsman"]["movement"] = 5;
 	unit_dict["Woodsman"]["experience"] = 23;
 	unit_dict["Woodsman"]["level"] = 0;
@@ -2551,6 +2704,7 @@ function createUnitDict() {
 	unit_dict["Huntsman"]["race"] = "human";
 	unit_dict["Huntsman"]["image"] = "units/human-outlaws/huntsman.png";
 	unit_dict["Huntsman"]["hitpoints"] = 57;
+	unit_dict["Huntsman"]["movement_type"] = "smallfoot";
 	unit_dict["Huntsman"]["movement"] = 5;
 	unit_dict["Huntsman"]["experience"] = 150;
 	unit_dict["Huntsman"]["level"] = 3;
@@ -2568,6 +2722,7 @@ function createUnitDict() {
 	unit_dict["Poacher"]["race"] = "human";
 	unit_dict["Poacher"]["image"] = "units/human-outlaws/poacher.png";
 	unit_dict["Poacher"]["hitpoints"] = 32;
+	unit_dict["Poacher"]["movement_type"] = "smallfoot";
 	unit_dict["Poacher"]["movement"] = 5;
 	unit_dict["Poacher"]["experience"] = 29;
 	unit_dict["Poacher"]["level"] = 1;
@@ -2585,6 +2740,7 @@ function createUnitDict() {
 	unit_dict["Ranger"]["race"] = "human";
 	unit_dict["Ranger"]["image"] = "units/human-outlaws/ranger.png";
 	unit_dict["Ranger"]["hitpoints"] = 60;
+	unit_dict["Ranger"]["movement_type"] = "smallfoot";
 	unit_dict["Ranger"]["movement"] = 6;
 	unit_dict["Ranger"]["experience"] = 150;
 	unit_dict["Ranger"]["level"] = 3;
@@ -2602,6 +2758,7 @@ function createUnitDict() {
 	unit_dict["Trapper"]["race"] = "human";
 	unit_dict["Trapper"]["image"] = "units/human-outlaws/trapper.png";
 	unit_dict["Trapper"]["hitpoints"] = 45;
+	unit_dict["Trapper"]["movement_type"] = "smallfoot";
 	unit_dict["Trapper"]["movement"] = 5;
 	unit_dict["Trapper"]["level"] = 2;
 	unit_dict["Trapper"]["alignment"] = "chaotic";
@@ -2623,6 +2780,7 @@ function createUnitDict() {
 	unit_dict["MermaidDiviner"]["halo"] = "halo/illuminates-aura.png";
 	unit_dict["MermaidDiviner"]["hitpoints"] = 45;
 	unit_dict["MermaidDiviner"]["resistance"] = {'arcane': 60};
+	unit_dict["MermaidDiviner"]["movement_type"] = "swimmer";
 	unit_dict["MermaidDiviner"]["movement"] = 6;
 	unit_dict["MermaidDiviner"]["experience"] = 150;
 	unit_dict["MermaidDiviner"]["level"] = 3;
@@ -2640,6 +2798,7 @@ function createUnitDict() {
 	unit_dict["MermaidEnchantress"]["gender"] = "female";
 	unit_dict["MermaidEnchantress"]["image"] = "units/merfolk/enchantress.png";
 	unit_dict["MermaidEnchantress"]["hitpoints"] = 39;
+	unit_dict["MermaidEnchantress"]["movement_type"] = "swimmer";
 	unit_dict["MermaidEnchantress"]["movement"] = 6;
 	unit_dict["MermaidEnchantress"]["experience"] = 90;
 	unit_dict["MermaidEnchantress"]["level"] = 2;
@@ -2655,6 +2814,7 @@ function createUnitDict() {
 	unit_dict["MermanEntangler"]["race"] = "merman";
 	unit_dict["MermanEntangler"]["image"] = "units/merfolk/entangler.png";
 	unit_dict["MermanEntangler"]["hitpoints"] = 55;
+	unit_dict["MermanEntangler"]["movement_type"] = "swimmer";
 	unit_dict["MermanEntangler"]["movement"] = 7;
 	unit_dict["MermanEntangler"]["experience"] = 150;
 	unit_dict["MermanEntangler"]["level"] = 3;
@@ -2670,6 +2830,7 @@ function createUnitDict() {
 	unit_dict["MermanFighter"]["race"] = "merman";
 	unit_dict["MermanFighter"]["image"] = "units/merfolk/fighter.png";
 	unit_dict["MermanFighter"]["hitpoints"] = 36;
+	unit_dict["MermanFighter"]["movement_type"] = "swimmer";
 	unit_dict["MermanFighter"]["movement"] = 6;
 	unit_dict["MermanFighter"]["experience"] = 36;
 	unit_dict["MermanFighter"]["level"] = 1;
@@ -2685,6 +2846,7 @@ function createUnitDict() {
 	unit_dict["MermanHoplite"]["race"] = "merman";
 	unit_dict["MermanHoplite"]["image"] = "units/merfolk/hoplite.png";
 	unit_dict["MermanHoplite"]["hitpoints"] = 52;
+	unit_dict["MermanHoplite"]["movement_type"] = "swimmer";
 	unit_dict["MermanHoplite"]["movement"] = 5;
 	unit_dict["MermanHoplite"]["experience"] = 150;
 	unit_dict["MermanHoplite"]["level"] = 3;
@@ -2702,6 +2864,7 @@ function createUnitDict() {
 	unit_dict["MermanHunter"]["race"] = "merman";
 	unit_dict["MermanHunter"]["image"] = "units/merfolk/hunter.png";
 	unit_dict["MermanHunter"]["hitpoints"] = 30;
+	unit_dict["MermanHunter"]["movement_type"] = "swimmer";
 	unit_dict["MermanHunter"]["movement"] = 6;
 	unit_dict["MermanHunter"]["experience"] = 35;
 	unit_dict["MermanHunter"]["level"] = 1;
@@ -2720,6 +2883,7 @@ function createUnitDict() {
 	unit_dict["MermaidInitiate"]["gender"] = "female";
 	unit_dict["MermaidInitiate"]["image"] = "units/merfolk/initiate.png";
 	unit_dict["MermaidInitiate"]["hitpoints"] = 27;
+	unit_dict["MermaidInitiate"]["movement_type"] = "swimmer";
 	unit_dict["MermaidInitiate"]["movement"] = 6;
 	unit_dict["MermaidInitiate"]["experience"] = 50;
 	unit_dict["MermaidInitiate"]["level"] = 1;
@@ -2735,6 +2899,7 @@ function createUnitDict() {
 	unit_dict["MermanJavelineer"]["race"] = "merman";
 	unit_dict["MermanJavelineer"]["image"] = "units/merfolk/javelineer.png";
 	unit_dict["MermanJavelineer"]["hitpoints"] = 58;
+	unit_dict["MermanJavelineer"]["movement_type"] = "swimmer";
 	unit_dict["MermanJavelineer"]["movement"] = 7;
 	unit_dict["MermanJavelineer"]["experience"] = 150;
 	unit_dict["MermanJavelineer"]["level"] = 3;
@@ -2750,6 +2915,7 @@ function createUnitDict() {
 	unit_dict["MermanNetcaster"]["race"] = "merman";
 	unit_dict["MermanNetcaster"]["image"] = "units/merfolk/netcaster.png";
 	unit_dict["MermanNetcaster"]["hitpoints"] = 40;
+	unit_dict["MermanNetcaster"]["movement_type"] = "swimmer";
 	unit_dict["MermanNetcaster"]["movement"] = 7;
 	unit_dict["MermanNetcaster"]["experience"] = 80;
 	unit_dict["MermanNetcaster"]["level"] = 2;
@@ -2767,6 +2933,7 @@ function createUnitDict() {
 	unit_dict["MermaidPriestess"]["image"] = "units/merfolk/priestess.png";
 	unit_dict["MermaidPriestess"]["hitpoints"] = 35;
 	unit_dict["MermaidPriestess"]["resistance"] = {'arcane': 80};
+	unit_dict["MermaidPriestess"]["movement_type"] = "swimmer";
 	unit_dict["MermaidPriestess"]["movement"] = 6;
 	unit_dict["MermaidPriestess"]["experience"] = 132;
 	unit_dict["MermaidPriestess"]["level"] = 2;
@@ -2784,6 +2951,7 @@ function createUnitDict() {
 	unit_dict["MermaidSiren"]["gender"] = "female";
 	unit_dict["MermaidSiren"]["image"] = "units/merfolk/siren.png";
 	unit_dict["MermaidSiren"]["hitpoints"] = 51;
+	unit_dict["MermaidSiren"]["movement_type"] = "swimmer";
 	unit_dict["MermaidSiren"]["movement"] = 7;
 	unit_dict["MermaidSiren"]["experience"] = 150;
 	unit_dict["MermaidSiren"]["level"] = 3;
@@ -2799,6 +2967,7 @@ function createUnitDict() {
 	unit_dict["MermanSpearman"]["race"] = "merman";
 	unit_dict["MermanSpearman"]["image"] = "units/merfolk/spearman.png";
 	unit_dict["MermanSpearman"]["hitpoints"] = 43;
+	unit_dict["MermanSpearman"]["movement_type"] = "swimmer";
 	unit_dict["MermanSpearman"]["movement"] = 7;
 	unit_dict["MermanSpearman"]["experience"] = 85;
 	unit_dict["MermanSpearman"]["level"] = 2;
@@ -2814,6 +2983,7 @@ function createUnitDict() {
 	unit_dict["MermanTriton"]["race"] = "merman";
 	unit_dict["MermanTriton"]["image"] = "units/merfolk/triton.png";
 	unit_dict["MermanTriton"]["hitpoints"] = 60;
+	unit_dict["MermanTriton"]["movement_type"] = "swimmer";
 	unit_dict["MermanTriton"]["movement"] = 6;
 	unit_dict["MermanTriton"]["experience"] = 150;
 	unit_dict["MermanTriton"]["level"] = 3;
@@ -2829,6 +2999,7 @@ function createUnitDict() {
 	unit_dict["MermanWarrior"]["race"] = "merman";
 	unit_dict["MermanWarrior"]["image"] = "units/merfolk/warrior.png";
 	unit_dict["MermanWarrior"]["hitpoints"] = 50;
+	unit_dict["MermanWarrior"]["movement_type"] = "swimmer";
 	unit_dict["MermanWarrior"]["movement"] = 6;
 	unit_dict["MermanWarrior"]["experience"] = 80;
 	unit_dict["MermanWarrior"]["level"] = 2;
@@ -2844,6 +3015,7 @@ function createUnitDict() {
 	unit_dict["CuttleFish"]["race"] = "monster";
 	unit_dict["CuttleFish"]["image"] = "units/monsters/cuttlefish.png";
 	unit_dict["CuttleFish"]["hitpoints"] = 67;
+	unit_dict["CuttleFish"]["movement_type"] = "deepsea";
 	unit_dict["CuttleFish"]["movement"] = 8;
 	unit_dict["CuttleFish"]["experience"] = 100;
 	unit_dict["CuttleFish"]["level"] = 2;
@@ -2861,6 +3033,7 @@ function createUnitDict() {
 	unit_dict["ElderFalcon"]["race"] = "falcon";
 	unit_dict["ElderFalcon"]["image"] = "units/monsters/elder-falcon.png";
 	unit_dict["ElderFalcon"]["hitpoints"] = 27;
+	unit_dict["ElderFalcon"]["movement_type"] = "lightfly";
 	unit_dict["ElderFalcon"]["movement"] = 9;
 	unit_dict["ElderFalcon"]["experience"] = 50;
 	unit_dict["ElderFalcon"]["level"] = 1;
@@ -2877,6 +3050,7 @@ function createUnitDict() {
 	unit_dict["Falcon"]["race"] = "falcon";
 	unit_dict["Falcon"]["image"] = "units/monsters/falcon.png";
 	unit_dict["Falcon"]["hitpoints"] = 18;
+	unit_dict["Falcon"]["movement_type"] = "lightfly";
 	unit_dict["Falcon"]["movement"] = 8;
 	unit_dict["Falcon"]["experience"] = 24;
 	unit_dict["Falcon"]["level"] = 0;
@@ -2894,6 +3068,7 @@ function createUnitDict() {
 	unit_dict["FireDragon"]["image"] = "units/monsters/fire-dragon.png";
 	unit_dict["FireDragon"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
 	unit_dict["FireDragon"]["hitpoints"] = 101;
+	unit_dict["FireDragon"]["movement_type"] = "drakefly";
 	unit_dict["FireDragon"]["movement"] = 8;
 	unit_dict["FireDragon"]["experience"] = 250;
 	unit_dict["FireDragon"]["level"] = 5;
@@ -2913,6 +3088,7 @@ function createUnitDict() {
 	unit_dict["FireGuardian"]["traits"] = ['TRAIT_ELEMENTAL'];
 	unit_dict["FireGuardian"]["image"] = "units/monsters/fireghost.png";
 	unit_dict["FireGuardian"]["hitpoints"] = 23;
+	unit_dict["FireGuardian"]["movement_type"] = "drakefly";
 	unit_dict["FireGuardian"]["resistance"] = {'blade': 100, 'pierce': 100, 'impact': 100};
 	unit_dict["FireGuardian"]["movement"] = 6;
 	unit_dict["FireGuardian"]["experience"] = 50;
@@ -2931,6 +3107,7 @@ function createUnitDict() {
 	unit_dict["GiantMudcrawler"]["traits"] = ['TRAIT_ELEMENTAL'];
 	unit_dict["GiantMudcrawler"]["image"] = "units/monsters/giant-mudcrawler.png";
 	unit_dict["GiantMudcrawler"]["hitpoints"] = 36;
+	unit_dict["GiantMudcrawler"]["movement_type"] = "scuttlefoot";
 	unit_dict["GiantMudcrawler"]["movement"] = 4;
 	unit_dict["GiantMudcrawler"]["experience"] = 50;
 	unit_dict["GiantMudcrawler"]["level"] = 1;
@@ -2948,6 +3125,7 @@ function createUnitDict() {
 	unit_dict["GiantRat"]["race"] = "monster";
 	unit_dict["GiantRat"]["image"] = "units/monsters/giant-rat.png";
 	unit_dict["GiantRat"]["hitpoints"] = 15;
+	unit_dict["GiantRat"]["movement_type"] = "rodentfoot";
 	unit_dict["GiantRat"]["movement"] = 4;
 	unit_dict["GiantRat"]["experience"] = 25;
 	unit_dict["GiantRat"]["level"] = 0;
@@ -2965,6 +3143,7 @@ function createUnitDict() {
 	unit_dict["GiantScorpion"]["race"] = "monster";
 	unit_dict["GiantScorpion"]["image"] = "units/monsters/scorpion/scorpion.png";
 	unit_dict["GiantScorpion"]["hitpoints"] = 35;
+	unit_dict["GiantScorpion"]["movement_type"] = "scuttlefoot";
 	unit_dict["GiantScorpion"]["resistance"] = {'blade': 90, 'pierce': 80, 'impact': 110, 'fire': 90, 'cold': 110, 'arcane': 80};
 	unit_dict["GiantScorpion"]["movement"] = 8;
 	unit_dict["GiantScorpion"]["experience"] = 50;
@@ -2983,6 +3162,7 @@ function createUnitDict() {
 	unit_dict["GiantScorpling"]["race"] = "monster";
 	unit_dict["GiantScorpling"]["image"] = "units/monsters/scorpion/scorpling.png";
 	unit_dict["GiantScorpling"]["hitpoints"] = 24;
+	unit_dict["GiantScorpling"]["movement_type"] = "scuttlefoot";
 	unit_dict["GiantScorpling"]["resistance"] = {'blade': 100, 'pierce': 90, 'impact': 110, 'fire': 90, 'cold': 110, 'arcane': 80};
 	unit_dict["GiantScorpling"]["movement"] = 6;
 	unit_dict["GiantScorpling"]["experience"] = 20;
@@ -3000,6 +3180,7 @@ function createUnitDict() {
 	unit_dict["GiantSpider"]["race"] = "monster";
 	unit_dict["GiantSpider"]["image"] = "units/monsters/spider.png";
 	unit_dict["GiantSpider"]["hitpoints"] = 54;
+	unit_dict["GiantSpider"]["movement_type"] = "mountainfoot";
 	unit_dict["GiantSpider"]["movement_costs"] = {'fungus': 2};
 	unit_dict["GiantSpider"]["movement"] = 6;
 	unit_dict["GiantSpider"]["experience"] = 150;
@@ -3018,6 +3199,7 @@ function createUnitDict() {
 	unit_dict["Jinn"]["traits"] = ['TRAIT_ELEMENTAL'];
 	unit_dict["Jinn"]["image"] = "units/monsters/jinn.png";
 	unit_dict["Jinn"]["hitpoints"] = 58;
+	unit_dict["Jinn"]["movement_type"] = "spirit";
 	unit_dict["Jinn"]["movement"] = 8;
 	unit_dict["Jinn"]["experience"] = 100;
 	unit_dict["Jinn"]["level"] = 2;
@@ -3035,6 +3217,7 @@ function createUnitDict() {
 	unit_dict["Mudcrawler"]["traits"] = ['TRAIT_ELEMENTAL'];
 	unit_dict["Mudcrawler"]["image"] = "units/monsters/mudcrawler.png";
 	unit_dict["Mudcrawler"]["hitpoints"] = 20;
+	unit_dict["Mudcrawler"]["movement_type"] = "scuttlefoot";
 	unit_dict["Mudcrawler"]["movement"] = 3;
 	unit_dict["Mudcrawler"]["experience"] = 18;
 	unit_dict["Mudcrawler"]["level"] = 0;
@@ -3055,6 +3238,7 @@ function createUnitDict() {
 	unit_dict["Roc"]["undead_variation"] = "gryphon";
 	unit_dict["Roc"]["image"] = "units/monsters/roc.png";
 	unit_dict["Roc"]["hitpoints"] = 44;
+	unit_dict["Roc"]["movement_type"] = "fly";
 	unit_dict["Roc"]["movement"] = 10;
 	unit_dict["Roc"]["experience"] = 100;
 	unit_dict["Roc"]["level"] = 2;
@@ -3071,6 +3255,7 @@ function createUnitDict() {
 	unit_dict["SeaSerpent"]["race"] = "monster";
 	unit_dict["SeaSerpent"]["image"] = "units/monsters/seaserpent.png";
 	unit_dict["SeaSerpent"]["hitpoints"] = 85;
+	unit_dict["SeaSerpent"]["movement_type"] = "deepsea";
 	unit_dict["SeaSerpent"]["resistance"] = {'arcane': 100};
 	unit_dict["SeaSerpent"]["movement"] = 8;
 	unit_dict["SeaSerpent"]["experience"] = 150;
@@ -3089,6 +3274,7 @@ function createUnitDict() {
 	unit_dict["SkeletalDragon"]["race"] = "undead";
 	unit_dict["SkeletalDragon"]["image"] = "units/monsters/skeletal-dragon/skeletal-dragon.png";
 	unit_dict["SkeletalDragon"]["hitpoints"] = 86;
+	unit_dict["SkeletalDragon"]["movement_type"] = "undeadfly";
 	unit_dict["SkeletalDragon"]["movement"] = 5;
 	unit_dict["SkeletalDragon"]["experience"] = 200;
 	unit_dict["SkeletalDragon"]["level"] = 4;
@@ -3105,6 +3291,7 @@ function createUnitDict() {
 	unit_dict["TentacleoftheDeep"]["race"] = "monster";
 	unit_dict["TentacleoftheDeep"]["image"] = "units/monsters/deep-tentacle.png~O(0)~BLIT(halo/ripples/ripple10.png~CROP(0,0,72,53),0,19)~BLIT(units/monsters/deep-tentacle.png)";
 	unit_dict["TentacleoftheDeep"]["hitpoints"] = 25;
+	unit_dict["TentacleoftheDeep"]["movement_type"] = "float";
 	unit_dict["TentacleoftheDeep"]["resistance"] = {'arcane': 100, 'blade': 120, 'cold': 40, 'impact': 70};
 	unit_dict["TentacleoftheDeep"]["movement"] = 2;
 	unit_dict["TentacleoftheDeep"]["experience"] = 50;
@@ -3125,6 +3312,7 @@ function createUnitDict() {
 	unit_dict["WaterSerpent"]["race"] = "monster";
 	unit_dict["WaterSerpent"]["image"] = "units/monsters/water-serpent.png";
 	unit_dict["WaterSerpent"]["hitpoints"] = 50;
+	unit_dict["WaterSerpent"]["movement_type"] = "naga";
 	unit_dict["WaterSerpent"]["resistance"] = {'arcane': 100};
 	unit_dict["WaterSerpent"]["movement"] = 7;
 	unit_dict["WaterSerpent"]["experience"] = 100;
@@ -3143,6 +3331,7 @@ function createUnitDict() {
 	unit_dict["WildWyvern"]["num_traits"] = 2;
 	unit_dict["WildWyvern"]["image"] = "units/monsters/wild-wyvern.png";
 	unit_dict["WildWyvern"]["hitpoints"] = 72;
+	unit_dict["WildWyvern"]["movement_type"] = "fly";
 	unit_dict["WildWyvern"]["movement"] = 8;
 	unit_dict["WildWyvern"]["experience"] = 150;
 	unit_dict["WildWyvern"]["level"] = 3;
@@ -3160,6 +3349,7 @@ function createUnitDict() {
 	unit_dict["Wolf"]["generate_name"] = false;
 	unit_dict["Wolf"]["image"] = "units/monsters/wolf.png";
 	unit_dict["Wolf"]["hitpoints"] = 32;
+	unit_dict["Wolf"]["movement_type"] = "orcishfoot";
 	unit_dict["Wolf"]["movement"] = 8;
 	unit_dict["Wolf"]["experience"] = 50;
 	unit_dict["Wolf"]["level"] = 1;
@@ -3177,6 +3367,7 @@ function createUnitDict() {
 	unit_dict["Direwolf"]["generate_name"] = false;
 	unit_dict["Direwolf"]["image"] = "units/monsters/direwolf.png";
 	unit_dict["Direwolf"]["hitpoints"] = 57;
+	unit_dict["Direwolf"]["movement_type"] = "orcishfoot";
 	unit_dict["Direwolf"]["movement"] = 10;
 	unit_dict["Direwolf"]["experience"] = 150;
 	unit_dict["Direwolf"]["level"] = 3;
@@ -3194,6 +3385,7 @@ function createUnitDict() {
 	unit_dict["GreatWolf"]["generate_name"] = false;
 	unit_dict["GreatWolf"]["image"] = "units/monsters/wolf-great.png";
 	unit_dict["GreatWolf"]["hitpoints"] = 45;
+	unit_dict["GreatWolf"]["movement_type"] = "orcishfoot";
 	unit_dict["GreatWolf"]["movement"] = 9;
 	unit_dict["GreatWolf"]["experience"] = 100;
 	unit_dict["GreatWolf"]["level"] = 2;
@@ -3211,6 +3403,7 @@ function createUnitDict() {
 	unit_dict["Yeti"]["race"] = "monster";
 	unit_dict["Yeti"]["image"] = "units/monsters/yeti.png";
 	unit_dict["Yeti"]["hitpoints"] = 142;
+	unit_dict["Yeti"]["movement_type"] = "largefoot";
 	unit_dict["Yeti"]["movement"] = 5;
 	unit_dict["Yeti"]["experience"] = 200;
 	unit_dict["Yeti"]["level"] = 4;
@@ -3231,6 +3424,7 @@ function createUnitDict() {
 	unit_dict["NagaDirkfang"]["gender"] = "male,female";
 	unit_dict["NagaDirkfang"]["image"] = "units/nagas/dirkfang.png";
 	unit_dict["NagaDirkfang"]["hitpoints"] = 31;
+	unit_dict["NagaDirkfang"]["movement_type"] = "naga";
 	unit_dict["NagaDirkfang"]["movement"] = 7;
 	unit_dict["NagaDirkfang"]["experience"] = 38;
 	unit_dict["NagaDirkfang"]["level"] = 1;
@@ -3248,6 +3442,7 @@ function createUnitDict() {
 	unit_dict["NagaFighter"]["gender"] = "male,female";
 	unit_dict["NagaFighter"]["image"] = "units/nagas/fighter.png";
 	unit_dict["NagaFighter"]["hitpoints"] = 33;
+	unit_dict["NagaFighter"]["movement_type"] = "naga";
 	unit_dict["NagaFighter"]["movement"] = 7;
 	unit_dict["NagaFighter"]["experience"] = 32;
 	unit_dict["NagaFighter"]["level"] = 1;
@@ -3265,6 +3460,7 @@ function createUnitDict() {
 	unit_dict["NagaMyrmidon"]["gender"] = "male,female";
 	unit_dict["NagaMyrmidon"]["image"] = "units/nagas/myrmidon.png";
 	unit_dict["NagaMyrmidon"]["hitpoints"] = 49;
+	unit_dict["NagaMyrmidon"]["movement_type"] = "naga";
 	unit_dict["NagaMyrmidon"]["movement"] = 7;
 	unit_dict["NagaMyrmidon"]["experience"] = 150;
 	unit_dict["NagaMyrmidon"]["level"] = 3;
@@ -3283,6 +3479,7 @@ function createUnitDict() {
 	unit_dict["NagaOphidian"]["gender"] = "male,female";
 	unit_dict["NagaOphidian"]["image"] = "units/nagas/ophidian.png";
 	unit_dict["NagaOphidian"]["hitpoints"] = 43;
+	unit_dict["NagaOphidian"]["movement_type"] = "naga";
 	unit_dict["NagaOphidian"]["movement"] = 7;
 	unit_dict["NagaOphidian"]["experience"] = 76;
 	unit_dict["NagaOphidian"]["level"] = 2;
@@ -3301,6 +3498,7 @@ function createUnitDict() {
 	unit_dict["NagaRingcaster"]["gender"] = "male,female";
 	unit_dict["NagaRingcaster"]["image"] = "units/nagas/ringcaster.png";
 	unit_dict["NagaRingcaster"]["hitpoints"] = 40;
+	unit_dict["NagaRingcaster"]["movement_type"] = "naga";
 	unit_dict["NagaRingcaster"]["movement"] = 7;
 	unit_dict["NagaRingcaster"]["experience"] = 70;
 	unit_dict["NagaRingcaster"]["level"] = 2;
@@ -3319,6 +3517,7 @@ function createUnitDict() {
 	unit_dict["NagaSicarius"]["gender"] = "male,female";
 	unit_dict["NagaSicarius"]["image"] = "units/nagas/sicarius.png";
 	unit_dict["NagaSicarius"]["hitpoints"] = 55;
+	unit_dict["NagaSicarius"]["movement_type"] = "naga";
 	unit_dict["NagaSicarius"]["movement"] = 7;
 	unit_dict["NagaSicarius"]["experience"] = 150;
 	unit_dict["NagaSicarius"]["level"] = 3;
@@ -3337,6 +3536,7 @@ function createUnitDict() {
 	unit_dict["NagaWarrior"]["gender"] = "male,female";
 	unit_dict["NagaWarrior"]["image"] = "units/nagas/warrior.png";
 	unit_dict["NagaWarrior"]["hitpoints"] = 43;
+	unit_dict["NagaWarrior"]["movement_type"] = "naga";
 	unit_dict["NagaWarrior"]["movement"] = 7;
 	unit_dict["NagaWarrior"]["experience"] = 66;
 	unit_dict["NagaWarrior"]["level"] = 2;
@@ -3355,6 +3555,7 @@ function createUnitDict() {
 	unit_dict["NagaZephyr"]["gender"] = "male,female";
 	unit_dict["NagaZephyr"]["image"] = "units/nagas/zephyr.png";
 	unit_dict["NagaZephyr"]["hitpoints"] = 53;
+	unit_dict["NagaZephyr"]["movement_type"] = "naga";
 	unit_dict["NagaZephyr"]["movement"] = 7;
 	unit_dict["NagaZephyr"]["experience"] = 150;
 	unit_dict["NagaZephyr"]["level"] = 3;
@@ -3372,6 +3573,7 @@ function createUnitDict() {
 	unit_dict["Ogre"]["race"] = "ogre";
 	unit_dict["Ogre"]["image"] = "units/ogres/ogre.png";
 	unit_dict["Ogre"]["hitpoints"] = 68;
+	unit_dict["Ogre"]["movement_type"] = "largefoot";
 	unit_dict["Ogre"]["resistance"] = {'arcane': 80};
 	unit_dict["Ogre"]["movement"] = 5;
 	unit_dict["Ogre"]["experience"] = 100;
@@ -3388,6 +3590,7 @@ function createUnitDict() {
 	unit_dict["YoungOgre"]["race"] = "ogre";
 	unit_dict["YoungOgre"]["image"] = "units/ogres/young-ogre.png";
 	unit_dict["YoungOgre"]["hitpoints"] = 42;
+	unit_dict["YoungOgre"]["movement_type"] = "largefoot";
 	unit_dict["YoungOgre"]["resistance"] = {'arcane': 80};
 	unit_dict["YoungOgre"]["movement"] = 5;
 	unit_dict["YoungOgre"]["experience"] = 32;
@@ -3404,6 +3607,7 @@ function createUnitDict() {
 	unit_dict["OrcishArcher"]["race"] = "orc";
 	unit_dict["OrcishArcher"]["image"] = "units/orcs/archer.png";
 	unit_dict["OrcishArcher"]["hitpoints"] = 32;
+	unit_dict["OrcishArcher"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishArcher"]["movement"] = 5;
 	unit_dict["OrcishArcher"]["experience"] = 30;
 	unit_dict["OrcishArcher"]["level"] = 1;
@@ -3419,6 +3623,7 @@ function createUnitDict() {
 	unit_dict["OrcishAssassin"]["race"] = "orc";
 	unit_dict["OrcishAssassin"]["image"] = "units/orcs/assassin.png";
 	unit_dict["OrcishAssassin"]["hitpoints"] = 26;
+	unit_dict["OrcishAssassin"]["movement_type"] = "elusivefoot";
 	unit_dict["OrcishAssassin"]["resistance"] = {'arcane': 100};
 	unit_dict["OrcishAssassin"]["movement"] = 6;
 	unit_dict["OrcishAssassin"]["experience"] = 34;
@@ -3436,6 +3641,7 @@ function createUnitDict() {
 	unit_dict["OrcishCrossbowman"]["race"] = "orc";
 	unit_dict["OrcishCrossbowman"]["image"] = "units/orcs/xbowman.png";
 	unit_dict["OrcishCrossbowman"]["hitpoints"] = 43;
+	unit_dict["OrcishCrossbowman"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishCrossbowman"]["movement"] = 5;
 	unit_dict["OrcishCrossbowman"]["experience"] = 80;
 	unit_dict["OrcishCrossbowman"]["level"] = 2;
@@ -3451,6 +3657,7 @@ function createUnitDict() {
 	unit_dict["OrcishGrunt"]["race"] = "orc";
 	unit_dict["OrcishGrunt"]["image"] = "units/orcs/grunt.png";
 	unit_dict["OrcishGrunt"]["hitpoints"] = 38;
+	unit_dict["OrcishGrunt"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishGrunt"]["movement"] = 5;
 	unit_dict["OrcishGrunt"]["experience"] = 42;
 	unit_dict["OrcishGrunt"]["level"] = 1;
@@ -3467,6 +3674,7 @@ function createUnitDict() {
 	unit_dict["OrcishLeader"]["race"] = "orc";
 	unit_dict["OrcishLeader"]["image"] = "units/orcs/leader.png";
 	unit_dict["OrcishLeader"]["hitpoints"] = 45;
+	unit_dict["OrcishLeader"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishLeader"]["movement"] = 6;
 	unit_dict["OrcishLeader"]["experience"] = 60;
 	unit_dict["OrcishLeader"]["level"] = 1;
@@ -3483,6 +3691,7 @@ function createUnitDict() {
 	unit_dict["OrcishNightblade"]["race"] = "orc";
 	unit_dict["OrcishNightblade"]["image"] = "units/orcs/nightblade.png";
 	unit_dict["OrcishNightblade"]["hitpoints"] = 48;
+	unit_dict["OrcishNightblade"]["movement_type"] = "elusivefoot";
 	unit_dict["OrcishNightblade"]["resistance"] = {'arcane': 100};
 	unit_dict["OrcishNightblade"]["movement"] = 6;
 	unit_dict["OrcishNightblade"]["experience"] = 150;
@@ -3499,6 +3708,7 @@ function createUnitDict() {
 	unit_dict["OrcishRuler"]["race"] = "orc";
 	unit_dict["OrcishRuler"]["image"] = "units/orcs/ruler.png";
 	unit_dict["OrcishRuler"]["hitpoints"] = 60;
+	unit_dict["OrcishRuler"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishRuler"]["movement"] = 6;
 	unit_dict["OrcishRuler"]["experience"] = 120;
 	unit_dict["OrcishRuler"]["level"] = 2;
@@ -3515,6 +3725,7 @@ function createUnitDict() {
 	unit_dict["OrcishSlayer"]["race"] = "orc";
 	unit_dict["OrcishSlayer"]["image"] = "units/orcs/slayer.png";
 	unit_dict["OrcishSlayer"]["hitpoints"] = 36;
+	unit_dict["OrcishSlayer"]["movement_type"] = "elusivefoot";
 	unit_dict["OrcishSlayer"]["resistance"] = {'arcane': 100};
 	unit_dict["OrcishSlayer"]["movement"] = 6;
 	unit_dict["OrcishSlayer"]["experience"] = 100;
@@ -3531,6 +3742,7 @@ function createUnitDict() {
 	unit_dict["OrcishSlurbow"]["race"] = "orc";
 	unit_dict["OrcishSlurbow"]["image"] = "units/orcs/slurbow.png";
 	unit_dict["OrcishSlurbow"]["hitpoints"] = 56;
+	unit_dict["OrcishSlurbow"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishSlurbow"]["movement"] = 5;
 	unit_dict["OrcishSlurbow"]["experience"] = 150;
 	unit_dict["OrcishSlurbow"]["level"] = 3;
@@ -3546,6 +3758,7 @@ function createUnitDict() {
 	unit_dict["OrcishSovereign"]["race"] = "orc";
 	unit_dict["OrcishSovereign"]["image"] = "units/orcs/sovereign.png";
 	unit_dict["OrcishSovereign"]["hitpoints"] = 75;
+	unit_dict["OrcishSovereign"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishSovereign"]["movement"] = 6;
 	unit_dict["OrcishSovereign"]["experience"] = 150;
 	unit_dict["OrcishSovereign"]["level"] = 3;
@@ -3562,6 +3775,7 @@ function createUnitDict() {
 	unit_dict["OrcishWarlord"]["race"] = "orc";
 	unit_dict["OrcishWarlord"]["image"] = "units/orcs/warlord.png";
 	unit_dict["OrcishWarlord"]["hitpoints"] = 78;
+	unit_dict["OrcishWarlord"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishWarlord"]["movement"] = 5;
 	unit_dict["OrcishWarlord"]["experience"] = 150;
 	unit_dict["OrcishWarlord"]["level"] = 3;
@@ -3577,6 +3791,7 @@ function createUnitDict() {
 	unit_dict["OrcishWarrior"]["race"] = "orc";
 	unit_dict["OrcishWarrior"]["image"] = "units/orcs/warrior.png";
 	unit_dict["OrcishWarrior"]["hitpoints"] = 58;
+	unit_dict["OrcishWarrior"]["movement_type"] = "orcishfoot";
 	unit_dict["OrcishWarrior"]["movement"] = 5;
 	unit_dict["OrcishWarrior"]["experience"] = 60;
 	unit_dict["OrcishWarrior"]["level"] = 2;
@@ -3593,6 +3808,7 @@ function createUnitDict() {
 	unit_dict["SaurianAmbusher"]["gender"] = "female";
 	unit_dict["SaurianAmbusher"]["image"] = "units/saurians/ambusher/ambusher.png";
 	unit_dict["SaurianAmbusher"]["hitpoints"] = 36;
+	unit_dict["SaurianAmbusher"]["movement_type"] = "lizard";
 	unit_dict["SaurianAmbusher"]["movement"] = 7;
 	unit_dict["SaurianAmbusher"]["experience"] = 55;
 	unit_dict["SaurianAmbusher"]["level"] = 2;
@@ -3609,6 +3825,7 @@ function createUnitDict() {
 	unit_dict["SaurianAugur"]["race"] = "lizard";
 	unit_dict["SaurianAugur"]["image"] = "units/saurians/augur/augur.png";
 	unit_dict["SaurianAugur"]["hitpoints"] = 22;
+	unit_dict["SaurianAugur"]["movement_type"] = "lizard";
 	unit_dict["SaurianAugur"]["movement"] = 6;
 	unit_dict["SaurianAugur"]["experience"] = 28;
 	unit_dict["SaurianAugur"]["level"] = 1;
@@ -3626,6 +3843,7 @@ function createUnitDict() {
 	unit_dict["SaurianFlanker"]["gender"] = "female";
 	unit_dict["SaurianFlanker"]["image"] = "units/saurians/flanker/flanker.png";
 	unit_dict["SaurianFlanker"]["hitpoints"] = 47;
+	unit_dict["SaurianFlanker"]["movement_type"] = "lizard";
 	unit_dict["SaurianFlanker"]["movement"] = 7;
 	unit_dict["SaurianFlanker"]["experience"] = 150;
 	unit_dict["SaurianFlanker"]["level"] = 3;
@@ -3642,6 +3860,7 @@ function createUnitDict() {
 	unit_dict["SaurianOracle"]["race"] = "lizard";
 	unit_dict["SaurianOracle"]["image"] = "units/saurians/oracle/oracle.png";
 	unit_dict["SaurianOracle"]["hitpoints"] = 29;
+	unit_dict["SaurianOracle"]["movement_type"] = "lizard";
 	unit_dict["SaurianOracle"]["movement"] = 6;
 	unit_dict["SaurianOracle"]["experience"] = 100;
 	unit_dict["SaurianOracle"]["level"] = 2;
@@ -3659,6 +3878,7 @@ function createUnitDict() {
 	unit_dict["SaurianSkirmisher"]["gender"] = "female";
 	unit_dict["SaurianSkirmisher"]["image"] = "units/saurians/skirmisher/skirmisher.png";
 	unit_dict["SaurianSkirmisher"]["hitpoints"] = 26;
+	unit_dict["SaurianSkirmisher"]["movement_type"] = "lizard";
 	unit_dict["SaurianSkirmisher"]["movement"] = 6;
 	unit_dict["SaurianSkirmisher"]["experience"] = 32;
 	unit_dict["SaurianSkirmisher"]["level"] = 1;
@@ -3675,6 +3895,7 @@ function createUnitDict() {
 	unit_dict["SaurianSoothsayer"]["race"] = "lizard";
 	unit_dict["SaurianSoothsayer"]["image"] = "units/saurians/soothsayer/soothsayer.png";
 	unit_dict["SaurianSoothsayer"]["hitpoints"] = 29;
+	unit_dict["SaurianSoothsayer"]["movement_type"] = "lizard";
 	unit_dict["SaurianSoothsayer"]["movement"] = 6;
 	unit_dict["SaurianSoothsayer"]["experience"] = 100;
 	unit_dict["SaurianSoothsayer"]["level"] = 2;
@@ -3691,6 +3912,7 @@ function createUnitDict() {
 	unit_dict["GreatTroll"]["race"] = "troll";
 	unit_dict["GreatTroll"]["image"] = "units/trolls/warrior.png";
 	unit_dict["GreatTroll"]["hitpoints"] = 80;
+	unit_dict["GreatTroll"]["movement_type"] = "largefoot";
 	unit_dict["GreatTroll"]["movement"] = 5;
 	unit_dict["GreatTroll"]["experience"] = 150;
 	unit_dict["GreatTroll"]["level"] = 3;
@@ -3707,6 +3929,7 @@ function createUnitDict() {
 	unit_dict["TrollHero"]["race"] = "troll";
 	unit_dict["TrollHero"]["image"] = "units/trolls/troll-hero.png";
 	unit_dict["TrollHero"]["hitpoints"] = 60;
+	unit_dict["TrollHero"]["movement_type"] = "largefoot";
 	unit_dict["TrollHero"]["movement"] = 5;
 	unit_dict["TrollHero"]["experience"] = 52;
 	unit_dict["TrollHero"]["level"] = 2;
@@ -3723,6 +3946,7 @@ function createUnitDict() {
 	unit_dict["TrollRocklobber"]["race"] = "troll";
 	unit_dict["TrollRocklobber"]["image"] = "units/trolls/lobber.png";
 	unit_dict["TrollRocklobber"]["hitpoints"] = 49;
+	unit_dict["TrollRocklobber"]["movement_type"] = "largefoot";
 	unit_dict["TrollRocklobber"]["movement"] = 5;
 	unit_dict["TrollRocklobber"]["experience"] = 100;
 	unit_dict["TrollRocklobber"]["level"] = 2;
@@ -3740,6 +3964,7 @@ function createUnitDict() {
 	unit_dict["Troll"]["race"] = "troll";
 	unit_dict["Troll"]["image"] = "units/trolls/grunt.png";
 	unit_dict["Troll"]["hitpoints"] = 55;
+	unit_dict["Troll"]["movement_type"] = "largefoot";
 	unit_dict["Troll"]["movement"] = 5;
 	unit_dict["Troll"]["experience"] = 66;
 	unit_dict["Troll"]["level"] = 2;
@@ -3757,6 +3982,7 @@ function createUnitDict() {
 	unit_dict["TrollShaman"]["image"] = "units/trolls/shaman.png";
 	unit_dict["TrollShaman"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
 	unit_dict["TrollShaman"]["hitpoints"] = 50;
+	unit_dict["TrollShaman"]["movement_type"] = "largefoot";
 	unit_dict["TrollShaman"]["resistance"] = {'pierce': 90};
 	unit_dict["TrollShaman"]["movement"] = 5;
 	unit_dict["TrollShaman"]["experience"] = 100;
@@ -3773,6 +3999,7 @@ function createUnitDict() {
 	unit_dict["TrollWarrior"]["race"] = "troll";
 	unit_dict["TrollWarrior"]["image"] = "units/trolls/warrior.png";
 	unit_dict["TrollWarrior"]["hitpoints"] = 70;
+	unit_dict["TrollWarrior"]["movement_type"] = "largefoot";
 	unit_dict["TrollWarrior"]["movement"] = 5;
 	unit_dict["TrollWarrior"]["experience"] = 150;
 	unit_dict["TrollWarrior"]["level"] = 3;
@@ -3789,6 +4016,7 @@ function createUnitDict() {
 	unit_dict["TrollWhelp"]["race"] = "troll";
 	unit_dict["TrollWhelp"]["image"] = "units/trolls/whelp.png";
 	unit_dict["TrollWhelp"]["hitpoints"] = 42;
+	unit_dict["TrollWhelp"]["movement_type"] = "largefoot";
 	unit_dict["TrollWhelp"]["movement"] = 4;
 	unit_dict["TrollWhelp"]["experience"] = 36;
 	unit_dict["TrollWhelp"]["level"] = 1;
@@ -3807,6 +4035,7 @@ function createUnitDict() {
 	unit_dict["Ghast"]["race"] = "undead";
 	unit_dict["Ghast"]["image"] = "units/undead/ghast.png";
 	unit_dict["Ghast"]["hitpoints"] = 65;
+	unit_dict["Ghast"]["movement_type"] = "gruefoot";
 	unit_dict["Ghast"]["movement"] = 5;
 	unit_dict["Ghast"]["experience"] = 150;
 	unit_dict["Ghast"]["level"] = 3;
@@ -3823,6 +4052,7 @@ function createUnitDict() {
 	unit_dict["Ghoul"]["race"] = "undead";
 	unit_dict["Ghoul"]["image"] = "units/undead/ghoul.png";
 	unit_dict["Ghoul"]["hitpoints"] = 33;
+	unit_dict["Ghoul"]["movement_type"] = "gruefoot";
 	unit_dict["Ghoul"]["movement"] = 5;
 	unit_dict["Ghoul"]["experience"] = 35;
 	unit_dict["Ghoul"]["level"] = 1;
@@ -3838,6 +4068,7 @@ function createUnitDict() {
 	unit_dict["Necrophage"]["race"] = "undead";
 	unit_dict["Necrophage"]["image"] = "units/undead/necrophage.png";
 	unit_dict["Necrophage"]["hitpoints"] = 47;
+	unit_dict["Necrophage"]["movement_type"] = "gruefoot";
 	unit_dict["Necrophage"]["movement"] = 5;
 	unit_dict["Necrophage"]["experience"] = 120;
 	unit_dict["Necrophage"]["level"] = 2;
@@ -3887,6 +4118,7 @@ function createUnitDict() {
 	unit_dict["Necromancer"]["race"] = "human";
 	unit_dict["Necromancer"]["image"] = "units/undead-necromancers/necromancer.png";
 	unit_dict["Necromancer"]["hitpoints"] = 70;
+	unit_dict["Necromancer"]["movement_type"] = "smallfoot";
 	unit_dict["Necromancer"]["movement"] = 5;
 	unit_dict["Necromancer"]["experience"] = 150;
 	unit_dict["Necromancer"]["level"] = 3;
@@ -3904,6 +4136,7 @@ function createUnitDict() {
 	unit_dict["AncientLich"]["race"] = "undead";
 	unit_dict["AncientLich"]["image"] = "units/undead-necromancers/ancient-lich.png";
 	unit_dict["AncientLich"]["hitpoints"] = 80;
+	unit_dict["AncientLich"]["movement_type"] = "undeadfoot";
 	unit_dict["AncientLich"]["movement"] = 6;
 	unit_dict["AncientLich"]["experience"] = 200;
 	unit_dict["AncientLich"]["level"] = 4;
@@ -3925,6 +4158,7 @@ function createUnitDict() {
 	unit_dict["DarkAdept"]["traits"] = ['TRAIT_QUICK', 'TRAIT_INTELLIGENT', 'TRAIT_RESILIENT'];
 	unit_dict["DarkAdept"]["image"] = "units/undead-necromancers/adept.png";
 	unit_dict["DarkAdept"]["hitpoints"] = 28;
+	unit_dict["DarkAdept"]["movement_type"] = "smallfoot";
 	unit_dict["DarkAdept"]["movement"] = 5;
 	unit_dict["DarkAdept"]["experience"] = 48;
 	unit_dict["DarkAdept"]["level"] = 1;
@@ -3944,6 +4178,7 @@ function createUnitDict() {
 	unit_dict["DarkSorcerer"]["race"] = "human";
 	unit_dict["DarkSorcerer"]["image"] = "units/undead-necromancers/dark-sorcerer.png";
 	unit_dict["DarkSorcerer"]["hitpoints"] = 48;
+	unit_dict["DarkSorcerer"]["movement_type"] = "smallfoot";
 	unit_dict["DarkSorcerer"]["movement"] = 5;
 	unit_dict["DarkSorcerer"]["experience"] = 90;
 	unit_dict["DarkSorcerer"]["level"] = 2;
@@ -3961,6 +4196,7 @@ function createUnitDict() {
 	unit_dict["Lich"]["race"] = "undead";
 	unit_dict["Lich"]["image"] = "units/undead-necromancers/lich.png";
 	unit_dict["Lich"]["hitpoints"] = 60;
+	unit_dict["Lich"]["movement_type"] = "undeadfoot";
 	unit_dict["Lich"]["resistance"] = {'arcane': 140};
 	unit_dict["Lich"]["movement"] = 6;
 	unit_dict["Lich"]["experience"] = 150;
@@ -3980,6 +4216,7 @@ function createUnitDict() {
 	unit_dict["Skeleton"]["race"] = "undead";
 	unit_dict["Skeleton"]["image"] = "units/undead-skeletal/skeleton/skeleton.png";
 	unit_dict["Skeleton"]["hitpoints"] = 34;
+	unit_dict["Skeleton"]["movement_type"] = "undeadfoot";
 	unit_dict["Skeleton"]["movement"] = 5;
 	unit_dict["Skeleton"]["experience"] = 35;
 	unit_dict["Skeleton"]["level"] = 1;
@@ -3999,6 +4236,7 @@ function createUnitDict() {
 	unit_dict["SkeletonArcher"]["race"] = "undead";
 	unit_dict["SkeletonArcher"]["image"] = "units/undead-skeletal/archer/archer.png";
 	unit_dict["SkeletonArcher"]["hitpoints"] = 31;
+	unit_dict["SkeletonArcher"]["movement_type"] = "undeadfoot";
 	unit_dict["SkeletonArcher"]["movement"] = 5;
 	unit_dict["SkeletonArcher"]["experience"] = 35;
 	unit_dict["SkeletonArcher"]["level"] = 1;
@@ -4018,6 +4256,7 @@ function createUnitDict() {
 	unit_dict["Banebow"]["race"] = "undead";
 	unit_dict["Banebow"]["image"] = "units/undead-skeletal/banebow.png";
 	unit_dict["Banebow"]["hitpoints"] = 50;
+	unit_dict["Banebow"]["movement_type"] = "undeadfoot";
 	unit_dict["Banebow"]["movement"] = 5;
 	unit_dict["Banebow"]["experience"] = 150;
 	unit_dict["Banebow"]["level"] = 3;
@@ -4035,6 +4274,7 @@ function createUnitDict() {
 	unit_dict["BoneShooter"]["race"] = "undead";
 	unit_dict["BoneShooter"]["image"] = "units/undead-skeletal/bone-shooter.png";
 	unit_dict["BoneShooter"]["hitpoints"] = 40;
+	unit_dict["BoneShooter"]["movement_type"] = "undeadfoot";
 	unit_dict["BoneShooter"]["movement"] = 5;
 	unit_dict["BoneShooter"]["experience"] = 80;
 	unit_dict["BoneShooter"]["level"] = 2;
@@ -4052,6 +4292,7 @@ function createUnitDict() {
 	unit_dict["Chocobone"]["race"] = "undead";
 	unit_dict["Chocobone"]["image"] = "units/undead-skeletal/chocobone.png";
 	unit_dict["Chocobone"]["hitpoints"] = 45;
+	unit_dict["Chocobone"]["movement_type"] = "undeadfoot";
 	unit_dict["Chocobone"]["defense"] = {'hills': 60, 'mountains': 50, 'fungus': 60, 'forest': -70, 'village': 60};
 	unit_dict["Chocobone"]["resistance"] = {'blade': 80};
 	unit_dict["Chocobone"]["movement"] = 9;
@@ -4070,6 +4311,7 @@ function createUnitDict() {
 	unit_dict["Deathblade"]["race"] = "undead";
 	unit_dict["Deathblade"]["image"] = "units/undead-skeletal/deathblade.png";
 	unit_dict["Deathblade"]["hitpoints"] = 39;
+	unit_dict["Deathblade"]["movement_type"] = "undeadfoot";
 	unit_dict["Deathblade"]["movement"] = 6;
 	unit_dict["Deathblade"]["experience"] = 100;
 	unit_dict["Deathblade"]["level"] = 2;
@@ -4089,6 +4331,7 @@ function createUnitDict() {
 	unit_dict["DeathKnight"]["race"] = "undead";
 	unit_dict["DeathKnight"]["image"] = "units/undead-skeletal/deathknight.png";
 	unit_dict["DeathKnight"]["hitpoints"] = 63;
+	unit_dict["DeathKnight"]["movement_type"] = "undeadfoot";
 	unit_dict["DeathKnight"]["resistance"] = {'blade': 60, 'impact': 120, 'pierce': 40};
 	unit_dict["DeathKnight"]["movement"] = 5;
 	unit_dict["DeathKnight"]["experience"] = 150;
@@ -4106,6 +4349,7 @@ function createUnitDict() {
 	unit_dict["Draug"]["race"] = "undead";
 	unit_dict["Draug"]["image"] = "units/undead-skeletal/draug.png";
 	unit_dict["Draug"]["hitpoints"] = 68;
+	unit_dict["Draug"]["movement_type"] = "undeadfoot";
 	unit_dict["Draug"]["movement"] = 5;
 	unit_dict["Draug"]["experience"] = 150;
 	unit_dict["Draug"]["level"] = 3;
@@ -4123,6 +4367,7 @@ function createUnitDict() {
 	unit_dict["Revenant"]["race"] = "undead";
 	unit_dict["Revenant"]["image"] = "units/undead-skeletal/revenant/revenant.png";
 	unit_dict["Revenant"]["hitpoints"] = 47;
+	unit_dict["Revenant"]["movement_type"] = "undeadfoot";
 	unit_dict["Revenant"]["movement"] = 5;
 	unit_dict["Revenant"]["experience"] = 85;
 	unit_dict["Revenant"]["level"] = 2;
@@ -4142,6 +4387,7 @@ function createUnitDict() {
 	unit_dict["Ghost"]["race"] = "undead";
 	unit_dict["Ghost"]["image"] = "units/undead/ghost-s-2.png";
 	unit_dict["Ghost"]["hitpoints"] = 18;
+	unit_dict["Ghost"]["movement_type"] = "undeadspirit";
 	unit_dict["Ghost"]["movement"] = 7;
 	unit_dict["Ghost"]["experience"] = 30;
 	unit_dict["Ghost"]["level"] = 1;
@@ -4158,6 +4404,7 @@ function createUnitDict() {
 	unit_dict["Nightgaunt"]["race"] = "undead";
 	unit_dict["Nightgaunt"]["image"] = "units/undead/nightgaunt.png";
 	unit_dict["Nightgaunt"]["hitpoints"] = 35;
+	unit_dict["Nightgaunt"]["movement_type"] = "undeadspirit";
 	unit_dict["Nightgaunt"]["movement"] = 7;
 	unit_dict["Nightgaunt"]["experience"] = 150;
 	unit_dict["Nightgaunt"]["level"] = 3;
@@ -4175,6 +4422,7 @@ function createUnitDict() {
 	unit_dict["Shadow"]["race"] = "undead";
 	unit_dict["Shadow"]["image"] = "units/undead/shadow-s-2.png";
 	unit_dict["Shadow"]["hitpoints"] = 24;
+	unit_dict["Shadow"]["movement_type"] = "undeadspirit";
 	unit_dict["Shadow"]["movement"] = 7;
 	unit_dict["Shadow"]["experience"] = 100;
 	unit_dict["Shadow"]["level"] = 2;
@@ -4192,6 +4440,7 @@ function createUnitDict() {
 	unit_dict["Spectre"]["race"] = "undead";
 	unit_dict["Spectre"]["image"] = "units/undead/spectre.png";
 	unit_dict["Spectre"]["hitpoints"] = 33;
+	unit_dict["Spectre"]["movement_type"] = "undeadspirit";
 	unit_dict["Spectre"]["movement"] = 7;
 	unit_dict["Spectre"]["experience"] = 150;
 	unit_dict["Spectre"]["level"] = 3;
@@ -4207,6 +4456,7 @@ function createUnitDict() {
 	unit_dict["Wraith"]["race"] = "undead";
 	unit_dict["Wraith"]["image"] = "units/undead/wraith-s.png";
 	unit_dict["Wraith"]["hitpoints"] = 25;
+	unit_dict["Wraith"]["movement_type"] = "undeadspirit";
 	unit_dict["Wraith"]["movement"] = 7;
 	unit_dict["Wraith"]["experience"] = 100;
 	unit_dict["Wraith"]["level"] = 2;
@@ -4223,6 +4473,7 @@ function createUnitDict() {
 	unit_dict["AncientWose"]["race"] = "wose";
 	unit_dict["AncientWose"]["image"] = "units/woses/wose-ancient.png";
 	unit_dict["AncientWose"]["hitpoints"] = 80;
+	unit_dict["AncientWose"]["movement_type"] = "treefolk";
 	unit_dict["AncientWose"]["movement"] = 4;
 	unit_dict["AncientWose"]["experience"] = 150;
 	unit_dict["AncientWose"]["level"] = 3;
@@ -4240,6 +4491,7 @@ function createUnitDict() {
 	unit_dict["ElderWose"]["race"] = "wose";
 	unit_dict["ElderWose"]["image"] = "units/woses/wose-elder.png";
 	unit_dict["ElderWose"]["hitpoints"] = 64;
+	unit_dict["ElderWose"]["movement_type"] = "treefolk";
 	unit_dict["ElderWose"]["movement"] = 4;
 	unit_dict["ElderWose"]["experience"] = 100;
 	unit_dict["ElderWose"]["level"] = 2;
@@ -4257,6 +4509,7 @@ function createUnitDict() {
 	unit_dict["Wose"]["race"] = "wose";
 	unit_dict["Wose"]["image"] = "units/woses/wose.png";
 	unit_dict["Wose"]["hitpoints"] = 52;
+	unit_dict["Wose"]["movement_type"] = "treefolk";
 	unit_dict["Wose"]["movement"] = 4;
 	unit_dict["Wose"]["experience"] = 40;
 	unit_dict["Wose"]["level"] = 1;
@@ -4274,6 +4527,7 @@ function createUnitDict() {
 	unit_dict["WoseSapling"]["race"] = "wose";
 	unit_dict["WoseSapling"]["image"] = "units/woses/wose-sapling.png";
 	unit_dict["WoseSapling"]["hitpoints"] = 26;
+	unit_dict["WoseSapling"]["movement_type"] = "treefolk";
 	unit_dict["WoseSapling"]["movement"] = 4;
 	unit_dict["WoseSapling"]["experience"] = 25;
 	unit_dict["WoseSapling"]["level"] = 0;
@@ -4291,6 +4545,7 @@ function createUnitDict() {
 	unit_dict["WoseShaman"]["image"] = "units/woses/wose-shaman.png";
 	unit_dict["WoseShaman"]["abilities"] = {'ability': ['ABILITY_AMBUSH', 'ABILITY_REGENERATES']};
 	unit_dict["WoseShaman"]["hitpoints"] = 50;
+	unit_dict["WoseShaman"]["movement_type"] = "treefolk";
 	unit_dict["WoseShaman"]["movement"] = 3;
 	unit_dict["WoseShaman"]["experience"] = 100;
 	unit_dict["WoseShaman"]["level"] = 2;

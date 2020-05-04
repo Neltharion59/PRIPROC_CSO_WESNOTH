@@ -166,5 +166,8 @@ function ContainsCoordinate_(array, coord) {
     return false;
 }
 function EqualsCoordinate_(coord1, coord2) {
+    if(coord1 == null || coord2 == null){
+        return false;
+    } 
     return coord1[0] == coord2[0] && coord1[1] == coord2[1];
 }
