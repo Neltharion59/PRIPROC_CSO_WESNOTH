@@ -7,7 +7,7 @@ window.onload = function() {
      var map = MapToGrid(mapDict[mapName]);
      var starting_positions = extractStartingPositions(map);
      removeStartingPositions(map);
-     
+
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
      console.log(map);
      var race_dict = createRaceDict();
@@ -17,8 +17,6 @@ window.onload = function() {
      const image_path_prefix_terrain = "images/terrain/";
      const image_path_prefix_units = "images/";
      const image_path_postfix = ".png";
-
-    // console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map));
 
      var sides_dict = createSidesDict();
      var sides_list = [];
@@ -31,7 +29,12 @@ window.onload = function() {
      var playerQueue = new Queue();
      var UniqueSides = [];
      for(var i = 0; i < starting_positions.length; i++) {
-          var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)]};
+          var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)], "gold":100};
+          if(i == 0) {
+               player["AI"] = false;
+          } else {
+               player["AI"] = true;
+          }
           var leader = {
                "is_leader": true,
                "type": sides_dict[player["side"]]["leader"][Math.floor(Math.random() * sides_dict[player["side"]]["leader"].length)]
@@ -52,6 +55,7 @@ window.onload = function() {
      }
      playerQueue.shift = function(){ var temp = this.dequeue(); this.enqueue(temp);};
 
+
      var hexagonWidth = 280;
 	var hexagonHeight = 280;
      //var gridSizeX = map[0].length;
@@ -65,7 +69,30 @@ window.onload = function() {
      var gradient = (hexagonWidth/4)/(hexagonHeight/2);
      var marker;
      var hexagonGroup;
-     var hexagons = Create2DArray(gridSizeX, gridSizeY/2);
+     var hexagons = Create2DArray(gridSizeX, gridSizeY);
+
+     var unitMatrix = Create2DArray(gridSizeX, gridSizeY);
+     for(var i = 0; i < unitMatrix.length; i++) {
+          for(var j = 0; j < unitMatrix[i].length; j++) {
+               unitMatrix[i][j] = null;
+          }
+     }
+     var hireMatrix = Create2DArray(gridSizeX, gridSizeY);
+     for(var i = 0; i < hireMatrix.length; i++) {
+          for(var j = 0; j < hireMatrix[i].length; j++) {
+               hireMatrix[i][j] = null;
+          }
+     }
+     for(var i = 0; i < starting_positions.length; i++) {
+          hireMatrix[starting_positions[i][0]][starting_positions[i][1]] = findSurroundingHireToFields(starting_positions[i], map, terrain_dict);
+     }
+     console.log(hireMatrix);
+
+    // console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map, unitMatrix, playerQueue.peek["id"]));
+
+
+     var humanMoving = false;
+     var gameOver = false;
 
 	function onPreload() {
           game.load.image("marker", "images/marker.png");
@@ -130,6 +157,7 @@ window.onload = function() {
                var image = unit_dict[current_player["units"][0]["type"]]["image"];
                var x = current_player["units"][0]["x"];
                var y = current_player["units"][0]["y"];
+               unitMatrix[x][y] = current_player["units"][0];
 
                var unit = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY,image);
                unit.scale.setTo(4,4);
@@ -153,7 +181,118 @@ window.onload = function() {
 		hexagonGroup.add(marker);
           moveIndex = game.input.addMoveCallback(placeMarker, this);
 
+          playGame();
 	}
+
+     function playGame() {
+          if(gameOver) {
+               return;
+          }
+
+          gameOver = (playerQueue.getLength() > 1);
+
+          while(nextTurn() && !gameOver) {
+               gameOver = (playerQueue.getLength() > 1);
+          }
+     }
+
+     function nextTurn() {
+          recruit();
+          
+          if(playerQueue.peek()["AI"]) {
+               var movements = calculateMoveOrders();
+               performMoving(movements);
+               playerQueue.shift();
+               return true;
+          } else {
+               humanMoving = true;
+               return false;
+          }
+     }
+
+     function clickEndTurn() {
+          if(!humanMoving) {
+               return;
+          }
+
+          humanMoving = false;
+          playerQueue.shift();
+
+          playGame();
+     }
+
+     function recruit() {
+
+          var leader = null;
+          for(var i = 0; i<playerQueue.peek()["units"].length; i++)
+          {
+               console.log("checking unit " + i);
+               if(playerQueue.peek()["units"][i]["is_leader"]) {
+                    leader = playerQueue.peek()["units"][i];
+                    console.log("found leader");
+                    break;
+               }
+          }
+
+          if(leader == null) {
+               return;
+          }
+
+          hire_positions = null;
+          for(var i = 0; i<starting_positions.length; i++)
+          {
+               if(leader["x"] == starting_positions[i][0] && leader["y"] == starting_positions[i][1]) {
+                    hire_positions = hireMatrix[leader["x"]][leader["y"]];
+                    break;
+               }
+          }
+
+          if(hire_positions == null) {
+               return;
+          }
+
+          for(var i = hire_positions.length - 1; i >= 0; i--)
+          {
+               if(unitMatrix[hire_positions[i][0]][hire_positions[i][1]] != null) {
+                    hire_positions.splice(i, 1);
+               }
+          }
+
+          for(var i = 0; i < hire_positions.length; i++) {
+
+               var possible_to_hire = sides_dict[playerQueue.peek()["side"]][["recruit"]];
+               for(var j = possible_to_hire.length - 1; j >= 0; j--)
+               {
+                    if(unit_dict[possible_to_hire[j]]["cost"] > playerQueue.peek()["gold"]) {
+                         possible_to_hire.splice(j, 1);
+                    }
+               }
+
+               var hireType = possible_to_hire[Math.floor(Math.random() * possible_to_hire.length)];
+
+               //We know what type unit we want to hire and where to place it
+               var x = hire_positions[i][0];
+               var y = hire_positions[i][1];
+               var unit = {
+                    "is_leader": false,
+                    "type": hireType,
+                    "hp": unit_dict[hireType]["hitpoints"],
+                    "xp": 0,
+                    "x": x,
+                    "y": y,
+                    "player_id": playerQueue.peek()["id"]
+               };
+               unitMatrix[x, y] = unit;
+               playerQueue.peek()["units"].push(unit);
+               playerQueue.peek()["gold"] -= unit_dict[hireType]["cost"];
+
+               //Visual
+               var unit_sprite = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY, unit_dict[hireType]["image"]);
+               unit_sprite.scale.setTo(4,4);
+               hexagonGroup.add(unit_sprite);
+               hexagons[x][y].unit = unit_sprite;
+          }
+     }
 
      function checkHex(){
           var candidateX = Math.floor((game.input.worldX-hexagonGroup.x)/sectorWidth);
@@ -169,7 +308,7 @@ window.onload = function() {
                     candidateX--;
                }
           }    
-          else{
+          else {
                if(deltaY>=hexagonHeight/2){
                     if(deltaX<(hexagonWidth/2-deltaY*gradient)){
                          candidateX--;

@@ -100,3 +100,71 @@ function removeStartingPositions(map) {
         }
     }
 }
+
+function findSurroundingHireToFields(coordinates, map, terrain_dict) {
+    result = [];
+    previously_found = [coordinates];
+
+    while(previously_found.length > 0) {
+        currently_found = [];
+
+        for(var i = 0; i < previously_found.length; i++) {
+            if(previously_found[i][1] % 2 == 0) {
+                PotentialMoves = [[-1, 0], [-1, -1], [-1, 1], [0, -1], [0, 1], [1, 0]];
+            } else {
+                PotentialMoves = [[-1, 0], [0, -1], [0, 1], [1, -1], [1, 1], [1, 0]];
+            }
+
+            for(var j = 0; j < PotentialMoves.length; j++) {
+                var candidate = AddCoordinates_(previously_found[i], PotentialMoves[j]);
+
+                if(EqualsCoordinate_(coordinates, candidate))
+                {
+                    continue;
+                }
+
+                if(candidate[0] < 0 || candidate[0] >= map.length || candidate[1] < 0 || candidate[1] >= map[0].length) {
+                    continue;
+                }
+
+                if(!terrain_dict[map[candidate[0]][candidate[1]]]["recruit_onto"]) {
+                    continue;
+                }
+
+                if(ContainsCoordinate_(result, candidate) || ContainsCoordinate_(previously_found, candidate) || ContainsCoordinate_(currently_found, candidate)) {
+                    continue;
+                }
+
+                currently_found.push(candidate);
+            }
+        }
+
+        for(var i = 0; i < previously_found.length; i++) {
+
+            if(EqualsCoordinate_(coordinates, previously_found[i]))
+            {
+                continue;
+            }
+
+            result.push(previously_found[i]);
+        }
+
+        previously_found = currently_found;
+    }
+
+    return result;
+}
+function AddCoordinates_(coord1, coord2) {
+    return [coord1[0] + coord2[0], coord1[1] + coord2[1]];
+}
+function ContainsCoordinate_(array, coord) {
+    for(var i = 0; i < array.length; i++) {
+        if(EqualsCoordinate_(coord, array[i])){
+            return true;
+        }
+    }
+    return false;
+}
+function EqualsCoordinate_(coord1, coord2) {
+    return coord1[0] == coord2[0] && coord1[1] == coord2[1];
+}

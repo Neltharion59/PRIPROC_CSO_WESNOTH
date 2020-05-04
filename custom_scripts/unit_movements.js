@@ -1,7 +1,7 @@
-function GetPossibleMovements(unit_x, unit_y, unit_movement_points, unit_movement_cost_dict, terrain_dict, battle_grid) {
+function GetPossibleMovements(unit_x, unit_y, unit_movement_points, unit_movement_cost_dict, terrain_dict, battle_grid, unitMatrix, player_id) {
     result = [];
     currently_found = [];
-    previously_found = [{"coords":[unit_x, unit_y], "remaining_movement":unit_movement_points, "previous": null}];
+    previously_found = [{"coords":[unit_x, unit_y], "remaining_movement":unit_movement_points, "previous": null, "is_attack": false}];
 
     while(previously_found.length > 0) {
         for (var i = 0; i < previously_found.length; i++) {
@@ -9,7 +9,7 @@ function GetPossibleMovements(unit_x, unit_y, unit_movement_points, unit_movemen
                 continue;
             }
 
-            var neighbours = ProduceNeighbours(previously_found[i], unit_movement_cost_dict, terrain_dict, battle_grid);
+            var neighbours = ProduceNeighbours(previously_found[i], unit_movement_cost_dict, terrain_dict, battle_grid, unitMatrix, player_id);
             //console.log("neighbours:");
             //console.log(neighbours);
             for (var j = 0; j < neighbours.length; j++) {
@@ -50,37 +50,56 @@ function ContainsCoordinate(array, coordinate) {
     };
     return Result;
 }
-function ProduceNeighbours(node, unit_movement_cost_dict, terrain_dict, battle_grid) {
+function ProduceNeighbours(node, unit_movement_cost_dict, terrain_dict, battle_grid, unitMatrix, player_id) {
     var Result = [];
-    var PotentialMoves = [];
-    if(node["coords"][1] % 2 == 0) {
-        PotentialMoves = [[-1, 0], [-1, -1], [-1, 1], [0, -1], [0, 1], [1, 0]];
-    } else {
-        PotentialMoves = [[-1, 0], [0, -1], [0, 1], [1, -1], [1, 1], [1, 0]];
-    }
 
-    PotentialMoves.forEach(element => {
-        var new_node = {"coords":AddCoordinates(element, node["coords"])};
-        
-        if(
-            new_node["coords"][0] >= 0 && new_node["coords"][1] >= 0 && new_node["coords"][0] < battle_grid.length && new_node["coords"][1] < battle_grid[0].length
-        ) {
-           // console.log("within battlefield");
-            var move_cost = CalculateMoveCost(unit_movement_cost_dict, terrain_dict, battle_grid[new_node["coords"][0]][new_node["coords"][1]]);
-            //console.log(battle_grid[new_node["coords"][0]][new_node["coords"][1]]);
-            //console.log(move_cost);
-            if(move_cost > 0 && ((node["remaining_movement"] - move_cost) >= 0)) {
-                //console.log("can move");
-                new_node["remaining_movement"] = node["remaining_movement"] - move_cost;
-                new_node["previous"] = node;
-                Result.push(new_node);
-            } else {
-                //console.log("cannot move");
-            }
+    if(!node["is_attack"])
+    {
+        var PotentialMoves = [];
+
+        if(node["coords"][1] % 2 == 0) {
+            PotentialMoves = [[-1, 0], [-1, -1], [-1, 1], [0, -1], [0, 1], [1, 0]];
         } else {
-            //console.log("outside battlefield");
+            PotentialMoves = [[-1, 0], [0, -1], [0, 1], [1, -1], [1, 1], [1, 0]];
         }
-    });
+
+        PotentialMoves.forEach(element => {
+            var new_node = {"coords":AddCoordinates(element, node["coords"]), "is_attack": false};
+
+            if(
+                new_node["coords"][0] >= 0
+                && new_node["coords"][1] >= 0
+                && new_node["coords"][0] < battle_grid.length
+                && new_node["coords"][1] < battle_grid[0].length
+                
+            ) {
+                if(unitMatrix[new_node["coords"][0]][new_node["coords"][1]] != null) {
+                    
+                    if(unitMatrix[new_node["coords"][0]][new_node["coords"][1]]["player_id"] != player_id) {
+                        new_node["is_attack"] = true;
+                        Result.push(new_node);
+                    }
+
+                }
+                else {
+                    var move_cost = CalculateMoveCost(unit_movement_cost_dict, terrain_dict, battle_grid[new_node["coords"][0]][new_node["coords"][1]]);
+                    //console.log(battle_grid[new_node["coords"][0]][new_node["coords"][1]]);
+                    //console.log(move_cost);
+                    if(move_cost > 0 && ((node["remaining_movement"] - move_cost) >= 0)) {
+                        //console.log("can move");
+                        new_node["remaining_movement"] = node["remaining_movement"] - move_cost;
+                        new_node["previous"] = node;
+                        Result.push(new_node);
+                    } else {
+                        //console.log("cannot move");
+                    }
+                }
+                
+            } else {
+                //console.log("outside battlefield");
+            }
+        });
+    }
 
     return Result;
 }
@@ -95,6 +114,7 @@ function CalculateMoveCost(unit_movement_cost_dict, terrain_dict, terrain_descri
 
         return 0;
     }*/
+
     if(!(terrain_description in terrain_dict)) {
 
         return 0;
