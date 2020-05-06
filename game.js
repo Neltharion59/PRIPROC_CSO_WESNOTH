@@ -264,9 +264,11 @@ window.onload = function() {
                var movements = calculateMoveOrders();
                //console.log(movements);
                performMoving(movements);
+               playerQueue.peek()["units"].filter(Boolean);
 
                recruit();
                playerQueue.shift();
+               playerQueue.peek()["units"].filter(Boolean);
                return true;
           } else {
                recruit();
@@ -459,33 +461,110 @@ window.onload = function() {
      
           var attacker_attack = unit_dict[unitMatrix[atk_x][atk_y]["type"]]["attack"][atk_id];
           
-
           var attacker_dmg = attacker_attack["damage"];
           var attacker_attack_type = attacker_attack["type"];
           var attacker_terrain_bonus = movement_type_dict[unit_dict[unitMatrix[atk_x][atk_y]["type"]]["movement_type"]]["defense"][terrain_dict[map[atk_x][atk_y]]["name"]];
           var attacker_atk_count = attacker_attack["count"];
           
           var defender_terrain_bonus = movement_type_dict[unit_dict[unitMatrix[def_x][def_y]["type"]]["movement_type"]]["defense"][terrain_dict[map[def_x][def_y]]["name"]];
-          var defender_attack;
-          var defender_dmg;
-          var defender_atk_count;
           
+          var possible_defender_attacks = [];
+          for(var i = 0; i < unit_dict[unitMatrix[atk_x][atk_y]["type"]]["attack"].length; i++) {
+               if(attacker_attack["range"] == unit_dict[unitMatrix[atk_x][atk_y]["type"]]["attack"][i]["range"]) {
+                    possible_defender_attacks.push(unit_dict[unitMatrix[atk_x][atk_y]["type"]]["attack"][i]);
+               }
+          }
+          var best_index = -1;
+          var best_value = 0;
+          for(var i = 0; i < possible_defender_attacks.length; i++) {
+               var current_value = possible_defender_attacks[i]["damage"] * getResistance(unit_dict[unitMatrix[atk_x][atk_y]["type"]], possible_defender_attacks[i]["type"]) / 100 * possible_defender_attacks[i]["count"];
+               current_value = Math.floor(current_value);
+               if(current_value > best_value) {
+                    best_value = current_value;
+                    best_index = i;
+               }
+          }
+
+          
+          var defender_attack = 0;
+          var defender_dmg = 0;
+          var defender_atk_count = 0;
+          var defender_atk_type = null;    
+          if(best_index != -1) {
+               defender_attack = possible_defender_attacks[best_index];
+               defender_dmg = defender_attack["damage"];
+               defender_atk_count = defender_attack["count"];
+               defender_atk_type = defender_attack["type"];
+          }
+
+
+          var attacker_resistance = getResistance(unit_dict[unitMatrix[atk_x][atk_y]["type"]], defender_atk_type);
+          var defender_resistance = getResistance(unit_dict[unitMatrix[def_x][def_y]["type"]], attacker_atk_type);
+
+          var attacker_final_dmg = Math.floor(attacker_dmg * defender_resistance / 100);
+          var defender_final_dmg = Math.floor(defender_dmg * attacker_resistance / 100);
+
           var attacker_hit_chance = defender_terrain_bonus;
           var defender_hit_chance = attacker_terrain_bonus;
 
-          var attacker_final_dmg;
-          var defender_final_dmg;
-
           while(defender_atk_count > 0 && attacker_atk_count > 0) {
                if(attacker_atk_count > 0) {
+                    var hit_target = Math.random() < attacker_hit_chance / 100;
+
+                    if(hit_target) {
+                         unitMatrix[def_x][def_y]["hp"] -= attacker_final_dmg;
+                    }
+
                     --attacker_atk_count;
                }
 
+               if(tryKillUnit(def_x, def_y)) {
+                    break;
+               }
+
                if(defender_atk_count > 0) {
+                    var hit_target = Math.random() < defender_hit_chance / 100;
+
+                    if(hit_target) {
+                         unitMatrix[atk_x][atk_y]["hp"] -= defender_final_dmg;
+                    }
+
                     --defender_atk_count;
+               }
+
+               if(tryKillUnit(atk_x, atk_y)) {
+                    break;
                }
           }
         
+     }
+     function tryKillUnit(x, y) {
+          if(unitMatrix[dx][y]["hp"] <= 0) {
+               var hexagon = hexagons[x][y];
+
+               hexagon.unit.destroy();
+               hexagon.unit = null;
+               clearText(hexagon);
+               
+               unitMatrix[x][y] = null;
+               for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
+                    if(playerQueue.peek()["units"][i]["x"] == x && playerQueue.peek()["units"][i]["y"] == y) {
+                         playerQueue.peek()["units"][i] = null;
+                         break;
+                    }
+               }
+               
+               return true;
+          }
+          return false;
+     }
+
+     function getResistance(attacked_unit_dict, atk_type) {
+          var result = 100;
+          if(atk_type in movement_type_dict[attacked_unit_dict["movement_type"]]["resistance"]) {
+               result = movement_type_dict[attacked_unit_dict["movement_type"]]["resistance"][atk_type];
+          }
+          return result;
      }
 
      function clearText(hexagon) {

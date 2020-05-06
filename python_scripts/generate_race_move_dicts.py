@@ -130,10 +130,12 @@ del superdict['movetype']
 known_terrain_types = ["mountains", "flat", "forest", "hills", "village", "shallow_water", "castle", "deep_water", "swamp_water"]
 
 for movement_type in movedict:
-    if "deep_water" not in movedict[movement_type] and "defense" in movedict[movement_type]:
+    if "defense" in movedict[movement_type] and "deep_water" not in movedict[movement_type]["defense"]:
         movedict[movement_type]["defense"]["deep_water"] = "100"
-    if "mountains" not in movedict[movement_type] and "defense" in movedict[movement_type]:
+    if "defense" in movedict[movement_type] and "mountains" not in movedict[movement_type]["defense"]:
         movedict[movement_type]["defense"]["mountains"] = "100"
+    if "resistance" not in movedict[movement_type]:
+        movedict[movement_type]["resistance"] = {}
     if movement_type == "smallfly":
         for tt in known_terrain_types:
             movedict[movement_type]["defense"][tt] = "40"
