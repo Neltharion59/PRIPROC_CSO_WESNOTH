@@ -1,5 +1,4 @@
 window.onload = function() {
-	
      var game = new Phaser.Game("100%", "120%", Phaser.CANVAS, "", {preload: onPreload, create: onCreate});                
      
      var mapDict = getMaps();
@@ -71,7 +70,8 @@ window.onload = function() {
      var marker;
      var hexagonGroup;
      var hexagons = Create2DArray(gridSizeX, gridSizeY);
-
+     console.log(gridSizeX, gridSizeY);
+     console.log(hexagons);
      var unitMatrix = Create2DArray(gridSizeX, gridSizeY);
      for(var i = 0; i < unitMatrix.length; i++) {
           for(var j = 0; j < unitMatrix[i].length; j++) {
@@ -131,16 +131,17 @@ window.onload = function() {
                     var hexagon = game.add.sprite(hexagonX,hexagonY,image);
                     hexagon.scale.setTo(4,4)
 
-                    /*var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                    var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
                     text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
                     //text.anchor.set(0.5);
-                    hexagonGroup.add(text);*/
+                    hexagonGroup.add(text);
 
                     hexagon.grid_x = j;
                     hexagon.grid_y = i;
                     hexagon.hexagonX = hexagonX;
                     hexagon.hexagonY = hexagonY;
                     hexagon.unit = null;
+                    hexagon.text = null;
 
                     hexagon.inputEnabled = true;
                     hexagon.events.onInputDown.add(hexagon_clicked, this);
@@ -176,6 +177,7 @@ window.onload = function() {
                hexagonGroup.add(unit);
 
                hexagons[x][y].unit = unit;
+               refreshText(current_player["units"][0]);
                playerQueue.shift();
           }
 
@@ -193,6 +195,8 @@ window.onload = function() {
 		hexagonGroup.add(marker);
           moveIndex = game.input.addMoveCallback(placeMarker, this);
 
+
+          
           playGame();
 	}
 
@@ -218,11 +222,13 @@ window.onload = function() {
                turn_count++;
                console.log("Turn number:" + turn_count);
           }
-          recruit();
-          
+
+
           for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
                playerQueue.peek()["units"][i]["move_points"] = unit_dict[playerQueue.peek()["units"][i]["type"]]["movement"];
           }
+          console.log(unitMatrix);
+          recruit();
 
           if(playerQueue.peek()["AI"]) {
                end_turn_button.visible = false;
@@ -256,6 +262,9 @@ window.onload = function() {
      }
 
      function recruit() {
+          if(playerQueue.peek()["id"] == 1) {return;}
+
+          console.log("recruit called");
 
           var leader = null;
           for(var i = 0; i<playerQueue.peek()["units"].length; i++)
@@ -272,6 +281,8 @@ window.onload = function() {
                return;
           }
 
+          console.log("recruit - leader found");
+
           hire_positions = null;
           for(var i = 0; i<starting_positions.length; i++)
           {
@@ -285,12 +296,17 @@ window.onload = function() {
                return;
           }
 
+          console.log("recruit - hire positions found");
+         
+          console.log(hire_positions.length + " positions found");
           for(var i = hire_positions.length - 1; i >= 0; i--)
           {
                if(unitMatrix[hire_positions[i][0]][hire_positions[i][1]] != null) {
                     hire_positions.splice(i, 1);
                }
           }
+
+          console.log(hire_positions.length + " positions available");
 
           for(var i = 0; i < hire_positions.length; i++) {
 
@@ -302,8 +318,12 @@ window.onload = function() {
                     }
                }
 
-               var hireType = possible_to_hire[Math.floor(Math.random() * possible_to_hire.length)];
+               if(possible_to_hire.length <= 0) {
+                    break;
+               }
 
+               var hireType = possible_to_hire[Math.floor(Math.random() * possible_to_hire.length)];
+               //console.log("Hire type: "); console.log(hireType);
                //We know what type unit we want to hire and where to place it
                var x = hire_positions[i][0];
                var y = hire_positions[i][1];
@@ -320,18 +340,20 @@ window.onload = function() {
                unitMatrix[x][y] = unit;
                playerQueue.peek()["units"].push(unit);
                playerQueue.peek()["gold"] -= unit_dict[hireType]["cost"];
+               console.log("Gold: " + playerQueue.peek()["gold"].toString());
 
                //Visual
                var unit_sprite = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY, unit_dict[hireType]["image"]);
                unit_sprite.scale.setTo(4,4);
                hexagonGroup.add(unit_sprite);
                hexagons[x][y].unit = unit_sprite;
+               refreshText(unit);
           }
      }
 
      function calculateMoveOrders() {
-          var possible_movements = [];
-          for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
+          var possible_movements = [[]];
+          for(var i = 1; i < playerQueue.peek()["units"].length; i++) {
                possible_movements.push(GetPossibleMovements(
                     playerQueue.peek()["units"][i]["x"],
                     playerQueue.peek()["units"][i]["y"],
@@ -344,7 +366,6 @@ window.onload = function() {
                ));
           };
 
-          console.log(possible_movements);
           var selectedMovements = MovementCalculationRandom(possible_movements);
           return selectedMovements;
      }
@@ -383,22 +404,70 @@ window.onload = function() {
                     hexagons[old_x][old_y].unit = null;
                     hexagons[x][y].unit.x = hexagons[x][y].hexagonX;
                     hexagons[x][y].unit.y = hexagons[x][y].hexagonY;
+
+                    clearText(hexagons[old_x][old_y]);
+                    refreshText(playerQueue.peek()["units"][i]);
                }
 
                if(movements[i]["is_attack"]) {
                     console.log("Attack with sharpened steel");
+                    performAttack(0,1,2,3,5);
+                    console.log("attack is over");
                }
           }
      }
+     function performAttack(atk_x, atk_y, def_x, def_y, atk_id) {
 
-     function displayHealth(unit) {
+          var defender_dmg = 0;
+          var attacker_dmg = 0;
+
+          var atk_type;
+          var atk_resistance;
+
+          var defender_terrain_bonus = 0;
+          var attacker_terrain_bonus = 0;
+
+          var defender_atk_count;
+          var attacker_atk_count;
+
+          var attacker_final_dmg;
+          var defender_final_dmg;
+
+          /*while(defender_atk_count > 0 && attacker_atk_count > 0) {
+
+          }*/
+
+          performAttackRound();
+          
+     }
+
+     function performAttackRound() {
+          setTimeout(function() {
+            console.log('hello');
+            i++;
+            if (i < 10) {
+               performAttackRound();
+            }
+          }, 2000)
+        }
+
+     function clearText(hexagon) {
+          if(hexagon.text != null) {
+               hexagon.text.destroy();
+          }
+          hexagon.text = null;
+     }
+     function refreshText(unit) {
           var x = unit["x"];
           var y = unit["y"];
 
-          var style = { font: "50px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#000000" };
-          text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
-          //text.anchor.set(0.5);
-          hexagonGroup.add(text);*/
+          if(hexagons[x][y].text != null) {
+               hexagons[x][y].text.destroy();
+          }
+
+          var style = { font: "50px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: hexagons[x][y].width, align: "center", backgroundColor: "#000000" };
+          hexagons[x][y].text = game.add.text(hexagons[x][y].hexagonX, hexagons[x][y].hexagonY, "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString());
+          hexagonGroup.add(hexagons[x][y].text);
      }
 
      function checkHex(){
