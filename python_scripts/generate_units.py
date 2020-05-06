@@ -128,6 +128,22 @@ f = open("Units.js", "w+")
 f.write("function createUnitDict() {\n\tunit_dict = {};\n\n")
 for unit in units:
     f.write("\tunit_dict[\"" + unit["id"] + "\"] = {};\n")
+    if unit["name"] == "WalkingCorpse":
+        unit["hitpoints"] = "18"
+    if unit["name"] == "WalkingCorpse":
+        unit["movement"] = "4"
+    if unit["name"] == "WalkingCorpse":
+        unit["movement_type"] = "smallfoot"
+    if unit["name"] == "WalkingCorpse":
+        unit["image"] = "units/undead/zombie.png"
+    if unit["name"] == "Soulless":
+        unit["hitpoints"] = "28"
+    if unit["name"] == "Soulless":
+        unit["movement"] = "4"
+    if unit["name"] == "Soulless":
+        unit["movement_type"] = "smallfoot"
+    if unit["name"] == "Soulless":
+        unit["image"] = "units/undead/soulless.png"
     for key in unit:
         if key == "attack" and isinstance(unit[key], dict):
             unit[key] = [unit[key]]

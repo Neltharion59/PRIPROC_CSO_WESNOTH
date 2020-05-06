@@ -195,8 +195,6 @@ window.onload = function() {
 		hexagonGroup.add(marker);
           moveIndex = game.input.addMoveCallback(placeMarker, this);
 
-
-          
           playGame();
 	}
 
@@ -227,20 +225,23 @@ window.onload = function() {
           for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
                playerQueue.peek()["units"][i]["move_points"] = unit_dict[playerQueue.peek()["units"][i]["type"]]["movement"];
           }
-          console.log(unitMatrix);
-          recruit();
+          
 
           if(playerQueue.peek()["AI"]) {
                end_turn_button.visible = false;
                var movements = calculateMoveOrders();
                //console.log(movements);
                performMoving(movements);
+
+               recruit();
                playerQueue.shift();
                return true;
           } else {
-               humanMoving = true;
+               recruit();
 
+               humanMoving = true;
                end_turn_button.visible = true;
+               
 
                return false;
           }
@@ -262,7 +263,6 @@ window.onload = function() {
      }
 
      function recruit() {
-          if(playerQueue.peek()["id"] == 1) {return;}
 
           console.log("recruit called");
 
@@ -287,7 +287,9 @@ window.onload = function() {
           for(var i = 0; i<starting_positions.length; i++)
           {
                if(leader["x"] == starting_positions[i][0] && leader["y"] == starting_positions[i][1]) {
-                    hire_positions = hireMatrix[leader["x"]][leader["y"]];
+                    hire_positions = hireMatrix[leader["x"]][leader["y"]].map(function(arr) {
+                         return arr.slice();
+                    });
                     break;
                }
           }
@@ -301,6 +303,7 @@ window.onload = function() {
           console.log(hire_positions.length + " positions found");
           for(var i = hire_positions.length - 1; i >= 0; i--)
           {
+               console.log();
                if(unitMatrix[hire_positions[i][0]][hire_positions[i][1]] != null) {
                     hire_positions.splice(i, 1);
                }
@@ -400,6 +403,8 @@ window.onload = function() {
                     unitMatrix[old_x][old_y] = null;
                     unitMatrix[x][y] = playerQueue.peek()["units"][i];
 
+                    
+
                     hexagons[x][y].unit = hexagons[old_x][old_y].unit;
                     hexagons[old_x][old_y].unit = null;
                     hexagons[x][y].unit.x = hexagons[x][y].hexagonX;
@@ -415,6 +420,9 @@ window.onload = function() {
                     console.log("attack is over");
                }
           }
+
+          console.log("unitMatrix after moving");
+          console.log(unitMatrix);
      }
      function performAttack(atk_x, atk_y, def_x, def_y, atk_id) {
 
@@ -548,10 +556,10 @@ window.onload = function() {
           }*/
 
      function Create2DArray(x, y) {
-          var array = new Array(x);
+          var array = new Array(y);
 
-          for (var i = 0; i < x; i++) {
-               array[i] = new Array(y);
+          for (var i = 0; i < y; i++) {
+               array[i] = new Array(x);
           }
 
           return array;
