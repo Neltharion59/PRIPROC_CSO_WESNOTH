@@ -8,7 +8,8 @@ window.onload = function() {
      removeStartingPositions(map);
 
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
-    // console.log(map);
+     console.log("map:");
+     console.log(map);
      var race_dict = createRaceDict();
      var movement_type_dict = createMovementDict();
      var unit_dict = createUnitDict();
@@ -40,8 +41,8 @@ window.onload = function() {
           };
           leader["hp"] = unit_dict[leader["type"]]["hitpoints"];
           leader["xp"] = 0;
-          leader["x"] = starting_positions[i][0];
-          leader["y"] = starting_positions[i][1];
+          leader["x"] = starting_positions[i][1];
+          leader["y"] = starting_positions[i][0];
           leader["player_id"] = i + 1;
           leader["move_points"] = 0;
 
@@ -62,6 +63,7 @@ window.onload = function() {
      //var gridSizeY = map.length;
      var gridSizeX = map[0].length;
      var gridSizeY = map.length;
+     //console.log(gridSizeX, gridSizeY);
 	var columns = [Math.ceil(gridSizeY/2),Math.floor(gridSizeY/2)];
      var moveIndex;
      var sectorWidth = hexagonWidth/4*3;
@@ -70,7 +72,7 @@ window.onload = function() {
      var marker;
      var hexagonGroup;
      var hexagons = Create2DArray(gridSizeX, gridSizeY);
-     console.log(gridSizeX, gridSizeY);
+     console.log("hexagons:");
      console.log(hexagons);
      var unitMatrix = Create2DArray(gridSizeX, gridSizeY);
      for(var i = 0; i < unitMatrix.length; i++) {
@@ -78,6 +80,8 @@ window.onload = function() {
                unitMatrix[i][j] = null;
           }
      }
+     console.log("unitMatrix:");
+     console.log(unitMatrix);
      var hireMatrix = Create2DArray(gridSizeX, gridSizeY);
      for(var i = 0; i < hireMatrix.length; i++) {
           for(var j = 0; j < hireMatrix[i].length; j++) {
@@ -87,7 +91,8 @@ window.onload = function() {
      for(var i = 0; i < starting_positions.length; i++) {
           hireMatrix[starting_positions[i][0]][starting_positions[i][1]] = findSurroundingHireToFields(starting_positions[i], map, terrain_dict);
      }
-     //console.log(hireMatrix);
+     console.log("hireMatrix:");
+     console.log(hireMatrix);
 
     // console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map, unitMatrix, playerQueue.peek["id"]));
 
@@ -170,13 +175,13 @@ window.onload = function() {
                var image = unit_dict[current_player["units"][0]["type"]]["image"];
                var x = current_player["units"][0]["x"];
                var y = current_player["units"][0]["y"];
-               unitMatrix[x][y] = current_player["units"][0];
+               unitMatrix[y][x] = current_player["units"][0];
 
-               var unit = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY,image);
+               var unit = game.add.sprite(hexagons[y][x].hexagonX,hexagons[y][x].hexagonY,image);
                unit.scale.setTo(4,4);
                hexagonGroup.add(unit);
 
-               hexagons[x][y].unit = unit;
+               hexagons[y][x].unit = unit;
                refreshText(current_player["units"][0]);
                playerQueue.shift();
           }
@@ -194,8 +199,10 @@ window.onload = function() {
 		marker.visible=false;
 		hexagonGroup.add(marker);
           moveIndex = game.input.addMoveCallback(placeMarker, this);
-
-
+          console.log("unit matrix with leaders:");
+          console.log(unitMatrix);
+          console.log("hexagons:");
+          console.log(hexagons);
           
           playGame();
 	}
@@ -548,10 +555,10 @@ window.onload = function() {
           }*/
 
      function Create2DArray(x, y) {
-          var array = new Array(x);
+          var array = new Array(y);
 
-          for (var i = 0; i < x; i++) {
-               array[i] = new Array(y);
+          for (var i = 0; i < y; i++) {
+               array[i] = new Array(x);
           }
 
           return array;
