@@ -16,8 +16,12 @@ def to_string(var):
 
 
 def type_correction(var):
-    if var in ["grassland", "road", "dirt"]:
+    if var in ["grassland", "road", "dirt", "ford"]:
         return "flat"
+    if var in ["keep", "ruined_castle"]:
+        return "castle"
+    if var in ["swamp"]:
+        return "swamp_water"
     return var
 
 

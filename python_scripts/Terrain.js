@@ -27,7 +27,7 @@ function createTerrainDict() {
 
 	terrain_dict["Wwf"] = {};
 	terrain_dict["Wwf"]["symbol_image"] = "water/ford-tile";
-	terrain_dict["Wwf"]["name"] = "ford";
+	terrain_dict["Wwf"]["name"] = "flat";
 
 	terrain_dict["Wwrg"] = {};
 	terrain_dict["Wwrg"]["symbol_image"] = "water/reef-gray-tile";
@@ -43,11 +43,11 @@ function createTerrainDict() {
 
 	terrain_dict["Ss"] = {};
 	terrain_dict["Ss"]["symbol_image"] = "swamp/water-tile";
-	terrain_dict["Ss"]["name"] = "swamp";
+	terrain_dict["Ss"]["name"] = "swamp_water";
 
 	terrain_dict["Sm"] = {};
 	terrain_dict["Sm"]["symbol_image"] = "swamp/mud-tile";
-	terrain_dict["Sm"]["name"] = "swamp";
+	terrain_dict["Sm"]["name"] = "swamp_water";
 
 	terrain_dict["Gg"] = {};
 	terrain_dict["Gg"]["symbol_image"] = "grass/green-symbol";
@@ -812,17 +812,17 @@ function createTerrainDict() {
 
 	terrain_dict["Chr"] = {};
 	terrain_dict["Chr"]["symbol_image"] = "castle/ruin-tile";
-	terrain_dict["Chr"]["name"] = "ruined_castle";
+	terrain_dict["Chr"]["name"] = "castle";
 	terrain_dict["Chr"]["recruit_onto"] = true;
 
 	terrain_dict["Chw"] = {};
 	terrain_dict["Chw"]["symbol_image"] = "castle/sunken-ruin-tile";
-	terrain_dict["Chw"]["name"] = "ruined_castle";
+	terrain_dict["Chw"]["name"] = "castle";
 	terrain_dict["Chw"]["recruit_onto"] = true;
 
 	terrain_dict["Chs"] = {};
 	terrain_dict["Chs"]["symbol_image"] = "castle/swamp-ruin-tile";
-	terrain_dict["Chs"]["name"] = "ruined_castle";
+	terrain_dict["Chs"]["name"] = "castle";
 	terrain_dict["Chs"]["recruit_onto"] = true;
 
 	terrain_dict["Cd"] = {};
@@ -832,7 +832,7 @@ function createTerrainDict() {
 
 	terrain_dict["Cdr"] = {};
 	terrain_dict["Cdr"]["symbol_image"] = "castle/sand/ruin-tile";
-	terrain_dict["Cdr"]["name"] = "ruined_castle";
+	terrain_dict["Cdr"]["name"] = "castle";
 	terrain_dict["Cdr"]["recruit_onto"] = true;
 
 	terrain_dict["Cte"] = {};
@@ -876,67 +876,67 @@ function createTerrainDict() {
 
 	terrain_dict["Ko"] = {};
 	terrain_dict["Ko"]["symbol_image"] = "castle/orcish/keep-tile";
-	terrain_dict["Ko"]["name"] = "keep";
+	terrain_dict["Ko"]["name"] = "castle";
 	terrain_dict["Ko"]["recruit_from"] = true;
 	terrain_dict["Ko"]["recruit_onto"] = true;
 
 	terrain_dict["Koa"] = {};
 	terrain_dict["Koa"]["symbol_image"] = "castle/winter-orcish/keep-tile";
-	terrain_dict["Koa"]["name"] = "keep";
+	terrain_dict["Koa"]["name"] = "castle";
 	terrain_dict["Koa"]["recruit_from"] = true;
 	terrain_dict["Koa"]["recruit_onto"] = true;
 
 	terrain_dict["Kh"] = {};
 	terrain_dict["Kh"]["symbol_image"] = "castle/keep-tile";
-	terrain_dict["Kh"]["name"] = "keep";
+	terrain_dict["Kh"]["name"] = "castle";
 	terrain_dict["Kh"]["recruit_from"] = true;
 	terrain_dict["Kh"]["recruit_onto"] = true;
 
 	terrain_dict["Kha"] = {};
 	terrain_dict["Kha"]["symbol_image"] = "castle/snowy/keep-tile";
-	terrain_dict["Kha"]["name"] = "keep";
+	terrain_dict["Kha"]["name"] = "castle";
 	terrain_dict["Kha"]["recruit_from"] = true;
 	terrain_dict["Kha"]["recruit_onto"] = true;
 
 	terrain_dict["Kv"] = {};
 	terrain_dict["Kv"]["symbol_image"] = "castle/elven/keep-tile";
-	terrain_dict["Kv"]["name"] = "keep";
+	terrain_dict["Kv"]["name"] = "castle";
 	terrain_dict["Kv"]["recruit_from"] = true;
 	terrain_dict["Kv"]["recruit_onto"] = true;
 
 	terrain_dict["Kvr"] = {};
 	terrain_dict["Kvr"]["symbol_image"] = "castle/elven-ruin/keep-tile";
-	terrain_dict["Kvr"]["name"] = "keep";
+	terrain_dict["Kvr"]["name"] = "castle";
 	terrain_dict["Kvr"]["recruit_from"] = true;
 	terrain_dict["Kvr"]["recruit_onto"] = true;
 
 	terrain_dict["Kva"] = {};
 	terrain_dict["Kva"]["symbol_image"] = "castle/winter-elven/keep-tile";
-	terrain_dict["Kva"]["name"] = "keep";
+	terrain_dict["Kva"]["name"] = "castle";
 	terrain_dict["Kva"]["recruit_from"] = true;
 	terrain_dict["Kva"]["recruit_onto"] = true;
 
 	terrain_dict["Kud"] = {};
 	terrain_dict["Kud"]["symbol_image"] = "castle/dwarven-keep-tile";
-	terrain_dict["Kud"]["name"] = "keep";
+	terrain_dict["Kud"]["name"] = "castle";
 	terrain_dict["Kud"]["recruit_from"] = true;
 	terrain_dict["Kud"]["recruit_onto"] = true;
 
 	terrain_dict["Kf"] = {};
 	terrain_dict["Kf"]["symbol_image"] = "castle/outside-dwarven/dwarven-keep-tile";
-	terrain_dict["Kf"]["name"] = "keep";
+	terrain_dict["Kf"]["name"] = "castle";
 	terrain_dict["Kf"]["recruit_from"] = true;
 	terrain_dict["Kf"]["recruit_onto"] = true;
 
 	terrain_dict["Kfr"] = {};
 	terrain_dict["Kfr"]["symbol_image"] = "castle/ruin-dwarven/dwarven-keep-tile";
-	terrain_dict["Kfr"]["name"] = "keep";
+	terrain_dict["Kfr"]["name"] = "castle";
 	terrain_dict["Kfr"]["recruit_from"] = true;
 	terrain_dict["Kfr"]["recruit_onto"] = true;
 
 	terrain_dict["Kfa"] = {};
 	terrain_dict["Kfa"]["symbol_image"] = "castle/winter-dwarven/dwarven-keep-tile";
-	terrain_dict["Kfa"]["name"] = "keep";
+	terrain_dict["Kfa"]["name"] = "castle";
 	terrain_dict["Kfa"]["recruit_from"] = true;
 	terrain_dict["Kfa"]["recruit_onto"] = true;
 
@@ -960,7 +960,7 @@ function createTerrainDict() {
 
 	terrain_dict["Kd"] = {};
 	terrain_dict["Kd"]["symbol_image"] = "castle/sand/keep-tile";
-	terrain_dict["Kd"]["name"] = "keep";
+	terrain_dict["Kd"]["name"] = "castle";
 	terrain_dict["Kd"]["recruit_from"] = true;
 	terrain_dict["Kd"]["recruit_onto"] = true;
 
@@ -984,7 +984,7 @@ function createTerrainDict() {
 
 	terrain_dict["Km"] = {};
 	terrain_dict["Km"]["symbol_image"] = "castle/aquatic-castle/keep-tile";
-	terrain_dict["Km"]["name"] = "keep";
+	terrain_dict["Km"]["name"] = "castle";
 	terrain_dict["Km"]["recruit_onto"] = true;
 	terrain_dict["Km"]["recruit_from"] = true;
 
@@ -995,7 +995,7 @@ function createTerrainDict() {
 
 	terrain_dict["^Kov"] = {};
 	terrain_dict["^Kov"]["symbol_image"] = "fog/fog1";
-	terrain_dict["^Kov"]["name"] = "keep";
+	terrain_dict["^Kov"]["name"] = "castle";
 	terrain_dict["^Kov"]["recruit_from"] = true;
 	terrain_dict["^Kov"]["recruit_onto"] = true;
 
@@ -1131,7 +1131,7 @@ function createTerrainDict() {
 	terrain_dict["Ht"]["name"] = "hills";
 
 	terrain_dict["St"] = {};
-	terrain_dict["St"]["name"] = "swamp";
+	terrain_dict["St"]["name"] = "swamp_water";
 
 	terrain_dict["Wst"] = {};
 	terrain_dict["Wst"]["name"] = "shallow_water";

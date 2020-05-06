@@ -127,6 +127,35 @@ for move in superdict["movetype"]:
     movedict[idt] = move
 del superdict['movetype']
 
+known_terrain_types = ["mountains", "flat", "forest", "hills", "village", "shallow_water", "castle", "deep_water", "swamp_water"]
+
+for movement_type in movedict:
+    if "deep_water" not in movedict[movement_type] and "defense" in movedict[movement_type]:
+        movedict[movement_type]["defense"]["deep_water"] = "100"
+    if "mountains" not in movedict[movement_type] and "defense" in movedict[movement_type]:
+        movedict[movement_type]["defense"]["mountains"] = "100"
+    if movement_type == "smallfly":
+        for tt in known_terrain_types:
+            movedict[movement_type]["defense"][tt] = "40"
+    if movement_type == "fly":
+        for tt in known_terrain_types:
+            movedict[movement_type]["defense"][tt] = "50"
+        movedict[movement_type]["defense"]["mountains"] = "40"
+        movedict[movement_type]["defense"]["fungus"] = "70"
+    if movement_type == "dwarvishfoot":
+        movedict[movement_type]["defense"] = {}
+        movedict[movement_type]["defense"]["mountains"] = "30"
+        movedict[movement_type]["defense"]["flat"] = "70"
+        movedict[movement_type]["defense"]["forest"] = "70"
+        movedict[movement_type]["defense"]["hills"] = "40"
+        movedict[movement_type]["defense"]["village"] = "50"
+        movedict[movement_type]["defense"]["shallow_water"] = "80"
+        movedict[movement_type]["defense"]["castle"] = "40"
+        movedict[movement_type]["defense"]["deep_water"] = "100"
+        movedict[movement_type]["defense"]["swamp_water"] = "80"
+        movedict[movement_type]["defense"]["fungus"] = "60"
+
+
 f = open("Movement.js", "w+")
 f.write("function createMovementDict() {\n\tmovement_dict = {};\n\n")
 for movement in movedict:

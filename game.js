@@ -179,6 +179,38 @@ window.onload = function() {
                hexagons[x][y].unit = unit;
                refreshText(current_player["units"][0]);
                playerQueue.shift();
+
+               /*console.log("test");
+               console.log(movement_type_dict[unit_dict[unitMatrix[x][y]["type"]]["movement_type"]]["defense"]);
+               console.log(terrain_dict[map[x][y]]["name"]);
+               console.log(movement_type_dict[unit_dict[unitMatrix[x][y]["type"]]["movement_type"]]["defense"][terrain_dict[map[x][y]]["name"]]);
+
+               var unit_def_dict = movement_type_dict[unit_dict[unitMatrix[x][y]["type"]]["movement_type"]]["defense"];
+               var mapss = [];
+               for(var i =0; i<map.length; i++) {
+                    for(var j =0; j<map[0].length; j++) {
+                         mapss.push(map[i][j]);
+                    }
+               }
+               var unique = mapss.filter((v, i, a) => a.indexOf(v) === i); 
+               console.log(unique);
+               var unique2 = unique.map(x => terrain_dict[x]["name"]);
+               unique2 = unique2.filter((v, i, a) => a.indexOf(v) === i); 
+               console.log(unique2);
+
+               for (var key in movement_type_dict) {
+                    if(!movement_type_dict[key]["defense"]) {
+                         console.log(key);
+                    }
+               }
+
+               for (var key in movement_type_dict) {
+                    for(var item in unique2) {
+                         if(!movement_type_dict[key]["defense"][unique2[item]]) {
+                              console.log("No " +unique2[item]+ " for " +key);
+                         }
+                    }
+                }*/
           }
 
 		hexagonGroup.y = (game.height-hexagonHeight*Math.ceil(gridSizeY/2))/2;
@@ -281,7 +313,7 @@ window.onload = function() {
                return;
           }
 
-          console.log("recruit - leader found");
+          //console.log("recruit - leader found");
 
           hire_positions = null;
           for(var i = 0; i<starting_positions.length; i++)
@@ -298,18 +330,17 @@ window.onload = function() {
                return;
           }
 
-          console.log("recruit - hire positions found");
+          //console.log("recruit - hire positions found");
          
-          console.log(hire_positions.length + " positions found");
+          //console.log(hire_positions.length + " positions found");
           for(var i = hire_positions.length - 1; i >= 0; i--)
           {
-               console.log();
                if(unitMatrix[hire_positions[i][0]][hire_positions[i][1]] != null) {
                     hire_positions.splice(i, 1);
                }
           }
 
-          console.log(hire_positions.length + " positions available");
+          //console.log(hire_positions.length + " positions available");
 
           for(var i = 0; i < hire_positions.length; i++) {
 
@@ -425,39 +456,37 @@ window.onload = function() {
           console.log(unitMatrix);
      }
      function performAttack(atk_x, atk_y, def_x, def_y, atk_id) {
+     
+          var attacker_attack = unit_dict[unitMatrix[atk_x][atk_y]["type"]]["attack"][atk_id];
+          
 
-          var defender_dmg = 0;
-          var attacker_dmg = 0;
-
-          var atk_type;
-          var atk_resistance;
-
-          var defender_terrain_bonus = 0;
-          var attacker_terrain_bonus = 0;
-
+          var attacker_dmg = attacker_attack["damage"];
+          var attacker_attack_type = attacker_attack["type"];
+          var attacker_terrain_bonus = movement_type_dict[unit_dict[unitMatrix[atk_x][atk_y]["type"]]["movement_type"]]["defense"][terrain_dict[map[atk_x][atk_y]]["name"]];
+          var attacker_atk_count = attacker_attack["count"];
+          
+          var defender_terrain_bonus = movement_type_dict[unit_dict[unitMatrix[def_x][def_y]["type"]]["movement_type"]]["defense"][terrain_dict[map[def_x][def_y]]["name"]];
+          var defender_attack;
+          var defender_dmg;
           var defender_atk_count;
-          var attacker_atk_count;
+          
+          var attacker_hit_chance = defender_terrain_bonus;
+          var defender_hit_chance = attacker_terrain_bonus;
 
           var attacker_final_dmg;
           var defender_final_dmg;
 
-          /*while(defender_atk_count > 0 && attacker_atk_count > 0) {
+          while(defender_atk_count > 0 && attacker_atk_count > 0) {
+               if(attacker_atk_count > 0) {
+                    --attacker_atk_count;
+               }
 
-          }*/
-
-          performAttackRound();
-          
+               if(defender_atk_count > 0) {
+                    --defender_atk_count;
+               }
+          }
+        
      }
-
-     function performAttackRound() {
-          setTimeout(function() {
-            console.log('hello');
-            i++;
-            if (i < 10) {
-               performAttackRound();
-            }
-          }, 2000)
-        }
 
      function clearText(hexagon) {
           if(hexagon.text != null) {
