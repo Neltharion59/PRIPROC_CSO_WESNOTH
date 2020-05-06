@@ -1,4 +1,7 @@
 function GetPossibleMovements(unit_x, unit_y, unit_movement_points, unit_movement_cost_dict, terrain_dict, battle_grid, unitMatrix, player_id) {
+    //console.log("unit mov points:"); console.log(unit_movement_points);
+    //console.log("unit mov dict:"); console.log(unit_movement_cost_dict);
+
     result = [];
     currently_found = [];
     previously_found = [{"coords":[unit_x, unit_y], "remaining_movement":unit_movement_points, "previous": null, "is_attack": false}];
@@ -123,8 +126,12 @@ function CalculateMoveCost(unit_movement_cost_dict, terrain_dict, terrain_descri
     var terrain = terrain_dict[terrain_description];
    // console.log("terrain:");
     //console.log(terrain);
-    if(terrain["impassable"] || !(terrain["name"] in unit_movement_cost_dict)) {
+    if(terrain["impassable"]) {
         return 0;
+    }
+
+    if(!(terrain["name"] in unit_movement_cost_dict)) {
+        return 1;
     }
    // console.log("terrain_dict: ");
    // console.log(unit_movement_cost_dict[terrain["name"]]);

@@ -9,7 +9,7 @@ window.onload = function() {
      removeStartingPositions(map);
 
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
-     console.log(map);
+    // console.log(map);
      var race_dict = createRaceDict();
      var movement_type_dict = createMovementDict();
      var unit_dict = createUnitDict();
@@ -87,7 +87,7 @@ window.onload = function() {
      for(var i = 0; i < starting_positions.length; i++) {
           hireMatrix[starting_positions[i][0]][starting_positions[i][1]] = findSurroundingHireToFields(starting_positions[i], map, terrain_dict);
      }
-     console.log(hireMatrix);
+     //console.log(hireMatrix);
 
     // console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map, unitMatrix, playerQueue.peek["id"]));
 
@@ -131,10 +131,10 @@ window.onload = function() {
                     var hexagon = game.add.sprite(hexagonX,hexagonY,image);
                     hexagon.scale.setTo(4,4)
 
-                    var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                    /*var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
                     text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
                     //text.anchor.set(0.5);
-                    hexagonGroup.add(text);
+                    hexagonGroup.add(text);*/
 
                     hexagon.grid_x = j;
                     hexagon.grid_y = i;
@@ -198,7 +198,7 @@ window.onload = function() {
 
      function playGame() {
           //console.log("b4 game over check");
-          console.log(gameOver);
+          //console.log(gameOver);
           if(gameOver) {
                return;
           }
@@ -227,8 +227,8 @@ window.onload = function() {
           if(playerQueue.peek()["AI"]) {
                end_turn_button.visible = false;
                var movements = calculateMoveOrders();
-               console.log(movements);
-               //performMoving(movements);
+               //console.log(movements);
+               performMoving(movements);
                playerQueue.shift();
                return true;
           } else {
@@ -241,7 +241,7 @@ window.onload = function() {
      }
 
      function clickEndTurn() {
-          console.log("Clicked end turn");
+          //console.log("Clicked end turn");
 
           if(!humanMoving) {
                return;
@@ -347,6 +347,58 @@ window.onload = function() {
           console.log(possible_movements);
           var selectedMovements = MovementCalculationRandom(possible_movements);
           return selectedMovements;
+     }
+
+     function performMoving(movements) {
+          for(var i = 0; i < movements.length && i < playerQueue.peek()["units"].length; i++) {
+               if(movements[i] == null) {
+                    continue;
+               }
+               //console.log(movements[i]);
+
+               if(movements[i]["is_attack"])
+               {
+                    if(movements[i]["previous"] != null) {
+                         var x = movements[i]["previous"]["coords"][0];
+                         var y = movements[i]["previous"]["coords"][1];
+                    } else {
+                         var x = playerQueue.peek()["units"][i]["x"];
+                         var y = playerQueue.peek()["units"][i]["y"];
+                    }
+               } else {
+                    var x = movements[i]["coords"][0];
+                    var y = movements[i]["coords"][1];
+               }
+               var old_x = playerQueue.peek()["units"][i]["x"];
+               var old_y = playerQueue.peek()["units"][i]["y"];
+
+               if(!(x == old_x && y == old_y)) {
+                    playerQueue.peek()["units"][i]["x"] = x;
+                    playerQueue.peek()["units"][i]["y"] = y;
+
+                    unitMatrix[old_x][old_y] = null;
+                    unitMatrix[x][y] = playerQueue.peek()["units"][i];
+
+                    hexagons[x][y].unit = hexagons[old_x][old_y].unit;
+                    hexagons[old_x][old_y].unit = null;
+                    hexagons[x][y].unit.x = hexagons[x][y].hexagonX;
+                    hexagons[x][y].unit.y = hexagons[x][y].hexagonY;
+               }
+
+               if(movements[i]["is_attack"]) {
+                    console.log("Attack with sharpened steel");
+               }
+          }
+     }
+
+     function displayHealth(unit) {
+          var x = unit["x"];
+          var y = unit["y"];
+
+          var style = { font: "50px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#000000" };
+          text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
+          //text.anchor.set(0.5);
+          hexagonGroup.add(text);*/
      }
 
      function checkHex(){
