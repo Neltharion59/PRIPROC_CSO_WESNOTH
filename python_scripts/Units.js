@@ -17,7 +17,7 @@ function createUnitDict() {
 	unit_dict["BloodBat"]["usage"] = "scout";
 	unit_dict["BloodBat"]["resistance"] = {'cold': 70};
 	unit_dict["BloodBat"]["defense"] = {'village': 50};
-	unit_dict["BloodBat"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}];
+	unit_dict["BloodBat"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}];
 
 	unit_dict["DreadBat"] = {};
 	unit_dict["DreadBat"]["id"] = "DreadBat";
@@ -35,7 +35,7 @@ function createUnitDict() {
 	unit_dict["DreadBat"]["usage"] = "scout";
 	unit_dict["DreadBat"]["resistance"] = {'cold': 70};
 	unit_dict["DreadBat"]["defense"] = {'village': 50};
-	unit_dict["DreadBat"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}];
+	unit_dict["DreadBat"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}];
 
 	unit_dict["VampireBat"] = {};
 	unit_dict["VampireBat"]["id"] = "VampireBat";
@@ -53,7 +53,7 @@ function createUnitDict() {
 	unit_dict["VampireBat"]["usage"] = "scout";
 	unit_dict["VampireBat"]["resistance"] = {'cold': 70};
 	unit_dict["VampireBat"]["defense"] = {'village': 50};
-	unit_dict["VampireBat"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}];
+	unit_dict["VampireBat"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}];
 
 	unit_dict["Boat"] = {};
 	unit_dict["Boat"]["id"] = "Boat";
@@ -99,7 +99,7 @@ function createUnitDict() {
 	unit_dict["PirateGalleon"]["advances_to"] = null;
 	unit_dict["PirateGalleon"]["cost"] = 15;
 	unit_dict["PirateGalleon"]["usage"] = null;
-	unit_dict["PirateGalleon"]["attack"] = [{'name': 'ballista', 'description': 'ballista', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
+	unit_dict["PirateGalleon"]["attack"] = [{'name': 'ballista', 'description': 'ballista', 'icon': 'attacks/ballista.png', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
 
 	unit_dict["TransportGalleon"] = {};
 	unit_dict["TransportGalleon"]["id"] = "TransportGalleon";
@@ -115,7 +115,7 @@ function createUnitDict() {
 	unit_dict["TransportGalleon"]["advances_to"] = null;
 	unit_dict["TransportGalleon"]["cost"] = 14;
 	unit_dict["TransportGalleon"]["usage"] = null;
-	unit_dict["TransportGalleon"]["attack"] = [{'name': 'ballista', 'description': 'ballista', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
+	unit_dict["TransportGalleon"]["attack"] = [{'name': 'ballista', 'description': 'ballista', 'icon': 'attacks/ballista.png', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
 
 	unit_dict["DrakeArbiter"] = {};
 	unit_dict["DrakeArbiter"]["id"] = "DrakeArbiter";
@@ -132,7 +132,7 @@ function createUnitDict() {
 	unit_dict["DrakeArbiter"]["cost"] = 32;
 	unit_dict["DrakeArbiter"]["usage"] = "fighter";
 	unit_dict["DrakeArbiter"]["resistance"] = {'pierce': 90};
-	unit_dict["DrakeArbiter"]["attack"] = [{'name': 'halberd', 'description': 'halberd', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3}, {'name': 'halberd', 'description': 'halberd', 'type': 'pierce', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}, 'damage': 17, 'number': 2}];
+	unit_dict["DrakeArbiter"]["attack"] = [{'name': 'halberd', 'description': 'halberd', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3, 'icon': 'attacks/halberd.png'}, {'name': 'halberd', 'description': 'halberd', 'type': 'pierce', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}, 'damage': 17, 'number': 2, 'icon': 'attacks/halberd.png'}];
 
 	unit_dict["ArmageddonDrake"] = {};
 	unit_dict["ArmageddonDrake"]["id"] = "ArmageddonDrake";
@@ -149,7 +149,7 @@ function createUnitDict() {
 	unit_dict["ArmageddonDrake"]["cost"] = 85;
 	unit_dict["ArmageddonDrake"]["usage"] = "archer";
 	unit_dict["ArmageddonDrake"]["resistance"] = {'fire': 0};
-	unit_dict["ArmageddonDrake"]["attack"] = [{'name': 'battleclaws', 'description': 'battleclaws', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 12, 'number': 6}];
+	unit_dict["ArmageddonDrake"]["attack"] = [{'name': 'battleclaws', 'description': 'battleclaws', 'icon': 'attacks/claws-drake.png', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 12, 'number': 6}];
 
 	unit_dict["DrakeBlademaster"] = {};
 	unit_dict["DrakeBlademaster"]["id"] = "DrakeBlademaster";
@@ -165,7 +165,7 @@ function createUnitDict() {
 	unit_dict["DrakeBlademaster"]["advances_to"] = null;
 	unit_dict["DrakeBlademaster"]["cost"] = 47;
 	unit_dict["DrakeBlademaster"]["usage"] = "fighter";
-	unit_dict["DrakeBlademaster"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 16, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 3}];
+	unit_dict["DrakeBlademaster"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 16, 'number': 3, 'icon': 'attacks/scimitar.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 3}];
 
 	unit_dict["DrakeBurner"] = {};
 	unit_dict["DrakeBurner"]["id"] = "DrakeBurner";
@@ -181,7 +181,7 @@ function createUnitDict() {
 	unit_dict["DrakeBurner"]["advances_to"] = ['FireDrake', 'DrakeFlare'];
 	unit_dict["DrakeBurner"]["cost"] = 21;
 	unit_dict["DrakeBurner"]["usage"] = "archer";
-	unit_dict["DrakeBurner"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 6, 'number': 4}];
+	unit_dict["DrakeBurner"]["attack"] = [{'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-drake.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 6, 'number': 4}];
 
 	unit_dict["DrakeClasher"] = {};
 	unit_dict["DrakeClasher"]["id"] = "DrakeClasher";
@@ -197,7 +197,7 @@ function createUnitDict() {
 	unit_dict["DrakeClasher"]["advances_to"] = ['DrakeThrasher', 'DrakeArbiter'];
 	unit_dict["DrakeClasher"]["cost"] = 19;
 	unit_dict["DrakeClasher"]["usage"] = "fighter";
-	unit_dict["DrakeClasher"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}];
+	unit_dict["DrakeClasher"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4, 'icon': 'attacks/scimitar.png'}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 4, 'icon': 'attacks/spear.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}];
 	unit_dict["DrakeClasher"]["filter_second_attack"] = [{'type': 'pierce'}, {'type': 'blade'}];
 
 	unit_dict["DrakeEnforcer"] = {};
@@ -216,7 +216,7 @@ function createUnitDict() {
 	unit_dict["DrakeEnforcer"]["cost"] = 44;
 	unit_dict["DrakeEnforcer"]["usage"] = "fighter";
 	unit_dict["DrakeEnforcer"]["filter_second_attack"] = [{'type': 'pierce'}, {'type': 'blade,impact'}];
-	unit_dict["DrakeEnforcer"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4}, {'name': 'ram', 'description': 'ram', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 3}, {'name': 'trident', 'description': 'trident', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 5}];
+	unit_dict["DrakeEnforcer"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4, 'icon': 'attacks/scimitar.png'}, {'name': 'ram', 'description': 'ram', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 3, 'icon': 'attacks/ram.png'}, {'name': 'trident', 'description': 'trident', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 5, 'icon': 'attacks/trident.png'}];
 
 	unit_dict["DrakeFighter"] = {};
 	unit_dict["DrakeFighter"]["id"] = "DrakeFighter";
@@ -232,7 +232,7 @@ function createUnitDict() {
 	unit_dict["DrakeFighter"]["advances_to"] = ['DrakeWarrior'];
 	unit_dict["DrakeFighter"]["cost"] = 17;
 	unit_dict["DrakeFighter"]["usage"] = "fighter";
-	unit_dict["DrakeFighter"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 3, 'number': 3}];
+	unit_dict["DrakeFighter"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3, 'icon': 'attacks/warblade.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 3, 'number': 3}];
 
 	unit_dict["FireDrake"] = {};
 	unit_dict["FireDrake"]["id"] = "FireDrake";
@@ -249,7 +249,7 @@ function createUnitDict() {
 	unit_dict["FireDrake"]["cost"] = 35;
 	unit_dict["FireDrake"]["usage"] = "archer";
 	unit_dict["FireDrake"]["resistance"] = {'fire': 40};
-	unit_dict["FireDrake"]["attack"] = [{'name': 'battleclaws', 'description': 'battleclaws', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 7, 'number': 5}];
+	unit_dict["FireDrake"]["attack"] = [{'name': 'battleclaws', 'description': 'battleclaws', 'icon': 'attacks/claws-drake.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 7, 'number': 5}];
 
 	unit_dict["DrakeFlameheart"] = {};
 	unit_dict["DrakeFlameheart"]["id"] = "DrakeFlameheart";
@@ -266,7 +266,7 @@ function createUnitDict() {
 	unit_dict["DrakeFlameheart"]["cost"] = 51;
 	unit_dict["DrakeFlameheart"]["usage"] = "mixedfighter";
 	unit_dict["DrakeFlameheart"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["DrakeFlameheart"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 4}];
+	unit_dict["DrakeFlameheart"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3, 'icon': 'attacks/warblade-red.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 4}];
 
 	unit_dict["DrakeFlare"] = {};
 	unit_dict["DrakeFlare"]["id"] = "DrakeFlare";
@@ -283,7 +283,7 @@ function createUnitDict() {
 	unit_dict["DrakeFlare"]["cost"] = 33;
 	unit_dict["DrakeFlare"]["usage"] = "mixedfighter";
 	unit_dict["DrakeFlare"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["DrakeFlare"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 6, 'number': 4}];
+	unit_dict["DrakeFlare"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3, 'icon': 'attacks/warblade-red.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 6, 'number': 4}];
 
 	unit_dict["DrakeGlider"] = {};
 	unit_dict["DrakeGlider"]["id"] = "DrakeGlider";
@@ -299,7 +299,7 @@ function createUnitDict() {
 	unit_dict["DrakeGlider"]["advances_to"] = ['SkyDrake'];
 	unit_dict["DrakeGlider"]["cost"] = 16;
 	unit_dict["DrakeGlider"]["usage"] = "scout";
-	unit_dict["DrakeGlider"]["attack"] = [{'name': 'slam', 'description': 'slam', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'damage': 3, 'number': 3}];
+	unit_dict["DrakeGlider"]["attack"] = [{'name': 'slam', 'description': 'slam', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2, 'icon': 'attacks/slam-drake.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'damage': 3, 'number': 3}];
 
 	unit_dict["HurricaneDrake"] = {};
 	unit_dict["HurricaneDrake"]["id"] = "HurricaneDrake";
@@ -316,7 +316,7 @@ function createUnitDict() {
 	unit_dict["HurricaneDrake"]["cost"] = 43;
 	unit_dict["HurricaneDrake"]["usage"] = "scout";
 	unit_dict["HurricaneDrake"]["recruit_anim"] = {};
-	unit_dict["HurricaneDrake"]["attack"] = [{'name': 'slam', 'description': 'slam', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'damage': 8, 'number': 3}];
+	unit_dict["HurricaneDrake"]["attack"] = [{'name': 'slam', 'description': 'slam', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 3, 'icon': 'attacks/slam-drake.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'damage': 8, 'number': 3}];
 	unit_dict["HurricaneDrake"]["draw_weapon_anim"] = {};
 	unit_dict["HurricaneDrake"]["sheath_weapon_anim"] = {};
 
@@ -335,7 +335,7 @@ function createUnitDict() {
 	unit_dict["InfernoDrake"]["cost"] = 51;
 	unit_dict["InfernoDrake"]["usage"] = "archer";
 	unit_dict["InfernoDrake"]["resistance"] = {'fire': 20};
-	unit_dict["InfernoDrake"]["attack"] = [{'name': 'battleclaws', 'description': 'battleclaws', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 6}];
+	unit_dict["InfernoDrake"]["attack"] = [{'name': 'battleclaws', 'description': 'battleclaws', 'icon': 'attacks/claws-drake.png', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 6}];
 
 	unit_dict["SkyDrake"] = {};
 	unit_dict["SkyDrake"]["id"] = "SkyDrake";
@@ -352,7 +352,7 @@ function createUnitDict() {
 	unit_dict["SkyDrake"]["cost"] = 28;
 	unit_dict["SkyDrake"]["usage"] = "scout";
 	unit_dict["SkyDrake"]["recruit_anim"] = {};
-	unit_dict["SkyDrake"]["attack"] = [{'name': 'slam', 'description': 'slam', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'damage': 5, 'number': 3}];
+	unit_dict["SkyDrake"]["attack"] = [{'name': 'slam', 'description': 'slam', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 3, 'icon': 'attacks/slam-drake.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'damage': 5, 'number': 3}];
 	unit_dict["SkyDrake"]["draw_weapon_anim"] = {};
 	unit_dict["SkyDrake"]["sheath_weapon_anim"] = {};
 
@@ -371,7 +371,7 @@ function createUnitDict() {
 	unit_dict["DrakeThrasher"]["advances_to"] = ['DrakeEnforcer'];
 	unit_dict["DrakeThrasher"]["cost"] = 32;
 	unit_dict["DrakeThrasher"]["usage"] = "fighter";
-	unit_dict["DrakeThrasher"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 5}, {'name': 'ram', 'description': 'ram', 'type': 'impact', 'range': 'melee', 'damage': 10, 'number': 3}];
+	unit_dict["DrakeThrasher"]["attack"] = [{'name': 'wartalon', 'description': 'wartalon', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4, 'icon': 'attacks/scimitar.png'}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 5, 'icon': 'attacks/spear.png'}, {'name': 'ram', 'description': 'ram', 'type': 'impact', 'range': 'melee', 'damage': 10, 'number': 3, 'icon': 'attacks/ram.png'}];
 	unit_dict["DrakeThrasher"]["filter_second_attack"] = [{'type': 'pierce'}, {'type': 'blade,impact'}];
 
 	unit_dict["DrakeWarden"] = {};
@@ -389,7 +389,7 @@ function createUnitDict() {
 	unit_dict["DrakeWarden"]["cost"] = 46;
 	unit_dict["DrakeWarden"]["usage"] = "fighter";
 	unit_dict["DrakeWarden"]["resistance"] = {'pierce': 80};
-	unit_dict["DrakeWarden"]["attack"] = [{'name': 'halberd', 'description': 'halberd', 'type': 'blade', 'range': 'melee', 'damage': 16, 'number': 3}, {'name': 'halberd', 'description': 'halberd', 'type': 'pierce', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}, 'damage': 23, 'number': 2}];
+	unit_dict["DrakeWarden"]["attack"] = [{'name': 'halberd', 'description': 'halberd', 'type': 'blade', 'range': 'melee', 'damage': 16, 'number': 3, 'icon': 'attacks/halberd.png'}, {'name': 'halberd', 'description': 'halberd', 'type': 'pierce', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}, 'damage': 23, 'number': 2, 'icon': 'attacks/halberd.png'}];
 
 	unit_dict["DrakeWarrior"] = {};
 	unit_dict["DrakeWarrior"]["id"] = "DrakeWarrior";
@@ -405,7 +405,7 @@ function createUnitDict() {
 	unit_dict["DrakeWarrior"]["advances_to"] = ['DrakeBlademaster'];
 	unit_dict["DrakeWarrior"]["cost"] = 32;
 	unit_dict["DrakeWarrior"]["usage"] = "fighter";
-	unit_dict["DrakeWarrior"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["DrakeWarrior"]["attack"] = [{'name': 'warblade', 'description': 'warblade', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3, 'icon': 'attacks/warblade.png'}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'range': 'ranged', 'damage': 5, 'number': 3}];
 
 	unit_dict["DuneAlchemist"] = {};
 	unit_dict["DuneAlchemist"]["id"] = "DuneAlchemist";
@@ -422,7 +422,7 @@ function createUnitDict() {
 	unit_dict["DuneAlchemist"]["usage"] = "mixedfighter";
 	unit_dict["DuneAlchemist"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
 	unit_dict["DuneAlchemist"]["resistance"] = {'blade': 110};
-	unit_dict["DuneAlchemist"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 3}, {'name': 'blowgun', 'description': 'blowgun', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
+	unit_dict["DuneAlchemist"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 3, 'icon': 'attacks/quarterstaff.png'}, {'name': 'blowgun', 'description': 'blowgun', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 2, 'icon': 'attacks/blowgun.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
 
 	unit_dict["DuneApothecary"] = {};
 	unit_dict["DuneApothecary"]["id"] = "DuneApothecary";
@@ -439,7 +439,7 @@ function createUnitDict() {
 	unit_dict["DuneApothecary"]["cost"] = 27;
 	unit_dict["DuneApothecary"]["usage"] = "healer";
 	unit_dict["DuneApothecary"]["resistance"] = {'blade': 110, 'pierce': 90};
-	unit_dict["DuneApothecary"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 4}];
+	unit_dict["DuneApothecary"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 4, 'icon': 'attacks/mace.png'}];
 
 	unit_dict["DuneBlademaster"] = {};
 	unit_dict["DuneBlademaster"]["id"] = "DuneBlademaster";
@@ -454,7 +454,7 @@ function createUnitDict() {
 	unit_dict["DuneBlademaster"]["advances_to"] = null;
 	unit_dict["DuneBlademaster"]["cost"] = 52;
 	unit_dict["DuneBlademaster"]["usage"] = "fighter";
-	unit_dict["DuneBlademaster"]["attack"] = [{'name': 'sword', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 3}, {'name': 'sword', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 18, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}];
+	unit_dict["DuneBlademaster"]["attack"] = [{'name': 'sword', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 3, 'icon': 'attacks/scimitar.png'}, {'name': 'sword', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 18, 'number': 2, 'icon': 'attacks/scimitar.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}];
 
 	unit_dict["DuneBurner"] = {};
 	unit_dict["DuneBurner"]["id"] = "DuneBurner";
@@ -471,7 +471,7 @@ function createUnitDict() {
 	unit_dict["DuneBurner"]["cost"] = 17;
 	unit_dict["DuneBurner"]["usage"] = "archer";
 	unit_dict["DuneBurner"]["resistance"] = {'cold': 90, 'blade': 110};
-	unit_dict["DuneBurner"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'flamethrower', 'description': 'flamethrower', 'type': 'fire', 'range': 'ranged', 'damage': 7, 'number': 3}];
+	unit_dict["DuneBurner"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2, 'icon': 'attacks/dagger-curved.png'}, {'name': 'flamethrower', 'description': 'flamethrower', 'type': 'fire', 'range': 'ranged', 'damage': 7, 'number': 3, 'icon': 'attacks/fire-blast.png'}];
 	unit_dict["DuneBurner"]["female"] = {'name': 'female^DuneBurner', 'gender': 'female'};
 
 	unit_dict["DuneCaptain"] = {};
@@ -489,7 +489,7 @@ function createUnitDict() {
 	unit_dict["DuneCaptain"]["cost"] = 30;
 	unit_dict["DuneCaptain"]["usage"] = "fighter";
 	unit_dict["DuneCaptain"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["DuneCaptain"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3}];
+	unit_dict["DuneCaptain"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3, 'icon': 'attacks/scimitar.png'}];
 
 	unit_dict["DuneCataphract"] = {};
 	unit_dict["DuneCataphract"]["id"] = "DuneCataphract";
@@ -506,7 +506,7 @@ function createUnitDict() {
 	unit_dict["DuneCataphract"]["usage"] = "fighter";
 	unit_dict["DuneCataphract"]["filter_second_attack"] = {'name': 'lance'};
 	unit_dict["DuneCataphract"]["resistance"] = {'blade': 70, 'impact': 70};
-	unit_dict["DuneCataphract"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 3}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'range': 'melee', 'damage': 13, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
+	unit_dict["DuneCataphract"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 3, 'icon': 'attacks/mace.png'}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'range': 'melee', 'damage': 13, 'number': 2, 'icon': 'attacks/lance.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3, 'icon': 'attacks/bow-short-reinforced.png'}];
 	unit_dict["DuneCataphract"]["horse_sound_frame"] = [{'sound': 'horse-canter.wav'}, {'sound': 'horse-canter.wav'}];
 
 	unit_dict["DuneExplorer"] = {};
@@ -524,7 +524,7 @@ function createUnitDict() {
 	unit_dict["DuneExplorer"]["usage"] = "mixedfighter";
 	unit_dict["DuneExplorer"]["resistance"] = {'pierce': 90};
 	unit_dict["DuneExplorer"]["defense"] = {'sand': 50, 'forest': 50};
-	unit_dict["DuneExplorer"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}];
+	unit_dict["DuneExplorer"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4, 'icon': 'attacks/axe.png'}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3, 'icon': 'attacks/bow-short-reinforced.png'}];
 
 	unit_dict["DuneFalconer"] = {};
 	unit_dict["DuneFalconer"]["id"] = "DuneFalconer";
@@ -547,7 +547,7 @@ function createUnitDict() {
 	unit_dict["DuneFalconer"]["abilities"] = {'ability': ['ABILITY_SKIRMISHER', 'ABILITY_DIVERSION']};
 	unit_dict["DuneFalconer"]["animation"] = {'apply_to': 'launching', 'start_time': 0, 'falcon_start_time': 0, 'falcon_frame': {'auto_vflip': 'no', 'y': '-45:490,-45~-40:160'}};
 	unit_dict["DuneFalconer"]["animation]#fornowjustthereverseoflaunchin"] = {'apply_to': 'landing', 'start_time': 0, 'falcon_start_time': 0, 'falcon_frame': {'auto_vflip': 'no', 'y': '-45~-40:160,-45:490'}};
-	unit_dict["DuneFalconer"]["attack"] = [{'name': 'sword', 'description': 'shortsword', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}, {'name': 'falcon', 'description': 'falcon', 'type': 'blade', 'range': 'ranged', 'damage': 10, 'number': 2}];
+	unit_dict["DuneFalconer"]["attack"] = [{'name': 'sword', 'description': 'shortsword', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4, 'icon': 'attacks/sword-human-short.png'}, {'name': 'falcon', 'description': 'falcon', 'type': 'blade', 'range': 'ranged', 'damage': 10, 'number': 2, 'icon': 'attacks/claws.png'}];
 
 	unit_dict["DuneFiretrooper"] = {};
 	unit_dict["DuneFiretrooper"]["id"] = "DuneFiretrooper";
@@ -566,7 +566,7 @@ function createUnitDict() {
 	unit_dict["DuneFiretrooper"]["flame_frame"] = [{'layer': '45', 'auto_hflip': 'no', 'auto_vflip': 'no', 'primary': 'no'}, {'layer': '45', 'auto_hflip': 'no', 'auto_vflip': 'no', 'primary': 'no'}];
 	unit_dict["DuneFiretrooper"]["glow_frame"] = [{'layer': '46', 'auto_hflip': 'no', 'auto_vflip': 'no', 'primary': 'no'}, {'layer': '46', 'auto_hflip': 'no', 'auto_vflip': 'no', 'primary': 'no'}];
 	unit_dict["DuneFiretrooper"]["resistance"] = {'cold': 70, 'blade': 110};
-	unit_dict["DuneFiretrooper"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3}, {'name': 'flamethrower', 'description': 'flamethrower', 'type': 'fire', 'range': 'ranged', 'damage': 9, 'number': 4}];
+	unit_dict["DuneFiretrooper"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3, 'icon': 'attacks/dagger-curved.png'}, {'name': 'flamethrower', 'description': 'flamethrower', 'type': 'fire', 'range': 'ranged', 'damage': 9, 'number': 4, 'icon': 'attacks/fire-blast.png'}];
 	unit_dict["DuneFiretrooper"]["female"] = {'name': 'female^DuneFiretrooper', 'gender': 'female'};
 
 	unit_dict["DuneHarrier"] = {};
@@ -584,7 +584,7 @@ function createUnitDict() {
 	unit_dict["DuneHarrier"]["cost"] = 46;
 	unit_dict["DuneHarrier"]["usage"] = "mixedfighter";
 	unit_dict["DuneHarrier"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["DuneHarrier"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'bolas', 'description': 'bolas', 'type': 'impact', 'range': 'ranged', 'damage': 6, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}}];
+	unit_dict["DuneHarrier"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 4, 'icon': 'attacks/spear.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'bolas', 'description': 'bolas', 'type': 'impact', 'range': 'ranged', 'damage': 6, 'number': 3, 'icon': 'attacks/bolas.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}}];
 
 	unit_dict["DuneHerbalist"] = {};
 	unit_dict["DuneHerbalist"]["id"] = "DuneHerbalist";
@@ -601,7 +601,7 @@ function createUnitDict() {
 	unit_dict["DuneHerbalist"]["cost"] = 15;
 	unit_dict["DuneHerbalist"]["usage"] = "healer";
 	unit_dict["DuneHerbalist"]["resistance"] = {'blade': 110};
-	unit_dict["DuneHerbalist"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3}];
+	unit_dict["DuneHerbalist"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3, 'icon': 'attacks/mace.png'}];
 
 	unit_dict["DuneHorseArcher"] = {};
 	unit_dict["DuneHorseArcher"]["id"] = "DuneHorseArcher";
@@ -616,7 +616,7 @@ function createUnitDict() {
 	unit_dict["DuneHorseArcher"]["advances_to"] = ['DuneWindbolt'];
 	unit_dict["DuneHorseArcher"]["cost"] = 38;
 	unit_dict["DuneHorseArcher"]["usage"] = "archer";
-	unit_dict["DuneHorseArcher"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 4}];
+	unit_dict["DuneHorseArcher"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2, 'icon': 'attacks/mace.png'}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 4, 'icon': 'attacks/bow-short-reinforced.png'}];
 	unit_dict["DuneHorseArcher"]["horse_sound_frame"] = {'sound': 'horse-canter.wav'};
 
 	unit_dict["DuneLuminary"] = {};
@@ -633,7 +633,7 @@ function createUnitDict() {
 	unit_dict["DuneLuminary"]["cost"] = 53;
 	unit_dict["DuneLuminary"]["usage"] = "healer";
 	unit_dict["DuneLuminary"]["resistance"] = {'blade': 110, 'pierce': 80};
-	unit_dict["DuneLuminary"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 4}];
+	unit_dict["DuneLuminary"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 4, 'icon': 'attacks/mace.png'}];
 
 	unit_dict["DuneMarauder"] = {};
 	unit_dict["DuneMarauder"]["id"] = "DuneMarauder";
@@ -651,7 +651,7 @@ function createUnitDict() {
 	unit_dict["DuneMarauder"]["filter_second_attack"] = [{'range': 'ranged'}, {'range': 'melee'}];
 	unit_dict["DuneMarauder"]["resistance"] = {'blade': 80, 'impact': 80};
 	unit_dict["DuneMarauder"]["defense"] = {'mountains': 50};
-	unit_dict["DuneMarauder"]["attack"] = [{'name': 'torch', 'description': 'torch', 'type': 'fire', 'range': 'melee', 'damage': 11, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 3}];
+	unit_dict["DuneMarauder"]["attack"] = [{'name': 'torch', 'description': 'torch', 'type': 'fire', 'range': 'melee', 'damage': 11, 'number': 3, 'icon': 'attacks/torch.png'}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 3, 'icon': 'attacks/bow-short-reinforced.png'}];
 	unit_dict["DuneMarauder"]["horse_sound_frame"] = {'sound': 'horse-canter.wav'};
 
 	unit_dict["DuneParagon"] = {};
@@ -668,7 +668,7 @@ function createUnitDict() {
 	unit_dict["DuneParagon"]["advances_to"] = null;
 	unit_dict["DuneParagon"]["cost"] = 78;
 	unit_dict["DuneParagon"]["usage"] = "fighter";
-	unit_dict["DuneParagon"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 13, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}, {'name': 'pommelstrike', 'description': 'pommelstrike', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 3}];
+	unit_dict["DuneParagon"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 13, 'number': 4, 'icon': 'attacks/longsword.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}, {'name': 'pommelstrike', 'description': 'pommelstrike', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 3, 'icon': 'attacks/quarterstaff.png'}];
 
 	unit_dict["DuneRaider"] = {};
 	unit_dict["DuneRaider"]["id"] = "DuneRaider";
@@ -686,7 +686,7 @@ function createUnitDict() {
 	unit_dict["DuneRaider"]["filter_second_attack"] = [{'range': 'ranged'}, {'range': 'melee'}];
 	unit_dict["DuneRaider"]["resistance"] = {'blade': 90};
 	unit_dict["DuneRaider"]["defense"] = {'mountains': 50};
-	unit_dict["DuneRaider"]["attack"] = [{'name': 'torch', 'description': 'torch', 'type': 'fire', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 3}];
+	unit_dict["DuneRaider"]["attack"] = [{'name': 'torch', 'description': 'torch', 'type': 'fire', 'range': 'melee', 'damage': 8, 'number': 3, 'icon': 'attacks/torch.png'}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 3, 'icon': 'attacks/bow-short-reinforced.png'}];
 	unit_dict["DuneRaider"]["horse_sound_frame"] = {'sound': 'horse-canter.wav'};
 
 	unit_dict["DuneRider"] = {};
@@ -702,7 +702,7 @@ function createUnitDict() {
 	unit_dict["DuneRider"]["advances_to"] = ['DuneRaider', 'DuneHorseArcher', 'DuneSunderer'];
 	unit_dict["DuneRider"]["cost"] = 18;
 	unit_dict["DuneRider"]["usage"] = "scout";
-	unit_dict["DuneRider"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 2}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["DuneRider"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 2, 'icon': 'attacks/mace.png'}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3, 'icon': 'attacks/bow-short.png'}];
 	unit_dict["DuneRider"]["horse_sound_frame"] = {'sound': 'horse-canter.wav'};
 
 	unit_dict["DuneRover"] = {};
@@ -719,7 +719,7 @@ function createUnitDict() {
 	unit_dict["DuneRover"]["cost"] = 14;
 	unit_dict["DuneRover"]["usage"] = "mixedfighter";
 	unit_dict["DuneRover"]["defense"] = {'sand': 50, 'forest': 50};
-	unit_dict["DuneRover"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["DuneRover"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3, 'icon': 'attacks/axe.png'}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3, 'icon': 'attacks/bow-short.png'}];
 
 	unit_dict["DuneScorcher"] = {};
 	unit_dict["DuneScorcher"]["id"] = "DuneScorcher";
@@ -736,7 +736,7 @@ function createUnitDict() {
 	unit_dict["DuneScorcher"]["cost"] = 23;
 	unit_dict["DuneScorcher"]["usage"] = "archer";
 	unit_dict["DuneScorcher"]["resistance"] = {'cold': 80, 'blade': 110};
-	unit_dict["DuneScorcher"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'flamethrower', 'description': 'flamethrower', 'type': 'fire', 'range': 'ranged', 'damage': 9, 'number': 3}];
+	unit_dict["DuneScorcher"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2, 'icon': 'attacks/dagger-curved.png'}, {'name': 'flamethrower', 'description': 'flamethrower', 'type': 'fire', 'range': 'ranged', 'damage': 9, 'number': 3, 'icon': 'attacks/fire-blast.png'}];
 	unit_dict["DuneScorcher"]["female"] = {'name': 'female^DuneScorcher', 'gender': 'female'};
 
 	unit_dict["DuneSkirmisher"] = {};
@@ -754,7 +754,7 @@ function createUnitDict() {
 	unit_dict["DuneSkirmisher"]["cost"] = 16;
 	unit_dict["DuneSkirmisher"]["usage"] = "fighter";
 	unit_dict["DuneSkirmisher"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["DuneSkirmisher"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 4, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 6, 'number': 1}];
+	unit_dict["DuneSkirmisher"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 4, 'number': 4, 'icon': 'attacks/spear.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 6, 'number': 1, 'icon': 'attacks/sling.png'}];
 
 	unit_dict["DuneSkyHunter"] = {};
 	unit_dict["DuneSkyHunter"]["id"] = "DuneSkyHunter";
@@ -777,7 +777,7 @@ function createUnitDict() {
 	unit_dict["DuneSkyHunter"]["abilities"] = {'ability': ['ABILITY_SKIRMISHER', 'ABILITY_DIVERSION']};
 	unit_dict["DuneSkyHunter"]["animation"] = {'apply_to': 'launching', 'start_time': 0, 'falcon_start_time': 0, 'falcon_frame': {'auto_vflip': 'no', 'y': '-40:490,-40~-45:160'}};
 	unit_dict["DuneSkyHunter"]["animation]#fornowjustthereverseoflaunchin"] = {'apply_to': 'landing', 'start_time': 0, 'falcon_start_time': 0, 'falcon_frame': {'auto_vflip': 'no', 'y': '-45~-40:160,-40:490'}};
-	unit_dict["DuneSkyHunter"]["attack"] = [{'name': 'sword', 'description': 'shortsword', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4}, {'name': 'falcon', 'description': 'eagle', 'type': 'blade', 'range': 'ranged', 'damage': 17, 'number': 2}];
+	unit_dict["DuneSkyHunter"]["attack"] = [{'name': 'sword', 'description': 'shortsword', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4, 'icon': 'attacks/sword-human-short.png'}, {'name': 'falcon', 'description': 'eagle', 'type': 'blade', 'range': 'ranged', 'damage': 17, 'number': 2, 'icon': 'attacks/claws.png'}];
 
 	unit_dict["DuneSoldier"] = {};
 	unit_dict["DuneSoldier"]["id"] = "DuneSoldier";
@@ -792,7 +792,7 @@ function createUnitDict() {
 	unit_dict["DuneSoldier"]["advances_to"] = ['DuneSwordsman', 'DuneCaptain', 'DuneSpearguard'];
 	unit_dict["DuneSoldier"]["cost"] = 18;
 	unit_dict["DuneSoldier"]["usage"] = "fighter";
-	unit_dict["DuneSoldier"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 2}];
+	unit_dict["DuneSoldier"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 2, 'icon': 'attacks/scimitar.png'}];
 
 	unit_dict["DuneSpearguard"] = {};
 	unit_dict["DuneSpearguard"]["id"] = "DuneSpearguard";
@@ -808,7 +808,7 @@ function createUnitDict() {
 	unit_dict["DuneSpearguard"]["cost"] = 30;
 	unit_dict["DuneSpearguard"]["usage"] = "fighter";
 	unit_dict["DuneSpearguard"]["resistance"] = {'pierce': 70};
-	unit_dict["DuneSpearguard"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 16, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'shieldbash', 'description': 'shieldbash', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 3}];
+	unit_dict["DuneSpearguard"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 16, 'number': 2, 'icon': 'attacks/spear.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'shieldbash', 'description': 'shieldbash', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 3, 'icon': 'attacks/heater-shield.png'}];
 
 	unit_dict["DuneSpearmaster"] = {};
 	unit_dict["DuneSpearmaster"]["id"] = "DuneSpearmaster";
@@ -824,7 +824,7 @@ function createUnitDict() {
 	unit_dict["DuneSpearmaster"]["cost"] = 51;
 	unit_dict["DuneSpearmaster"]["usage"] = "fighter";
 	unit_dict["DuneSpearmaster"]["resistance"] = {'pierce': 60};
-	unit_dict["DuneSpearmaster"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 23, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'shieldbash', 'description': 'shieldbash', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 3}];
+	unit_dict["DuneSpearmaster"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 23, 'number': 2, 'icon': 'attacks/spear.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'shieldbash', 'description': 'shieldbash', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 3, 'icon': 'attacks/heater-shield.png'}];
 
 	unit_dict["DuneStrider"] = {};
 	unit_dict["DuneStrider"]["id"] = "DuneStrider";
@@ -841,7 +841,7 @@ function createUnitDict() {
 	unit_dict["DuneStrider"]["cost"] = 23;
 	unit_dict["DuneStrider"]["usage"] = "mixedfighter";
 	unit_dict["DuneStrider"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["DuneStrider"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'bolas', 'description': 'bolas', 'type': 'impact', 'range': 'ranged', 'damage': 7, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}}];
+	unit_dict["DuneStrider"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 4, 'icon': 'attacks/spear.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'bolas', 'description': 'bolas', 'type': 'impact', 'range': 'ranged', 'damage': 7, 'number': 2, 'icon': 'attacks/bolas.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}}];
 
 	unit_dict["DuneSunderer"] = {};
 	unit_dict["DuneSunderer"]["id"] = "DuneSunderer";
@@ -857,7 +857,7 @@ function createUnitDict() {
 	unit_dict["DuneSunderer"]["cost"] = 38;
 	unit_dict["DuneSunderer"]["usage"] = "fighter";
 	unit_dict["DuneSunderer"]["resistance"] = {'blade': 80, 'impact': 80};
-	unit_dict["DuneSunderer"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 3}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["DuneSunderer"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 3, 'icon': 'attacks/mace.png'}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3, 'icon': 'attacks/bow-short-reinforced.png'}];
 	unit_dict["DuneSunderer"]["horse_sound_frame"] = {'sound': 'horse-canter.wav'};
 
 	unit_dict["DuneSwordsman"] = {};
@@ -873,7 +873,7 @@ function createUnitDict() {
 	unit_dict["DuneSwordsman"]["advances_to"] = ['DuneBlademaster'];
 	unit_dict["DuneSwordsman"]["cost"] = 30;
 	unit_dict["DuneSwordsman"]["usage"] = "fighter";
-	unit_dict["DuneSwordsman"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 2}, {'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}];
+	unit_dict["DuneSwordsman"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 2, 'icon': 'attacks/scimitar.png'}, {'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2, 'icon': 'attacks/scimitar.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}];
 
 	unit_dict["DuneWarmaster"] = {};
 	unit_dict["DuneWarmaster"]["id"] = "DuneWarmaster";
@@ -890,7 +890,7 @@ function createUnitDict() {
 	unit_dict["DuneWarmaster"]["cost"] = 56;
 	unit_dict["DuneWarmaster"]["usage"] = "fighter";
 	unit_dict["DuneWarmaster"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["DuneWarmaster"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 4}];
+	unit_dict["DuneWarmaster"]["attack"] = [{'name': 'scimitar', 'description': 'scimitar', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 4, 'icon': 'attacks/scimitar.png'}];
 
 	unit_dict["DuneWayfarer"] = {};
 	unit_dict["DuneWayfarer"]["id"] = "DuneWayfarer";
@@ -907,7 +907,7 @@ function createUnitDict() {
 	unit_dict["DuneWayfarer"]["usage"] = "mixedfighter";
 	unit_dict["DuneWayfarer"]["resistance"] = {'pierce': 80};
 	unit_dict["DuneWayfarer"]["defense"] = {'sand': 50, 'forest': 50};
-	unit_dict["DuneWayfarer"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 4}];
+	unit_dict["DuneWayfarer"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4, 'icon': 'attacks/axe.png'}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 4, 'icon': 'attacks/bow-short-reinforced.png'}];
 
 	unit_dict["DuneWindbolt"] = {};
 	unit_dict["DuneWindbolt"]["id"] = "DuneWindbolt";
@@ -923,7 +923,7 @@ function createUnitDict() {
 	unit_dict["DuneWindbolt"]["cost"] = 50;
 	unit_dict["DuneWindbolt"]["usage"] = "archer";
 	unit_dict["DuneWindbolt"]["resistance"] = {'blade': 90};
-	unit_dict["DuneWindbolt"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 10, 'number': 2}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 5}];
+	unit_dict["DuneWindbolt"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 10, 'number': 2, 'icon': 'attacks/mace.png'}, {'name': 'compositebow', 'description': 'compositebow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 5, 'icon': 'attacks/bow-short-reinforced.png'}];
 	unit_dict["DuneWindbolt"]["horse_sound_frame"] = {'sound': 'horse-canter.wav'};
 
 	unit_dict["WyvernRider"] = {};
@@ -941,7 +941,7 @@ function createUnitDict() {
 	unit_dict["WyvernRider"]["cost"] = 80;
 	unit_dict["WyvernRider"]["usage"] = "scout";
 	unit_dict["WyvernRider"]["undead_variation"] = "drake";
-	unit_dict["WyvernRider"]["attack"] = [{'name': 'bite', 'description': 'bite', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4}, {'name': 'javelin', 'description': 'javelin', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 3}];
+	unit_dict["WyvernRider"]["attack"] = [{'name': 'bite', 'description': 'bite', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4}, {'name': 'javelin', 'description': 'javelin', 'icon': 'attacks/javelin-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 3}];
 
 	unit_dict["DwarvishArcanister"] = {};
 	unit_dict["DwarvishArcanister"]["id"] = "DwarvishArcanister";
@@ -958,7 +958,7 @@ function createUnitDict() {
 	unit_dict["DwarvishArcanister"]["usage"] = "fighter";
 	unit_dict["DwarvishArcanister"]["advances_to"] = null;
 	unit_dict["DwarvishArcanister"]["experience"] = 200;
-	unit_dict["DwarvishArcanister"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'melee', 'damage': 26, 'number': 2}];
+	unit_dict["DwarvishArcanister"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-dwarven-runic.png', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'melee', 'damage': 26, 'number': 2}];
 
 	unit_dict["DwarvishBerserker"] = {};
 	unit_dict["DwarvishBerserker"]["id"] = "DwarvishBerserker";
@@ -975,7 +975,7 @@ function createUnitDict() {
 	unit_dict["DwarvishBerserker"]["cost"] = 30;
 	unit_dict["DwarvishBerserker"]["usage"] = "fighter";
 	unit_dict["DwarvishBerserker"]["defense"] = {'hills': 60, 'mountains': 50, 'village': 60, 'cave': 60, 'castle': 60};
-	unit_dict["DwarvishBerserker"]["attack"] = [{'name': 'berserkerfrenzy', 'description': 'berserkerfrenzy', 'type': 'blade', 'specials': {'attack_special': 'WEAPON_SPECIAL_BERSERK'}, 'range': 'melee', 'damage': 7, 'number': 4}];
+	unit_dict["DwarvishBerserker"]["attack"] = [{'name': 'berserkerfrenzy', 'description': 'berserkerfrenzy', 'icon': 'attacks/frenzy.png', 'type': 'blade', 'specials': {'attack_special': 'WEAPON_SPECIAL_BERSERK'}, 'range': 'melee', 'damage': 7, 'number': 4}];
 	unit_dict["DwarvishBerserker"]["filter_second_attack"] = {};
 
 	unit_dict["DwarvishDragonguard"] = {};
@@ -993,7 +993,7 @@ function createUnitDict() {
 	unit_dict["DwarvishDragonguard"]["cost"] = 46;
 	unit_dict["DwarvishDragonguard"]["usage"] = "archer";
 	unit_dict["DwarvishDragonguard"]["filter_second_attack"] = {'range': 'melee'};
-	unit_dict["DwarvishDragonguard"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3}, {'name': 'dragonstaff', 'description': 'dragonstaff', 'type': 'pierce', 'range': 'ranged', 'damage': 40, 'number': 1}];
+	unit_dict["DwarvishDragonguard"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3}, {'name': 'dragonstaff', 'description': 'dragonstaff', 'type': 'pierce', 'range': 'ranged', 'damage': 40, 'number': 1, 'icon': 'attacks/dragonstaff.png'}];
 	unit_dict["DwarvishDragonguard"]["halo_frame"] = [{'halo': 'halo/dragonguard/dg-muzzle-flash-s-[1~17].png:[80*3,90,100,120*3,100*9]', 'auto_vflip': 'no'}, {'halo': 'halo/dragonguard/dg-muzzle-flash-ne-[1~17].png:[80*3,90,100,120*3,100*9]', 'auto_vflip': 'no'}, {'halo': 'halo/dragonguard/dg-muzzle-flash-n-[1~17].png:[80*3,90,100,120*3,100*9]', 'auto_vflip': 'no'}, {'halo': 'halo/dragonguard/dg-muzzle-flash-se-[1~17].png:[80*3,90,100,120*3,100*9]', 'auto_vflip': 'no'}];
 
 	unit_dict["DwarvishExplorer"] = {};
@@ -1010,7 +1010,7 @@ function createUnitDict() {
 	unit_dict["DwarvishExplorer"]["advances_to"] = null;
 	unit_dict["DwarvishExplorer"]["cost"] = 45;
 	unit_dict["DwarvishExplorer"]["usage"] = "scout";
-	unit_dict["DwarvishExplorer"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3}, {'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'ranged', 'damage': 11, 'number': 3}];
+	unit_dict["DwarvishExplorer"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3, 'icon': 'attacks/battleaxe.png'}, {'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'ranged', 'damage': 11, 'number': 3}];
 
 	unit_dict["DwarvishFighter"] = {};
 	unit_dict["DwarvishFighter"]["id"] = "DwarvishFighter";
@@ -1027,7 +1027,7 @@ function createUnitDict() {
 	unit_dict["DwarvishFighter"]["cost"] = 16;
 	unit_dict["DwarvishFighter"]["usage"] = "fighter";
 	unit_dict["DwarvishFighter"]["filter_second_attack"] = [{'name': 'axe'}, {'name': 'hammer'}];
-	unit_dict["DwarvishFighter"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 2}];
+	unit_dict["DwarvishFighter"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-dwarven.png', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 2}];
 
 	unit_dict["DwarvishGuardsman"] = {};
 	unit_dict["DwarvishGuardsman"]["id"] = "DwarvishGuardsman";
@@ -1045,7 +1045,7 @@ function createUnitDict() {
 	unit_dict["DwarvishGuardsman"]["usage"] = "fighter";
 	unit_dict["DwarvishGuardsman"]["defense"] = {'mountains': 40, 'hills': 50};
 	unit_dict["DwarvishGuardsman"]["abilities"] = {'ability': 'ABILITY_STEADFAST'};
-	unit_dict["DwarvishGuardsman"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'javelin', 'description': 'javelin', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 1}];
+	unit_dict["DwarvishGuardsman"]["attack"] = [{'name': 'spear', 'description': 'spear', 'icon': 'attacks/spear.png', 'type': 'pierce', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'javelin', 'description': 'javelin', 'icon': 'attacks/javelin-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 1}];
 
 	unit_dict["DwarvishLord"] = {};
 	unit_dict["DwarvishLord"]["id"] = "DwarvishLord";
@@ -1063,7 +1063,7 @@ function createUnitDict() {
 	unit_dict["DwarvishLord"]["usage"] = "fighter";
 	unit_dict["DwarvishLord"]["filter_second_attack"] = [{'name': 'battleaxe'}, {'name': 'hammer'}];
 	unit_dict["DwarvishLord"]["resistance"] = {'blade': 60, 'pierce': 70, 'impact': 70};
-	unit_dict["DwarvishLord"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 3}, {'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 19, 'number': 2}, {'name': 'hatchet', 'description': 'hatchet', 'type': 'blade', 'range': 'ranged', 'damage': 10, 'number': 1}];
+	unit_dict["DwarvishLord"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'type': 'blade', 'range': 'melee', 'icon': 'attacks/battleaxe.png', 'damage': 15, 'number': 3}, {'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-dwarven.png', 'type': 'impact', 'range': 'melee', 'damage': 19, 'number': 2}, {'name': 'hatchet', 'description': 'hatchet', 'type': 'blade', 'range': 'ranged', 'damage': 10, 'number': 1}];
 
 	unit_dict["DwarvishPathfinder"] = {};
 	unit_dict["DwarvishPathfinder"]["id"] = "DwarvishPathfinder";
@@ -1097,7 +1097,7 @@ function createUnitDict() {
 	unit_dict["DwarvishRunemaster"]["usage"] = "fighter";
 	unit_dict["DwarvishRunemaster"]["experience"] = 150;
 	unit_dict["DwarvishRunemaster"]["advances_to"] = null;
-	unit_dict["DwarvishRunemaster"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'melee', 'damage': 18, 'number': 2}];
+	unit_dict["DwarvishRunemaster"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-dwarven-runic.png', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'melee', 'damage': 18, 'number': 2}];
 
 	unit_dict["DwarvishRunesmith"] = {};
 	unit_dict["DwarvishRunesmith"]["id"] = "DwarvishRunesmith";
@@ -1114,7 +1114,7 @@ function createUnitDict() {
 	unit_dict["DwarvishRunesmith"]["usage"] = "fighter";
 	unit_dict["DwarvishRunesmith"]["experience"] = 86;
 	unit_dict["DwarvishRunesmith"]["advances_to"] = ['DwarvishRunemaster'];
-	unit_dict["DwarvishRunesmith"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 12, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}}];
+	unit_dict["DwarvishRunesmith"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-dwarven-runic.png', 'type': 'impact', 'range': 'melee', 'damage': 12, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}}];
 
 	unit_dict["DwarvishScout"] = {};
 	unit_dict["DwarvishScout"]["id"] = "DwarvishScout";
@@ -1150,7 +1150,7 @@ function createUnitDict() {
 	unit_dict["DwarvishSentinel"]["defense"] = {'flat': 60, 'forest': 60, 'sand': 60, 'mountains': 40, 'hills': 50};
 	unit_dict["DwarvishSentinel"]["resistance"] = {'blade': 70, 'pierce': 70};
 	unit_dict["DwarvishSentinel"]["abilities"] = {'ability': 'ABILITY_STEADFAST'};
-	unit_dict["DwarvishSentinel"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 10, 'number': 3}, {'name': 'javelin', 'description': 'javelin', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 2}];
+	unit_dict["DwarvishSentinel"]["attack"] = [{'name': 'spear', 'description': 'spear', 'icon': 'attacks/spear.png', 'type': 'pierce', 'range': 'melee', 'damage': 10, 'number': 3}, {'name': 'javelin', 'description': 'javelin', 'icon': 'attacks/javelin-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 2}];
 
 	unit_dict["DwarvishStalwart"] = {};
 	unit_dict["DwarvishStalwart"]["id"] = "DwarvishStalwart";
@@ -1168,7 +1168,7 @@ function createUnitDict() {
 	unit_dict["DwarvishStalwart"]["usage"] = "fighter";
 	unit_dict["DwarvishStalwart"]["defense"] = {'flat': 60, 'forest': 60, 'sand': 60, 'mountains': 40, 'hills': 50};
 	unit_dict["DwarvishStalwart"]["abilities"] = {'ability': 'ABILITY_STEADFAST'};
-	unit_dict["DwarvishStalwart"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'javelin', 'description': 'javelin', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 1}];
+	unit_dict["DwarvishStalwart"]["attack"] = [{'name': 'spear', 'description': 'spear', 'icon': 'attacks/spear.png', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'javelin', 'description': 'javelin', 'icon': 'attacks/javelin-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 1}];
 
 	unit_dict["DwarvishSteelclad"] = {};
 	unit_dict["DwarvishSteelclad"]["id"] = "DwarvishSteelclad";
@@ -1186,7 +1186,7 @@ function createUnitDict() {
 	unit_dict["DwarvishSteelclad"]["usage"] = "fighter";
 	unit_dict["DwarvishSteelclad"]["filter_second_attack"] = [{'name': 'battleaxe'}, {'name': 'hammer'}];
 	unit_dict["DwarvishSteelclad"]["resistance"] = {'blade': 70, 'pierce': 70, 'impact': 70};
-	unit_dict["DwarvishSteelclad"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3}, {'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 2}];
+	unit_dict["DwarvishSteelclad"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'icon': 'attacks/battleaxe.png', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 3}, {'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-dwarven.png', 'type': 'impact', 'range': 'melee', 'damage': 14, 'number': 2}];
 
 	unit_dict["DwarvishThunderer"] = {};
 	unit_dict["DwarvishThunderer"]["id"] = "DwarvishThunderer";
@@ -1204,7 +1204,7 @@ function createUnitDict() {
 	unit_dict["DwarvishThunderer"]["usage"] = "mixedfighter";
 	unit_dict["DwarvishThunderer"]["filter_second_attack"] = {'range': 'melee'};
 	unit_dict["DwarvishThunderer"]["death"] = {'start_time': 0};
-	unit_dict["DwarvishThunderer"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'thunderstick', 'description': 'thunderstick', 'type': 'pierce', 'range': 'ranged', 'damage': 18, 'number': 1}];
+	unit_dict["DwarvishThunderer"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'thunderstick', 'description': 'thunderstick', 'type': 'pierce', 'range': 'ranged', 'damage': 18, 'number': 1}];
 	unit_dict["DwarvishThunderer"]["victory_anim"] = {'direction': 's,se,sw', 'halo_start_time': 100, 'halo_frame': {'halo': 'halo/thunderer/smoke-se-ranged-kill[1~11].png:100'}};
 
 	unit_dict["DwarvishThunderguard"] = {};
@@ -1222,7 +1222,7 @@ function createUnitDict() {
 	unit_dict["DwarvishThunderguard"]["cost"] = 27;
 	unit_dict["DwarvishThunderguard"]["usage"] = "mixedfighter";
 	unit_dict["DwarvishThunderguard"]["filter_second_attack"] = {'range': 'melee'};
-	unit_dict["DwarvishThunderguard"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 3}, {'name': 'thunderstick', 'description': 'thunderstick', 'type': 'pierce', 'range': 'ranged', 'damage': 28, 'number': 1}];
+	unit_dict["DwarvishThunderguard"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 3}, {'name': 'thunderstick', 'description': 'thunderstick', 'type': 'pierce', 'range': 'ranged', 'damage': 28, 'number': 1, 'icon': 'attacks/thunderstick.png'}];
 
 	unit_dict["DwarvishUlfserker"] = {};
 	unit_dict["DwarvishUlfserker"]["id"] = "DwarvishUlfserker";
@@ -1239,7 +1239,7 @@ function createUnitDict() {
 	unit_dict["DwarvishUlfserker"]["cost"] = 19;
 	unit_dict["DwarvishUlfserker"]["usage"] = "fighter";
 	unit_dict["DwarvishUlfserker"]["defense"] = {'hills': 60, 'mountains': 50, 'village': 60, 'cave': 60, 'castle': 60};
-	unit_dict["DwarvishUlfserker"]["attack"] = [{'name': 'berserkerfrenzy', 'description': 'berserkerfrenzy', 'type': 'blade', 'specials': {'attack_special': 'WEAPON_SPECIAL_BERSERK'}, 'range': 'melee', 'damage': 4, 'number': 4}];
+	unit_dict["DwarvishUlfserker"]["attack"] = [{'name': 'berserkerfrenzy', 'description': 'berserkerfrenzy', 'icon': 'attacks/frenzy.png', 'type': 'blade', 'specials': {'attack_special': 'WEAPON_SPECIAL_BERSERK'}, 'range': 'melee', 'damage': 4, 'number': 4}];
 	unit_dict["DwarvishUlfserker"]["filter_second_attack"] = {};
 
 	unit_dict["ElvishArcher"] = {};
@@ -1257,7 +1257,7 @@ function createUnitDict() {
 	unit_dict["ElvishArcher"]["advances_to"] = ['ElvishRanger', 'ElvishMarksman'];
 	unit_dict["ElvishArcher"]["cost"] = 17;
 	unit_dict["ElvishArcher"]["usage"] = "archer";
-	unit_dict["ElvishArcher"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 4}];
+	unit_dict["ElvishArcher"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 2}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 4}];
 	unit_dict["ElvishArcher"]["female"] = {'name': 'female^ElvishArcher', 'gender': 'female', 'image': 'units/elves-wood/archer+female.png', 'small_profile': 'portraits/elves/archer+female.png', 'profile': 'portraits/elves/archer+female.png'};
 
 	unit_dict["ElvishAvenger"] = {};
@@ -1278,7 +1278,7 @@ function createUnitDict() {
 	unit_dict["ElvishAvenger"]["movement_costs"] = {'shallow_water': 2, 'mountains': 2};
 	unit_dict["ElvishAvenger"]["defense"] = {'shallow_water': 70, 'swamp_water': 60, 'sand': 60};
 	unit_dict["ElvishAvenger"]["abilities"] = {'ability': 'ABILITY_AMBUSH'};
-	unit_dict["ElvishAvenger"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 4}];
+	unit_dict["ElvishAvenger"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 4}];
 	unit_dict["ElvishAvenger"]["female"] = {'name': 'female^ElvishAvenger', 'gender': 'female', 'image': 'units/elves-wood/avenger+female.png', 'small_profile': 'portraits/elves/ranger+female.png~CROP(10,11,389,389)', 'profile': 'portraits/elves/ranger+female.png'};
 
 	unit_dict["ElvishCaptain"] = {};
@@ -1297,7 +1297,7 @@ function createUnitDict() {
 	unit_dict["ElvishCaptain"]["cost"] = 28;
 	unit_dict["ElvishCaptain"]["usage"] = "fighter";
 	unit_dict["ElvishCaptain"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["ElvishCaptain"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["ElvishCaptain"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3}];
 
 	unit_dict["ElvishChampion"] = {};
 	unit_dict["ElvishChampion"]["id"] = "ElvishChampion";
@@ -1313,7 +1313,7 @@ function createUnitDict() {
 	unit_dict["ElvishChampion"]["advances_to"] = null;
 	unit_dict["ElvishChampion"]["cost"] = 48;
 	unit_dict["ElvishChampion"]["usage"] = "fighter";
-	unit_dict["ElvishChampion"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 5}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 3}];
+	unit_dict["ElvishChampion"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/greatsword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 5}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 3}];
 
 	unit_dict["ElvishDruid"] = {};
 	unit_dict["ElvishDruid"]["id"] = "ElvishDruid";
@@ -1331,7 +1331,7 @@ function createUnitDict() {
 	unit_dict["ElvishDruid"]["cost"] = 27;
 	unit_dict["ElvishDruid"]["usage"] = "healer";
 	unit_dict["ElvishDruid"]["abilities"] = {'ability': 'ABILITY_CURES'};
-	unit_dict["ElvishDruid"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'damage': 4, 'number': 2, 'range': 'melee'}, {'name': 'ensnare', 'description': 'ensnare', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 2, 'range': 'ranged'}, {'name': 'thorns', 'description': 'thorns', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 6, 'number': 3, 'range': 'ranged'}];
+	unit_dict["ElvishDruid"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'damage': 4, 'number': 2, 'range': 'melee', 'icon': 'attacks/druidstaff.png'}, {'name': 'ensnare', 'description': 'ensnare', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 2, 'range': 'ranged', 'icon': 'attacks/entangle.png'}, {'name': 'thorns', 'description': 'thorns', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 6, 'number': 3, 'range': 'ranged'}];
 
 	unit_dict["ElvishEnchantress"] = {};
 	unit_dict["ElvishEnchantress"]["id"] = "ElvishEnchantress";
@@ -1349,7 +1349,7 @@ function createUnitDict() {
 	unit_dict["ElvishEnchantress"]["cost"] = 55;
 	unit_dict["ElvishEnchantress"]["usage"] = "mixedfighter";
 	unit_dict["ElvishEnchantress"]["resistance"] = {'arcane': 90};
-	unit_dict["ElvishEnchantress"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': ['melee', 'melee'], 'damage': 6, 'number': 2}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 5, 'number': 4, 'range': 'ranged'}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'damage': 9, 'number': 4, 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}}];
+	unit_dict["ElvishEnchantress"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': ['melee', 'melee'], 'damage': 6, 'number': 2, 'icon': 'attacks/staff-elven.png'}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 5, 'number': 4, 'range': 'ranged'}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'damage': 9, 'number': 4, 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'icon': 'attacks/faerie-fire.png'}];
 
 	unit_dict["ElvishFighter"] = {};
 	unit_dict["ElvishFighter"]["id"] = "ElvishFighter";
@@ -1365,7 +1365,7 @@ function createUnitDict() {
 	unit_dict["ElvishFighter"]["advances_to"] = ['ElvishCaptain', 'ElvishHero'];
 	unit_dict["ElvishFighter"]["cost"] = 14;
 	unit_dict["ElvishFighter"]["usage"] = "fighter";
-	unit_dict["ElvishFighter"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 3, 'number': 3}];
+	unit_dict["ElvishFighter"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 3, 'number': 3}];
 
 	unit_dict["ElvishHero"] = {};
 	unit_dict["ElvishHero"]["id"] = "ElvishHero";
@@ -1381,7 +1381,7 @@ function createUnitDict() {
 	unit_dict["ElvishHero"]["advances_to"] = ['ElvishChampion'];
 	unit_dict["ElvishHero"]["cost"] = 26;
 	unit_dict["ElvishHero"]["usage"] = "fighter";
-	unit_dict["ElvishHero"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
+	unit_dict["ElvishHero"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
 
 	unit_dict["ElvishHighLord"] = {};
 	unit_dict["ElvishHighLord"]["id"] = "ElvishHighLord";
@@ -1398,7 +1398,7 @@ function createUnitDict() {
 	unit_dict["ElvishHighLord"]["cost"] = 56;
 	unit_dict["ElvishHighLord"]["usage"] = "fighter";
 	unit_dict["ElvishHighLord"]["hit_sound_frame"] = {};
-	unit_dict["ElvishHighLord"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 7, 'number': 5}];
+	unit_dict["ElvishHighLord"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'icon': 'attacks/faerie-fire.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 7, 'number': 5}];
 
 	unit_dict["ElvishLady"] = {};
 	unit_dict["ElvishLady"]["id"] = "ElvishLady";
@@ -1416,7 +1416,7 @@ function createUnitDict() {
 	unit_dict["ElvishLady"]["cost"] = 53;
 	unit_dict["ElvishLady"]["usage"] = null;
 	unit_dict["ElvishLady"]["abilities"] = {'ability': 'ABILITY_CURES'};
-	unit_dict["ElvishLady"]["attack"] = [{'name': 'ensnare', 'description': 'ensnare', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 7, 'number': 4, 'range': 'ranged'}];
+	unit_dict["ElvishLady"]["attack"] = [{'name': 'ensnare', 'description': 'ensnare', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 7, 'number': 4, 'range': 'ranged', 'icon': 'attacks/entangle.png'}];
 
 	unit_dict["ElvishLord"] = {};
 	unit_dict["ElvishLord"]["id"] = "ElvishLord";
@@ -1432,7 +1432,7 @@ function createUnitDict() {
 	unit_dict["ElvishLord"]["advances_to"] = ['ElvishHighLord'];
 	unit_dict["ElvishLord"]["cost"] = 36;
 	unit_dict["ElvishLord"]["usage"] = "fighter";
-	unit_dict["ElvishLord"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'damage': 7, 'number': 3, 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}}];
+	unit_dict["ElvishLord"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'damage': 7, 'number': 3, 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'icon': 'attacks/faerie-fire.png'}];
 
 	unit_dict["ElvishMarksman"] = {};
 	unit_dict["ElvishMarksman"]["id"] = "ElvishMarksman";
@@ -1450,7 +1450,7 @@ function createUnitDict() {
 	unit_dict["ElvishMarksman"]["cost"] = 31;
 	unit_dict["ElvishMarksman"]["usage"] = "archer";
 	unit_dict["ElvishMarksman"]["death"] = {'start_time': 0};
-	unit_dict["ElvishMarksman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'longbow', 'description': 'longbow', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'range': 'ranged', 'damage': 9, 'number': 4}];
+	unit_dict["ElvishMarksman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'longbow', 'description': 'longbow', 'icon': 'attacks/bow-elven-magic.png', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'range': 'ranged', 'damage': 9, 'number': 4}];
 	unit_dict["ElvishMarksman"]["female"] = {'name': 'female^ElvishMarksman', 'gender': 'female', 'image': 'units/elves-wood/marksman+female.png', 'small_profile': 'portraits/elves/marksman+female.png~CROP(0,30,370,370)', 'profile': 'portraits/elves/marksman+female.png', 'death': {}};
 
 	unit_dict["ElvishMarshal"] = {};
@@ -1469,7 +1469,7 @@ function createUnitDict() {
 	unit_dict["ElvishMarshal"]["cost"] = 54;
 	unit_dict["ElvishMarshal"]["usage"] = "fighter";
 	unit_dict["ElvishMarshal"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["ElvishMarshal"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}];
+	unit_dict["ElvishMarshal"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}];
 
 	unit_dict["ElvishOutrider"] = {};
 	unit_dict["ElvishOutrider"]["id"] = "ElvishOutrider";
@@ -1488,7 +1488,7 @@ function createUnitDict() {
 	unit_dict["ElvishOutrider"]["usage"] = "scout";
 	unit_dict["ElvishOutrider"]["defense"] = {'forest': 40};
 	unit_dict["ElvishOutrider"]["resistance"] = {'pierce': 120};
-	unit_dict["ElvishOutrider"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}];
+	unit_dict["ElvishOutrider"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}];
 
 	unit_dict["ElvishRanger"] = {};
 	unit_dict["ElvishRanger"]["name"] = "ElvishRanger";
@@ -1508,7 +1508,7 @@ function createUnitDict() {
 	unit_dict["ElvishRanger"]["movement_costs"] = {'shallow_water': 2, 'mountains': 2};
 	unit_dict["ElvishRanger"]["defense"] = {'shallow_water': 70, 'swamp_water': 60, 'sand': 60};
 	unit_dict["ElvishRanger"]["abilities"] = {'ability': 'ABILITY_AMBUSH'};
-	unit_dict["ElvishRanger"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 4}];
+	unit_dict["ElvishRanger"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 4}];
 	unit_dict["ElvishRanger"]["female"] = {'name': 'female^ElvishRanger', 'gender': 'female', 'image': 'units/elves-wood/ranger+female.png', 'small_profile': 'portraits/elves/ranger+female.png~CROP(10,10,389,389)', 'profile': 'portraits/elves/ranger+female.png'};
 
 	unit_dict["ElvishRider"] = {};
@@ -1528,7 +1528,7 @@ function createUnitDict() {
 	unit_dict["ElvishRider"]["usage"] = "scout";
 	unit_dict["ElvishRider"]["defense"] = {'village': 50, 'forest': 40};
 	unit_dict["ElvishRider"]["resistance"] = {'pierce': 120};
-	unit_dict["ElvishRider"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 2}];
+	unit_dict["ElvishRider"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 2}];
 
 	unit_dict["ElvishScout"] = {};
 	unit_dict["ElvishScout"]["id"] = "ElvishScout";
@@ -1547,7 +1547,7 @@ function createUnitDict() {
 	unit_dict["ElvishScout"]["usage"] = "scout";
 	unit_dict["ElvishScout"]["defense"] = {'village': 60, 'forest': 40};
 	unit_dict["ElvishScout"]["resistance"] = {'pierce': 120};
-	unit_dict["ElvishScout"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 2}];
+	unit_dict["ElvishScout"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-elven.png', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 2}];
 
 	unit_dict["ElvishShaman"] = {};
 	unit_dict["ElvishShaman"]["id"] = "ElvishShaman";
@@ -1565,7 +1565,7 @@ function createUnitDict() {
 	unit_dict["ElvishShaman"]["cost"] = 15;
 	unit_dict["ElvishShaman"]["usage"] = "healer";
 	unit_dict["ElvishShaman"]["abilities"] = {'ability': 'ABILITY_HEALS'};
-	unit_dict["ElvishShaman"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'damage': 3, 'number': 2, 'range': 'melee'}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 3, 'number': 2, 'range': 'ranged'}];
+	unit_dict["ElvishShaman"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'damage': 3, 'number': 2, 'range': 'melee', 'icon': 'attacks/druidstaff.png'}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 3, 'number': 2, 'range': 'ranged'}];
 
 	unit_dict["ElvishSharpshooter"] = {};
 	unit_dict["ElvishSharpshooter"]["id"] = "ElvishSharpshooter";
@@ -1582,7 +1582,7 @@ function createUnitDict() {
 	unit_dict["ElvishSharpshooter"]["advances_to"] = null;
 	unit_dict["ElvishSharpshooter"]["cost"] = 51;
 	unit_dict["ElvishSharpshooter"]["usage"] = "archer";
-	unit_dict["ElvishSharpshooter"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'longbow', 'description': 'longbow', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'range': 'ranged', 'damage': 10, 'number': 5}];
+	unit_dict["ElvishSharpshooter"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-elven.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'longbow', 'description': 'longbow', 'icon': 'attacks/bow-elven-magic.png', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'range': 'ranged', 'damage': 10, 'number': 5}];
 	unit_dict["ElvishSharpshooter"]["female"] = {'name': 'female^ElvishSharpshooter', 'gender': 'female', 'image': 'units/elves-wood/sharpshooter+female.png', 'small_profile': 'portraits/elves/marksman+female.png~CROP(0,30,370,370)', 'profile': 'portraits/elves/marksman+female.png'};
 
 	unit_dict["ElvishShyde"] = {};
@@ -1602,7 +1602,7 @@ function createUnitDict() {
 	unit_dict["ElvishShyde"]["cost"] = 52;
 	unit_dict["ElvishShyde"]["usage"] = "healer";
 	unit_dict["ElvishShyde"]["abilities"] = {'ability': 'ABILITY_CURES'};
-	unit_dict["ElvishShyde"]["attack"] = [{'name': 'faerietouch', 'description': 'faerietouch', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': ['melee', 'melee'], 'damage': 6, 'number': 2}, {'name': 'ensnare', 'description': 'ensnare', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 3, 'range': 'ranged'}, {'name': 'thorns', 'description': 'thorns', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 3, 'range': 'ranged'}];
+	unit_dict["ElvishShyde"]["attack"] = [{'name': 'faerietouch', 'description': 'faerietouch', 'icon': 'attacks/touch-faerie.png', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': ['melee', 'melee'], 'damage': 6, 'number': 2}, {'name': 'ensnare', 'description': 'ensnare', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 3, 'range': 'ranged', 'icon': 'attacks/entangle.png'}, {'name': 'thorns', 'description': 'thorns', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 3, 'range': 'ranged'}];
 
 	unit_dict["ElvishSorceress"] = {};
 	unit_dict["ElvishSorceress"]["id"] = "ElvishSorceress";
@@ -1620,7 +1620,7 @@ function createUnitDict() {
 	unit_dict["ElvishSorceress"]["cost"] = 32;
 	unit_dict["ElvishSorceress"]["usage"] = "mixedfighter";
 	unit_dict["ElvishSorceress"]["resistance"] = {'arcane': 100};
-	unit_dict["ElvishSorceress"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': ['melee', 'melee'], 'damage': 4, 'number': 2}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 4, 'number': 3, 'range': 'ranged'}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'damage': 7, 'number': 4, 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}}];
+	unit_dict["ElvishSorceress"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': ['melee', 'melee'], 'damage': 4, 'number': 2, 'icon': 'attacks/druidstaff.png'}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 4, 'number': 3, 'range': 'ranged'}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'damage': 7, 'number': 4, 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'icon': 'attacks/faerie-fire.png'}];
 
 	unit_dict["ElvishSylph"] = {};
 	unit_dict["ElvishSylph"]["id"] = "ElvishSylph";
@@ -1639,7 +1639,7 @@ function createUnitDict() {
 	unit_dict["ElvishSylph"]["cost"] = 67;
 	unit_dict["ElvishSylph"]["usage"] = "mixedfighter";
 	unit_dict["ElvishSylph"]["resistance"] = {'arcane': 80};
-	unit_dict["ElvishSylph"]["attack"] = [{'name': 'faerietouch', 'description': 'faerietouch', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': ['melee', 'melee'], 'damage': 6, 'number': 3}, {'name': 'gossamer', 'description': 'gossamer', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 5, 'range': 'ranged'}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 10, 'number': 5, 'range': 'ranged'}];
+	unit_dict["ElvishSylph"]["attack"] = [{'name': 'faerietouch', 'description': 'faerietouch', 'icon': 'attacks/touch-faerie.png', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': ['melee', 'melee'], 'damage': 6, 'number': 3}, {'name': 'gossamer', 'description': 'gossamer', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 5, 'range': 'ranged', 'icon': 'attacks/web.png'}, {'name': 'faeriefire', 'description': 'faeriefire', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 10, 'number': 5, 'range': 'ranged', 'icon': 'attacks/faerie-fire.png'}];
 
 	unit_dict["FogClearer"] = {};
 	unit_dict["FogClearer"]["id"] = "FogClearer";
@@ -1673,7 +1673,7 @@ function createUnitDict() {
 	unit_dict["DirewolfRider"]["advances_to"] = null;
 	unit_dict["DirewolfRider"]["cost"] = 44;
 	unit_dict["DirewolfRider"]["usage"] = "scout";
-	unit_dict["DirewolfRider"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 4}, {'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
+	unit_dict["DirewolfRider"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 4}, {'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
 
 	unit_dict["GoblinImpaler"] = {};
 	unit_dict["GoblinImpaler"]["id"] = "GoblinImpaler";
@@ -1689,7 +1689,7 @@ function createUnitDict() {
 	unit_dict["GoblinImpaler"]["advances_to"] = null;
 	unit_dict["GoblinImpaler"]["cost"] = 13;
 	unit_dict["GoblinImpaler"]["usage"] = "fighter";
-	unit_dict["GoblinImpaler"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 1}];
+	unit_dict["GoblinImpaler"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 3, 'icon': 'attacks/spear-orcish.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 1, 'icon': 'attacks/javelin-orcish.png'}];
 	unit_dict["GoblinImpaler"]["death"] = {'start_time': 0};
 
 	unit_dict["GoblinKnight"] = {};
@@ -1707,7 +1707,7 @@ function createUnitDict() {
 	unit_dict["GoblinKnight"]["cost"] = 28;
 	unit_dict["GoblinKnight"]["usage"] = "scout";
 	unit_dict["GoblinKnight"]["defense"] = {'village': 50};
-	unit_dict["GoblinKnight"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}];
+	unit_dict["GoblinKnight"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}];
 
 	unit_dict["GoblinPillager"] = {};
 	unit_dict["GoblinPillager"]["id"] = "GoblinPillager";
@@ -1724,7 +1724,7 @@ function createUnitDict() {
 	unit_dict["GoblinPillager"]["cost"] = 28;
 	unit_dict["GoblinPillager"]["usage"] = "scout";
 	unit_dict["GoblinPillager"]["defense"] = {'village': 50};
-	unit_dict["GoblinPillager"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'torch', 'description': 'torch', 'type': 'fire', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'net', 'description': 'net', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 2, 'range': 'ranged'}];
+	unit_dict["GoblinPillager"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'torch', 'description': 'torch', 'icon': 'attacks/torch.png', 'type': 'fire', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'net', 'description': 'net', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 6, 'number': 2, 'range': 'ranged', 'icon': 'attacks/net.png'}];
 
 	unit_dict["GoblinRouser"] = {};
 	unit_dict["GoblinRouser"]["id"] = "GoblinRouser";
@@ -1741,7 +1741,7 @@ function createUnitDict() {
 	unit_dict["GoblinRouser"]["cost"] = 13;
 	unit_dict["GoblinRouser"]["usage"] = "fighter";
 	unit_dict["GoblinRouser"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["GoblinRouser"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 7, 'number': 3}];
+	unit_dict["GoblinRouser"]["attack"] = [{'name': 'spear', 'description': 'spear', 'icon': 'attacks/spear-orcish.png', 'type': 'pierce', 'range': 'melee', 'damage': 7, 'number': 3}];
 
 	unit_dict["GoblinSpearman"] = {};
 	unit_dict["GoblinSpearman"]["id"] = "GoblinSpearman";
@@ -1757,7 +1757,7 @@ function createUnitDict() {
 	unit_dict["GoblinSpearman"]["advances_to"] = ['GoblinImpaler', 'GoblinRouser'];
 	unit_dict["GoblinSpearman"]["cost"] = 9;
 	unit_dict["GoblinSpearman"]["usage"] = "fighter";
-	unit_dict["GoblinSpearman"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 3}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'ranged', 'damage': 3, 'number': 1}];
+	unit_dict["GoblinSpearman"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 3, 'icon': 'attacks/spear-orcish.png'}, {'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'ranged', 'damage': 3, 'number': 1, 'icon': 'attacks/javelin-orcish.png'}];
 	unit_dict["GoblinSpearman"]["death"] = {'start_time': 0};
 
 	unit_dict["WolfRider"] = {};
@@ -1775,7 +1775,7 @@ function createUnitDict() {
 	unit_dict["WolfRider"]["cost"] = 17;
 	unit_dict["WolfRider"]["usage"] = "scout";
 	unit_dict["WolfRider"]["defense"] = {'village': 50};
-	unit_dict["WolfRider"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}];
+	unit_dict["WolfRider"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}];
 	unit_dict["WolfRider"]["death"] = {'start_time': 0};
 
 	unit_dict["Gryphon"] = {};
@@ -1794,7 +1794,7 @@ function createUnitDict() {
 	unit_dict["Gryphon"]["usage"] = "scout";
 	unit_dict["Gryphon"]["defense"] = {'mountains': 40};
 	unit_dict["Gryphon"]["resistance"] = {'arcane': 90};
-	unit_dict["Gryphon"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3}];
+	unit_dict["Gryphon"]["attack"] = [{'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3}];
 
 	unit_dict["GryphonMaster"] = {};
 	unit_dict["GryphonMaster"]["id"] = "GryphonMaster";
@@ -1812,7 +1812,7 @@ function createUnitDict() {
 	unit_dict["GryphonMaster"]["usage"] = "scout";
 	unit_dict["GryphonMaster"]["defense"] = {'mountains': 40};
 	unit_dict["GryphonMaster"]["resistance"] = {'arcane': 90};
-	unit_dict["GryphonMaster"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 2}];
+	unit_dict["GryphonMaster"]["attack"] = [{'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 2}];
 
 	unit_dict["GryphonRider"] = {};
 	unit_dict["GryphonRider"]["id"] = "GryphonRider";
@@ -1830,7 +1830,7 @@ function createUnitDict() {
 	unit_dict["GryphonRider"]["usage"] = "scout";
 	unit_dict["GryphonRider"]["defense"] = {'mountains': 40};
 	unit_dict["GryphonRider"]["resistance"] = {'arcane': 90};
-	unit_dict["GryphonRider"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2}];
+	unit_dict["GryphonRider"]["attack"] = [{'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2}];
 
 	unit_dict["Horseman"] = {};
 	unit_dict["Horseman"]["id"] = "Horseman";
@@ -1866,7 +1866,7 @@ function createUnitDict() {
 	unit_dict["GrandKnight"]["undead_variation"] = "mounted";
 	unit_dict["GrandKnight"]["cost"] = 58;
 	unit_dict["GrandKnight"]["usage"] = "fighter";
-	unit_dict["GrandKnight"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 4}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}, 'range': 'melee', 'damage': 17, 'number': 2}];
+	unit_dict["GrandKnight"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'icon': 'attacks/greatsword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 4}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}, 'range': 'melee', 'damage': 17, 'number': 2}];
 
 	unit_dict["Knight"] = {};
 	unit_dict["Knight"]["id"] = "Knight";
@@ -1884,7 +1884,7 @@ function createUnitDict() {
 	unit_dict["Knight"]["undead_variation"] = "mounted";
 	unit_dict["Knight"]["cost"] = 38;
 	unit_dict["Knight"]["usage"] = "fighter";
-	unit_dict["Knight"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}, 'range': 'melee', 'damage': 14, 'number': 2}];
+	unit_dict["Knight"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}, 'range': 'melee', 'damage': 14, 'number': 2}];
 	unit_dict["Knight"]["death"] = {'start_time': 0};
 
 	unit_dict["Lancer"] = {};
@@ -1922,7 +1922,7 @@ function createUnitDict() {
 	unit_dict["Paladin"]["usage"] = "fighter";
 	unit_dict["Paladin"]["resistance"] = {'arcane': 40};
 	unit_dict["Paladin"]["abilities"] = {'ability': 'ABILITY_HEALS'};
-	unit_dict["Paladin"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'arcane', 'range': 'melee', 'damage': 8, 'number': 5}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}, 'range': 'melee', 'damage': 15, 'number': 2}];
+	unit_dict["Paladin"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-holy.png', 'type': 'arcane', 'range': 'melee', 'damage': 8, 'number': 5}, {'name': 'lance', 'description': 'lance', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}, 'range': 'melee', 'damage': 15, 'number': 2}];
 
 	unit_dict["Bowman"] = {};
 	unit_dict["Bowman"]["id"] = "Bowman";
@@ -1939,7 +1939,7 @@ function createUnitDict() {
 	unit_dict["Bowman"]["advances_to"] = ['Longbowman'];
 	unit_dict["Bowman"]["cost"] = 14;
 	unit_dict["Bowman"]["usage"] = "archer";
-	unit_dict["Bowman"]["attack"] = [{'name': 'shortsword', 'description': 'shortsword', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
+	unit_dict["Bowman"]["attack"] = [{'name': 'shortsword', 'description': 'shortsword', 'icon': 'attacks/sword-human-short.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
 
 	unit_dict["Cavalier"] = {};
 	unit_dict["Cavalier"]["id"] = "Cavalier";
@@ -1957,7 +1957,7 @@ function createUnitDict() {
 	unit_dict["Cavalier"]["cost"] = 52;
 	unit_dict["Cavalier"]["usage"] = "scout";
 	unit_dict["Cavalier"]["resistance"] = {'blade': 70, 'impact': 60, 'cold': 80};
-	unit_dict["Cavalier"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
+	unit_dict["Cavalier"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'icon': 'attacks/greatsword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
 
 	unit_dict["Cavalryman"] = {};
 	unit_dict["Cavalryman"]["id"] = "Cavalryman";
@@ -1976,7 +1976,7 @@ function createUnitDict() {
 	unit_dict["Cavalryman"]["usage"] = "scout";
 	unit_dict["Cavalryman"]["resistance"] = {'blade': 70, 'impact': 60, 'cold': 80};
 	unit_dict["Cavalryman"]["death"] = {'start_time': 0};
-	unit_dict["Cavalryman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 3}];
+	unit_dict["Cavalryman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 3}];
 
 	unit_dict["Dragoon"] = {};
 	unit_dict["Dragoon"]["id"] = "Dragoon";
@@ -1994,7 +1994,7 @@ function createUnitDict() {
 	unit_dict["Dragoon"]["cost"] = 27;
 	unit_dict["Dragoon"]["usage"] = "scout";
 	unit_dict["Dragoon"]["resistance"] = {'blade': 70, 'impact': 60, 'cold': 80};
-	unit_dict["Dragoon"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 1}];
+	unit_dict["Dragoon"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 1}];
 
 	unit_dict["Duelist"] = {};
 	unit_dict["Duelist"]["id"] = "Duelist";
@@ -2013,7 +2013,7 @@ function createUnitDict() {
 	unit_dict["Duelist"]["resistance"] = {'cold': 90};
 	unit_dict["Duelist"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
 	unit_dict["Duelist"]["death"] = {'start_time': 0};
-	unit_dict["Duelist"]["attack"] = [{'name': 'saber', 'description': 'saber', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 5}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 1}];
+	unit_dict["Duelist"]["attack"] = [{'name': 'saber', 'description': 'saber', 'icon': 'attacks/saber-human.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 5}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 1}];
 
 	unit_dict["Fencer"] = {};
 	unit_dict["Fencer"]["id"] = "Fencer";
@@ -2032,7 +2032,7 @@ function createUnitDict() {
 	unit_dict["Fencer"]["resistance"] = {'cold': 90};
 	unit_dict["Fencer"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
 	unit_dict["Fencer"]["death"] = {'start_time': 0};
-	unit_dict["Fencer"]["attack"] = [{'name': 'saber', 'description': 'saber', 'type': 'blade', 'damage': 4, 'number': 4, 'range': 'melee'}];
+	unit_dict["Fencer"]["attack"] = [{'name': 'saber', 'description': 'saber', 'icon': 'attacks/saber-human.png', 'type': 'blade', 'damage': 4, 'number': 4, 'range': 'melee'}];
 
 	unit_dict["General"] = {};
 	unit_dict["General"]["id"] = "General";
@@ -2051,7 +2051,7 @@ function createUnitDict() {
 	unit_dict["General"]["usage"] = "fighter";
 	unit_dict["General"]["resistance"] = {'blade': 90, 'pierce': 90, 'impact': 90};
 	unit_dict["General"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["General"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 3}];
+	unit_dict["General"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'icon': 'attacks/greatsword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 3}];
 
 	unit_dict["GrandMarshal"] = {};
 	unit_dict["GrandMarshal"]["id"] = "GrandMarshal";
@@ -2070,7 +2070,7 @@ function createUnitDict() {
 	unit_dict["GrandMarshal"]["usage"] = "fighter";
 	unit_dict["GrandMarshal"]["resistance"] = {'blade': 80, 'pierce': 80, 'impact': 80};
 	unit_dict["GrandMarshal"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["GrandMarshal"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}];
+	unit_dict["GrandMarshal"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'icon': 'attacks/greatsword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}];
 	unit_dict["GrandMarshal"]["death"] = {'start_time': 0};
 
 	unit_dict["Halberdier"] = {};
@@ -2088,7 +2088,7 @@ function createUnitDict() {
 	unit_dict["Halberdier"]["cost"] = 44;
 	unit_dict["Halberdier"]["usage"] = "fighter";
 	unit_dict["Halberdier"]["resistance"] = {'pierce': 60};
-	unit_dict["Halberdier"]["attack"] = [{'name': 'halberd', 'description': 'halberd', 'type': 'pierce', 'range': 'melee', 'damage': 15, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'halberd', 'description': 'halberd', 'type': 'blade', 'range': 'melee', 'damage': 19, 'number': 2}];
+	unit_dict["Halberdier"]["attack"] = [{'name': 'halberd', 'description': 'halberd', 'icon': 'attacks/halberd.png', 'type': 'pierce', 'range': 'melee', 'damage': 15, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'halberd', 'description': 'halberd', 'icon': 'attacks/halberd.png', 'type': 'blade', 'range': 'melee', 'damage': 19, 'number': 2}];
 
 	unit_dict["HeavyInfantryman"] = {};
 	unit_dict["HeavyInfantryman"]["id"] = "HeavyInfantryman";
@@ -2105,7 +2105,7 @@ function createUnitDict() {
 	unit_dict["HeavyInfantryman"]["advances_to"] = ['ShockTrooper'];
 	unit_dict["HeavyInfantryman"]["cost"] = 19;
 	unit_dict["HeavyInfantryman"]["usage"] = "fighter";
-	unit_dict["HeavyInfantryman"]["attack"] = [{'name': 'mace', 'description': 'mace', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 2}];
+	unit_dict["HeavyInfantryman"]["attack"] = [{'name': 'mace', 'description': 'mace', 'icon': 'attacks/mace-spiked.png', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 2}];
 
 	unit_dict["IronMauler"] = {};
 	unit_dict["IronMauler"]["id"] = "IronMauler";
@@ -2122,7 +2122,7 @@ function createUnitDict() {
 	unit_dict["IronMauler"]["advances_to"] = null;
 	unit_dict["IronMauler"]["cost"] = 50;
 	unit_dict["IronMauler"]["usage"] = "fighter";
-	unit_dict["IronMauler"]["attack"] = [{'name': 'flail', 'description': 'flail', 'type': 'impact', 'range': 'melee', 'damage': 25, 'number': 2}];
+	unit_dict["IronMauler"]["attack"] = [{'name': 'flail', 'description': 'flail', 'icon': 'attacks/morning-star.png', 'type': 'impact', 'range': 'melee', 'damage': 25, 'number': 2}];
 
 	unit_dict["Javelineer"] = {};
 	unit_dict["Javelineer"]["id"] = "Javelineer";
@@ -2139,7 +2139,7 @@ function createUnitDict() {
 	unit_dict["Javelineer"]["cost"] = 25;
 	unit_dict["Javelineer"]["usage"] = "fighter";
 	unit_dict["Javelineer"]["resistance"] = {'pierce': 60};
-	unit_dict["Javelineer"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'javelin', 'description': 'javelin', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 2}];
+	unit_dict["Javelineer"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'javelin', 'description': 'javelin', 'icon': 'attacks/javelin-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 2}];
 
 	unit_dict["Lieutenant"] = {};
 	unit_dict["Lieutenant"]["id"] = "Lieutenant";
@@ -2156,7 +2156,7 @@ function createUnitDict() {
 	unit_dict["Lieutenant"]["cost"] = 34;
 	unit_dict["Lieutenant"]["usage"] = "fighter";
 	unit_dict["Lieutenant"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["Lieutenant"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["Lieutenant"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 3}];
 	unit_dict["Lieutenant"]["death"] = {'start_time': 0};
 
 	unit_dict["Longbowman"] = {};
@@ -2174,7 +2174,7 @@ function createUnitDict() {
 	unit_dict["Longbowman"]["advances_to"] = ['MasterBowman'];
 	unit_dict["Longbowman"]["cost"] = 26;
 	unit_dict["Longbowman"]["usage"] = "archer";
-	unit_dict["Longbowman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 2}, {'name': 'bow', 'description': 'longbow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 3}];
+	unit_dict["Longbowman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 2}, {'name': 'bow', 'description': 'longbow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 3}];
 
 	unit_dict["MasteratArms"] = {};
 	unit_dict["MasteratArms"]["id"] = "MasteratArms";
@@ -2192,7 +2192,7 @@ function createUnitDict() {
 	unit_dict["MasteratArms"]["usage"] = "mixedfighter";
 	unit_dict["MasteratArms"]["resistance"] = {'cold': 90};
 	unit_dict["MasteratArms"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["MasteratArms"]["attack"] = [{'name': 'saber', 'description': 'saber', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 5}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
+	unit_dict["MasteratArms"]["attack"] = [{'name': 'saber', 'description': 'saber', 'icon': 'attacks/saber-human.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 5}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 20, 'number': 1}];
 	unit_dict["MasteratArms"]["victory_anim"] = {'start_time': 0};
 
 	unit_dict["MasterBowman"] = {};
@@ -2210,7 +2210,7 @@ function createUnitDict() {
 	unit_dict["MasterBowman"]["advances_to"] = null;
 	unit_dict["MasterBowman"]["cost"] = 46;
 	unit_dict["MasterBowman"]["usage"] = "archer";
-	unit_dict["MasterBowman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'bow', 'description': 'longbow', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 4}];
+	unit_dict["MasterBowman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'bow', 'description': 'longbow', 'type': 'pierce', 'range': 'ranged', 'damage': 11, 'number': 4}];
 
 	unit_dict["Pikeman"] = {};
 	unit_dict["Pikeman"]["id"] = "Pikeman";
@@ -2245,7 +2245,7 @@ function createUnitDict() {
 	unit_dict["RoyalGuard"]["cost"] = 43;
 	unit_dict["RoyalGuard"]["usage"] = "fighter";
 	unit_dict["RoyalGuard"]["resistance"] = {'blade': 80, 'impact': 80};
-	unit_dict["RoyalGuard"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4}];
+	unit_dict["RoyalGuard"]["attack"] = [{'name': 'sword', 'description': 'longsword', 'icon': 'attacks/greatsword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4}];
 
 	unit_dict["Sergeant"] = {};
 	unit_dict["Sergeant"]["id"] = "Sergeant";
@@ -2262,7 +2262,7 @@ function createUnitDict() {
 	unit_dict["Sergeant"]["cost"] = 19;
 	unit_dict["Sergeant"]["usage"] = "fighter";
 	unit_dict["Sergeant"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["Sergeant"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 3}];
+	unit_dict["Sergeant"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 3}];
 
 	unit_dict["ShockTrooper"] = {};
 	unit_dict["ShockTrooper"]["id"] = "ShockTrooper";
@@ -2279,7 +2279,7 @@ function createUnitDict() {
 	unit_dict["ShockTrooper"]["advances_to"] = ['IronMauler'];
 	unit_dict["ShockTrooper"]["cost"] = 35;
 	unit_dict["ShockTrooper"]["usage"] = "fighter";
-	unit_dict["ShockTrooper"]["attack"] = [{'name': 'flail', 'description': 'flail', 'type': 'impact', 'range': 'melee', 'damage': 18, 'number': 2}];
+	unit_dict["ShockTrooper"]["attack"] = [{'name': 'flail', 'description': 'flail', 'icon': 'attacks/morning-star.png', 'type': 'impact', 'range': 'melee', 'damage': 18, 'number': 2}];
 
 	unit_dict["Spearman"] = {};
 	unit_dict["Spearman"]["id"] = "Spearman";
@@ -2296,7 +2296,7 @@ function createUnitDict() {
 	unit_dict["Spearman"]["cost"] = 14;
 	unit_dict["Spearman"]["usage"] = "fighter";
 	unit_dict["Spearman"]["death"] = {'start_time': 0};
-	unit_dict["Spearman"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 7, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'javelin', 'description': 'javelin', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 1}];
+	unit_dict["Spearman"]["attack"] = [{'name': 'spear', 'description': 'spear', 'type': 'pierce', 'range': 'melee', 'damage': 7, 'number': 3, 'icon': 'attacks/spear.png', 'specials': {'attack_special': 'WEAPON_SPECIAL_FIRSTSTRIKE'}}, {'name': 'javelin', 'description': 'javelin', 'icon': 'attacks/javelin-human.png', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 1}];
 
 	unit_dict["Swordsman"] = {};
 	unit_dict["Swordsman"]["id"] = "Swordsman";
@@ -2313,7 +2313,7 @@ function createUnitDict() {
 	unit_dict["Swordsman"]["cost"] = 29;
 	unit_dict["Swordsman"]["usage"] = "fighter";
 	unit_dict["Swordsman"]["resistance"] = {'blade': 80, 'impact': 80};
-	unit_dict["Swordsman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}];
+	unit_dict["Swordsman"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}];
 
 	unit_dict["Mage"] = {};
 	unit_dict["Mage"]["id"] = "Mage";
@@ -2330,7 +2330,7 @@ function createUnitDict() {
 	unit_dict["Mage"]["advances_to"] = ['WhiteMage', 'RedMage'];
 	unit_dict["Mage"]["cost"] = 20;
 	unit_dict["Mage"]["usage"] = "mixedfighter";
-	unit_dict["Mage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 1}, {'name': 'missile', 'description': 'missile', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 7, 'number': 3}];
+	unit_dict["Mage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 1}, {'name': 'missile', 'description': 'missile', 'icon': 'attacks/magic-missile.png', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 7, 'number': 3}];
 	unit_dict["Mage"]["death"] = {'start_time': 0};
 	unit_dict["Mage"]["female"] = {'name': 'female^Mage', 'gender': 'female', 'image': 'units/human-magi/mage+female.png', 'profile': 'portraits/humans/mage+female.png', 'death': {'start_time': '0'}};
 
@@ -2350,7 +2350,7 @@ function createUnitDict() {
 	unit_dict["ArchMage"]["cost"] = 59;
 	unit_dict["ArchMage"]["usage"] = "mixedfighter";
 	unit_dict["ArchMage"]["resistance"] = {'fire': 80};
-	unit_dict["ArchMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'fireball', 'description': 'fireball', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 12, 'number': 4}];
+	unit_dict["ArchMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'fireball', 'description': 'fireball', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 12, 'number': 4}];
 	unit_dict["ArchMage"]["female"] = {'name': 'female^ArchMage', 'gender': 'female', 'image': 'units/human-magi/arch-mage+female.png', 'profile': 'portraits/humans/mage-arch+female.png'};
 
 	unit_dict["ElderMage"] = {};
@@ -2368,7 +2368,7 @@ function createUnitDict() {
 	unit_dict["ElderMage"]["advances_to"] = null;
 	unit_dict["ElderMage"]["cost"] = 65;
 	unit_dict["ElderMage"]["usage"] = "mixedfighter";
-	unit_dict["ElderMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 2}, {'name': 'lightning', 'description': 'lightning', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 14, 'number': 4}];
+	unit_dict["ElderMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 2}, {'name': 'lightning', 'description': 'lightning', 'icon': 'attacks/lightning.png', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 14, 'number': 4}];
 
 	unit_dict["GreatMage"] = {};
 	unit_dict["GreatMage"]["id"] = "GreatMage";
@@ -2386,7 +2386,7 @@ function createUnitDict() {
 	unit_dict["GreatMage"]["cost"] = 72;
 	unit_dict["GreatMage"]["usage"] = "mixedfighter";
 	unit_dict["GreatMage"]["resistance"] = {'fire': 70};
-	unit_dict["GreatMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'fireball', 'description': 'fireball', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 16, 'number': 4}];
+	unit_dict["GreatMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'fireball', 'description': 'fireball', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 16, 'number': 4}];
 	unit_dict["GreatMage"]["female"] = {'name': 'female^GreatMage', 'gender': 'female', 'image': 'units/human-magi/great-mage+female.png', 'profile': 'portraits/humans/mage-arch+female.png'};
 
 	unit_dict["MageofLight"] = {};
@@ -2407,7 +2407,7 @@ function createUnitDict() {
 	unit_dict["MageofLight"]["usage"] = "healer";
 	unit_dict["MageofLight"]["abilities"] = {'ability': ['ABILITY_ILLUMINATES', 'ABILITY_CURES']};
 	unit_dict["MageofLight"]["resistance"] = {'arcane': 40};
-	unit_dict["MageofLight"]["attack"] = [{'name': 'flail', 'description': 'flail', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 12, 'number': 3}];
+	unit_dict["MageofLight"]["attack"] = [{'name': 'flail', 'description': 'flail', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 3, 'icon': 'attacks/morning-star.png'}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 12, 'number': 3}];
 	unit_dict["MageofLight"]["female"] = {'name': 'female^MageofLight', 'gender': 'female', 'image': 'units/human-magi/white-cleric+female.png', 'profile': 'portraits/humans/mage-light+female.png'};
 
 	unit_dict["RedMage"] = {};
@@ -2426,7 +2426,7 @@ function createUnitDict() {
 	unit_dict["RedMage"]["cost"] = 38;
 	unit_dict["RedMage"]["usage"] = "mixedfighter";
 	unit_dict["RedMage"]["resistance"] = {'fire': 90};
-	unit_dict["RedMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'fireball', 'description': 'fireball', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 4}];
+	unit_dict["RedMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'fireball', 'description': 'fireball', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 4}];
 	unit_dict["RedMage"]["female"] = {'name': 'female^RedMage', 'gender': 'female', 'image': 'units/human-magi/red-mage+female.png', 'small_profile': 'portraits/humans/mage-red+female.png~FL()', 'profile': 'portraits/humans/mage-red+female.png'};
 
 	unit_dict["SilverMage"] = {};
@@ -2446,7 +2446,7 @@ function createUnitDict() {
 	unit_dict["SilverMage"]["usage"] = "mixedfighter";
 	unit_dict["SilverMage"]["resistance"] = {'fire': 50, 'cold': 50};
 	unit_dict["SilverMage"]["abilities"] = {'ability': 'ABILITY_TELEPORT'};
-	unit_dict["SilverMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'missile', 'description': 'missile', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 9, 'number': 4}];
+	unit_dict["SilverMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'missile', 'description': 'missile', 'icon': 'attacks/magic-missile.png', 'type': 'fire', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 9, 'number': 4}];
 	unit_dict["SilverMage"]["animation"] = [{'apply_to': 'pre_teleport', 'start_time': '-1200', 'teleport_sparkle_1_start_time': '-1200', 'teleport_sparkle_2_start_time': '-1000', 'teleport_sparkle_3_start_time': '-800', 'duration': ['800', '800', '800'], 'halo': ['halo/teleport-[9,8,1~9].png', 'halo/teleport-[9,8,1~9].png', 'halo/teleport-[9,8,1~9].png'], 'halo_x': ['-10', '0', '10'], 'halo_y': ['30~-30', '40~-40', '30~-30']}, {'apply_to': 'post_teleport', 'start_time': '-1200', 'teleport_sparkle_1_start_time': '-1200', 'teleport_sparkle_2_start_time': '-1000', 'teleport_sparkle_3_start_time': '-800', 'duration': ['800', '800', '800'], 'halo': ['halo/teleport-[9,8,1~9].png', 'halo/teleport-[9,8,1~9].png', 'halo/teleport-[9,8,1~9].png'], 'halo_x': ['10', '0', '-10'], 'halo_y': ['-30~30', '-40~40', '-30~30']}];
 	unit_dict["SilverMage"]["female"] = {'name': 'female^SilverMage', 'gender': 'female', 'image': 'units/human-magi/silver-mage+female.png', 'profile': 'portraits/humans/mage-silver+female.png', 'animation': [{'apply_to': 'pre_teleport'}, {'apply_to': 'post_teleport'}]};
 
@@ -2467,7 +2467,7 @@ function createUnitDict() {
 	unit_dict["WhiteMage"]["usage"] = "healer";
 	unit_dict["WhiteMage"]["abilities"] = {'ability': 'ABILITY_CURES'};
 	unit_dict["WhiteMage"]["resistance"] = {'arcane': 60};
-	unit_dict["WhiteMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 9, 'number': 3}];
+	unit_dict["WhiteMage"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 9, 'number': 3}];
 	unit_dict["WhiteMage"]["female"] = {'name': 'female^WhiteMage', 'gender': 'female', 'image': 'units/human-magi/white-mage+female.png', 'small_profile': 'portraits/humans/mage-white+female.png~FL()', 'profile': 'portraits/humans/mage-white+female.png~RIGHT()'};
 
 	unit_dict["Outlaw"] = {};
@@ -2504,7 +2504,7 @@ function createUnitDict() {
 	unit_dict["Assassin"]["cost"] = 44;
 	unit_dict["Assassin"]["usage"] = "fighter";
 	unit_dict["Assassin"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["Assassin"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}, {'name': 'throwingknives', 'description': 'throwingknives', 'type': 'blade', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}, 'damage': 5, 'number': 3}];
+	unit_dict["Assassin"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}, {'name': 'throwingknives', 'description': 'throwingknives', 'icon': 'attacks/dagger-thrown-poison-human.png', 'type': 'blade', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}, 'damage': 5, 'number': 3}];
 	unit_dict["Assassin"]["female"] = {'name': 'female^Assassin', 'gender': 'female', 'image': 'units/human-outlaws/assassin+female.png', 'profile': 'portraits/humans/assassin+female.png'};
 
 	unit_dict["Bandit"] = {};
@@ -2538,7 +2538,7 @@ function createUnitDict() {
 	unit_dict["Footpad"]["advances_to"] = ['Outlaw'];
 	unit_dict["Footpad"]["cost"] = 14;
 	unit_dict["Footpad"]["usage"] = "scout";
-	unit_dict["Footpad"]["attack"] = [{'name': 'club', 'description': 'club', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 2}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 5, 'number': 2}];
+	unit_dict["Footpad"]["attack"] = [{'name': 'club', 'description': 'club', 'icon': 'attacks/club-small.png', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 2}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 5, 'number': 2}];
 	unit_dict["Footpad"]["female"] = {'name': 'female^Footpad', 'gender': 'female', 'image': 'units/human-outlaws/footpad+female.png', 'profile': 'portraits/humans/footpad+female.png'};
 
 	unit_dict["Fugitive"] = {};
@@ -2557,7 +2557,7 @@ function createUnitDict() {
 	unit_dict["Fugitive"]["cost"] = 53;
 	unit_dict["Fugitive"]["usage"] = "mixedfighter";
 	unit_dict["Fugitive"]["abilities"] = {'ability': 'ABILITY_CONCEALMENT'};
-	unit_dict["Fugitive"]["attack"] = [{'name': 'mace-spiked', 'description': 'morningstar', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 2}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 7, 'number': 4}];
+	unit_dict["Fugitive"]["attack"] = [{'name': 'mace-spiked', 'description': 'morningstar', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 2}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 7, 'number': 4, 'icon': 'attacks/sling.png'}];
 	unit_dict["Fugitive"]["female"] = {'name': 'female^Fugitive', 'gender': 'female', 'image': 'units/human-outlaws/fugitive+female.png', 'profile': 'portraits/humans/outlaw+female.png'};
 
 	unit_dict["Highwayman"] = {};
@@ -2592,7 +2592,7 @@ function createUnitDict() {
 	unit_dict["Rogue"]["cost"] = 24;
 	unit_dict["Rogue"]["usage"] = "fighter";
 	unit_dict["Rogue"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["Rogue"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}, {'name': 'throwingknives', 'description': 'throwingknives', 'type': 'blade', 'range': 'ranged', 'damage': 4, 'number': 3}];
+	unit_dict["Rogue"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}, {'name': 'throwingknives', 'description': 'throwingknives', 'icon': 'attacks/dagger-thrown-human.png', 'type': 'blade', 'range': 'ranged', 'damage': 4, 'number': 3}];
 	unit_dict["Rogue"]["female"] = {'name': 'female^Rogue', 'gender': 'female', 'image': 'units/human-outlaws/rogue+female.png', 'profile': 'portraits/humans/thief+female.png'};
 
 	unit_dict["Ruffian"] = {};
@@ -2609,7 +2609,7 @@ function createUnitDict() {
 	unit_dict["Ruffian"]["advances_to"] = ['Thug', 'Footpad'];
 	unit_dict["Ruffian"]["cost"] = 6;
 	unit_dict["Ruffian"]["usage"] = "fighter";
-	unit_dict["Ruffian"]["attack"] = [{'name': 'club', 'description': 'club', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 2}];
+	unit_dict["Ruffian"]["attack"] = [{'name': 'club', 'description': 'club', 'icon': 'attacks/club-small.png', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 2}];
 
 	unit_dict["Thief"] = {};
 	unit_dict["Thief"]["id"] = "Thief";
@@ -2627,7 +2627,7 @@ function createUnitDict() {
 	unit_dict["Thief"]["cost"] = 13;
 	unit_dict["Thief"]["usage"] = "fighter";
 	unit_dict["Thief"]["death"] = {'start_time': 0};
-	unit_dict["Thief"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}];
+	unit_dict["Thief"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}];
 	unit_dict["Thief"]["female"] = {'name': 'female^Thief', 'gender': 'female', 'image': 'units/human-outlaws/thief+female.png', 'profile': 'portraits/humans/thief+female.png', 'death': {'start_time': '0'}};
 
 	unit_dict["Thug"] = {};
@@ -2661,7 +2661,7 @@ function createUnitDict() {
 	unit_dict["Peasant"]["advances_to"] = ['Spearman', 'Bowman'];
 	unit_dict["Peasant"]["cost"] = 8;
 	unit_dict["Peasant"]["usage"] = "fighter";
-	unit_dict["Peasant"]["attack"] = [{'name': 'pitchfork', 'description': 'pitchfork', 'type': 'pierce', 'range': 'melee', 'damage': 5, 'number': 2}, {'name': 'pitchfork', 'description': 'pitchfork', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 1}];
+	unit_dict["Peasant"]["attack"] = [{'name': 'pitchfork', 'description': 'pitchfork', 'type': 'pierce', 'range': 'melee', 'damage': 5, 'number': 2, 'icon': 'attacks/pitchfork.png'}, {'name': 'pitchfork', 'description': 'pitchfork', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 1, 'icon': 'attacks/pitchfork.png'}];
 
 	unit_dict["RoyalWarrior"] = {};
 	unit_dict["RoyalWarrior"]["id"] = "RoyalWarrior";
@@ -2678,7 +2678,7 @@ function createUnitDict() {
 	unit_dict["RoyalWarrior"]["advances_to"] = null;
 	unit_dict["RoyalWarrior"]["cost"] = 40;
 	unit_dict["RoyalWarrior"]["usage"] = "fighter";
-	unit_dict["RoyalWarrior"]["attack"] = [{'name': 'mace', 'description': 'morningstar', 'type': 'impact', 'range': 'melee', 'damage': 13, 'number': 3}];
+	unit_dict["RoyalWarrior"]["attack"] = [{'name': 'mace', 'description': 'morningstar', 'icon': 'attacks/mace-spiked.png', 'type': 'impact', 'range': 'melee', 'damage': 13, 'number': 3}];
 
 	unit_dict["Woodsman"] = {};
 	unit_dict["Woodsman"]["id"] = "Woodsman";
@@ -2696,7 +2696,7 @@ function createUnitDict() {
 	unit_dict["Woodsman"]["cost"] = 10;
 	unit_dict["Woodsman"]["usage"] = "archer";
 	unit_dict["Woodsman"]["defense"] = {'forest': 40, 'swamp_water': 50};
-	unit_dict["Woodsman"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 3, 'number': 1}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 3}];
+	unit_dict["Woodsman"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 3, 'number': 1}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 3}];
 
 	unit_dict["Huntsman"] = {};
 	unit_dict["Huntsman"]["id"] = "Huntsman";
@@ -2714,7 +2714,7 @@ function createUnitDict() {
 	unit_dict["Huntsman"]["usage"] = "archer";
 	unit_dict["Huntsman"]["movement_costs"] = {'swamp_water': 2};
 	unit_dict["Huntsman"]["defense"] = {'forest': 40, 'swamp_water': 40};
-	unit_dict["Huntsman"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}];
+	unit_dict["Huntsman"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow.png', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}}];
 
 	unit_dict["Poacher"] = {};
 	unit_dict["Poacher"]["id"] = "Poacher";
@@ -2732,7 +2732,7 @@ function createUnitDict() {
 	unit_dict["Poacher"]["usage"] = "archer";
 	unit_dict["Poacher"]["movement_costs"] = {'swamp_water': 2};
 	unit_dict["Poacher"]["defense"] = {'forest': 40, 'swamp_water': 50};
-	unit_dict["Poacher"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 3, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 4}];
+	unit_dict["Poacher"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 3, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 4, 'number': 4}];
 
 	unit_dict["Ranger"] = {};
 	unit_dict["Ranger"]["id"] = "Ranger";
@@ -2750,7 +2750,7 @@ function createUnitDict() {
 	unit_dict["Ranger"]["usage"] = "mixedfighter";
 	unit_dict["Ranger"]["defense"] = {'swamp_water': 40, 'forest': 40, 'hills': 40, 'shallow_water': 60};
 	unit_dict["Ranger"]["movement_costs"] = {'shallow_water': 2, 'swamp_water': 2, 'forest': 1, 'hills': 1, 'mountains': 2, 'cave': 2, 'frozen': 2};
-	unit_dict["Ranger"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 4}];
+	unit_dict["Ranger"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-human.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow.png', 'type': 'pierce', 'range': 'ranged', 'damage': 7, 'number': 4}];
 
 	unit_dict["Trapper"] = {};
 	unit_dict["Trapper"]["id"] = "Trapper";
@@ -2769,7 +2769,7 @@ function createUnitDict() {
 	unit_dict["Trapper"]["movement_costs"] = {'swamp_water': 2};
 	unit_dict["Trapper"]["defense"] = {'forest': 40, 'swamp_water': 50};
 	unit_dict["Trapper"]["death"] = {'start_time': 0};
-	unit_dict["Trapper"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 4}];
+	unit_dict["Trapper"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-human.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 4}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 4}];
 
 	unit_dict["MermaidDiviner"] = {};
 	unit_dict["MermaidDiviner"]["id"] = "MermaidDiviner";
@@ -2789,7 +2789,7 @@ function createUnitDict() {
 	unit_dict["MermaidDiviner"]["cost"] = 57;
 	unit_dict["MermaidDiviner"]["usage"] = "healer";
 	unit_dict["MermaidDiviner"]["abilities"] = {'ability': ['ABILITY_ILLUMINATES', 'ABILITY_CURES']};
-	unit_dict["MermaidDiviner"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 4}];
+	unit_dict["MermaidDiviner"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 4}];
 
 	unit_dict["MermaidEnchantress"] = {};
 	unit_dict["MermaidEnchantress"]["id"] = "MermaidEnchantress";
@@ -2806,7 +2806,7 @@ function createUnitDict() {
 	unit_dict["MermaidEnchantress"]["advances_to"] = ['MermaidSiren'];
 	unit_dict["MermaidEnchantress"]["cost"] = 33;
 	unit_dict["MermaidEnchantress"]["usage"] = "mixedfighter";
-	unit_dict["MermaidEnchantress"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 1}, {'name': 'waterspray', 'description': 'waterspray', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 14, 'number': 2}];
+	unit_dict["MermaidEnchantress"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 1}, {'name': 'waterspray', 'description': 'waterspray', 'icon': 'attacks/waterspray.png', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 14, 'number': 2}];
 
 	unit_dict["MermanEntangler"] = {};
 	unit_dict["MermanEntangler"]["id"] = "MermanEntangler";
@@ -2822,7 +2822,7 @@ function createUnitDict() {
 	unit_dict["MermanEntangler"]["advances_to"] = null;
 	unit_dict["MermanEntangler"]["cost"] = 46;
 	unit_dict["MermanEntangler"]["usage"] = "mixedfighter";
-	unit_dict["MermanEntangler"]["attack"] = [{'name': 'club', 'description': 'club', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'net', 'description': 'net', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 8, 'number': 3}];
+	unit_dict["MermanEntangler"]["attack"] = [{'name': 'club', 'description': 'club', 'type': 'impact', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'net', 'description': 'net', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 8, 'number': 3, 'icon': 'attacks/net.png'}];
 
 	unit_dict["MermanFighter"] = {};
 	unit_dict["MermanFighter"]["id"] = "MermanFighter";
@@ -2891,7 +2891,7 @@ function createUnitDict() {
 	unit_dict["MermaidInitiate"]["advances_to"] = ['MermaidPriestess', 'MermaidEnchantress'];
 	unit_dict["MermaidInitiate"]["cost"] = 19;
 	unit_dict["MermaidInitiate"]["usage"] = "mixedfighter";
-	unit_dict["MermaidInitiate"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 1}, {'name': 'waterspray', 'description': 'waterspray', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 2}];
+	unit_dict["MermaidInitiate"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 1}, {'name': 'waterspray', 'description': 'waterspray', 'icon': 'attacks/waterspray.png', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 8, 'number': 2}];
 
 	unit_dict["MermanJavelineer"] = {};
 	unit_dict["MermanJavelineer"]["id"] = "MermanJavelineer";
@@ -2923,7 +2923,7 @@ function createUnitDict() {
 	unit_dict["MermanNetcaster"]["advances_to"] = ['MermanEntangler'];
 	unit_dict["MermanNetcaster"]["cost"] = 27;
 	unit_dict["MermanNetcaster"]["usage"] = "mixedfighter";
-	unit_dict["MermanNetcaster"]["attack"] = [{'name': 'club', 'description': 'club', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 3}, {'name': 'net', 'description': 'net', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 9, 'number': 2}];
+	unit_dict["MermanNetcaster"]["attack"] = [{'name': 'club', 'description': 'club', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 3}, {'name': 'net', 'description': 'net', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 9, 'number': 2, 'icon': 'attacks/net.png'}];
 
 	unit_dict["MermaidPriestess"] = {};
 	unit_dict["MermaidPriestess"]["id"] = "MermaidPriestess";
@@ -2942,7 +2942,7 @@ function createUnitDict() {
 	unit_dict["MermaidPriestess"]["cost"] = 38;
 	unit_dict["MermaidPriestess"]["usage"] = "healer";
 	unit_dict["MermaidPriestess"]["abilities"] = {'ability': 'ABILITY_CURES'};
-	unit_dict["MermaidPriestess"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 6, 'number': 4}];
+	unit_dict["MermaidPriestess"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 3}, {'name': 'lightbeam', 'description': 'lightbeam', 'type': 'arcane', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 6, 'number': 4}];
 
 	unit_dict["MermaidSiren"] = {};
 	unit_dict["MermaidSiren"]["id"] = "MermaidSiren";
@@ -2959,7 +2959,7 @@ function createUnitDict() {
 	unit_dict["MermaidSiren"]["advances_to"] = null;
 	unit_dict["MermaidSiren"]["cost"] = 52;
 	unit_dict["MermaidSiren"]["usage"] = "mixedfighter";
-	unit_dict["MermaidSiren"]["attack"] = [{'name': 'naiatouch', 'description': 'naiatouch', 'type': 'impact', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 12, 'number': 1}, {'name': 'waterspray', 'description': 'waterspray', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 15, 'number': 3}];
+	unit_dict["MermaidSiren"]["attack"] = [{'name': 'naiatouch', 'description': 'naiatouch', 'icon': 'attacks/touch-faerie.png', 'type': 'impact', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 12, 'number': 1}, {'name': 'waterspray', 'description': 'waterspray', 'icon': 'attacks/waterspray.png', 'type': 'impact', 'range': 'ranged', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'damage': 15, 'number': 3}];
 
 	unit_dict["MermanSpearman"] = {};
 	unit_dict["MermanSpearman"]["id"] = "MermanSpearman";
@@ -3042,7 +3042,7 @@ function createUnitDict() {
 	unit_dict["ElderFalcon"]["cost"] = 18;
 	unit_dict["ElderFalcon"]["usage"] = "scout";
 	unit_dict["ElderFalcon"]["defense"] = {'village': 50};
-	unit_dict["ElderFalcon"]["attack"] = [{'name': 'beak', 'description': 'beak', 'type': 'pierce', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 1, 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}];
+	unit_dict["ElderFalcon"]["attack"] = [{'name': 'beak', 'description': 'beak', 'type': 'pierce', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 1, 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}];
 
 	unit_dict["Falcon"] = {};
 	unit_dict["Falcon"]["id"] = "Falcon";
@@ -3059,7 +3059,7 @@ function createUnitDict() {
 	unit_dict["Falcon"]["cost"] = 12;
 	unit_dict["Falcon"]["usage"] = "scout";
 	unit_dict["Falcon"]["defense"] = {'village': 50};
-	unit_dict["Falcon"]["attack"] = [{'name': 'beak', 'description': 'beak', 'type': 'pierce', 'range': 'melee', 'damage': 2, 'number': 3}, {'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 1, 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}];
+	unit_dict["Falcon"]["attack"] = [{'name': 'beak', 'description': 'beak', 'type': 'pierce', 'range': 'melee', 'damage': 2, 'number': 3}, {'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 1, 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}];
 
 	unit_dict["FireDragon"] = {};
 	unit_dict["FireDragon"]["id"] = "FireDragon";
@@ -3078,7 +3078,7 @@ function createUnitDict() {
 	unit_dict["FireDragon"]["undead_variation"] = "drake";
 	unit_dict["FireDragon"]["usage"] = "archer";
 	unit_dict["FireDragon"]["resistance"] = {'fire': 0};
-	unit_dict["FireDragon"]["attack"] = [{'name': 'bite', 'description': 'bite', 'type': 'blade', 'range': 'melee', 'damage': 21, 'number': 2}, {'name': 'tail', 'description': 'tail', 'type': 'impact', 'range': 'melee', 'damage': 24, 'number': 1}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'range': 'ranged', 'damage': 14, 'number': 4}];
+	unit_dict["FireDragon"]["attack"] = [{'name': 'bite', 'description': 'bite', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 21, 'number': 2}, {'name': 'tail', 'description': 'tail', 'icon': 'attacks/tail-dragon.png', 'type': 'impact', 'range': 'melee', 'damage': 24, 'number': 1}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-breath-drake.png', 'type': 'fire', 'specials': {'attack_special': 'WEAPON_SPECIAL_MARKSMAN'}, 'range': 'ranged', 'damage': 14, 'number': 4}];
 	unit_dict["FireDragon"]["impact_frame"] = {'layer': 90, 'image': 'misc/blank-hex.png:1,projectiles/fireball-impact-[2~5].png:60,projectiles/fire-breath-[6~10].png:40', 'offset': '1.0'};
 
 	unit_dict["FireGuardian"] = {};
@@ -3097,7 +3097,7 @@ function createUnitDict() {
 	unit_dict["FireGuardian"]["advances_to"] = null;
 	unit_dict["FireGuardian"]["cost"] = 19;
 	unit_dict["FireGuardian"]["usage"] = "fighter";
-	unit_dict["FireGuardian"]["attack"] = [{'name': 'fireclaws', 'description': 'fireclaws', 'type': 'fire', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 2}];
+	unit_dict["FireGuardian"]["attack"] = [{'name': 'fireclaws', 'description': 'fireclaws', 'type': 'fire', 'icon': 'attacks/claws-fire-elemental.png', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'firebreath', 'description': 'firebreath', 'icon': 'attacks/fire-blast.png', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 2}];
 	unit_dict["FireGuardian"]["death"] = {'start_time': 0};
 
 	unit_dict["GiantMudcrawler"] = {};
@@ -3117,7 +3117,7 @@ function createUnitDict() {
 	unit_dict["GiantMudcrawler"]["undead_variation"] = null;
 	unit_dict["GiantMudcrawler"]["usage"] = "archer";
 	unit_dict["GiantMudcrawler"]["death"] = {'start_time': 0};
-	unit_dict["GiantMudcrawler"]["attack"] = [{'name': 'fist', 'description': 'fist', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'mudglob', 'description': 'mudglob', 'type': 'impact', 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["GiantMudcrawler"]["attack"] = [{'name': 'fist', 'description': 'fist', 'icon': 'attacks/mud-glob.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'mudglob', 'description': 'mudglob', 'icon': 'attacks/mud-glob.png', 'type': 'impact', 'range': 'ranged', 'damage': 5, 'number': 3}];
 
 	unit_dict["GiantRat"] = {};
 	unit_dict["GiantRat"]["id"] = "GiantRat";
@@ -3135,7 +3135,7 @@ function createUnitDict() {
 	unit_dict["GiantRat"]["undead_variation"] = "saurian";
 	unit_dict["GiantRat"]["usage"] = "fighter";
 	unit_dict["GiantRat"]["death"] = {'start_time': 0};
-	unit_dict["GiantRat"]["attack"] = [{'name': 'bite', 'description': 'bite', 'type': 'blade', 'range': 'melee', 'damage': 2, 'number': 4}];
+	unit_dict["GiantRat"]["attack"] = [{'name': 'bite', 'description': 'bite', 'icon': 'attacks/fangs-rodent.png', 'type': 'blade', 'range': 'melee', 'damage': 2, 'number': 4}];
 
 	unit_dict["GiantScorpion"] = {};
 	unit_dict["GiantScorpion"]["id"] = "GiantScorpion";
@@ -3190,7 +3190,7 @@ function createUnitDict() {
 	unit_dict["GiantSpider"]["cost"] = 55;
 	unit_dict["GiantSpider"]["usage"] = "fighter";
 	unit_dict["GiantSpider"]["undead_variation"] = "spider";
-	unit_dict["GiantSpider"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 18, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}, {'name': 'web', 'description': 'web', 'type': 'impact', 'range': 'ranged', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}}];
+	unit_dict["GiantSpider"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-spider.png', 'type': 'blade', 'range': 'melee', 'damage': 18, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}, {'name': 'web', 'description': 'web', 'type': 'impact', 'range': 'ranged', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}}];
 
 	unit_dict["Jinn"] = {};
 	unit_dict["Jinn"]["id"] = "Jinn";
@@ -3208,7 +3208,7 @@ function createUnitDict() {
 	unit_dict["Jinn"]["cost"] = 56;
 	unit_dict["Jinn"]["usage"] = "archer";
 	unit_dict["Jinn"]["undead_variation"] = null;
-	unit_dict["Jinn"]["attack"] = [{'name': 'desertfire', 'description': 'desertfire', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}}];
+	unit_dict["Jinn"]["attack"] = [{'name': 'desertfire', 'description': 'desertfire', 'icon': 'attacks/fire-blast.png', 'type': 'fire', 'range': 'ranged', 'damage': 8, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}}];
 
 	unit_dict["Mudcrawler"] = {};
 	unit_dict["Mudcrawler"]["id"] = "Mudcrawler";
@@ -3228,7 +3228,7 @@ function createUnitDict() {
 	unit_dict["Mudcrawler"]["usage"] = "archer";
 	unit_dict["Mudcrawler"]["recruit_anim"] = {};
 	unit_dict["Mudcrawler"]["death"] = {};
-	unit_dict["Mudcrawler"]["attack"] = [{'name': 'mudglob', 'description': 'mudglob', 'type': 'impact', 'range': 'ranged', 'damage': 4, 'number': 3}];
+	unit_dict["Mudcrawler"]["attack"] = [{'name': 'mudglob', 'description': 'mudglob', 'icon': 'attacks/mud-glob.png', 'type': 'impact', 'range': 'ranged', 'damage': 4, 'number': 3}];
 
 	unit_dict["Roc"] = {};
 	unit_dict["Roc"]["id"] = "Roc";
@@ -3247,7 +3247,7 @@ function createUnitDict() {
 	unit_dict["Roc"]["cost"] = 36;
 	unit_dict["Roc"]["usage"] = "scout";
 	unit_dict["Roc"]["defense"] = {'village': 50};
-	unit_dict["Roc"]["attack"] = [{'name': 'beak', 'description': 'beak', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 4}, {'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}];
+	unit_dict["Roc"]["attack"] = [{'name': 'beak', 'description': 'beak', 'type': 'pierce', 'range': 'melee', 'damage': 6, 'number': 4}, {'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_CHARGE'}}];
 
 	unit_dict["SeaSerpent"] = {};
 	unit_dict["SeaSerpent"]["id"] = "SeaSerpent";
@@ -3265,7 +3265,7 @@ function createUnitDict() {
 	unit_dict["SeaSerpent"]["cost"] = 40;
 	unit_dict["SeaSerpent"]["undead_variation"] = "swimmer";
 	unit_dict["SeaSerpent"]["usage"] = "fighter";
-	unit_dict["SeaSerpent"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'pierce', 'range': 'melee', 'damage': 18, 'number': 2}];
+	unit_dict["SeaSerpent"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-snake.png', 'type': 'pierce', 'range': 'melee', 'damage': 18, 'number': 2}];
 
 	unit_dict["SkeletalDragon"] = {};
 	unit_dict["SkeletalDragon"]["id"] = "SkeletalDragon";
@@ -3283,7 +3283,7 @@ function createUnitDict() {
 	unit_dict["SkeletalDragon"]["cost"] = 100;
 	unit_dict["SkeletalDragon"]["usage"] = "fighter";
 	unit_dict["SkeletalDragon"]["resistance"] = {'blade': 60, 'pierce': 40, 'impact': 120, 'fire': 100, 'arcane': 100};
-	unit_dict["SkeletalDragon"]["attack"] = [{'name': 'jaw', 'description': 'jaw', 'type': 'blade', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}, 'damage': 10, 'number': 4}, {'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 25, 'number': 2}];
+	unit_dict["SkeletalDragon"]["attack"] = [{'name': 'jaw', 'description': 'jaw', 'icon': 'attacks/fangs.png', 'type': 'blade', 'range': 'melee', 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}, 'damage': 10, 'number': 4}, {'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 25, 'number': 2}];
 
 	unit_dict["TentacleoftheDeep"] = {};
 	unit_dict["TentacleoftheDeep"]["id"] = "TentacleoftheDeep";
@@ -3302,7 +3302,7 @@ function createUnitDict() {
 	unit_dict["TentacleoftheDeep"]["undead_variation"] = "swimmer";
 	unit_dict["TentacleoftheDeep"]["usage"] = "fighter";
 	unit_dict["TentacleoftheDeep"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
-	unit_dict["TentacleoftheDeep"]["attack"] = [{'name': 'tentacle', 'description': 'tentacle', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3}];
+	unit_dict["TentacleoftheDeep"]["attack"] = [{'name': 'tentacle', 'description': 'tentacle', 'icon': 'attacks/tentacle.png', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3}];
 	unit_dict["TentacleoftheDeep"]["ripples_frame"] = [{'image': 'halo/ripples/ripple[1~13].png:130'}, {'image': 'halo/ripples/ripple[1,4,7,10,13].png:30'}, {'image': 'halo/ripples/ripple[1~13].png:55'}, {'image': 'halo/ripples/ripple[1~13].png:20'}, {'image': 'halo/ripples/ripple[1~13].png:20'}];
 	unit_dict["TentacleoftheDeep"]["death"] = {'start_time': 0, 'ripples_start_time': 0, 'ripples_layer': 10, 'ripples_y': 19, 'ripples_frame': {'image': 'halo/ripples/ripple[13~1,13~1,13~1].png:28', 'alpha': '1.0,1.0,1.0~0.0'}};
 
@@ -3322,7 +3322,7 @@ function createUnitDict() {
 	unit_dict["WaterSerpent"]["cost"] = 26;
 	unit_dict["WaterSerpent"]["undead_variation"] = "swimmer";
 	unit_dict["WaterSerpent"]["usage"] = "fighter";
-	unit_dict["WaterSerpent"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}, 'range': 'melee', 'damage': 12, 'number': 2}];
+	unit_dict["WaterSerpent"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-snake.png', 'type': 'pierce', 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}, 'range': 'melee', 'damage': 12, 'number': 2}];
 
 	unit_dict["WildWyvern"] = {};
 	unit_dict["WildWyvern"]["id"] = "WildWyvern";
@@ -3340,7 +3340,7 @@ function createUnitDict() {
 	unit_dict["WildWyvern"]["cost"] = 54;
 	unit_dict["WildWyvern"]["usage"] = "scout";
 	unit_dict["WildWyvern"]["undead_variation"] = "drake";
-	unit_dict["WildWyvern"]["attack"] = [{'name': 'bite', 'description': 'bite', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}];
+	unit_dict["WildWyvern"]["attack"] = [{'name': 'bite', 'description': 'bite', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}];
 
 	unit_dict["Wolf"] = {};
 	unit_dict["Wolf"]["id"] = "Wolf";
@@ -3358,7 +3358,7 @@ function createUnitDict() {
 	unit_dict["Wolf"]["cost"] = 17;
 	unit_dict["Wolf"]["usage"] = "scout";
 	unit_dict["Wolf"]["defense"] = {'village': 50};
-	unit_dict["Wolf"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}];
+	unit_dict["Wolf"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 3}];
 
 	unit_dict["Direwolf"] = {};
 	unit_dict["Direwolf"]["id"] = "Direwolf";
@@ -3376,7 +3376,7 @@ function createUnitDict() {
 	unit_dict["Direwolf"]["cost"] = 36;
 	unit_dict["Direwolf"]["usage"] = "scout";
 	unit_dict["Direwolf"]["defense"] = {'village': 50};
-	unit_dict["Direwolf"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}];
+	unit_dict["Direwolf"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}];
 
 	unit_dict["GreatWolf"] = {};
 	unit_dict["GreatWolf"]["id"] = "GreatWolf";
@@ -3394,7 +3394,7 @@ function createUnitDict() {
 	unit_dict["GreatWolf"]["cost"] = 30;
 	unit_dict["GreatWolf"]["usage"] = "scout";
 	unit_dict["GreatWolf"]["defense"] = {'village': 50};
-	unit_dict["GreatWolf"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}];
+	unit_dict["GreatWolf"]["attack"] = [{'name': 'fangs', 'description': 'fangs', 'icon': 'attacks/fangs-animal.png', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}];
 	unit_dict["GreatWolf"]["variation"] = {'variation_id': 'red', 'inherit': 'yes', 'hide_help': 'yes', 'image': 'units/monsters/wolf-great+red.png'};
 
 	unit_dict["Yeti"] = {};
@@ -3415,7 +3415,7 @@ function createUnitDict() {
 	unit_dict["Yeti"]["movement_costs"] = {'frozen': 1};
 	unit_dict["Yeti"]["defense"] = {'frozen': 40};
 	unit_dict["Yeti"]["resistance"] = {'cold': 50, 'fire': 80, 'pierce': 80, 'impact': 90, 'arcane': 100};
-	unit_dict["Yeti"]["attack"] = [{'name': 'fist', 'description': 'fist', 'type': 'impact', 'range': 'melee', 'damage': 32, 'number': 2}];
+	unit_dict["Yeti"]["attack"] = [{'name': 'fist', 'description': 'fist', 'icon': 'attacks/fist-yeti.png', 'type': 'impact', 'range': 'melee', 'damage': 32, 'number': 2}];
 
 	unit_dict["NagaDirkfang"] = {};
 	unit_dict["NagaDirkfang"]["id"] = "NagaDirkfang";
@@ -3432,7 +3432,7 @@ function createUnitDict() {
 	unit_dict["NagaDirkfang"]["advances_to"] = ['NagaOphidian', 'NagaRingcaster'];
 	unit_dict["NagaDirkfang"]["cost"] = 15;
 	unit_dict["NagaDirkfang"]["usage"] = "mixedfighter";
-	unit_dict["NagaDirkfang"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'chakri', 'description': 'chakri', 'type': 'blade', 'range': 'ranged', 'damage': 7, 'number': 2}];
+	unit_dict["NagaDirkfang"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3, 'icon': 'attacks/dagger-curved.png'}, {'name': 'chakri', 'description': 'chakri', 'type': 'blade', 'range': 'ranged', 'damage': 7, 'number': 2, 'icon': 'attacks/chakri.png'}];
 	unit_dict["NagaDirkfang"]["female"] = {'name': 'NaginiDirkfang', 'gender': 'female'};
 
 	unit_dict["NagaFighter"] = {};
@@ -3450,7 +3450,7 @@ function createUnitDict() {
 	unit_dict["NagaFighter"]["advances_to"] = ['NagaWarrior'];
 	unit_dict["NagaFighter"]["cost"] = 14;
 	unit_dict["NagaFighter"]["usage"] = "fighter";
-	unit_dict["NagaFighter"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 4}];
+	unit_dict["NagaFighter"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 4}];
 	unit_dict["NagaFighter"]["female"] = {'name': 'NaginiFighter', 'gender': 'female'};
 
 	unit_dict["NagaMyrmidon"] = {};
@@ -3469,7 +3469,7 @@ function createUnitDict() {
 	unit_dict["NagaMyrmidon"]["cost"] = 48;
 	unit_dict["NagaMyrmidon"]["usage"] = "fighter";
 	unit_dict["NagaMyrmidon"]["defense"] = {'flat': 50, 'sand': 40};
-	unit_dict["NagaMyrmidon"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 5}];
+	unit_dict["NagaMyrmidon"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 5}];
 	unit_dict["NagaMyrmidon"]["female"] = {'name': 'NaginiMyrmidon', 'gender': 'female', 'description': 'ThemostpracticedofthenaginiblademastersareinitiatedintothecasteoftheMyrmidon,mastersoftheirtwin-bladedart.Theystrikeasfastasthesnakeswhichtheyresemble,anddanceawayfromattackswithgrace.Notonlyaretheypotentenemiesonanyopenterrain,buttheirabilitytoswimallowsthemadeadlymobility.'};
 
 	unit_dict["NagaOphidian"] = {};
@@ -3488,7 +3488,7 @@ function createUnitDict() {
 	unit_dict["NagaOphidian"]["cost"] = 24;
 	unit_dict["NagaOphidian"]["usage"] = "fighter";
 	unit_dict["NagaOphidian"]["defense"] = {'flat': 60, 'sand': 50};
-	unit_dict["NagaOphidian"]["attack"] = [{'name': 'curvedblade', 'description': 'curvedblade', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 2}];
+	unit_dict["NagaOphidian"]["attack"] = [{'name': 'curvedblade', 'description': 'curvedblade', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3, 'icon': 'attacks/blade-curved.png'}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 2, 'icon': 'attacks/bow-orcish.png'}];
 	unit_dict["NagaOphidian"]["female"] = {'name': 'NaginiOphidian', 'gender': 'female'};
 
 	unit_dict["NagaRingcaster"] = {};
@@ -3507,7 +3507,7 @@ function createUnitDict() {
 	unit_dict["NagaRingcaster"]["cost"] = 24;
 	unit_dict["NagaRingcaster"]["usage"] = "mixedfighter";
 	unit_dict["NagaRingcaster"]["defense"] = {'flat': 60, 'sand': 50, 'forest': 50, 'hills': 50, 'mountains': 50, 'village': 50, 'cave': 50};
-	unit_dict["NagaRingcaster"]["attack"] = [{'name': 'chakram_melee', 'description': 'chakram', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4}, {'name': 'chakram', 'description': 'chakram', 'type': 'blade', 'range': 'ranged', 'damage': 7, 'number': 3}];
+	unit_dict["NagaRingcaster"]["attack"] = [{'name': 'chakram_melee', 'description': 'chakram', 'type': 'blade', 'range': 'melee', 'damage': 5, 'number': 4, 'icon': 'attacks/tekko.png'}, {'name': 'chakram', 'description': 'chakram', 'type': 'blade', 'range': 'ranged', 'damage': 7, 'number': 3, 'icon': 'attacks/chakram.png'}];
 	unit_dict["NagaRingcaster"]["female"] = {'name': 'NaginiRingcaster', 'gender': 'female'};
 
 	unit_dict["NagaSicarius"] = {};
@@ -3526,7 +3526,7 @@ function createUnitDict() {
 	unit_dict["NagaSicarius"]["cost"] = 48;
 	unit_dict["NagaSicarius"]["usage"] = "fighter";
 	unit_dict["NagaSicarius"]["defense"] = {'flat': 50, 'sand': 40};
-	unit_dict["NagaSicarius"]["attack"] = [{'name': 'curvedblade', 'description': 'curvedblade', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 3}];
+	unit_dict["NagaSicarius"]["attack"] = [{'name': 'curvedblade', 'description': 'curvedblade', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3, 'icon': 'attacks/blade-curved.png'}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 3, 'icon': 'attacks/bow.png'}];
 	unit_dict["NagaSicarius"]["female"] = {'name': 'NaginiSicarius', 'gender': 'female'};
 
 	unit_dict["NagaWarrior"] = {};
@@ -3545,7 +3545,7 @@ function createUnitDict() {
 	unit_dict["NagaWarrior"]["cost"] = 24;
 	unit_dict["NagaWarrior"]["usage"] = "fighter";
 	unit_dict["NagaWarrior"]["defense"] = {'flat': 60, 'sand': 50};
-	unit_dict["NagaWarrior"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}];
+	unit_dict["NagaWarrior"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}];
 	unit_dict["NagaWarrior"]["female"] = {'name': 'NaginiWarrior', 'gender': 'female', 'description': 'Manyoftheyoungwarriorsofthenaginiaspireforthedaywhentheymerittheirsecondblade.TheirmartialpracticeofusingtwinbladesiswhollyunlikethatoftheOrcsandotherraces,fortheyhavebeguntolearntheartofusingtheirserpentineformtobesteffect,twistingandturningtododgefromblows.Thismakesthempotentonland,butthefrictionofwatergreatlyimpedestheirabilitytodothis.'};
 
 	unit_dict["NagaZephyr"] = {};
@@ -3564,7 +3564,7 @@ function createUnitDict() {
 	unit_dict["NagaZephyr"]["cost"] = 50;
 	unit_dict["NagaZephyr"]["usage"] = "mixedfighter";
 	unit_dict["NagaZephyr"]["defense"] = {'deep_water': 40, 'flat': 50, 'sand': 40, 'forest': 50, 'hills': 50, 'mountains': 50, 'village': 40, 'cave': 50};
-	unit_dict["NagaZephyr"]["attack"] = [{'name': 'chakram_melee', 'description': 'chakram', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4}, {'name': 'chakram', 'description': 'chakram', 'type': 'blade', 'range': 'ranged', 'damage': 9, 'number': 4}];
+	unit_dict["NagaZephyr"]["attack"] = [{'name': 'chakram_melee', 'description': 'chakram', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 4, 'icon': 'attacks/tekko.png'}, {'name': 'chakram', 'description': 'chakram', 'type': 'blade', 'range': 'ranged', 'damage': 9, 'number': 4, 'icon': 'attacks/chakram.png'}];
 	unit_dict["NagaZephyr"]["female"] = {'name': 'NaginiZephyr', 'gender': 'female'};
 
 	unit_dict["Ogre"] = {};
@@ -3615,7 +3615,7 @@ function createUnitDict() {
 	unit_dict["OrcishArcher"]["advances_to"] = ['OrcishCrossbowman'];
 	unit_dict["OrcishArcher"]["cost"] = 14;
 	unit_dict["OrcishArcher"]["usage"] = "archer";
-	unit_dict["OrcishArcher"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 3, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'fire', 'range': 'ranged', 'damage': 7, 'number': 2}];
+	unit_dict["OrcishArcher"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 3, 'number': 2}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-orcish.png', 'type': 'fire', 'range': 'ranged', 'damage': 7, 'number': 2}];
 
 	unit_dict["OrcishAssassin"] = {};
 	unit_dict["OrcishAssassin"]["id"] = "OrcishAssassin";
@@ -3632,7 +3632,7 @@ function createUnitDict() {
 	unit_dict["OrcishAssassin"]["advances_to"] = ['OrcishSlayer'];
 	unit_dict["OrcishAssassin"]["cost"] = 17;
 	unit_dict["OrcishAssassin"]["usage"] = "mixedfighter";
-	unit_dict["OrcishAssassin"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 1}, {'name': 'throwingknives', 'description': 'throwingknives', 'type': 'blade', 'range': 'ranged', 'damage': 3, 'number': 3, 'specials': {'attack_special': ['WEAPON_SPECIAL_MARKSMAN', 'WEAPON_SPECIAL_POISON']}}];
+	unit_dict["OrcishAssassin"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 1}, {'name': 'throwingknives', 'description': 'throwingknives', 'icon': 'attacks/dagger-thrown-poison-orcish.png', 'type': 'blade', 'range': 'ranged', 'damage': 3, 'number': 3, 'specials': {'attack_special': ['WEAPON_SPECIAL_MARKSMAN', 'WEAPON_SPECIAL_POISON']}}];
 	unit_dict["OrcishAssassin"]["death"] = {'start_time': 0};
 
 	unit_dict["OrcishCrossbowman"] = {};
@@ -3649,7 +3649,7 @@ function createUnitDict() {
 	unit_dict["OrcishCrossbowman"]["advances_to"] = ['OrcishSlurbow'];
 	unit_dict["OrcishCrossbowman"]["cost"] = 21;
 	unit_dict["OrcishCrossbowman"]["usage"] = "archer";
-	unit_dict["OrcishCrossbowman"]["attack"] = [{'name': 'shortsword', 'description': 'shortsword', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'fire', 'range': 'ranged', 'damage': 10, 'number': 2}];
+	unit_dict["OrcishCrossbowman"]["attack"] = [{'name': 'shortsword', 'description': 'shortsword', 'icon': 'attacks/sword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-orcish.png', 'type': 'fire', 'range': 'ranged', 'damage': 10, 'number': 2}];
 
 	unit_dict["OrcishGrunt"] = {};
 	unit_dict["OrcishGrunt"]["id"] = "OrcishGrunt";
@@ -3666,7 +3666,7 @@ function createUnitDict() {
 	unit_dict["OrcishGrunt"]["cost"] = 12;
 	unit_dict["OrcishGrunt"]["usage"] = "fighter";
 	unit_dict["OrcishGrunt"]["death"] = {'start_time': 0};
-	unit_dict["OrcishGrunt"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2}];
+	unit_dict["OrcishGrunt"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2}];
 
 	unit_dict["OrcishLeader"] = {};
 	unit_dict["OrcishLeader"]["id"] = "OrcishLeader";
@@ -3683,7 +3683,7 @@ function createUnitDict() {
 	unit_dict["OrcishLeader"]["cost"] = 20;
 	unit_dict["OrcishLeader"]["usage"] = "mixedfighter";
 	unit_dict["OrcishLeader"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["OrcishLeader"]["attack"] = [{'name': 'sword', 'description': 'sword', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 2}];
+	unit_dict["OrcishLeader"]["attack"] = [{'name': 'sword', 'description': 'sword', 'icon': 'attacks/sword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 5, 'number': 2}];
 
 	unit_dict["OrcishNightblade"] = {};
 	unit_dict["OrcishNightblade"]["id"] = "OrcishNightblade";
@@ -3700,7 +3700,7 @@ function createUnitDict() {
 	unit_dict["OrcishNightblade"]["advances_to"] = null;
 	unit_dict["OrcishNightblade"]["cost"] = 43;
 	unit_dict["OrcishNightblade"]["usage"] = "mixedfighter";
-	unit_dict["OrcishNightblade"]["attack"] = [{'name': 'blade', 'description': 'blade', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2}, {'name': 'kick', 'description': 'kick', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 2}, {'name': 'throwingknives', 'description': 'throwingknives', 'type': 'blade', 'range': 'ranged', 'damage': 6, 'number': 4, 'specials': {'attack_special': ['WEAPON_SPECIAL_MARKSMAN', 'WEAPON_SPECIAL_POISON']}}];
+	unit_dict["OrcishNightblade"]["attack"] = [{'name': 'blade', 'description': 'blade', 'icon': 'attacks/dagger-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 2}, {'name': 'kick', 'description': 'kick', 'icon': 'attacks/blank-attack.png', 'type': 'impact', 'range': 'melee', 'damage': 11, 'number': 2}, {'name': 'throwingknives', 'description': 'throwingknives', 'icon': 'attacks/dagger-thrown-poison-orcish.png', 'type': 'blade', 'range': 'ranged', 'damage': 6, 'number': 4, 'specials': {'attack_special': ['WEAPON_SPECIAL_MARKSMAN', 'WEAPON_SPECIAL_POISON']}}];
 
 	unit_dict["OrcishRuler"] = {};
 	unit_dict["OrcishRuler"]["id"] = "OrcishRuler";
@@ -3717,7 +3717,7 @@ function createUnitDict() {
 	unit_dict["OrcishRuler"]["cost"] = 35;
 	unit_dict["OrcishRuler"]["usage"] = "mixedfighter";
 	unit_dict["OrcishRuler"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["OrcishRuler"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
+	unit_dict["OrcishRuler"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'icon': 'attacks/greatsword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
 
 	unit_dict["OrcishSlayer"] = {};
 	unit_dict["OrcishSlayer"]["id"] = "OrcishSlayer";
@@ -3734,7 +3734,7 @@ function createUnitDict() {
 	unit_dict["OrcishSlayer"]["advances_to"] = null;
 	unit_dict["OrcishSlayer"]["cost"] = 26;
 	unit_dict["OrcishSlayer"]["usage"] = "mixedfighter";
-	unit_dict["OrcishSlayer"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'throwingknives', 'description': 'throwingknives', 'type': 'blade', 'range': 'ranged', 'damage': 6, 'number': 3, 'specials': {'attack_special': ['WEAPON_SPECIAL_MARKSMAN', 'WEAPON_SPECIAL_POISON']}}];
+	unit_dict["OrcishSlayer"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'throwingknives', 'description': 'throwingknives', 'icon': 'attacks/dagger-thrown-poison-orcish.png', 'type': 'blade', 'range': 'ranged', 'damage': 6, 'number': 3, 'specials': {'attack_special': ['WEAPON_SPECIAL_MARKSMAN', 'WEAPON_SPECIAL_POISON']}}];
 
 	unit_dict["OrcishSlurbow"] = {};
 	unit_dict["OrcishSlurbow"]["id"] = "OrcishSlurbow";
@@ -3750,7 +3750,7 @@ function createUnitDict() {
 	unit_dict["OrcishSlurbow"]["advances_to"] = null;
 	unit_dict["OrcishSlurbow"]["cost"] = 43;
 	unit_dict["OrcishSlurbow"]["usage"] = "archer";
-	unit_dict["OrcishSlurbow"]["attack"] = [{'name': 'shortsword', 'description': 'shortsword', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'fire', 'range': 'ranged', 'damage': 15, 'number': 2}];
+	unit_dict["OrcishSlurbow"]["attack"] = [{'name': 'shortsword', 'description': 'shortsword', 'icon': 'attacks/sword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 12, 'number': 3}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-orcish.png', 'type': 'fire', 'range': 'ranged', 'damage': 15, 'number': 2}];
 
 	unit_dict["OrcishSovereign"] = {};
 	unit_dict["OrcishSovereign"]["id"] = "OrcishSovereign";
@@ -3767,7 +3767,7 @@ function createUnitDict() {
 	unit_dict["OrcishSovereign"]["cost"] = 50;
 	unit_dict["OrcishSovereign"]["usage"] = "mixedfighter";
 	unit_dict["OrcishSovereign"]["abilities"] = {'ability': 'ABILITY_LEADERSHIP'};
-	unit_dict["OrcishSovereign"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 3}];
+	unit_dict["OrcishSovereign"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'icon': 'attacks/greatsword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 9, 'number': 3}];
 
 	unit_dict["OrcishWarlord"] = {};
 	unit_dict["OrcishWarlord"]["id"] = "OrcishWarlord";
@@ -3783,7 +3783,7 @@ function createUnitDict() {
 	unit_dict["OrcishWarlord"]["advances_to"] = null;
 	unit_dict["OrcishWarlord"]["cost"] = 48;
 	unit_dict["OrcishWarlord"]["usage"] = "fighter";
-	unit_dict["OrcishWarlord"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 3}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 2}];
+	unit_dict["OrcishWarlord"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'icon': 'attacks/greatsword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 15, 'number': 3}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 8, 'number': 2}];
 
 	unit_dict["OrcishWarrior"] = {};
 	unit_dict["OrcishWarrior"]["id"] = "OrcishWarrior";
@@ -3799,7 +3799,7 @@ function createUnitDict() {
 	unit_dict["OrcishWarrior"]["advances_to"] = ['OrcishWarlord'];
 	unit_dict["OrcishWarrior"]["cost"] = 26;
 	unit_dict["OrcishWarrior"]["usage"] = "fighter";
-	unit_dict["OrcishWarrior"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3}];
+	unit_dict["OrcishWarrior"]["attack"] = [{'name': 'greatsword', 'description': 'greatsword', 'icon': 'attacks/greatsword-orcish.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3}];
 
 	unit_dict["SaurianAmbusher"] = {};
 	unit_dict["SaurianAmbusher"]["id"] = "SaurianAmbusher";
@@ -3817,7 +3817,7 @@ function createUnitDict() {
 	unit_dict["SaurianAmbusher"]["cost"] = 24;
 	unit_dict["SaurianAmbusher"]["usage"] = "scout";
 	unit_dict["SaurianAmbusher"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["SaurianAmbusher"]["attack"] = [{'name': 'spear', 'description': 'spear', 'range': 'melee', 'type': 'pierce', 'damage': 6, 'number': 4}, {'name': 'spear', 'description': 'spear', 'range': 'ranged', 'type': 'pierce', 'damage': 5, 'number': 2}];
+	unit_dict["SaurianAmbusher"]["attack"] = [{'name': 'spear', 'description': 'spear', 'range': 'melee', 'type': 'pierce', 'damage': 6, 'number': 4, 'icon': 'attacks/spear.png'}, {'name': 'spear', 'description': 'spear', 'range': 'ranged', 'type': 'pierce', 'damage': 5, 'number': 2, 'icon': 'attacks/spear.png'}];
 
 	unit_dict["SaurianAugur"] = {};
 	unit_dict["SaurianAugur"]["id"] = "SaurianAugur";
@@ -3834,7 +3834,7 @@ function createUnitDict() {
 	unit_dict["SaurianAugur"]["cost"] = 16;
 	unit_dict["SaurianAugur"]["usage"] = "healer";
 	unit_dict["SaurianAugur"]["abilities"] = {'ability': 'ABILITY_HEALS'};
-	unit_dict["SaurianAugur"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 2}, {'name': 'curse', 'description': 'curse', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 5, 'number': 3}];
+	unit_dict["SaurianAugur"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 2}, {'name': 'curse', 'description': 'curse', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 5, 'number': 3, 'icon': 'attacks/curse.png'}];
 
 	unit_dict["SaurianFlanker"] = {};
 	unit_dict["SaurianFlanker"]["id"] = "SaurianFlanker";
@@ -3852,7 +3852,7 @@ function createUnitDict() {
 	unit_dict["SaurianFlanker"]["cost"] = 46;
 	unit_dict["SaurianFlanker"]["usage"] = "scout";
 	unit_dict["SaurianFlanker"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["SaurianFlanker"]["attack"] = [{'name': 'spear', 'description': 'spear', 'range': 'melee', 'type': 'pierce', 'damage': 8, 'number': 4}, {'name': 'spear', 'description': 'spear', 'range': 'ranged', 'type': 'pierce', 'damage': 7, 'number': 2}];
+	unit_dict["SaurianFlanker"]["attack"] = [{'name': 'spear', 'description': 'spear', 'range': 'melee', 'type': 'pierce', 'damage': 8, 'number': 4, 'icon': 'attacks/spear.png'}, {'name': 'spear', 'description': 'spear', 'range': 'ranged', 'type': 'pierce', 'damage': 7, 'number': 2, 'icon': 'attacks/spear.png'}];
 
 	unit_dict["SaurianOracle"] = {};
 	unit_dict["SaurianOracle"]["id"] = "SaurianOracle";
@@ -3869,7 +3869,7 @@ function createUnitDict() {
 	unit_dict["SaurianOracle"]["cost"] = 28;
 	unit_dict["SaurianOracle"]["usage"] = "archer";
 	unit_dict["SaurianOracle"]["abilities"] = {'ability': 'ABILITY_HEALS'};
-	unit_dict["SaurianOracle"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'curse', 'description': 'curse', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 8, 'number': 3}];
+	unit_dict["SaurianOracle"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'curse', 'description': 'curse', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 8, 'number': 3, 'icon': 'attacks/curse.png'}];
 
 	unit_dict["SaurianSkirmisher"] = {};
 	unit_dict["SaurianSkirmisher"]["id"] = "SaurianSkirmisher";
@@ -3887,7 +3887,7 @@ function createUnitDict() {
 	unit_dict["SaurianSkirmisher"]["cost"] = 15;
 	unit_dict["SaurianSkirmisher"]["usage"] = "scout";
 	unit_dict["SaurianSkirmisher"]["abilities"] = {'ability': 'ABILITY_SKIRMISHER'};
-	unit_dict["SaurianSkirmisher"]["attack"] = [{'name': 'spear', 'description': 'spear', 'range': 'melee', 'type': 'pierce', 'damage': 4, 'number': 4}, {'name': 'spear', 'description': 'spear', 'range': 'ranged', 'type': 'pierce', 'damage': 4, 'number': 2}];
+	unit_dict["SaurianSkirmisher"]["attack"] = [{'name': 'spear', 'description': 'spear', 'range': 'melee', 'type': 'pierce', 'damage': 4, 'number': 4, 'icon': 'attacks/spear.png'}, {'name': 'spear', 'description': 'spear', 'range': 'ranged', 'type': 'pierce', 'damage': 4, 'number': 2, 'icon': 'attacks/spear.png'}];
 
 	unit_dict["SaurianSoothsayer"] = {};
 	unit_dict["SaurianSoothsayer"]["id"] = "SaurianSoothsayer";
@@ -3904,7 +3904,7 @@ function createUnitDict() {
 	unit_dict["SaurianSoothsayer"]["cost"] = 25;
 	unit_dict["SaurianSoothsayer"]["usage"] = "healer";
 	unit_dict["SaurianSoothsayer"]["abilities"] = {'ability': 'ABILITY_CURES'};
-	unit_dict["SaurianSoothsayer"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 2}, {'name': 'curse', 'description': 'curse', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 6, 'number': 3}];
+	unit_dict["SaurianSoothsayer"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-magic.png', 'type': 'impact', 'range': 'melee', 'damage': 5, 'number': 2}, {'name': 'curse', 'description': 'curse', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 6, 'number': 3, 'icon': 'attacks/curse.png'}];
 
 	unit_dict["GreatTroll"] = {};
 	unit_dict["GreatTroll"]["id"] = "GreatTroll";
@@ -3921,7 +3921,7 @@ function createUnitDict() {
 	unit_dict["GreatTroll"]["cost"] = 48;
 	unit_dict["GreatTroll"]["usage"] = "fighter";
 	unit_dict["GreatTroll"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
-	unit_dict["GreatTroll"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 18, 'number': 3}];
+	unit_dict["GreatTroll"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-troll.png', 'type': 'impact', 'range': 'melee', 'damage': 18, 'number': 3}];
 
 	unit_dict["TrollHero"] = {};
 	unit_dict["TrollHero"]["id"] = "TrollHero";
@@ -3938,7 +3938,7 @@ function createUnitDict() {
 	unit_dict["TrollHero"]["cost"] = 30;
 	unit_dict["TrollHero"]["usage"] = "fighter";
 	unit_dict["TrollHero"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
-	unit_dict["TrollHero"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 12, 'number': 3}];
+	unit_dict["TrollHero"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 12, 'number': 3, 'icon': 'attacks/hammer-troll.png'}];
 
 	unit_dict["TrollRocklobber"] = {};
 	unit_dict["TrollRocklobber"]["id"] = "TrollRocklobber";
@@ -3955,7 +3955,7 @@ function createUnitDict() {
 	unit_dict["TrollRocklobber"]["cost"] = 25;
 	unit_dict["TrollRocklobber"]["usage"] = "mixedfighter";
 	unit_dict["TrollRocklobber"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
-	unit_dict["TrollRocklobber"]["attack"] = [{'name': 'fist', 'description': 'fist', 'type': 'impact', 'range': 'melee', 'damage': 10, 'number': 2}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 17, 'number': 1}];
+	unit_dict["TrollRocklobber"]["attack"] = [{'name': 'fist', 'description': 'fist', 'icon': 'attacks/fist-troll.png', 'type': 'impact', 'range': 'melee', 'damage': 10, 'number': 2}, {'name': 'sling', 'description': 'sling', 'type': 'impact', 'range': 'ranged', 'damage': 17, 'number': 1}];
 	unit_dict["TrollRocklobber"]["sling_stone_frame"] = [{'halo': 'projectiles/stone-large.png:800', 'halo_x': '24~0', 'halo_y': '0~-10,-10~-18,-18~-22,-22~-24,-24~-25,-25~-24,-24~-22,-22~-18,-18~-10,-10~-0', 'offset': '0.0~1.0'}, {'halo': 'projectiles/stone-large.png:900', 'halo_x': '24~0', 'halo_y': '0~-10,-10~-16,-16~-20,-20~-22,-22~-20,-20~-16,-16~-10,-10~0,0~-4,-4~0,0~-2,-2~0', 'offset': '0.0~1.5'}];
 
 	unit_dict["Troll"] = {};
@@ -3991,7 +3991,7 @@ function createUnitDict() {
 	unit_dict["TrollShaman"]["advances_to"] = null;
 	unit_dict["TrollShaman"]["cost"] = 32;
 	unit_dict["TrollShaman"]["usage"] = "mixedfighter";
-	unit_dict["TrollShaman"]["attack"] = [{'name': 'fist', 'description': 'fist', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'flameblast', 'description': 'flameblast', 'type': 'fire', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 7, 'number': 3}];
+	unit_dict["TrollShaman"]["attack"] = [{'name': 'fist', 'description': 'fist', 'icon': 'attacks/fist-troll.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}, {'name': 'flameblast', 'description': 'flameblast', 'type': 'fire', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 7, 'number': 3, 'icon': 'attacks/fire-blast.png'}];
 
 	unit_dict["TrollWarrior"] = {};
 	unit_dict["TrollWarrior"]["id"] = "TrollWarrior";
@@ -4008,7 +4008,7 @@ function createUnitDict() {
 	unit_dict["TrollWarrior"]["cost"] = 44;
 	unit_dict["TrollWarrior"]["usage"] = "fighter";
 	unit_dict["TrollWarrior"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
-	unit_dict["TrollWarrior"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'type': 'impact', 'range': 'melee', 'damage': 20, 'number': 2}];
+	unit_dict["TrollWarrior"]["attack"] = [{'name': 'hammer', 'description': 'hammer', 'icon': 'attacks/hammer-troll.png', 'type': 'impact', 'range': 'melee', 'damage': 20, 'number': 2}];
 
 	unit_dict["TrollWhelp"] = {};
 	unit_dict["TrollWhelp"]["id"] = "TrollWhelp";
@@ -4025,7 +4025,7 @@ function createUnitDict() {
 	unit_dict["TrollWhelp"]["cost"] = 13;
 	unit_dict["TrollWhelp"]["usage"] = "fighter";
 	unit_dict["TrollWhelp"]["abilities"] = {'ability': 'ABILITY_REGENERATES'};
-	unit_dict["TrollWhelp"]["attack"] = [{'name': 'fist', 'description': 'fist', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}];
+	unit_dict["TrollWhelp"]["attack"] = [{'name': 'fist', 'description': 'fist', 'icon': 'attacks/fist-troll.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 2}];
 	unit_dict["TrollWhelp"]["#start_time"] = 0;
 	unit_dict["TrollWhelp"]["#image"] = ['units/trolls/whelp-die-[1~4].png:100', 'units/trolls/whelp-skeleton.png:200', 'units/trolls/whelp-die-[5~7].png:[100*2,250]'];
 
@@ -4044,7 +4044,7 @@ function createUnitDict() {
 	unit_dict["Ghast"]["cost"] = 43;
 	unit_dict["Ghast"]["usage"] = "fighter";
 	unit_dict["Ghast"]["abilities"] = {'ability': 'ABILITY_FEEDING'};
-	unit_dict["Ghast"]["attack"] = [{'name': 'bite', 'description': 'bite', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
+	unit_dict["Ghast"]["attack"] = [{'name': 'bite', 'description': 'bite', 'icon': 'attacks/fangs.png', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
 
 	unit_dict["Ghoul"] = {};
 	unit_dict["Ghoul"]["id"] = "Ghoul";
@@ -4060,7 +4060,7 @@ function createUnitDict() {
 	unit_dict["Ghoul"]["advances_to"] = ['Necrophage'];
 	unit_dict["Ghoul"]["cost"] = 16;
 	unit_dict["Ghoul"]["usage"] = "fighter";
-	unit_dict["Ghoul"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
+	unit_dict["Ghoul"]["attack"] = [{'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 4, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
 
 	unit_dict["Necrophage"] = {};
 	unit_dict["Necrophage"]["id"] = "Necrophage";
@@ -4077,7 +4077,7 @@ function createUnitDict() {
 	unit_dict["Necrophage"]["cost"] = 27;
 	unit_dict["Necrophage"]["usage"] = "fighter";
 	unit_dict["Necrophage"]["abilities"] = {'ability': 'ABILITY_FEEDING'};
-	unit_dict["Necrophage"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
+	unit_dict["Necrophage"]["attack"] = [{'name': 'claws', 'description': 'claws', 'icon': 'attacks/claws-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_POISON'}}];
 
 	unit_dict["Soulless"] = {};
 	unit_dict["Soulless"]["id"] = "Soulless";
@@ -4089,7 +4089,7 @@ function createUnitDict() {
 	unit_dict["Soulless"]["advances_to"] = null;
 	unit_dict["Soulless"]["cost"] = 13;
 	unit_dict["Soulless"]["usage"] = "fighter";
-	unit_dict["Soulless"]["attack"] = [{'name': 'touch', 'description': 'touch', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_PLAGUE'}}];
+	unit_dict["Soulless"]["attack"] = [{'name': 'touch', 'description': 'touch', 'icon': 'attacks/touch-zombie.png', 'type': 'impact', 'range': 'melee', 'damage': 7, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_PLAGUE'}}];
 	unit_dict["Soulless"]["resistance"] = {'arcane': 140};
 	unit_dict["Soulless"]["movement_costs"] = {'deep_water': 4};
 	unit_dict["Soulless"]["defense"] = {'deep_water': 90};
@@ -4109,7 +4109,7 @@ function createUnitDict() {
 	unit_dict["WalkingCorpse"]["advances_to"] = ['Soulless'];
 	unit_dict["WalkingCorpse"]["cost"] = 8;
 	unit_dict["WalkingCorpse"]["usage"] = "fighter";
-	unit_dict["WalkingCorpse"]["attack"] = [{'name': 'touch', 'description': 'touch', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_PLAGUE'}}];
+	unit_dict["WalkingCorpse"]["attack"] = [{'name': 'touch', 'description': 'touch', 'icon': 'attacks/touch-zombie.png', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2, 'specials': {'attack_special': 'WEAPON_SPECIAL_PLAGUE'}}];
 	unit_dict["WalkingCorpse"]["resistance"] = {'arcane': 140};
 	unit_dict["WalkingCorpse"]["movement_costs"] = {'deep_water': 4};
 	unit_dict["WalkingCorpse"]["defense"] = {'deep_water': 90};
@@ -4134,7 +4134,7 @@ function createUnitDict() {
 	unit_dict["Necromancer"]["advances_to"] = null;
 	unit_dict["Necromancer"]["cost"] = 50;
 	unit_dict["Necromancer"]["usage"] = "mixedfighter";
-	unit_dict["Necromancer"]["attack"] = [{'name': 'plaguestaff', 'description': 'plaguestaff', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_PLAGUE'}}, {'name': 'chillwave', 'description': 'chillwave', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 17, 'number': 2}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 12, 'number': 2}];
+	unit_dict["Necromancer"]["attack"] = [{'name': 'plaguestaff', 'description': 'plaguestaff', 'icon': 'attacks/staff-plague.png', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_PLAGUE'}}, {'name': 'chillwave', 'description': 'chillwave', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 17, 'number': 2, 'icon': 'attacks/iceball.png'}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 12, 'number': 2, 'icon': 'attacks/dark-missile.png'}];
 	unit_dict["Necromancer"]["recruiting_anim"] = {'filter_second': {'race': 'undead'}, 'start_time': -300, 'sound_start_time': -75};
 	unit_dict["Necromancer"]["female"] = {'name': 'female^Necromancer', 'gender': 'female', 'image': 'units/undead-necromancers/necromancer+female.png', 'profile': 'portraits/humans/necromancer+female.png', 'recruiting_anim': {'filter_second': {'race': 'undead'}}};
 
@@ -4154,7 +4154,7 @@ function createUnitDict() {
 	unit_dict["AncientLich"]["usage"] = "mixedfighter";
 	unit_dict["AncientLich"]["movement_costs"] = {'shallow_water': 3};
 	unit_dict["AncientLich"]["abilities"] = {'ability': 'ABILITY_SUBMERGE'};
-	unit_dict["AncientLich"]["attack"] = [{'name': 'touch', 'description': 'touch', 'type': 'arcane', 'range': 'melee', 'damage': 8, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}, {'name': 'chilltempest', 'description': 'chilltempest', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 13, 'number': 5}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 9, 'number': 5}];
+	unit_dict["AncientLich"]["attack"] = [{'name': 'touch', 'description': 'touch', 'icon': 'attacks/touch-undead.png', 'type': 'arcane', 'range': 'melee', 'damage': 8, 'number': 4, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}, {'name': 'chilltempest', 'description': 'chilltempest', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 13, 'number': 5, 'icon': 'attacks/iceball.png'}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 9, 'number': 5, 'icon': 'attacks/dark-missile.png'}];
 	unit_dict["AncientLich"]["recruiting_anim"] = {'filter_second': {'race': 'undead'}, 'start_time': -300, 'sound_start_time': -75};
 
 	unit_dict["DarkAdept"] = {};
@@ -4174,7 +4174,7 @@ function createUnitDict() {
 	unit_dict["DarkAdept"]["advances_to"] = ['DarkSorcerer'];
 	unit_dict["DarkAdept"]["cost"] = 16;
 	unit_dict["DarkAdept"]["usage"] = "archer";
-	unit_dict["DarkAdept"]["attack"] = [{'name': 'chillwave', 'description': 'chillwave', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 10, 'number': 2}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 7, 'number': 2}];
+	unit_dict["DarkAdept"]["attack"] = [{'name': 'chillwave', 'description': 'chillwave', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 10, 'number': 2, 'icon': 'attacks/iceball.png'}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 7, 'number': 2, 'icon': 'attacks/dark-missile.png'}];
 	unit_dict["DarkAdept"]["death"] = {'start_time': 0};
 	unit_dict["DarkAdept"]["recruiting_anim"] = {'filter_second': {'race': 'undead'}, 'start_time': -450, 'sound_start_time': -40};
 	unit_dict["DarkAdept"]["female"] = {'gender': 'female', 'name': 'female^DarkAdept', 'image': 'units/undead-necromancers/adept+female.png', 'profile': 'portraits/humans/dark-adept+female.png', 'recruiting_anim': {'filter_second': {'race': 'undead'}}};
@@ -4195,7 +4195,7 @@ function createUnitDict() {
 	unit_dict["DarkSorcerer"]["cost"] = 33;
 	unit_dict["DarkSorcerer"]["usage"] = "mixedfighter";
 	unit_dict["DarkSorcerer"]["recruiting_anim"] = {'filter_second': {'race': 'undead'}, 'start_time': -300, 'sound_start_time': -75};
-	unit_dict["DarkSorcerer"]["attack"] = [{'name': 'staff', 'description': 'staff', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'chillwave', 'description': 'chillwave', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 13, 'number': 2}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 9, 'number': 2}];
+	unit_dict["DarkSorcerer"]["attack"] = [{'name': 'staff', 'description': 'staff', 'icon': 'attacks/staff-necromantic.png', 'type': 'impact', 'range': 'melee', 'damage': 4, 'number': 3}, {'name': 'chillwave', 'description': 'chillwave', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 13, 'number': 2, 'icon': 'attacks/iceball.png'}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 9, 'number': 2, 'icon': 'attacks/dark-missile.png'}];
 	unit_dict["DarkSorcerer"]["female"] = {'name': 'DarkSorceress', 'gender': 'female', 'image': 'units/undead-necromancers/dark-sorcerer+female.png', 'profile': 'portraits/humans/necromancer+female.png', 'description': '_"Thedreadinspiredbyblackmagiccomeschieflyfromhowlittleisknownaboutitbythecommonman.Darksorceresseshavebeguntounlockthesecretsoflifeanddeath,thelatterofwhichisalltooeasytoinflict.Thislaborgivesthefirstglimmeringsoftheconnectionbetweenthesoulandinertmatter,andthefirstsuccessfulexperimentsinmanipulatingthisbond.Theterribleunknownthatlurksbeyonddeathisglimpsed,andwillinevitablybefathomed.', 'recruiting_anim': {'filter_second': {'race': 'undead'}}};
 
 	unit_dict["Lich"] = {};
@@ -4215,7 +4215,7 @@ function createUnitDict() {
 	unit_dict["Lich"]["usage"] = "fighter";
 	unit_dict["Lich"]["movement_costs"] = {'shallow_water': 3};
 	unit_dict["Lich"]["abilities"] = {'ability': 'ABILITY_SUBMERGE'};
-	unit_dict["Lich"]["attack"] = [{'name': 'touch', 'description': 'touch', 'type': 'arcane', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}, {'name': 'chilltempest', 'description': 'chilltempest', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 12, 'number': 3}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 9, 'number': 3}];
+	unit_dict["Lich"]["attack"] = [{'name': 'touch', 'description': 'touch', 'icon': 'attacks/touch-undead.png', 'type': 'arcane', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}, {'name': 'chilltempest', 'description': 'chilltempest', 'type': 'cold', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 12, 'number': 3, 'icon': 'attacks/iceball.png'}, {'name': 'shadowwave', 'description': 'shadowwave', 'type': 'arcane', 'specials': {'attack_special': 'WEAPON_SPECIAL_MAGICAL'}, 'range': 'ranged', 'damage': 9, 'number': 3, 'icon': 'attacks/dark-missile.png'}];
 	unit_dict["Lich"]["recruiting_anim"] = {'filter_second': {'race': 'undead'}, 'start_time': -300, 'sound_start_time': -75};
 
 	unit_dict["Skeleton"] = {};
@@ -4236,7 +4236,7 @@ function createUnitDict() {
 	unit_dict["Skeleton"]["recruit_anim"] = {'start_time': -200};
 	unit_dict["Skeleton"]["death"] = {'start_time': 0};
 	unit_dict["Skeleton"]["resistance"] = {'blade': 60, 'pierce': 40, 'impact': 120};
-	unit_dict["Skeleton"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}];
+	unit_dict["Skeleton"]["attack"] = [{'name': 'axe', 'description': 'axe', 'icon': 'attacks/axe-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 7, 'number': 3}];
 
 	unit_dict["SkeletonArcher"] = {};
 	unit_dict["SkeletonArcher"]["id"] = "SkeletonArcher";
@@ -4254,7 +4254,7 @@ function createUnitDict() {
 	unit_dict["SkeletonArcher"]["usage"] = "archer";
 	unit_dict["SkeletonArcher"]["abilities"] = {'ability': 'ABILITY_SUBMERGE'};
 	unit_dict["SkeletonArcher"]["resistance"] = {'blade': 60, 'pierce': 40, 'impact': 120};
-	unit_dict["SkeletonArcher"]["attack"] = [{'name': 'fist', 'description': 'fist', 'type': 'impact', 'range': 'melee', 'damage': 3, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
+	unit_dict["SkeletonArcher"]["attack"] = [{'name': 'fist', 'description': 'fist', 'icon': 'attacks/fist-skeletal.png', 'type': 'impact', 'range': 'melee', 'damage': 3, 'number': 2}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 3}];
 	unit_dict["SkeletonArcher"]["recruit_anim"] = {'start_time': -200};
 	unit_dict["SkeletonArcher"]["death"] = [{'start_time': '0'}, {'start_time': '0'}];
 
@@ -4274,7 +4274,7 @@ function createUnitDict() {
 	unit_dict["Banebow"]["usage"] = "archer";
 	unit_dict["Banebow"]["abilities"] = {'ability': 'ABILITY_SUBMERGE'};
 	unit_dict["Banebow"]["resistance"] = {'blade': 60, 'pierce': 40, 'impact': 120};
-	unit_dict["Banebow"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 14, 'number': 3}];
+	unit_dict["Banebow"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 2}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 14, 'number': 3}];
 
 	unit_dict["BoneShooter"] = {};
 	unit_dict["BoneShooter"]["id"] = "BoneShooter";
@@ -4292,7 +4292,7 @@ function createUnitDict() {
 	unit_dict["BoneShooter"]["usage"] = "archer";
 	unit_dict["BoneShooter"]["abilities"] = {'ability': 'ABILITY_SUBMERGE'};
 	unit_dict["BoneShooter"]["resistance"] = {'blade': 60, 'pierce': 40, 'impact': 120};
-	unit_dict["BoneShooter"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'bow', 'description': 'bow', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 3}];
+	unit_dict["BoneShooter"]["attack"] = [{'name': 'dagger', 'description': 'dagger', 'icon': 'attacks/dagger-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 6, 'number': 2}, {'name': 'bow', 'description': 'bow', 'icon': 'attacks/bow-orcish.png', 'type': 'pierce', 'range': 'ranged', 'damage': 10, 'number': 3}];
 
 	unit_dict["Chocobone"] = {};
 	unit_dict["Chocobone"]["id"] = "Chocobone";
@@ -4331,7 +4331,7 @@ function createUnitDict() {
 	unit_dict["Deathblade"]["resistance"] = {'blade': 60, 'impact': 120, 'pierce': 40};
 	unit_dict["Deathblade"]["recruit_anim"] = {'start_time': -200};
 	unit_dict["Deathblade"]["death"] = {'start_time': 0};
-	unit_dict["Deathblade"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 5}];
+	unit_dict["Deathblade"]["attack"] = [{'name': 'axe', 'description': 'axe', 'icon': 'attacks/axe-deathblade.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 5}];
 
 	unit_dict["DeathKnight"] = {};
 	unit_dict["DeathKnight"]["id"] = "DeathKnight";
@@ -4349,7 +4349,7 @@ function createUnitDict() {
 	unit_dict["DeathKnight"]["cost"] = 45;
 	unit_dict["DeathKnight"]["usage"] = "fighter";
 	unit_dict["DeathKnight"]["abilities"] = {'ability': ['ABILITY_LEADERSHIP', 'ABILITY_SUBMERGE']};
-	unit_dict["DeathKnight"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 2}];
+	unit_dict["DeathKnight"]["attack"] = [{'name': 'battleaxe', 'description': 'battleaxe', 'icon': 'attacks/axe-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 11, 'number': 4}, {'name': 'crossbow', 'description': 'crossbow', 'icon': 'attacks/crossbow-undead.png', 'type': 'pierce', 'range': 'ranged', 'damage': 6, 'number': 2}];
 
 	unit_dict["Draug"] = {};
 	unit_dict["Draug"]["id"] = "Draug";
@@ -4367,7 +4367,7 @@ function createUnitDict() {
 	unit_dict["Draug"]["usage"] = "fighter";
 	unit_dict["Draug"]["abilities"] = {'ability': 'ABILITY_SUBMERGE'};
 	unit_dict["Draug"]["resistance"] = {'blade': 60, 'pierce': 40, 'impact': 120};
-	unit_dict["Draug"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 4}];
+	unit_dict["Draug"]["attack"] = [{'name': 'axe', 'description': 'axe', 'icon': 'attacks/battleaxe-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 12, 'number': 4}];
 
 	unit_dict["Revenant"] = {};
 	unit_dict["Revenant"]["id"] = "Revenant";
@@ -4385,7 +4385,7 @@ function createUnitDict() {
 	unit_dict["Revenant"]["usage"] = "fighter";
 	unit_dict["Revenant"]["abilities"] = {'ability': 'ABILITY_SUBMERGE'};
 	unit_dict["Revenant"]["resistance"] = {'blade': 60, 'pierce': 40, 'impact': 120};
-	unit_dict["Revenant"]["attack"] = [{'name': 'axe', 'description': 'axe', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}];
+	unit_dict["Revenant"]["attack"] = [{'name': 'axe', 'description': 'axe', 'icon': 'attacks/axe-undead.png', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 4}];
 	unit_dict["Revenant"]["recruit_anim"] = {'start_time': -200};
 	unit_dict["Revenant"]["death"] = {'start_time': 0};
 
@@ -4404,7 +4404,7 @@ function createUnitDict() {
 	unit_dict["Ghost"]["cost"] = 20;
 	unit_dict["Ghost"]["usage"] = "scout";
 	unit_dict["Ghost"]["hit_sound_frame"] = {'sound': 'wail-sml.wav'};
-	unit_dict["Ghost"]["attack"] = [{'name': 'touch', 'description': 'touch', 'type': 'arcane', 'range': 'melee', 'damage': 4, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}, {'name': 'wail', 'description': 'wail', 'type': 'cold', 'range': 'ranged', 'damage': 3, 'number': 3}];
+	unit_dict["Ghost"]["attack"] = [{'name': 'touch', 'description': 'touch', 'icon': 'attacks/touch-undead.png', 'type': 'arcane', 'range': 'melee', 'damage': 4, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_DRAIN'}}, {'name': 'wail', 'description': 'wail', 'type': 'cold', 'range': 'ranged', 'damage': 3, 'number': 3}];
 
 	unit_dict["Nightgaunt"] = {};
 	unit_dict["Nightgaunt"]["id"] = "Nightgaunt";
@@ -4422,7 +4422,7 @@ function createUnitDict() {
 	unit_dict["Nightgaunt"]["usage"] = "scout";
 	unit_dict["Nightgaunt"]["abilities"] = {'ability': ['ABILITY_NIGHTSTALK', 'ABILITY_SKIRMISHER']};
 	unit_dict["Nightgaunt"]["death"] = {'start_time': 0};
-	unit_dict["Nightgaunt"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 10, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}];
+	unit_dict["Nightgaunt"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'icon': 'attacks/claws-undead.png', 'range': 'melee', 'damage': 10, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}];
 
 	unit_dict["Shadow"] = {};
 	unit_dict["Shadow"]["id"] = "Shadow";
@@ -4440,7 +4440,7 @@ function createUnitDict() {
 	unit_dict["Shadow"]["usage"] = "scout";
 	unit_dict["Shadow"]["abilities"] = {'ability': ['ABILITY_NIGHTSTALK', 'ABILITY_SKIRMISHER']};
 	unit_dict["Shadow"]["hit_sound_frame"] = {'sound': 'wail-sml.wav'};
-	unit_dict["Shadow"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}];
+	unit_dict["Shadow"]["attack"] = [{'name': 'claws', 'description': 'claws', 'type': 'blade', 'icon': 'attacks/claws-undead.png', 'range': 'melee', 'damage': 8, 'number': 3, 'specials': {'attack_special': 'WEAPON_SPECIAL_BACKSTAB'}}];
 
 	unit_dict["Spectre"] = {};
 	unit_dict["Spectre"]["id"] = "Spectre";
@@ -4491,7 +4491,7 @@ function createUnitDict() {
 	unit_dict["AncientWose"]["usage"] = "fighter";
 	unit_dict["AncientWose"]["abilities"] = {'ability': ['ABILITY_AMBUSH', 'ABILITY_REGENERATES']};
 	unit_dict["AncientWose"]["death"] = {'start_time': 0};
-	unit_dict["AncientWose"]["attack"] = [{'name': 'crush', 'description': 'crush', 'type': 'impact', 'range': 'melee', 'damage': 25, 'number': 2}];
+	unit_dict["AncientWose"]["attack"] = [{'name': 'crush', 'description': 'crush', 'icon': 'attacks/crush-wose.png', 'type': 'impact', 'range': 'melee', 'damage': 25, 'number': 2}];
 
 	unit_dict["ElderWose"] = {};
 	unit_dict["ElderWose"]["id"] = "ElderWose";
@@ -4509,7 +4509,7 @@ function createUnitDict() {
 	unit_dict["ElderWose"]["usage"] = "fighter";
 	unit_dict["ElderWose"]["abilities"] = {'ability': ['ABILITY_AMBUSH', 'ABILITY_REGENERATES']};
 	unit_dict["ElderWose"]["death"] = [{'start_time': '0'}, {'start_time': '0'}];
-	unit_dict["ElderWose"]["attack"] = [{'name': 'crush', 'description': 'crush', 'type': 'impact', 'range': 'melee', 'damage': 19, 'number': 2}];
+	unit_dict["ElderWose"]["attack"] = [{'name': 'crush', 'description': 'crush', 'icon': 'attacks/crush-wose.png', 'type': 'impact', 'range': 'melee', 'damage': 19, 'number': 2}];
 
 	unit_dict["Wose"] = {};
 	unit_dict["Wose"]["id"] = "Wose";
@@ -4526,7 +4526,7 @@ function createUnitDict() {
 	unit_dict["Wose"]["cost"] = 20;
 	unit_dict["Wose"]["usage"] = "fighter";
 	unit_dict["Wose"]["abilities"] = {'ability': ['ABILITY_AMBUSH', 'ABILITY_REGENERATES']};
-	unit_dict["Wose"]["attack"] = [{'name': 'crush', 'description': 'crush', 'type': 'impact', 'range': 'melee', 'damage': 13, 'number': 2}];
+	unit_dict["Wose"]["attack"] = [{'name': 'crush', 'description': 'crush', 'icon': 'attacks/crush-wose.png', 'type': 'impact', 'range': 'melee', 'damage': 13, 'number': 2}];
 	unit_dict["Wose"]["death"] = [{'start_time': '0'}, {'start_time': '0'}];
 
 	unit_dict["WoseSapling"] = {};
@@ -4544,7 +4544,7 @@ function createUnitDict() {
 	unit_dict["WoseSapling"]["cost"] = 10;
 	unit_dict["WoseSapling"]["usage"] = "fighter";
 	unit_dict["WoseSapling"]["abilities"] = {'ability': ['ABILITY_AMBUSH', 'ABILITY_REGENERATES']};
-	unit_dict["WoseSapling"]["attack"] = [{'name': 'crush', 'description': 'crush', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2}];
+	unit_dict["WoseSapling"]["attack"] = [{'name': 'crush', 'description': 'crush', 'icon': 'attacks/crush-wose.png', 'type': 'impact', 'range': 'melee', 'damage': 6, 'number': 2}];
 
 	unit_dict["WoseShaman"] = {};
 	unit_dict["WoseShaman"]["id"] = "WoseShaman";
@@ -4561,7 +4561,7 @@ function createUnitDict() {
 	unit_dict["WoseShaman"]["advances_to"] = null;
 	unit_dict["WoseShaman"]["cost"] = 40;
 	unit_dict["WoseShaman"]["usage"] = "mixedfighter";
-	unit_dict["WoseShaman"]["attack"] = [{'name': 'crush', 'description': 'crush', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 2}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 10, 'number': 2, 'range': 'ranged'}];
+	unit_dict["WoseShaman"]["attack"] = [{'name': 'crush', 'description': 'crush', 'type': 'impact', 'range': 'melee', 'damage': 9, 'number': 2, 'icon': 'attacks/crush-wose.png'}, {'name': 'entangle', 'description': 'entangle', 'type': 'impact', 'specials': {'attack_special': 'WEAPON_SPECIAL_SLOW'}, 'damage': 10, 'number': 2, 'range': 'ranged'}];
 
 	return unit_dict;
 }

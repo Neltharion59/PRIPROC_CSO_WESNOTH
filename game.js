@@ -99,10 +99,12 @@ window.onload = function() {
      var turn_count = 0;
      var selectedUnit = null;
      var possibleSelectedUnitMovents = [];
+     var attackButtons = [];
 
 	function onPreload() {
           game.load.image("marker", "images/marker.png");
           game.load.image("end_turn", "images/sword.png");
+          game.load.image("attacks/blank-attack.png", "images/attacks/blank-attack.png");
 
           for(key in terrain_dict) {
                game.load.image(terrain_dict[key]["symbol_image"], image_path_prefix_terrain + terrain_dict[key]["symbol_image"] + image_path_postfix);
@@ -111,9 +113,23 @@ window.onload = function() {
           UniqueSides.forEach(side => {
                sides_dict[side]["recruit"].forEach(unit => {
                     game.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
+                    unit_dict[unit]["attack"].forEach(attack => {
+                         if(attack["icon"]) {
+                              game.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
+                         } else {
+                              attack["icon"] = "attacks/blank-attack.png";
+                         }
+                    });
                });
                sides_dict[side]["leader"].forEach(unit => {
                     game.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
+                    unit_dict[unit]["attack"].forEach(attack => {
+                         if(attack["icon"]) {
+                              game.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
+                         } else {
+                              attack["icon"] = "attacks/blank-attack.png";
+                         }
+                    });
                });
           });
 	}
@@ -700,7 +716,7 @@ window.onload = function() {
                     }
                     // ATTACK
                     else {
-
+                         showAttackOffer(selectedUnit, selectedMovement);
                     }
                }
           }
@@ -709,6 +725,7 @@ window.onload = function() {
           selectedUnit = null;
           applyMassHighlight(dehighlightHexagon);
           possibleSelectedUnitMovents = [];
+          hideAttackOffer();
      }
      function selectUnit(hexagon) {
           selectedUnit = unitMatrix[hexagon.grid_y][hexagon.grid_x];
@@ -748,7 +765,6 @@ window.onload = function() {
      function highlightHexagonSelectedUnit(hexagon) {
           hexagon.tint = 0xffff00;
      }
-
      function selectedMovementPossible(hexagon) {
           var result = null;
           for(var i = 0; i<possibleSelectedUnitMovents.length; i++) {
@@ -759,7 +775,37 @@ window.onload = function() {
           }
           return result;
      }
+     function showAttackOffer(attacker, attackCommand) {
+          var unit_type_dict = unit_dict[attacker["type"]];
 
+          var i = 0;
+          unit_type_dict["attack"].forEach(attack => {
+               var attackButton = game.add.sprite(-600, i * 500, attack["icon"]);
+               hexagonGroup.add(attackButton);
+               attackButton.scale.setTo(10,10)
+
+               attackButton.inputEnabled = true; 
+               attackButton.events.onInputDown.add(SelectAttack, this);
+               attackButtons.push(attackButton);
+
+               attackButton.attackID = i;
+               attackButton.attacker = attacker;
+               attackButton.attackCommand = attackCommand;
+
+               i++;
+          });
+     }
+     function hideAttackOffer() {
+          attackButtons.forEach(button => {
+               button.destroy();
+          });
+          attackButtons = [];
+     }
+     function SelectAttack(sprite) {
+          console.log(sprite.attackID, sprite.attacker, sprite.attackCommand);
+
+          
+     }
      function Create2DArray(x, y) {
           var array = new Array(y);
 

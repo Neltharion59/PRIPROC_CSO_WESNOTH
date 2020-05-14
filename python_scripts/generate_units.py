@@ -61,7 +61,7 @@ weird_property_pattern = re.compile(".*\{.*\}.*")
 units = []
 attr_ignore_lists = {
     "unit_type": ["profile", "description", "die_sound", "small_profile"],
-    "attack": ["icon"]
+    "attack": []
 }
 ignore_tags = ["attack_anim", "filter_attack", "frame", "missile_frame", "standing_anim", "attack_sound_frame",
                "special_note", "defend", "movement_anim", "idle_anim", "if", "else", "healing_anim",
