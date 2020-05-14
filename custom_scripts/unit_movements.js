@@ -2,7 +2,7 @@ function GetPossibleMovements(unit_x, unit_y, unit_movement_points, unit_movemen
     //console.log("unit mov points:"); console.log(unit_movement_points);
     //console.log("unit mov dict:"); console.log(unit_movement_cost_dict);
 
-    result = [];
+    result = [{"coords":[unit_x, unit_y], "remaining_movement":unit_movement_points, "previous": null, "is_attack": false}];
     currently_found = [];
     previously_found = [{"coords":[unit_x, unit_y], "remaining_movement":unit_movement_points, "previous": null, "is_attack": false}];
 
@@ -80,6 +80,8 @@ function ProduceNeighbours(node, unit_movement_cost_dict, terrain_dict, battle_g
                     
                     if(unitMatrix[new_node["coords"][0]][new_node["coords"][1]]["player_id"] != player_id) {
                         new_node["is_attack"] = true;
+                        new_node["previous"] = node;
+                        new_node["attack_id"] = 0;
                         Result.push(new_node);
                     }
 
