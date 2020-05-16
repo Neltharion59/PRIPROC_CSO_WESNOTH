@@ -70,8 +70,8 @@ window.onload = function() {
      var marker = null;
      var hexagonGroup;
      var hexagons = Create2DArray(gridSizeX, gridSizeY);
-     console.log(gridSizeX, gridSizeY);
-     console.log(hexagons);
+     //console.log(gridSizeX, gridSizeY);
+    // console.log(hexagons);
      var unitMatrix = Create2DArray(gridSizeX, gridSizeY);
 
      for(var i = 0; i < unitMatrix.length; i++) {

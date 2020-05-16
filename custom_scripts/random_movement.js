@@ -42,14 +42,23 @@ function getRandomArbitrary(max) {
     var result = Math.floor(Math.random() * max)
     return result;
 }
+function getRandomArbitraryFloat(max) {
+    var result = Math.random() * max
+    return result;
+}
 function ContainsCoordinate__(array, coordinate) {
     var Result = false;
+    var temp = coordinate;
+    if(coordinate["is_attack"]) {
+        temp = coordinate["previous"];
+    }
+
     for(var i = 0; i < array.length; i++) {
         var element = array[i];
         if(element == null) {
             continue;
         }
-        if(element["coords"][0] == coordinate["coords"][0] && element["coords"][1] == coordinate["coords"][1]) {
+        if(element["coords"][0] == temp["coords"][0] && element["coords"][1] == temp["coords"][1]) {
             Result = true;
             break;
         }
