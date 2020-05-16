@@ -150,10 +150,10 @@ window.onload = function() {
                     var hexagon = game.add.sprite(hexagonX,hexagonY,image);
                     hexagon.scale.setTo(4,4)
 
-                    var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                    /*var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
                     text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
                     //text.anchor.set(0.5);
-                    hexagonGroup.add(text);
+                    hexagonGroup.add(text);*/
 
                     hexagon.grid_x = j;
                     hexagon.grid_y = i;
@@ -244,6 +244,46 @@ window.onload = function() {
           playGame();
 	}
 
+     function playerDeathCheck() {
+         // console.log("Player death check");
+
+          var checked_player_ids = [];
+          while(true) {
+               if(checked_player_ids.includes(playerQueue.peek()["id"])) {
+                    break;
+               }
+
+               var player_died = true;
+               for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
+                    if(playerQueue.peek()["units"][i]["is_leader"]) {
+                         player_died = playerQueue.peek()["units"][i]["hp"] <= 0;
+                         break;
+                    }
+               }
+               console.log("Player died " + player_died.toString());
+
+               if(player_died) {
+                    destroyAllPlayerUnits(playerQueue.dequeue());
+               } else {
+                    checked_player_ids.push(playerQueue.peek()["id"]);
+                    playerQueue.shift();
+               }
+          }
+
+          if(playerQueue.getLength() <= 1) {
+               gameOver = true;
+               console.log("Game over");
+          }
+     }
+
+     function destroyAllPlayerUnits(player) {
+          player["units"].forEach(unit => {
+               unit["hp"] = -1;
+               console.log(unit);
+               tryKillUnit(unit["x"], unit["y"]);
+          });
+     }
+
      function playGame() {
           //console.log("b4 game over check");
           //console.log(gameOver);
@@ -256,7 +296,7 @@ window.onload = function() {
           //console.log("b4 loop");
           while(nextTurn() && !gameOver) {
                //console.log("in loop");
-               gameOver = (playerQueue.getLength() <= 1);
+               //gameOver = (playerQueue.getLength() <= 1);
           }
           //console.log("after loop");
      }
@@ -420,12 +460,19 @@ window.onload = function() {
                ));
           };
 
-          var selectedMovements = MovementCalculationRandom(possible_movements);
+          var selectedMovements = cat_swarm_optimization(possible_movements, playerQueue.peek()["units"], unit_dict);/*MovementCalculationRandom(possible_movements);*/
+          //console.log("Selected movements");
+          //console.log(selectedMovements);
           return selectedMovements;
      }
 
      function performMoving(movements, units) {
           for(var i = 0; i < movements.length && i < units.length; i++) {
+
+               if(gameOver) {
+                    break;
+               }
+
                if(movements[i] == null) {
                     continue;
                }
@@ -467,30 +514,27 @@ window.onload = function() {
                }
                if(movements[i]["is_attack"]) {
                     console.log("Attack with sharpened steel");
+
+                    units[i]["move_points"] = 0;
+                    /*console.log("Attacking");
+                    console.log(movements[i]["attack_id"]);
+                    console.log(units[i]["attack"]);*/
+
                     performAttack(
                          units[i]["x"],
                          units[i]["y"],
                          movements[i]["coords"][0],
                          movements[i]["coords"][1],
                          movements[i]["attack_id"]
-                    );
-                   
-                    
+                    ); 
                     // Attacker
-                    if(unitMatrix[playerQueue.peek()["units"][i]] != null) {
-                         //console.log(unitMatrix[units[i]["x"]][units[i]["y"]]);
-                         refreshText(unitMatrix[units[i]["x"]][units[i]["y"]]);
-                    }
+                    refreshText(unitMatrix[units[i]["x"]][units[i]["y"]]);
                     // Defender
                     refreshText(unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);
-                    //console.log(unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);
 
-                    //console.log("attack is over");
+                    playerDeathCheck();
                }
           }
-
-          //console.log("unitMatrix after moving");
-         // console.log(unitMatrix);
      }
      function performAttack(atk_x, atk_y, def_x, def_y, atk_id) {
      
@@ -598,6 +642,12 @@ window.onload = function() {
         
      }
      function tryKillUnit(x, y) {
+          //console.log(x,y);
+
+          if(unitMatrix[x][y] == null) {
+               return;
+          }
+
           if(unitMatrix[x][y]["hp"] <= 0) {
                var hexagon = hexagons[x][y];
 
@@ -605,8 +655,8 @@ window.onload = function() {
                hexagon.unit = null;
                clearText(hexagon);
                
-               console.log("Killing unit");
-               console.log(unitMatrix[x][y]);
+               //console.log("Killing unit");
+               //console.log(unitMatrix[x][y]);
 
                unitMatrix[x][y]["dead"] = true;
                unitMatrix[x][y] = null;
@@ -652,9 +702,6 @@ window.onload = function() {
           if(hexagons[x][y].text != null) {
                hexagons[x][y].text.destroy();
           }
-
-         // console.log("Refresh Text");
-          //console.log(unit);
 
           var style = { font: "30px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: hexagons[x][y].width, align: "center", backgroundColor: "#ffffff" };
           hexagons[x][y].text = game.add.text(hexagons[x][y].hexagonX, hexagons[x][y].hexagonY, "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString() + "\nMP: " + unit["move_points"].toString(), style);
@@ -788,7 +835,7 @@ window.onload = function() {
           attackButtons = [];
      }
      function SelectAttack(sprite) {
-          console.log(sprite.attackID, sprite.attacker, sprite.attackCommand);
+          //console.log(sprite.attackID, sprite.attacker, sprite.attackCommand);
           var attackCommand = sprite.attackCommand;
           attackCommand["attack_id"] = sprite.attackID;
 

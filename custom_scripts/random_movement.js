@@ -1,4 +1,5 @@
 function MovementCalculationRandom(movements) {
+
     var result = [];
     //console.log(movements);
 
