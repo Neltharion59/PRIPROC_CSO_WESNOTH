@@ -52,6 +52,7 @@ function cat_swarm_optimization(possible_movements, units, unit_dict) {
 
         // Step 4 - Perform cats' actions according to seeking/tracing
         cats.forEach(cat => {
+            //console.log(cat);
             if(cat["mode"] == "SEEK") {
                 performSeeking(cat);
             } else if(cat["mode"] == "TRACE") {
@@ -143,12 +144,37 @@ function performTracing(cat, best_cat, movement_velocity_caps, attack_velocity_c
     for(var i = 0; i < cat["movement_velocities"].length; i++) {
         r1 = Math.random();
         r1 = r1 == 0 ? 0.01 : r1;
-        cat["movement_velocities"][i] = cat["movement_velocities"][i] + c1 * r1 * (best_cat["movements"][i] - cat["movements"][i]);
+        
+        /*if(i > 0 && isNaN(cat["movement_velocities"][i])) {
+            console.log("NaN came to tracing as parameter");
+        }*/
+        //var temp = cat["movement_velocities"][i] + c1 * r1 * Math.abs(best_cat["movements"][i] - cat["movements"][i]);
+        /*if(i > 0 && isNaN(temp)) {
+            console.log("Checking temp");
+            console.log(best_cat["movements"][i]);  console.log(cat["movements"][i]);
+        }*/
+        // Sometimes cat["movements"][i] are Undefined here with i>0 (meaning it is not leader)
+
+        cat["movement_velocities"][i] = cat["movement_velocities"][i] + c1 * r1 * Math.abs(best_cat["movements"][i] - cat["movements"][i]);
+
+        /*if(i > 0 && isNaN(cat["movement_velocities"][i])) {
+            console.log("NaN happend as calculation");
+            console.log(c1 * r1 * Math.abs(best_cat["movements"][i] - cat["movements"][i]));
+            console.log(Math.abs(best_cat["movements"][i] - cat["movements"][i]));
+            console.log(best_cat["movements"][i] - cat["movements"][i]);
+            console.log(best_cat["movements"][i]);
+            console.log(i);
+            console.log(best_cat);
+            console.log(cat);
+            console.log("NaN check over");
+            console.log(cat["movements"]);
+            console.log(cat["movements"].includes(null));
+        }*/
     }
     for(var i = 0; i < cat["attack_velocities"].length; i++) {
         r1 = Math.random();
         r1 = r1 == 0 ? 0.01 : r1;
-        cat["attack_velocities"][i] = cat["attack_velocities"][i] + c1 * r1 * (best_cat["attack_ids"][i] - cat["attack_ids"][i]);
+        cat["attack_velocities"][i] = cat["attack_velocities"][i] + c1 * r1 * Math.abs(best_cat["attack_ids"][i] - cat["attack_ids"][i]);
     }
 
     // Step 2 - Clip velocities
@@ -162,7 +188,6 @@ function performTracing(cat, best_cat, movement_velocity_caps, attack_velocity_c
     // Step 3 - Update position
     for(var i = 0; i < cat["movements"].length; i++) {
         cat["movements"][i] += cat["movement_velocities"][i];
-
     }
     for(var i = 0; i < cat["attack_ids"].length; i++) {
         cat["attack_ids"][i] += cat["attack_velocities"][i];
@@ -182,17 +207,34 @@ function performTracing(cat, best_cat, movement_velocity_caps, attack_velocity_c
     var index;
     for(var i = 0; i < cat["movements"].length; i++) {
         for(var j = 0; j < movement_caps[i]; j++) {
-            index = Math.round((cat["movements"] + j) % movement_caps[i]);
-            if(!uniqueness_check_buffer.includes(possible_movements[i][index])) {
+            index = Math.floor((cat["movements"][i] + j) % movement_caps[i]);
+            /*if(possible_movements[i][index] == null) {
+                console.log("problem");
+                console.log(index);
+                console.log(cat);
+            }*/
+            if(!ContainsCoordinate__(uniqueness_check_buffer, possible_movements[i][index])) {
+                //console.log("unique");
                 uniqueness_check_buffer.push(possible_movements[i][index]);
+                //if(i>0 && index == null) { console.log("Pushing null to indices");}
                 final_indices.push(index);
                 break;
             }
-            uniqueness_check_buffer.push(null);
-            final_indices.push(null);
+            index = null;
+        }
+        if(index == null) {
+            if(i > 0) console.log("adding null to movement indices");
+            uniqueness_check_buffer.push(index);
+            final_indices.push(index);
         }
     }
     for(var i = 0; i < cat["movements"].length; i++) {
         cat["movements"][i] = final_indices[i];
+        /*if(i>0 && final_indices[i] == null) {
+            console.log("Final indice is null");
+            console.log(i);
+            console.log(final_indices);
+        }*/
     }
+    //console.log(final_indices);*/
 }
