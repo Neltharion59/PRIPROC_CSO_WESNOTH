@@ -1,34 +1,42 @@
-function MovementCalculationRandom(movements) {
+function MovementCalculationRandom(movements, indices = false) {
 
     var result = [];
+    var result_indices = [];
     //console.log(movements);
 
     var index;
     var selected;
+    var selected_index;
     for(var i = 0; i<movements.length; i++) {
         //console.log("i: " + i, " options: " + movements[i].length);
         selected = null;
+        selected_index = null;
 
         if(movements[i].length > 0) {
             index = getRandomArbitrary(movements[i].length);
             //console.log(index);
             for(var j = 0; j<movements[i].length; j++) {
-                selected = movements[i][(j + index) % movements[i].length];
+                selected_index = (j + index) % movements[i].length;
+                selected = movements[i][selected_index];
                 //console.log(selected);
                 if(!ContainsCoordinate__(result, selected)) {
                     break;
                 } else {
                     //console.log("result contains coordinate");
                     selected = null;
+                    selected_index = null;
                 }
             }
         }
 
         //console.log(selected);
         result.push(selected);
+        result_indices.push(selected_index);
     }
 
-    return result;
+    var output = indices ? result_indices : result;
+
+    return output;
 }
 function getRandomArbitrary(max) {
     var result = Math.floor(Math.random() * max)

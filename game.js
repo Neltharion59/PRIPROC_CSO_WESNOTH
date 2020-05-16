@@ -480,7 +480,6 @@ window.onload = function() {
 
                if(movements[i]["is_attack"])
                {
-
                     if(movements[i]["previous"] != null) {
                          var x = movements[i]["previous"]["coords"][0];
                          var y = movements[i]["previous"]["coords"][1];
