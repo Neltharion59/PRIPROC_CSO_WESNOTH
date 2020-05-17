@@ -6,7 +6,6 @@ window.onload = function() {
      var map = MapToGrid(mapDict[mapName]);
      var starting_positions = extractStartingPositions(map);
      removeStartingPositions(map);
-     var CSO = this.createCSOObject();
 
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
     // console.log(map);
@@ -63,12 +62,7 @@ window.onload = function() {
      //var gridSizeY = map.length;
      var gridSizeX = map[0].length;
      var gridSizeY = map.length;
-	var columns = [Math.ceil(gridSizeY/2),Math.floor(gridSizeY/2)];
-     var moveIndex;
-     var sectorWidth = hexagonWidth/4*3;
-     var sectorHeight = hexagonHeight;
-     var gradient = (hexagonWidth/4)/(hexagonHeight/2);
-     var marker = null;
+
      var hexagonGroup;
      var hexagons = Create2DArray(gridSizeX, gridSizeY);
      //console.log(gridSizeX, gridSizeY);
@@ -101,6 +95,22 @@ window.onload = function() {
      var selectedUnit = null;
      var possibleSelectedUnitMovents = [];
      var attackButtons = [];
+
+     var Game = {
+          "playerQueue": playerQueue,
+          "gameOver": gameOver,
+          "unitMatrix": unitMatrix,
+          "graphical": true,
+
+          "unit_dict": unit_dict,
+          "terrain_dict": terrain_dict,
+          "movement_type_dict": movement_type_dict,
+          "map": map,
+
+          "createCopy": CreateGameCopy,
+          "performMoving": performMoving
+     };
+     var CSO = this.createCSOObject(Game);
 
 	function onPreload() {
           game.load.image("marker", "images/marker.png");
@@ -151,10 +161,10 @@ window.onload = function() {
                     var hexagon = game.add.sprite(hexagonX,hexagonY,image);
                     hexagon.scale.setTo(4,4)
 
-                    /*var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                    var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
                     text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
                     //text.anchor.set(0.5);
-                    hexagonGroup.add(text);*/
+                    hexagonGroup.add(text);
 
                     hexagon.grid_x = j;
                     hexagon.grid_y = i;
@@ -199,38 +209,6 @@ window.onload = function() {
                hexagons[x][y].unit = unit;
                refreshText(current_player["units"][0]);
                playerQueue.shift();
-
-               /*console.log("test");
-               console.log(movement_type_dict[unit_dict[unitMatrix[x][y]["type"]]["movement_type"]]["defense"]);
-               console.log(terrain_dict[map[x][y]]["name"]);
-               console.log(movement_type_dict[unit_dict[unitMatrix[x][y]["type"]]["movement_type"]]["defense"][terrain_dict[map[x][y]]["name"]]);
-
-               var unit_def_dict = movement_type_dict[unit_dict[unitMatrix[x][y]["type"]]["movement_type"]]["defense"];
-               var mapss = [];
-               for(var i =0; i<map.length; i++) {
-                    for(var j =0; j<map[0].length; j++) {
-                         mapss.push(map[i][j]);
-                    }
-               }
-               var unique = mapss.filter((v, i, a) => a.indexOf(v) === i); 
-               console.log(unique);
-               var unique2 = unique.map(x => terrain_dict[x]["name"]);
-               unique2 = unique2.filter((v, i, a) => a.indexOf(v) === i); 
-               console.log(unique2);
-
-               for (var key in movement_type_dict) {
-                    if(!movement_type_dict[key]["defense"]) {
-                         console.log(key);
-                    }
-               }
-
-               for (var key in movement_type_dict) {
-                    for(var item in unique2) {
-                         if(!movement_type_dict[key]["defense"][unique2[item]]) {
-                              console.log("No " +unique2[item]+ " for " +key);
-                         }
-                    }
-                }*/
           }
 
 		hexagonGroup.y = (game.height-hexagonHeight*Math.ceil(gridSizeY/2))/2;
@@ -245,43 +223,41 @@ window.onload = function() {
           playGame();
 	}
 
-     function playerDeathCheck() {
-         // console.log("Player death check");
-
+     function playerDeathCheck(game) {
           var checked_player_ids = [];
           while(true) {
-               if(checked_player_ids.includes(playerQueue.peek()["id"])) {
+               if(checked_player_ids.includes(game.playerQueue.peek()["id"])) {
                     break;
                }
 
                var player_died = true;
-               for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
-                    if(playerQueue.peek()["units"][i]["is_leader"]) {
-                         player_died = playerQueue.peek()["units"][i]["hp"] <= 0;
+               for(var i = 0; i < game.playerQueue.peek()["units"].length; i++) {
+                    if(game.playerQueue.peek()["units"][i]["is_leader"]) {
+                         player_died = game.playerQueue.peek()["units"][i]["hp"] <= 0;
                          break;
                     }
                }
                console.log("Player died " + player_died.toString());
 
                if(player_died) {
-                    destroyAllPlayerUnits(playerQueue.dequeue());
+                    destroyAllPlayerUnits(game.playerQueue.dequeue(), game);
                } else {
-                    checked_player_ids.push(playerQueue.peek()["id"]);
-                    playerQueue.shift();
+                    checked_player_ids.push(game.playerQueue.peek()["id"]);
+                    game.playerQueue.shift();
                }
           }
 
-          if(playerQueue.getLength() <= 1) {
-               gameOver = true;
+          if(game.playerQueue.getLength() <= 1) {
+               game.gameOver = true;
                console.log("Game over");
           }
      }
 
-     function destroyAllPlayerUnits(player) {
+     function destroyAllPlayerUnits(player, game) {
           player["units"].forEach(unit => {
                unit["hp"] = -1;
                console.log(unit);
-               tryKillUnit(unit["x"], unit["y"]);
+               tryKillUnit(unit["x"], unit["y"], game);
           });
      }
 
@@ -319,7 +295,7 @@ window.onload = function() {
                end_turn_button.visible = false;
                var movements = calculateMoveOrders();
                //console.log(movements);
-               performMoving(movements, playerQueue.peek()["units"]);
+               performMoving(movements, playerQueue.peek()["units"], Game);
                playerQueue.peek()["units"] = playerQueue.peek()["units"].filter(unit => !unit["dead"]);
 
                recruit();
@@ -460,18 +436,15 @@ window.onload = function() {
                     playerQueue.peek()["id"]
                ));
           };
-
-         // var selectedMovements = cat_swarm_optimization(possible_movements, playerQueue.peek()["units"], unit_dict);/*MovementCalculationRandom(possible_movements);*/
-          var selectedMovements = cat_swarm_optimization(CSO, possible_movements, playerQueue.peek()["units"], unit_dict);
-          //console.log("Selected movements");
-          //console.log(selectedMovements);
+          
+          var selectedMovements = cat_swarm_optimization(CSO, possible_movements);
           return selectedMovements;
      }
 
-     function performMoving(movements, units) {
+     function performMoving(movements, units, game) {
           for(var i = 0; i < movements.length && i < units.length; i++) {
 
-               if(gameOver) {
+               if(game.gameOver) {
                     break;
                }
 
@@ -500,18 +473,22 @@ window.onload = function() {
                     units[i]["x"] = x;
                     units[i]["y"] = y;
 
-                    unitMatrix[old_x][old_y] = null;
-                    unitMatrix[x][y] = units[i];
-
-                    hexagons[x][y].unit = hexagons[old_x][old_y].unit;
-                    hexagons[old_x][old_y].unit = null;
-                    hexagons[x][y].unit.x = hexagons[x][y].hexagonX;
-                    hexagons[x][y].unit.y = hexagons[x][y].hexagonY;
+                    game.unitMatrix[old_x][old_y] = null;
+                    game.unitMatrix[x][y] = units[i];
 
                     units[i]["move_points"] = movements[i]["is_attack"] ? movements[i]["previous"]["remaining_movement"] : movements[i]["remaining_movement"];
 
-                    clearText(hexagons[old_x][old_y]);
-                    refreshText(units[i]);
+                    if(game.graphical) {
+                         //console.log(x, y, " | ", old_x, old_y, " | ", units[i]["x"], units[i]["y"]);
+
+                         hexagons[x][y].unit = hexagons[old_x][old_y].unit;
+                         hexagons[old_x][old_y].unit = null;
+                         hexagons[x][y].unit.x = hexagons[x][y].hexagonX;
+                         hexagons[x][y].unit.y = hexagons[x][y].hexagonY;
+
+                         clearText(hexagons[old_x][old_y]);
+                         refreshText(units[i]);
+                    }
                }
                if(movements[i]["is_attack"]) {
                     console.log("Attack with sharpened steel");
@@ -526,27 +503,26 @@ window.onload = function() {
                          units[i]["y"],
                          movements[i]["coords"][0],
                          movements[i]["coords"][1],
-                         movements[i]["attack_id"]
+                         movements[i]["attack_id"],
+                         game
                     ); 
-                    // Attacker
-                    refreshText(unitMatrix[units[i]["x"]][units[i]["y"]]);
-                    // Defender
-                    refreshText(unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);
+                    if(game.graphical) {
+                         // Attacker
+                         refreshText(unitMatrix[units[i]["x"]][units[i]["y"]]);
+                         // Defender
+                         refreshText(unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);
+                    }
 
-                    playerDeathCheck();
+                    playerDeathCheck(game);
                }
           }
      }
-     function performAttack(atk_x, atk_y, def_x, def_y, atk_id) {
-          if(unitMatrix[atk_x][atk_y] == null || unitMatrix[def_x][def_y] == null) {
+     function performAttack(atk_x, atk_y, def_x, def_y, atk_id, game) {
+          if(game.unitMatrix[atk_x][atk_y] == null || game.unitMatrix[def_x][def_y] == null) {
                return;
           }
 
-         //console.log(atk_x, atk_y, def_x, def_y, atk_id);
-          //console.log(unitMatrix[atk_x][atk_y]);
-         // console.log(unitMatrix[def_x][def_y]);
-
-          var attacker_type_dict = unit_dict[unitMatrix[atk_x][atk_y]["type"]];
+          var attacker_type_dict = unit_dict[game.unitMatrix[atk_x][atk_y]["type"]];
           var attacker_attack = attacker_type_dict["attack"][atk_id];
 
           var attacker_dmg = attacker_attack["damage"];
@@ -554,12 +530,9 @@ window.onload = function() {
           var attacker_terrain_bonus = movement_type_dict[attacker_type_dict["movement_type"]]["defense"][terrain_dict[map[atk_x][atk_y]]["name"]];
           var attacker_atk_count = attacker_attack["number"];
           
-          var defender_terrain_bonus = movement_type_dict[unit_dict[unitMatrix[def_x][def_y]["type"]]["movement_type"]]["defense"][terrain_dict[map[def_x][def_y]]["name"]];
+          var defender_terrain_bonus = movement_type_dict[unit_dict[game.unitMatrix[def_x][def_y]["type"]]["movement_type"]]["defense"][terrain_dict[map[def_x][def_y]]["name"]];
           
-          var defender_type_dict = unit_dict[unitMatrix[def_x][def_y]["type"]];
-
-          //console.log(attacker_type_dict);
-         // console.log(defender_type_dict);
+          var defender_type_dict = unit_dict[game.unitMatrix[def_x][def_y]["type"]];
 
           var possible_defender_attacks = [];
           for(var i = 0; i < defender_type_dict["attack"].length; i++) {
@@ -590,8 +563,8 @@ window.onload = function() {
                defender_atk_type = defender_attack["type"];
           }
 
-          var attacker_resistance = getResistance(unit_dict[unitMatrix[atk_x][atk_y]["type"]], defender_atk_type);
-          var defender_resistance = getResistance(unit_dict[unitMatrix[def_x][def_y]["type"]], attacker_atk_type);
+          var attacker_resistance = getResistance(unit_dict[game.unitMatrix[atk_x][atk_y]["type"]], defender_atk_type);
+          var defender_resistance = getResistance(unit_dict[game.unitMatrix[def_x][def_y]["type"]], attacker_atk_type);
 
           var attacker_final_dmg = Math.floor(attacker_dmg * defender_resistance / 100);
           var defender_final_dmg = Math.floor(defender_dmg * attacker_resistance / 100);
@@ -610,7 +583,7 @@ window.onload = function() {
                     
 
                     if(hit_target) {
-                         unitMatrix[def_x][def_y]["hp"] -= attacker_final_dmg;
+                         game.unitMatrix[def_x][def_y]["hp"] -= attacker_final_dmg;
                     }
 
                     --attacker_atk_count;
@@ -618,7 +591,7 @@ window.onload = function() {
                     //console.log(hit_target, attacker_final_dmg, unitMatrix[def_x][def_y]["hp"]);
                }
 
-               if(tryKillUnit(def_x, def_y)) {
+               if(tryKillUnit(def_x, def_y, game)) {
                     break;
                }
 
@@ -629,7 +602,7 @@ window.onload = function() {
                     var hit_target = Math.random() < (defender_hit_chance / 100);
                     
                     if(hit_target) {
-                         unitMatrix[atk_x][atk_y]["hp"] -= defender_final_dmg;
+                         game.unitMatrix[atk_x][atk_y]["hp"] -= defender_final_dmg;
                     }
 
                     --defender_atk_count;
@@ -637,42 +610,31 @@ window.onload = function() {
                     //console.log(hit_target, defender_final_dmg, unitMatrix[atk_x][atk_y]["hp"]);
                }
 
-               if(tryKillUnit(atk_x, atk_y)) {
+               if(tryKillUnit(atk_x, atk_y, game)) {
                     break;
                }
           }
         
      }
-     function tryKillUnit(x, y) {
+     function tryKillUnit(x, y, game) {
           //console.log(x,y);
 
-          if(unitMatrix[x][y] == null) {
+          if(game.unitMatrix[x][y] == null) {
                return;
           }
 
-          if(unitMatrix[x][y]["hp"] <= 0) {
-               var hexagon = hexagons[x][y];
+          if(game.unitMatrix[x][y]["hp"] <= 0) {
+               if(game.graphical) {
+                    var hexagon = hexagons[x][y];
 
-               hexagon.unit.destroy();
-               hexagon.unit = null;
-               clearText(hexagon);
-               
-               //console.log("Killing unit");
-               //console.log(unitMatrix[x][y]);
+                    hexagon.unit.destroy();
+                    hexagon.unit = null;
+                    clearText(hexagon);
+               }
 
-               unitMatrix[x][y]["dead"] = true;
-               unitMatrix[x][y] = null;
-
-               
-               /*for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
-                    if(playerQueue.peek()["units"][i]["x"] == x && playerQueue.peek()["units"][i]["y"] == y) {
-                         console.log("nulling a unit");
-                         playerQueue.peek()["units"][i] = null;
-                         break;
-                    }
-               }*/
-               
-               
+               game.unitMatrix[x][y]["dead"] = true;
+               game.unitMatrix[x][y] = null;
+                              
                return true;
           }
 
@@ -746,7 +708,7 @@ window.onload = function() {
                     // MOVE
                     if(unitMatrix[hexagon.grid_y][hexagon.grid_x] == null) {
 
-                         performMoving([selectedMovement], [selectedUnit]);
+                         performMoving([selectedMovement], [selectedUnit], Game);
                          unselectUnit(selectedUnit);
                     }
                     // ATTACK
@@ -844,7 +806,7 @@ window.onload = function() {
          // console.log("Select Attack");
          // console.log(sprite.attacker);
          // console.log(attackCommand);
-          performMoving([attackCommand], [sprite.attacker]);
+          performMoving([attackCommand], [sprite.attacker], Game);
 
           hideAttackOffer();
           unselectUnit();
@@ -857,5 +819,92 @@ window.onload = function() {
           }
 
           return array;
+     }
+     function CreateGameCopy(game) {
+          var copiedGame = {};
+          copiedGame["test"] = "I am a copy";
+
+          // Copying playerQueue and UnitMatrix
+          var copiedPlayerQueue = new Queue();
+          var copiedUnitMatrix = Create2DArray(gridSizeX, gridSizeY);
+          for(var i = 0; i < copiedUnitMatrix.length; i++) {
+               for(var j = 0; j < copiedUnitMatrix[i].length; j++) {
+                    copiedUnitMatrix[i][j] = null;
+               }
+          }
+          var first_player_id = -1;
+          while(first_player_id != game.playerQueue.peek()["id"]) {
+               if(game.playerQueue.peek()["id"] == first_player_id) {
+                    break;
+               }
+               if(first_player_id == -1) {
+                    first_player_id = game.playerQueue.peek()["id"];
+               }
+
+               var currentPlayer = game.playerQueue.peek();
+               var copiedPlayer = {};
+               copiedPlayer["id"] = currentPlayer["id"];
+               copiedPlayer["side"] = currentPlayer["side"];
+               copiedPlayer["gold"] = currentPlayer["gold"];
+               copiedPlayer["units"] = [];
+
+               currentPlayer["units"].forEach(unit => {
+                    var copiedUnit = Object.assign({}, unit);
+                    copiedUnitMatrix[copiedUnit["x"]][copiedUnit["y"]] = copiedUnit;
+                    copiedPlayer["units"].push(copiedUnit);
+               });
+
+               copiedPlayerQueue.enqueue(copiedPlayer);
+
+               game.playerQueue.shift();
+          }
+          copiedPlayerQueue.shift = playerQueue.shift;
+          copiedGame.playerQueue = copiedPlayerQueue;
+          copiedGame.unitMatrix = copiedUnitMatrix;
+
+          // Copying primitives
+          copiedGame.gameOver = game["gameOver"];
+          copiedGame.graphical = false;
+
+          // Copying dict references
+          copiedGame["unit_dict"] = game["unit_dict"];
+          copiedGame["terrain_dict"] = game["terrain_dict"];
+          copiedGame["movement_type_dict"] = game["movement_type_dict"];
+          copiedGame["map"] = game["map"];
+
+          // Copying functions
+          copiedGame["performMoving"] = game["performMoving"];
+
+          return copiedGame;
+     }
+     function hexagonsToGrid() {
+          var Grid = Create2DArray(gridSizeX, gridSizeY);
+          for(var i = 0; i < hexagons.length; i++) {
+               for(var j = 0; j < hexagons[i].length; j++) {
+                    Grid[i][j] = hexagons[i][j].unit;
+               }
+          }
+          return Grid;
+     }
+     function unitMatrixCopy() {
+          var Grid = Create2DArray(gridSizeX, gridSizeY);
+          for(var i = 0; i < unitMatrix.length; i++) {
+               for(var j = 0; j < unitMatrix[i].length; j++) {
+                    Grid[i][j] = unitMatrix[i][j];
+               }
+          }
+          return Grid;
+     }
+     function gridsAreEqual(grid1, grid2) {
+          var result = true;
+          for(var i = 0; i < hexagons.length; i++) {
+               for(var j = 0; j < hexagons[i].length; j++) {
+                    if(!(grid1[i][j] == grid2[i][j])) {
+                         result = false;
+                         break;
+                    }
+               }
+          }
+          return result;
      }
 }

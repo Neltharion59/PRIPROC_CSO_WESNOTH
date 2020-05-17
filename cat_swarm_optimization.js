@@ -1,7 +1,10 @@
-function createCSOObject() {
+function createCSOObject(Game) {
     var CSO = {};
 
-    CSO.cat_count = 5;
+    CSO.Game = Game;
+
+    // Number of agents
+    CSO.cat_count = 50;
     // Termination condition
     CSO.iteration_cap = 400;
     // MR
@@ -31,8 +34,8 @@ function createCSOObject() {
 
     return CSO;
 }
-function cat_swarm_optimization(CSO, possible_movements, units, unit_dict) {
-    var possible_attacks = units.map(unit => unit_dict[unit["type"]]["attack"]);
+function cat_swarm_optimization(CSO, possible_movements) {
+    var possible_attacks = CSO.Game.playerQueue.peek()["units"].map(unit => CSO.Game.unit_dict[unit["type"]]["attack"]);
     
     var movement_caps = possible_movements.map(movement => movement.length);
     var attack_caps = possible_attacks.map(attack => attack.length);
@@ -65,7 +68,7 @@ function cat_swarm_optimization(CSO, possible_movements, units, unit_dict) {
 
         // Step 3 - Evaluate fitness function and keep the best cat
         cats.forEach(cat => {
-            cat["fitness"] = evaluateFitnessFunction(cat);
+            cat["fitness"] = evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks);
             if(cat["fitness"] > best_cat["fitness"]) {
                 best_cat = create_cat_copy_all_properties(cat);
             }
@@ -75,7 +78,7 @@ function cat_swarm_optimization(CSO, possible_movements, units, unit_dict) {
         cats.forEach(cat => {
             //console.log(cat);
             if(cat["mode"] == "SEEK") {
-                performSeeking(CSO, cat, best_cat, movement_caps, attack_caps);
+                performSeeking(CSO, cat, best_cat, movement_caps, attack_caps, possible_movements, possible_attacks);
             } else if(cat["mode"] == "TRACE") {
                 performTracing(CSO, cat, best_cat, movement_velocity_caps, attack_velocity_caps, movement_caps, attack_caps, possible_movements);
             }
@@ -84,29 +87,17 @@ function cat_swarm_optimization(CSO, possible_movements, units, unit_dict) {
         // Step 5 - Shuffle cat modes
         updateCatModes(CSO, cats);
     }
+    console.log(best_cat["fitness"]);
 
-    // Algorithm is over and we have the best cat
-    var best_movements = [];
-    for(var i = 0; i < possible_attacks.length; i++) {
-        best_movements.push(best_cat["movements"][i] == null ? null : possible_movements[i][best_cat["movements"][i]]);
-        if(best_movements[i] != null && best_movements[i]["is_attack"]) {
-            best_movements["attack_id"] = best_cat["attack_ids"][i];
-        }
-    }
-
-    return best_movements;
+    return turnCatIntoMovements(best_cat, possible_movements, possible_attacks);
 }
 function create_cat_random(movements, attacks) {
     var cat = {"movements": [], "attack_ids": []};
 
-    ///////////////////////////////////
-    //Calculate movements for the cat//
-    ///////////////////////////////////
+    //Calculate movements for the cat
     cat["movements"] = MovementCalculationRandom(movements, true);
 
-    /////////////////////////////////
-    //Calculate attacks for the cat//
-    /////////////////////////////////
+    //Calculate attacks for the cat
     var attack_id;
     for(var i = 0; i < attacks.length; i++) {
         attack_id = null;
@@ -161,15 +152,108 @@ function getRandom(arr, n) {
     }
     return result;
 }
-function evaluateFitnessFunction(cat) {
+function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks) {
     if("fitness" in cat) {
         return cat["fitness"];
     }
+    var GameCopy = CSO.Game.createCopy(CSO.Game);
+    //console.log(Game);
+    
+    var selected_movements = turnCatIntoMovements(cat, possible_movements, possible_attacks);
+    GameCopy.performMoving(selected_movements, GameCopy.playerQueue.peek()["units"], GameCopy);
+    
+    var player_id = GameCopy.playerQueue.peek()["id"];
 
-    var fitness = getRandomArbitrary(101);
+    var components = [];
+
+    // Unit position fitness - hp, terrain_bonus
+    var position_fitness_player = 0;
+    var position_fitness_enemy = 0;
+    var current_unit_fitness;
+    var current_unit_terrain_bonus;
+    var enemy_leader = null;
+    var player_leader= null;
+    GameCopy.unitMatrix.forEach(unitMatrixRow => {
+        unitMatrixRow.forEach(unit => {
+            if(unit != null) {
+                // Clip unit HP to natural numbers
+                unit["hp"] = Math.max(0, unit["hp"]);
+
+                if(!unit["is_leader"]) {
+                    current_unit_terrain_bonus = 100 - GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"][GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]];
+                    if(isNaN(current_unit_terrain_bonus)) {
+                        console.log("terrain_bonus_screwed");
+                        console.log(GameCopy.unit_dict[unit["type"]]["movement_type"]);
+                        console.log(GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]);
+                        console.log(GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"][GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]]);
+                        /*console.log();
+                        console.log();
+                        console.log();
+                        console.log();*/
+                    }
+                    // console.log("terrain_bonuts", current_unit_terrain_bonus);
+                    current_unit_fitness = unit["hp"] * current_unit_terrain_bonus / 100;
+
+                    if(unit["player_id"] == player_id) {
+                        position_fitness_player += current_unit_fitness;
+                    } else {
+                        position_fitness_enemy += current_unit_fitness;
+                    }
+                }
+                if(unit["is_leader"] && unit["player_id"] != player_id) {
+                    enemy_leader = unit;
+                }
+                if(unit["is_leader"] && unit["player_id"] == player_id) {
+                    player_leader = unit;
+                }
+            }
+        });
+    });
+    console.log("Position fitnesses", position_fitness_player, position_fitness_enemy);
+    var unit_position_health_fitness = position_fitness_enemy == 0 ? 0 : position_fitness_player / position_fitness_enemy;
+    components.push({"value": unit_position_health_fitness, "weight": 1});
+
+    // Unit distance from enemy leader
+    var unit_leader_distance = 0;
+    GameCopy.playerQueue.peek()["units"].forEach(unit => {
+        if(!unit["is_leader"]) {
+            unit_leader_distance += 1 - ((Math.abs(unit["x"] - enemy_leader["x"]) + Math.abs(unit["y"] - enemy_leader["y"])) / (GameCopy.map.length + GameCopy.map[0].length));
+        }
+    });
+    var unit_leader_distance_fitness = 0;
+    if(GameCopy.playerQueue.peek()["units"].length > 1) {
+        var unit_leader_distance_fitness = unit_leader_distance / (GameCopy.playerQueue.peek()["units"].length - 1);
+    }
+    components.push({"value": unit_leader_distance_fitness, "weight": 1});
+
+    // Attack count
+    var attack_count = 0;
+    for(var i = 0; i < cat["movements"].length; i++) {
+        if(possible_movements[i]["is_attack"]) {
+            attack_count++;
+        }
+    }
+    var attack_count_fitness = attack_count/cat["movements"].length;
+    components.push({"value": attack_count_fitness, "weight": 1});
+
+    // Enemy leader health
+    /*var enemy_leader_health_fitness = 1 - (enemy_leader["hp"] / GameCopy.unit_dict[enemy_leader["type"]]["hitpoints"]);
+    console.log(enemy_leader_health_fitness);
+    components.push({"value": enemy_leader_health_fitness, "weight": 2});*/
+
+    // Aggregating all the components of fitness function
+    var fitness = 0;
+    components.forEach(component => {
+        fitness += component["value"] * component["weight"];
+    });
+    console.log("Components", components);
+    console.log("Fitness", fitness);
+
+   // fitness = Math.random() * 101;
+
     return fitness;
 }
-function performSeeking(CSO, cat, best_cat, movement_caps, attack_caps) {
+function performSeeking(CSO, cat, best_cat, movement_caps, attack_caps, possible_movements, possible_attacks) {
     // Step 1 - Create cat copies
     var potential_positions = [];
     var cat_count = CSO.seeking_memory_pool;
@@ -202,7 +286,7 @@ function performSeeking(CSO, cat, best_cat, movement_caps, attack_caps) {
 
     // Step 3 - Calculate fitness
     potential_positions.forEach(potential_position => {
-        potential_position["fitness"] = evaluateFitnessFunction(cat);
+        potential_position["fitness"] = evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks);
     });
 
     // Step 4 - Calculate selection probabilities
@@ -219,7 +303,7 @@ function performSeeking(CSO, cat, best_cat, movement_caps, attack_caps) {
     var selection_probabilities = [];
     var probability;
     potential_positions.forEach(potential_position => {
-        probability = Math.abs(potential_position["fitness"] - best_cat["fitness"]) / Math.max(best_local_cat["fitness"] - worst_local_cat["fitness"], CSO.zdp1);
+        probability = Math.abs(potential_position["fitness"] - best_cat["fitness"]) / Math.max(best_local_cat["fitness"] - worst_local_cat["fitness"] + CSO.zdp1);
         selection_probabilities.push(probability);
     });
 
@@ -238,7 +322,6 @@ function performSeeking(CSO, cat, best_cat, movement_caps, attack_caps) {
     cat["fitness"] = selected_position["fitness"];
 }
 function performTracing(CSO, cat, best_cat, movement_velocity_caps, attack_velocity_caps, movement_caps, attack_caps, possible_movements) {
-   // const c1 = 2;
     var r1;
 
     // Step 1 - Update velocities
@@ -309,4 +392,15 @@ function range(cap) {
 }
 function randomOrientation() {
     return random_orientation = Math.random() >= 0.5 ? -1 : 1;
+}
+function turnCatIntoMovements(cat, possible_movements, possible_attacks) {
+    var movements = [];
+    for(var i = 0; i < possible_attacks.length; i++) {
+        movements.push(cat["movements"][i] == null ? null : possible_movements[i][cat["movements"][i]]);
+        if(movements[i] != null && movements[i]["is_attack"]) {
+            movements["attack_id"] = cat["attack_ids"][i];
+        }
+    }
+
+    return movements;
 }
