@@ -6,6 +6,7 @@ window.onload = function() {
      var map = MapToGrid(mapDict[mapName]);
      var starting_positions = extractStartingPositions(map);
      removeStartingPositions(map);
+     var CSO = this.createCSOObject();
 
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
     // console.log(map);
@@ -460,7 +461,8 @@ window.onload = function() {
                ));
           };
 
-          var selectedMovements = cat_swarm_optimization(possible_movements, playerQueue.peek()["units"], unit_dict);/*MovementCalculationRandom(possible_movements);*/
+         // var selectedMovements = cat_swarm_optimization(possible_movements, playerQueue.peek()["units"], unit_dict);/*MovementCalculationRandom(possible_movements);*/
+          var selectedMovements = cat_swarm_optimization(CSO, possible_movements, playerQueue.peek()["units"], unit_dict);
           //console.log("Selected movements");
           //console.log(selectedMovements);
           return selectedMovements;
@@ -536,7 +538,10 @@ window.onload = function() {
           }
      }
      function performAttack(atk_x, atk_y, def_x, def_y, atk_id) {
-     
+          if(unitMatrix[atk_x][atk_y] == null || unitMatrix[def_x][def_y] == null) {
+               return;
+          }
+
          //console.log(atk_x, atk_y, def_x, def_y, atk_id);
           //console.log(unitMatrix[atk_x][atk_y]);
          // console.log(unitMatrix[def_x][def_y]);
@@ -573,8 +578,7 @@ window.onload = function() {
                     best_index = i;
                }
           }
-
-          
+ 
           var defender_attack = 0;
           var defender_dmg = 0;
           var defender_atk_count = 0;
@@ -585,7 +589,6 @@ window.onload = function() {
                defender_atk_count = defender_attack["number"];
                defender_atk_type = defender_attack["type"];
           }
-
 
           var attacker_resistance = getResistance(unit_dict[unitMatrix[atk_x][atk_y]["type"]], defender_atk_type);
           var defender_resistance = getResistance(unit_dict[unitMatrix[def_x][def_y]["type"]], attacker_atk_type);
