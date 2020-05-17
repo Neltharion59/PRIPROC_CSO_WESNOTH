@@ -237,9 +237,9 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     components.push({"value": attack_count_fitness, "weight": 1});
 
     // Enemy leader health
-    /*var enemy_leader_health_fitness = 1 - (enemy_leader["hp"] / GameCopy.unit_dict[enemy_leader["type"]]["hitpoints"]);
+    var enemy_leader_health_fitness = 1 - (enemy_leader["hp"] / GameCopy.unit_dict[enemy_leader["type"]]["hitpoints"]);
     console.log(enemy_leader_health_fitness);
-    components.push({"value": enemy_leader_health_fitness, "weight": 2});*/
+    components.push({"value": enemy_leader_health_fitness, "weight": 2});
 
     // Aggregating all the components of fitness function
     var fitness = 0;
