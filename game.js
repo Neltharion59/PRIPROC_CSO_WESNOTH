@@ -43,7 +43,7 @@ window.onload = function() {
      for(var i = 0; i < starting_positions.length; i++) {
           var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)], "gold":100, "income": base_income};
           if(i == 0) {
-               player["AI"] = false;
+               player["AI"] = true;
           } else {
                player["AI"] = true;
           }
@@ -235,12 +235,6 @@ window.onload = function() {
                var y = current_player["units"][0]["y"];
                unitMatrix[x][y] = current_player["units"][0];
 
-               /*var unit = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY,image);
-               unit.scale.setTo(4,4);
-               hexagonGroup.add(unit);
-
-               hexagons[x][y].unit = unit;
-               refreshText(current_player["units"][0]);*/
                playerQueue.shift();
           }
 
@@ -330,12 +324,13 @@ window.onload = function() {
      }
 
      function nextTurn() {
+
           if(playerQueue.peek()["id"] == 1) {
                turn_count++;
                console.log("Turn number:" + turn_count);
           }
 
-
+          performHealing(playerQueue.peek()["id"]);
           for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
                playerQueue.peek()["units"][i]["move_points"] = unit_dict[playerQueue.peek()["units"][i]["type"]]["movement"];
                //refreshText(playerQueue.peek()["units"][i]);
@@ -382,7 +377,23 @@ window.onload = function() {
           //console.log("about ot playGame");
           playGame();
      }
-
+     function performHealing(player_id) {
+          for(var i = 0; i < village_matrix.length; i++) {
+               for(var j = 0; j < village_matrix[i].length; j++) {
+                    if(village_matrix[i][j] != null && unitMatrix[i][j] != null && unitMatrix[i][j]["player_id"] == player_id) {
+                         healUnit(unitMatrix[i][j], terrain_dict[map[i][j]]["heals"]);
+                    }
+               }
+          }
+     }
+     function healUnit(unit, amount) {
+          
+          let heal_amount = Math.min(amount, unit_dict[unit["type"]]["hitpoints"] - unit["hp"]);
+          if(heal_amount > 0) {
+               console.log("healing", heal_amount, unit);
+          }
+          unit["hp"] += heal_amount;
+     }
      function recruit() {
 
           var leader = null;
@@ -552,6 +563,9 @@ window.onload = function() {
 
                     units[i]["move_points"] = 0;
 
+                    let attacker_type = units[i]["type"];
+                    let defender_type = game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]] == null ? null : game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]["type"];
+
                     performAttack(
                          units[i]["x"],
                          units[i]["y"],
@@ -562,6 +576,20 @@ window.onload = function() {
                     );
 
                     playerDeathCheck(game);
+
+                    if(game.gameOver) {
+                         return;
+                    }
+
+                    // Add xp
+                    if(!units[i]["dead"]) {
+                         units[i]["xp"] += calculateExperience(game, defender_type, game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]] == null);
+                    }
+                    if(game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]] != null) {
+                         game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]["xp"] += calculateExperience(game, attacker_type, units[i]["dead"]);
+                    }
+                    
+                    // Level up units
                }
           }
      }
@@ -664,7 +692,6 @@ window.onload = function() {
                     break;
                }
           }
-        
      }
      function tryKillUnit(x, y, game) {
           //console.log(x,y);
@@ -681,6 +708,20 @@ window.onload = function() {
           }
 
           return false;
+     }
+     function calculateExperience(game, attacked_unit_type, unit_was_killed) {
+          if(attacked_unit_type == null) {
+               return 0;
+          }
+
+          var experience;
+          if(unit_was_killed) {
+               experience = game.unit_dict[attacked_unit_type]["level"] * 8;
+               experience = experience == 0 ? 4 : experience;
+          } else {
+               experience = game.unit_dict[attacked_unit_type]["level"];
+          }
+          return experience;
      }
 
      function getResistance(attacked_unit_dict, atk_type) {
@@ -701,7 +742,7 @@ window.onload = function() {
           let text = "";
           let unit = unitMatrix[x][y];
           if(village_matrix[x][y] != null && village_matrix[x][y] != -1) {
-               text += "Owner: P" + village_matrix[x][y].toString() + "\n";
+               text += "Own: P" + village_matrix[x][y].toString() + "\n";
           }
           if(unitMatrix[x][y] != null) {
                text += "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString() + "\nMP: " + unit["move_points"].toString();

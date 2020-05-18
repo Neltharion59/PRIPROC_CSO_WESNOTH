@@ -223,9 +223,6 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
             }
         });
     });
-    /*console.log("Position fitnesses", position_fitness_player, position_fitness_enemy);
-    var unit_position_health_fitness = position_fitness_enemy == 0 ? 0 : position_fitness_player / position_fitness_enemy;
-    components.push({"value": unit_position_health_fitness, "weight": 1});*/
 
     // Player total unit health
     if(total_unit_max_health_player > 0) {
@@ -257,7 +254,7 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
         if(GameCopy.playerQueue.peek()["units"].length > 1) {
             unit_leader_distance_fitness = unit_leader_distance / (GameCopy.playerQueue.peek()["units"].length - 1);
         }
-        components.push({"value": unit_leader_distance_fitness, "weight": 1.5, "name": "Total player unit distance from enemy leader"});
+        components.push({"value": unit_leader_distance_fitness, "weight": 2, "name": "Total player unit distance from enemy leader"});
     }
 
     // Attack count
@@ -268,15 +265,19 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
         }
     }
     var attack_count_fitness = attack_count/cat["movements"].length;
-    components.push({"value": attack_count_fitness, "weight": 1, "name": "Count of attack commands"});
+    components.push({"value": attack_count_fitness, "weight": 3, "name": "Count of attack commands"});
 
     // Enemy leader health
     var enemy_leader_health_fitness = enemy_leader == null ?  0 : 1 - (enemy_leader["hp"] / GameCopy.unit_dict[enemy_leader["type"]]["hitpoints"]);
-    components.push({"value": enemy_leader_health_fitness, "weight": 2, "name": "Enemy leader health"});
+    components.push({"value": enemy_leader_health_fitness, "weight": 3, "name": "Enemy leader health"});
 
     // Player leader health
     var player_leader_health_fitness = player_leader == null ? 0 : (player_leader["hp"] / GameCopy.unit_dict[player_leader["type"]]["hitpoints"]);
     components.push({"value": player_leader_health_fitness, "weight": 2, "name": "Player leader health"});
+
+    // Player income
+    var player_income_fitness = GameCopy.playerQueue.peek()["income"] / (GameCopy.base_income + GameCopy.village_count * GameCopy.village_income);
+    components.push({"value": player_income_fitness, "weight": 1.5, "name": "Player income"});
 
     // Aggregating all the components of fitness function
     var fitness = 0;
