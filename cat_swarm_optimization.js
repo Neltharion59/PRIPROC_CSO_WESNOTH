@@ -178,17 +178,21 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     var total_unit_terrain_bonus_enemy = 0;
     var total_unit_max_terrain_bonus_player = 0;
     var total_unit_max_terrain_bonus_enemy = 0;
+    var total_unit_xp_progress_player = 0;
+    var total_unit_xp_progress_enemy = 0;
     var unit_count_player = 0;
     var unit_count_enemy = 0;
     var current_unit_terrain_bonus;
     var current_unit_max_terrain_bonus;
     var enemy_leader = null;
     var player_leader= null;
+    
     GameCopy.unitMatrix.forEach(unitMatrixRow => {
         unitMatrixRow.forEach(unit => {
             if(unit != null) {
                 // Clip unit HP to natural numbers
                 unit["hp"] = Math.max(0, unit["hp"]);
+
 
                 if(!unit["is_leader"]) {
                     current_unit_terrain_bonus = 100 - GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"][GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]];
@@ -202,15 +206,17 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
 
                     if(unit["player_id"] == player_id) {
                         total_unit_health_player += unit["hp"];
-                        total_unit_max_health_player += GameCopy.unit_dict[unit["type"]]["hitpoints"];
+                        total_unit_max_health_player += unit["max_hp"];
                         total_unit_terrain_bonus_player += current_unit_terrain_bonus;
                         total_unit_max_terrain_bonus_player += current_unit_max_terrain_bonus;
+                        total_unit_xp_progress_player += unit["xp"] / Math.floor(GameCopy.unit_dict[unit["type"]]["experience"] * GameCopy.xp_modifier);
                         unit_count_player++;
                     } else {
                         total_unit_health_enemy += unit["hp"];
-                        total_unit_max_health_enemy += GameCopy.unit_dict[unit["type"]]["hitpoints"];
+                        total_unit_max_health_enemy += unit["max_hp"];
                         total_unit_terrain_bonus_enemy += current_unit_terrain_bonus;
                         total_unit_max_terrain_bonus_enemy += current_unit_max_terrain_bonus;
+                        total_unit_xp_progress_enemy += unit["xp"] / Math.floor(GameCopy.unit_dict[unit["type"]]["experience"] * GameCopy.xp_modifier);
                         unit_count_enemy++;
                     }
                 }
@@ -268,16 +274,26 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     components.push({"value": attack_count_fitness, "weight": 3, "name": "Count of attack commands"});
 
     // Enemy leader health
-    var enemy_leader_health_fitness = enemy_leader == null ?  0 : 1 - (enemy_leader["hp"] / GameCopy.unit_dict[enemy_leader["type"]]["hitpoints"]);
+    var enemy_leader_health_fitness = enemy_leader == null ?  0 : 1 - (enemy_leader["hp"] / enemy_leader["max_hp"]);
     components.push({"value": enemy_leader_health_fitness, "weight": 3, "name": "Enemy leader health"});
 
     // Player leader health
-    var player_leader_health_fitness = player_leader == null ? 0 : (player_leader["hp"] / GameCopy.unit_dict[player_leader["type"]]["hitpoints"]);
+    var player_leader_health_fitness = player_leader == null ? 0 : (player_leader["hp"] / player_leader["max_hp"]);
     components.push({"value": player_leader_health_fitness, "weight": 2, "name": "Player leader health"});
 
     // Player income
     var player_income_fitness = GameCopy.playerQueue.peek()["income"] / (GameCopy.base_income + GameCopy.village_count * GameCopy.village_income);
     components.push({"value": player_income_fitness, "weight": 1.5, "name": "Player income"});
+
+    if(unit_count_player > 0) {
+        // Player unit experience
+        var player_unit_xp_fitness = total_unit_xp_progress_player / unit_count_player;
+        components.push({"value": player_unit_xp_fitness, "weight": 1.5, "name": "Player unit xp"});
+
+        // Enemy unit experience
+        var enemy_unit_xp_fitness = 1 - (total_unit_xp_progress_enemy / unit_count_player);
+        components.push({"value": enemy_unit_xp_fitness, "weight": 1.5, "name": "Enemy unit xp"});
+    }
 
     // Aggregating all the components of fitness function
     var fitness = 0;
@@ -286,8 +302,6 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     });
     /*console.log("Components", components);
     console.log("Fitness", fitness);*/
-
-   // fitness = Math.random() * 101;
 
     return fitness;
 }

@@ -3,6 +3,7 @@ window.onload = function() {
      
      const village_income = 2;
      const base_income = 2;
+     const xp_modifier = 0.10;
 
      var mapDict = getMaps();
      var mapName = "PRIPOC_MAPA_1";
@@ -43,7 +44,7 @@ window.onload = function() {
      for(var i = 0; i < starting_positions.length; i++) {
           var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)], "gold":100, "income": base_income};
           if(i == 0) {
-               player["AI"] = true;
+               player["AI"] = false;
           } else {
                player["AI"] = true;
           }
@@ -52,6 +53,7 @@ window.onload = function() {
                "type": sides_dict[player["side"]]["leader"][Math.floor(Math.random() * sides_dict[player["side"]]["leader"].length)]
           };
           leader["hp"] = unit_dict[leader["type"]]["hitpoints"];
+          leader["max_hp"] = unit_dict[leader["type"]]["hitpoints"];
           leader["xp"] = 0;
           leader["x"] = starting_positions[i][0];
           leader["y"] = starting_positions[i][1];
@@ -141,6 +143,7 @@ window.onload = function() {
           "village_count": village_count,
           "village_income": village_income,
           "base_income": base_income,
+          "xp_modifier": xp_modifier,
 
           "createCopy": CreateGameCopy,
           "performMoving": performMoving
@@ -264,9 +267,7 @@ window.onload = function() {
                          player_died = game.playerQueue.peek()["units"][i]["hp"] <= 0;
                          break;
                     }
-               }
-               console.log("Player died " + player_died.toString());
-
+               };
                if(player_died) {
                     destroyAllPlayerUnits(game.playerQueue.dequeue(), game);
                } else {
@@ -277,31 +278,24 @@ window.onload = function() {
 
           if(game.playerQueue.getLength() <= 1) {
                game.gameOver = true;
-               console.log("Game over");
-               //PhaserGameObject.destroy();
-
-               //$("body").append("<p size=\"100px\">End</p>");
-               //hexagonGroup.destroy(true, true);
+   
                hexagonGroup.destroy();
                PhaserGameObject.width = window.innerWidth * window.devicePixelRatio * 3;
                PhaserGameObject.height = window.innerHeight * window.devicePixelRatio * 3;
                let endgame_banner = PhaserGameObject.add.sprite(0, 0, "endgame");
                endgame_banner.scale.setTo(4,4);
-               //hexagonGroup.add(endgame_banner);
 
                let end_text = game.playerQueue.peek()["AI"] ? "You have lost!" : "You have won!";
                end_text += "\nPlayer " + game.playerQueue.peek()["id"] + " is victorious!";
 
                let style = { font: "150px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: PhaserGameObject.width, align: "center"};
                let text_sprite = PhaserGameObject.add.text(0, 0, end_text, style);
-               //hexagonGroup.add(text_sprite);
           }
      }
 
      function destroyAllPlayerUnits(player, game) {
           player["units"].forEach(unit => {
                unit["hp"] = -1;
-               console.log(unit);
                tryKillUnit(unit["x"], unit["y"], game);
           });
      }
@@ -388,10 +382,7 @@ window.onload = function() {
      }
      function healUnit(unit, amount) {
           
-          let heal_amount = Math.min(amount, unit_dict[unit["type"]]["hitpoints"] - unit["hp"]);
-          if(heal_amount > 0) {
-               console.log("healing", heal_amount, unit);
-          }
+          let heal_amount = Math.min(amount, unit["max_hp"] - unit["hp"]);
           unit["hp"] += heal_amount;
      }
      function recruit() {
@@ -410,7 +401,6 @@ window.onload = function() {
           if(leader == null) {
                return;
           }
-
         
           hire_positions = null;
           for(var i = 0; i<starting_positions.length; i++)
@@ -457,6 +447,7 @@ window.onload = function() {
                     "is_leader": false,
                     "type": hireType,
                     "hp": unit_dict[hireType]["hitpoints"],
+                    "max_hp": unit_dict[hireType]["hitpoints"],
                     "xp": 0,
                     "x": x,
                     "y": y,
@@ -466,7 +457,6 @@ window.onload = function() {
                unitMatrix[x][y] = unit;
                playerQueue.peek()["units"].push(unit);
                playerQueue.peek()["gold"] -= unit_dict[hireType]["cost"];
-               console.log("Gold: " + playerQueue.peek()["gold"].toString());
           }
 
           renderUnits();
@@ -559,8 +549,6 @@ window.onload = function() {
                     }
                }
                if(movements[i]["is_attack"]) {
-                    console.log("Attack with sharpened steel");
-
                     units[i]["move_points"] = 0;
 
                     let attacker_type = units[i]["type"];
@@ -589,7 +577,10 @@ window.onload = function() {
                          game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]["xp"] += calculateExperience(game, attacker_type, units[i]["dead"]);
                     }
                     
+                    console.log("About to try lvl up");
                     // Level up units
+                    tryPromoteUnit(game, units[i]);
+                    tryPromoteUnit(game, game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);
                }
           }
      }
@@ -723,7 +714,27 @@ window.onload = function() {
           }
           return experience;
      }
+     function tryPromoteUnit(game, unit) {
+          if(unit == null || unit["dead"]) {
+               return;
+          }
 
+          console.log("xp gain", unit["xp"], Math.floor(game.unit_dict[unit["type"]]["experience"] * game.xp_modifier));
+
+          if(unit["xp"] >= Math.floor(game.unit_dict[unit["type"]]["experience"] * game.xp_modifier)) {
+               console.log("Promotion");
+
+               if(game.unit_dict[unit["type"]]["advances_to"] == null) {
+                    unit["max_hp"] += 3;
+               } else {
+                    unit["type"] = game.unit_dict[unit["type"]]["advances_to"][Math.floor(Math.random() * game.unit_dict[unit["type"]]["advances_to"].length)];
+                    unit["max_hp"] = game.unit_dict[unit["type"]]["hitpoints"];
+               }
+
+               unit["xp"] = 0;
+               unit["hp"] = unit["max_hp"];
+          }
+     }
      function getResistance(attacked_unit_dict, atk_type) {
           var result = 100;
           if(atk_type in movement_type_dict[attacked_unit_dict["movement_type"]]["resistance"]) {
@@ -959,6 +970,7 @@ window.onload = function() {
           copiedGame.village_count = game["village_count"];
           copiedGame.village_income = game["village_income"];
           copiedGame.base_income = game["base_income"];
+          copiedGame.xp_modifier = game["xp_modifier"];
 
           // Copying dict references
           copiedGame["unit_dict"] = game["unit_dict"];
