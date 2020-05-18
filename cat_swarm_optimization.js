@@ -140,6 +140,9 @@ function updateCatModes(CSO, cats) {
     });
 }
 function getRandom(arr, n) {
+    if(n <= 0) {
+        return [];
+    }
     var result = new Array(n),
         len = arr.length,
         taken = new Array(len);
@@ -167,10 +170,18 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     var components = [];
 
     // Unit position fitness - hp, terrain_bonus
-    var position_fitness_player = 0;
-    var position_fitness_enemy = 0;
-    var current_unit_fitness;
+    var total_unit_health_player = 0;
+    var total_unit_health_enemy = 0;
+    var total_unit_max_health_player = 0;
+    var total_unit_max_health_enemy = 0;
+    var total_unit_terrain_bonus_player = 0;
+    var total_unit_terrain_bonus_enemy = 0;
+    var total_unit_max_terrain_bonus_player = 0;
+    var total_unit_max_terrain_bonus_enemy = 0;
+    var unit_count_player = 0;
+    var unit_count_enemy = 0;
     var current_unit_terrain_bonus;
+    var current_unit_max_terrain_bonus;
     var enemy_leader = null;
     var player_leader= null;
     GameCopy.unitMatrix.forEach(unitMatrixRow => {
@@ -181,23 +192,26 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
 
                 if(!unit["is_leader"]) {
                     current_unit_terrain_bonus = 100 - GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"][GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]];
-                    if(isNaN(current_unit_terrain_bonus)) {
+                    current_unit_max_terrain_bonus = 100 - Math.min(...Object.values(GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"]));
+                    /*if(isNaN(current_unit_terrain_bonus)) {
                         console.log("terrain_bonus_screwed");
                         console.log(GameCopy.unit_dict[unit["type"]]["movement_type"]);
                         console.log(GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]);
                         console.log(GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"][GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]]);
-                        /*console.log();
-                        console.log();
-                        console.log();
-                        console.log();*/
-                    }
-                    // console.log("terrain_bonuts", current_unit_terrain_bonus);
-                    current_unit_fitness = unit["hp"] * current_unit_terrain_bonus / 100;
+                    }*/
 
                     if(unit["player_id"] == player_id) {
-                        position_fitness_player += current_unit_fitness;
+                        total_unit_health_player += unit["hp"];
+                        total_unit_max_health_player += GameCopy.unit_dict[unit["type"]]["hitpoints"];
+                        total_unit_terrain_bonus_player += current_unit_terrain_bonus;
+                        total_unit_max_terrain_bonus_player += current_unit_max_terrain_bonus;
+                        unit_count_player++;
                     } else {
-                        position_fitness_enemy += current_unit_fitness;
+                        total_unit_health_enemy += unit["hp"];
+                        total_unit_max_health_enemy += GameCopy.unit_dict[unit["type"]]["hitpoints"];
+                        total_unit_terrain_bonus_enemy += current_unit_terrain_bonus;
+                        total_unit_max_terrain_bonus_enemy += current_unit_max_terrain_bonus;
+                        unit_count_enemy++;
                     }
                 }
                 if(unit["is_leader"] && unit["player_id"] != player_id) {
@@ -209,22 +223,42 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
             }
         });
     });
-    console.log("Position fitnesses", position_fitness_player, position_fitness_enemy);
+    /*console.log("Position fitnesses", position_fitness_player, position_fitness_enemy);
     var unit_position_health_fitness = position_fitness_enemy == 0 ? 0 : position_fitness_player / position_fitness_enemy;
-    components.push({"value": unit_position_health_fitness, "weight": 1});
+    components.push({"value": unit_position_health_fitness, "weight": 1});*/
+
+    // Player total unit health
+    if(total_unit_max_health_player > 0) {
+        let player_unit_health_fitness = total_unit_health_player / total_unit_max_health_player;
+        components.push({"value": player_unit_health_fitness, "weight": 1, "name": "Total player unit health"});
+    }
+
+    // Enemy total unit health
+    if(total_unit_max_health_enemy > 0) {
+        let enemy_unit_health_fitness = 1 - (total_unit_health_enemy / total_unit_max_health_enemy);
+        components.push({"value": enemy_unit_health_fitness, "weight": 1, "name": "Total enemy unit health"});
+    }
+
+    // Player total terrain bonus
+    if(total_unit_max_terrain_bonus_player > 0) {
+        let player_unit_terrain_fitness = total_unit_terrain_bonus_player / total_unit_max_terrain_bonus_player;
+        components.push({"value": player_unit_terrain_fitness, "weight": 1, "name": "Total player unit terrain bonus"});
+    }
 
     // Unit distance from enemy leader
-    var unit_leader_distance = 0;
-    GameCopy.playerQueue.peek()["units"].forEach(unit => {
-        if(!unit["is_leader"]) {
-            unit_leader_distance += 1 - ((Math.abs(unit["x"] - enemy_leader["x"]) + Math.abs(unit["y"] - enemy_leader["y"])) / (GameCopy.map.length + GameCopy.map[0].length));
+    if(enemy_leader != null) {
+        let unit_leader_distance = 0;
+        GameCopy.playerQueue.peek()["units"].forEach(unit => {
+            if(!unit["is_leader"]) {
+                unit_leader_distance += 1 - ((Math.abs(unit["x"] - enemy_leader["x"]) + Math.abs(unit["y"] - enemy_leader["y"])) / (GameCopy.map.length + GameCopy.map[0].length));
+            }
+        });
+        let unit_leader_distance_fitness = 0;
+        if(GameCopy.playerQueue.peek()["units"].length > 1) {
+            unit_leader_distance_fitness = unit_leader_distance / (GameCopy.playerQueue.peek()["units"].length - 1);
         }
-    });
-    var unit_leader_distance_fitness = 0;
-    if(GameCopy.playerQueue.peek()["units"].length > 1) {
-        var unit_leader_distance_fitness = unit_leader_distance / (GameCopy.playerQueue.peek()["units"].length - 1);
+        components.push({"value": unit_leader_distance_fitness, "weight": 1.5, "name": "Total player unit distance from enemy leader"});
     }
-    components.push({"value": unit_leader_distance_fitness, "weight": 1});
 
     // Attack count
     var attack_count = 0;
@@ -234,12 +268,15 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
         }
     }
     var attack_count_fitness = attack_count/cat["movements"].length;
-    components.push({"value": attack_count_fitness, "weight": 1});
+    components.push({"value": attack_count_fitness, "weight": 1, "name": "Count of attack commands"});
 
     // Enemy leader health
-    var enemy_leader_health_fitness = 1 - (enemy_leader["hp"] / GameCopy.unit_dict[enemy_leader["type"]]["hitpoints"]);
-    console.log(enemy_leader_health_fitness);
-    components.push({"value": enemy_leader_health_fitness, "weight": 2});
+    var enemy_leader_health_fitness = enemy_leader == null ?  0 : 1 - (enemy_leader["hp"] / GameCopy.unit_dict[enemy_leader["type"]]["hitpoints"]);
+    components.push({"value": enemy_leader_health_fitness, "weight": 2, "name": "Enemy leader health"});
+
+    // Player leader health
+    var player_leader_health_fitness = player_leader == null ? 0 : (player_leader["hp"] / GameCopy.unit_dict[player_leader["type"]]["hitpoints"]);
+    components.push({"value": player_leader_health_fitness, "weight": 2, "name": "Player leader health"});
 
     // Aggregating all the components of fitness function
     var fitness = 0;

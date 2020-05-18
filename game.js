@@ -53,7 +53,7 @@ window.onload = function() {
                UniqueSides.push(player["side"]);
           }
      }
-     playerQueue.shift = function(){ var temp = this.dequeue(); this.enqueue(temp);};
+     playerQueue.shift = function() { var temp = this.dequeue(); this.enqueue(temp);};
      //playerQueue.gameIsOver = function() {}
 
      var hexagonWidth = 280;
@@ -154,8 +154,6 @@ window.onload = function() {
                     var hexagonX = hexagonWidth * j * 0.75;
                     var hexagonY = hexagonHeight*i + j%2*hexagonHeight/2;
                     
-                    //console.log(i, j);
-                    /*console.log(map[i][j]);*/
                     var image = terrain_dict[map[i][j]]["symbol_image"];
 
                     var hexagon = game.add.sprite(hexagonX,hexagonY,image);
@@ -163,7 +161,6 @@ window.onload = function() {
 
                     var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
                     text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
-                    //text.anchor.set(0.5);
                     hexagonGroup.add(text);
 
                     hexagon.grid_x = j;
@@ -479,7 +476,13 @@ window.onload = function() {
                     units[i]["move_points"] = movements[i]["is_attack"] ? movements[i]["previous"]["remaining_movement"] : movements[i]["remaining_movement"];
 
                     if(game.graphical) {
-                         //console.log(x, y, " | ", old_x, old_y, " | ", units[i]["x"], units[i]["y"]);
+                         console.log(x, y, " | ", old_x, old_y, " | ", units[i]["x"], units[i]["y"]);
+                         if(hexagons[old_x][old_y].unit == null) {
+                              console.log(units[i]);
+                              console.log(movements[i]);
+                              console.log(hexagons);
+                              console.log(unitMatrix);
+                         }
 
                          hexagons[x][y].unit = hexagons[old_x][old_y].unit;
                          hexagons[old_x][old_y].unit = null;
@@ -573,7 +576,7 @@ window.onload = function() {
           var defender_hit_chance = attacker_terrain_bonus;
 
           //console.log(attacker_atk_count, defender_atk_count);
-
+          var death_check = false;
           while(defender_atk_count > 0 || attacker_atk_count > 0) {
                if(attacker_atk_count > 0) {
                    // console.log("Defender hp");
@@ -591,7 +594,8 @@ window.onload = function() {
                     //console.log(hit_target, attacker_final_dmg, unitMatrix[def_x][def_y]["hp"]);
                }
 
-               if(tryKillUnit(def_x, def_y, game)) {
+               death_check = tryKillUnit(def_x, def_y, game);
+               if(death_check) {
                     break;
                }
 
@@ -610,7 +614,8 @@ window.onload = function() {
                     //console.log(hit_target, defender_final_dmg, unitMatrix[atk_x][atk_y]["hp"]);
                }
 
-               if(tryKillUnit(atk_x, atk_y, game)) {
+               death_check = tryKillUnit(atk_x, atk_y, game);
+               if(death_check) {
                     break;
                }
           }
