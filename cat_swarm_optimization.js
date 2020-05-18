@@ -87,7 +87,7 @@ function cat_swarm_optimization(CSO, possible_movements) {
         // Step 5 - Shuffle cat modes
         updateCatModes(CSO, cats);
     }
-    console.log(best_cat["fitness"]);
+    //console.log(best_cat["fitness"]);
 
     return turnCatIntoMovements(best_cat, possible_movements, possible_attacks);
 }
@@ -240,10 +240,10 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     }
 
     // Player total terrain bonus
-    if(total_unit_max_terrain_bonus_player > 0) {
+    /*if(total_unit_max_terrain_bonus_player > 0) {
         let player_unit_terrain_fitness = total_unit_terrain_bonus_player / total_unit_max_terrain_bonus_player;
         components.push({"value": player_unit_terrain_fitness, "weight": 1, "name": "Total player unit terrain bonus"});
-    }
+    }*/
 
     // Unit distance from enemy leader
     if(enemy_leader != null) {
@@ -283,8 +283,8 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     components.forEach(component => {
         fitness += component["value"] * component["weight"];
     });
-    console.log("Components", components);
-    console.log("Fitness", fitness);
+    /*console.log("Components", components);
+    console.log("Fitness", fitness);*/
 
    // fitness = Math.random() * 101;
 

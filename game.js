@@ -89,7 +89,6 @@ window.onload = function() {
 
 
      var humanMoving = false;
-     var gameOver = false;
      var end_turn_button = null;
      var turn_count = 0;
      var selectedUnit = null;
@@ -98,7 +97,7 @@ window.onload = function() {
 
      var Game = {
           "playerQueue": playerQueue,
-          "gameOver": gameOver,
+          "gameOver": false,
           "unitMatrix": unitMatrix,
           "graphical": true,
 
@@ -199,12 +198,12 @@ window.onload = function() {
                var y = current_player["units"][0]["y"];
                unitMatrix[x][y] = current_player["units"][0];
 
-               var unit = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY,image);
+               /*var unit = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY,image);
                unit.scale.setTo(4,4);
                hexagonGroup.add(unit);
 
                hexagons[x][y].unit = unit;
-               refreshText(current_player["units"][0]);
+               refreshText(current_player["units"][0]);*/
                playerQueue.shift();
           }
 
@@ -217,6 +216,7 @@ window.onload = function() {
                hexagonGroup.x-=hexagonWidth/8;
           }
 
+          renderUnits();
           playGame();
 	}
 
@@ -261,14 +261,14 @@ window.onload = function() {
      function playGame() {
           //console.log("b4 game over check");
           //console.log(gameOver);
-          if(gameOver) {
+          if(Game.gameOver) {
                return;
           }
           //console.log("after game over check");
-          gameOver = (playerQueue.getLength() <= 1);
+          Game.gameOver = (playerQueue.getLength() <= 1);
 
           //console.log("b4 loop");
-          while(nextTurn() && !gameOver) {
+          while(nextTurn() && !Game.gameOver) {
                //console.log("in loop");
                //gameOver = (playerQueue.getLength() <= 1);
           }
@@ -284,7 +284,7 @@ window.onload = function() {
 
           for(var i = 0; i < playerQueue.peek()["units"].length; i++) {
                playerQueue.peek()["units"][i]["move_points"] = unit_dict[playerQueue.peek()["units"][i]["type"]]["movement"];
-               refreshText(playerQueue.peek()["units"][i]);
+               //refreshText(playerQueue.peek()["units"][i]);
           }
           
 
@@ -301,11 +301,11 @@ window.onload = function() {
                return true;
           } else {
                recruit();
+               renderUnits();
 
                humanMoving = true;
                end_turn_button.visible = true;
                
-
                return false;
           }
      }
@@ -411,11 +411,35 @@ window.onload = function() {
                console.log("Gold: " + playerQueue.peek()["gold"].toString());
 
                //Visual
-               var unit_sprite = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY, unit_dict[hireType]["image"]);
+               /*var unit_sprite = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY, unit_dict[hireType]["image"]);
                unit_sprite.scale.setTo(4,4);
                hexagonGroup.add(unit_sprite);
                hexagons[x][y].unit = unit_sprite;
-               refreshText(unit);
+               refreshText(unit);*/
+          }
+
+          renderUnits();
+     }
+     function createUnitSprite(x, y, type) {
+
+     }
+     function renderUnits() {
+          for(var i = 0; i < hexagons.length; i++) {
+               for(var j = 0; j < hexagons[i].length; j++) {
+                    if(hexagons[i][j].unit != null) {
+                         hexagons[i][j].unit.destroy();
+                         hexagons[i][j].unit = null;
+                    }
+
+                    if(unitMatrix[i][j] != null) {
+                         let unit_sprite = game.add.sprite(hexagons[i][j].hexagonX,hexagons[i][j].hexagonY, unit_dict[unitMatrix[i][j]["type"]]["image"]);
+                         unit_sprite.scale.setTo(4,4);
+                         hexagonGroup.add(unit_sprite);
+                         hexagons[i][j].unit = unit_sprite;
+                    }
+
+                    refreshText(i, j);
+               }
           }
      }
 
@@ -470,6 +494,12 @@ window.onload = function() {
                     units[i]["x"] = x;
                     units[i]["y"] = y;
 
+                    /*var consistency_check = unitMatrixAndHexagonsMatch();
+                    console.log(consistency_check);
+                    if(!consistency_check) {
+                         alert("Inconsistency");
+                    }*/
+
                     game.unitMatrix[old_x][old_y] = null;
                     game.unitMatrix[x][y] = units[i];
 
@@ -478,19 +508,19 @@ window.onload = function() {
                     if(game.graphical) {
                          console.log(x, y, " | ", old_x, old_y, " | ", units[i]["x"], units[i]["y"]);
                          if(hexagons[old_x][old_y].unit == null) {
-                              console.log(units[i]);
-                              console.log(movements[i]);
-                              console.log(hexagons);
+                              console.log("Unit", units[i]);
+                              console.log("Movement command", movements[i]);
+                              console.log("Old hexagon", hexagons[old_x][old_y]);
                               console.log(unitMatrix);
                          }
 
-                         hexagons[x][y].unit = hexagons[old_x][old_y].unit;
+                         /*hexagons[x][y].unit = hexagons[old_x][old_y].unit;
                          hexagons[old_x][old_y].unit = null;
                          hexagons[x][y].unit.x = hexagons[x][y].hexagonX;
                          hexagons[x][y].unit.y = hexagons[x][y].hexagonY;
 
                          clearText(hexagons[old_x][old_y]);
-                         refreshText(units[i]);
+                         refreshText(units[i]);*/
                     }
                }
                if(movements[i]["is_attack"]) {
@@ -509,11 +539,11 @@ window.onload = function() {
                          movements[i]["attack_id"],
                          game
                     ); 
-                    if(game.graphical) {
+                    if(game.graphical) {/*
                          // Attacker
                          refreshText(unitMatrix[units[i]["x"]][units[i]["y"]]);
                          // Defender
-                         refreshText(unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);
+                         refreshText(unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);*/
                     }
 
                     playerDeathCheck(game);
@@ -630,11 +660,11 @@ window.onload = function() {
 
           if(game.unitMatrix[x][y]["hp"] <= 0) {
                if(game.graphical) {
-                    var hexagon = hexagons[x][y];
+                    /*var hexagon = hexagons[x][y];
 
                     hexagon.unit.destroy();
                     hexagon.unit = null;
-                    clearText(hexagon);
+                    clearText(hexagon);*/
                }
 
                game.unitMatrix[x][y]["dead"] = true;
@@ -653,24 +683,18 @@ window.onload = function() {
           }
           return result;
      }
+     function refreshText(x, y) {
+          var hexagon = hexagons[x][y];
 
-     function clearText(hexagon) {
           if(hexagon.text != null) {
                hexagon.text.destroy();
           }
           hexagon.text = null;
-     }
-     function refreshText(unit) {
-          if(unit == null) {
+
+          if(unitMatrix[x][y] == null) {
                return;
           }
-
-          var x = unit["x"];
-          var y = unit["y"];
-
-          if(hexagons[x][y].text != null) {
-               hexagons[x][y].text.destroy();
-          }
+          var unit = unitMatrix[x][y];
 
           var style = { font: "30px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: hexagons[x][y].width, align: "center", backgroundColor: "#ffffff" };
           hexagons[x][y].text = game.add.text(hexagons[x][y].hexagonX, hexagons[x][y].hexagonY, "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString() + "\nMP: " + unit["move_points"].toString(), style);
@@ -714,6 +738,7 @@ window.onload = function() {
                     if(unitMatrix[hexagon.grid_y][hexagon.grid_x] == null) {
 
                          performMoving([selectedMovement], [selectedUnit], Game);
+                         renderUnits();
                          unselectUnit(selectedUnit);
                     }
                     // ATTACK
@@ -812,9 +837,10 @@ window.onload = function() {
          // console.log(sprite.attacker);
          // console.log(attackCommand);
           performMoving([attackCommand], [sprite.attacker], Game);
-
           hideAttackOffer();
           unselectUnit();
+
+          renderUnits();
      }
      function Create2DArray(x, y) {
           var array = new Array(y);
@@ -905,6 +931,22 @@ window.onload = function() {
           for(var i = 0; i < hexagons.length; i++) {
                for(var j = 0; j < hexagons[i].length; j++) {
                     if(!(grid1[i][j] == grid2[i][j])) {
+                         result = false;
+                         break;
+                    }
+               }
+          }
+          return result;
+     }
+     function unitMatrixAndHexagonsMatch() {
+          var result = true;
+          var x;
+          var y;
+          for(var i = 0; i < hexagons.length; i++) {
+               for(var j = 0; j < hexagons[i].length; j++) {
+                    x = hexagons[i][j].unit == null;
+                    y = unitMatrix[i][j] == null;
+                    if(!(x == y)) {
                          result = false;
                          break;
                     }
