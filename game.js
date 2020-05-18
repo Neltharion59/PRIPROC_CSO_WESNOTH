@@ -1,13 +1,24 @@
 window.onload = function() {
      var PhaserGameObject = new Phaser.Game("100%", "120%", Phaser.CANVAS, "", {preload: onPreload, create: onCreate});                
      
+     const village_income = 2;
+     const base_income = 2;
+
      var mapDict = getMaps();
      var mapName = "PRIPOC_MAPA_1";
      var map = MapToGrid(mapDict[mapName]);
      var starting_positions = extractStartingPositions(map);
      removeStartingPositions(map);
 
+     ///console.log(map);
+
      var terrain_dict = createMinTerrainDict(onlyUniqueMapParts(map));
+     /*map.forEach(row => {
+          row.forEach(element => {
+               console.log(terrain_dict[element]["gives_income"]);
+          });
+     });v
+     console.log(terrain_dict);*/
     // console.log(map);
      var race_dict = createRaceDict();
      var movement_type_dict = createMovementDict();
@@ -25,10 +36,12 @@ window.onload = function() {
           }
      });
 
+     var colors = ["", "#d62f15", "#151cd4"];
+
      var playerQueue = new Queue();
      var UniqueSides = [];
      for(var i = 0; i < starting_positions.length; i++) {
-          var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)], "gold":100};
+          var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)], "gold":100, "income": base_income};
           if(i == 0) {
                player["AI"] = false;
           } else {
@@ -54,6 +67,16 @@ window.onload = function() {
           }
      }
      playerQueue.shift = function() { var temp = this.dequeue(); this.enqueue(temp);};
+     playerQueue.getPlayerByID = function(id) {
+          let result = null;
+          for(var i = 0; i < this.getLength(); i++) {
+               if(id == this.peek()["id"]) {
+                    result = this.peek();
+               }
+               this.shift();
+          }
+          return result;
+     };
      //playerQueue.gameIsOver = function() {}
 
      var hexagonWidth = 280;
@@ -83,9 +106,18 @@ window.onload = function() {
      for(var i = 0; i < starting_positions.length; i++) {
           hireMatrix[starting_positions[i][0]][starting_positions[i][1]] = findSurroundingHireToFields(starting_positions[i], map, terrain_dict);
      }
-     //console.log(hireMatrix);
-
-    // console.log(GetPossibleMovements(0, 0, 5, movement_type_dict["orcishfoot"], terrain_dict, map, unitMatrix, playerQueue.peek["id"]));
+     var village_matrix = Create2DArray(gridSizeX, gridSizeY);
+     var village_count = 0;
+     for(var i = 0; i < village_matrix.length; i++) {
+          for(var j = 0; j < village_matrix[i].length; j++) {
+               village_matrix[i][j] = null;
+               if(terrain_dict[map[i][j]]["gives_income"]) {
+                    village_matrix[i][j] = -1;
+                    village_count++;
+               }
+          }
+     }
+     console.log(village_matrix);
 
 
      var humanMoving = false;
@@ -99,12 +131,16 @@ window.onload = function() {
           "playerQueue": playerQueue,
           "gameOver": false,
           "unitMatrix": unitMatrix,
-          "graphical": true,
 
           "unit_dict": unit_dict,
           "terrain_dict": terrain_dict,
           "movement_type_dict": movement_type_dict,
           "map": map,
+          "village_matrix": village_matrix,
+
+          "village_count": village_count,
+          "village_income": village_income,
+          "base_income": base_income,
 
           "createCopy": CreateGameCopy,
           "performMoving": performMoving
@@ -305,6 +341,7 @@ window.onload = function() {
                //refreshText(playerQueue.peek()["units"][i]);
           }
           
+          playerQueue.peek()["gold"] += playerQueue.peek()["income"];
 
           if(playerQueue.peek()["AI"]) {
                end_turn_button.visible = false;
@@ -348,8 +385,6 @@ window.onload = function() {
 
      function recruit() {
 
-          //console.log("recruit called");
-
           var leader = null;
           for(var i = 0; i<playerQueue.peek()["units"].length; i++)
           {
@@ -365,8 +400,7 @@ window.onload = function() {
                return;
           }
 
-          //console.log("recruit - leader found");
-
+        
           hire_positions = null;
           for(var i = 0; i<starting_positions.length; i++)
           {
@@ -381,10 +415,7 @@ window.onload = function() {
           if(hire_positions == null) {
                return;
           }
-
-          //console.log("recruit - hire positions found");
          
-          //console.log(hire_positions.length + " positions found");
           for(var i = hire_positions.length - 1; i >= 0; i--)
           {
                if(unitMatrix[hire_positions[i][0]][hire_positions[i][1]] != null) {
@@ -392,11 +423,10 @@ window.onload = function() {
                }
           }
 
-          //console.log(hire_positions.length + " positions available");
-
+        
           for(var i = 0; i < hire_positions.length; i++) {
 
-               var possible_to_hire = sides_dict[playerQueue.peek()["side"]][["recruit"]];
+               var possible_to_hire = sides_dict[playerQueue.peek()["side"]]["recruit"].slice();
                for(var j = possible_to_hire.length - 1; j >= 0; j--)
                {
                     if(unit_dict[possible_to_hire[j]]["cost"] > playerQueue.peek()["gold"]) {
@@ -407,9 +437,8 @@ window.onload = function() {
                if(possible_to_hire.length <= 0) {
                     break;
                }
-
                var hireType = possible_to_hire[Math.floor(Math.random() * possible_to_hire.length)];
-               //console.log("Hire type: "); console.log(hireType);
+
                //We know what type unit we want to hire and where to place it
                var x = hire_positions[i][0];
                var y = hire_positions[i][1];
@@ -427,19 +456,9 @@ window.onload = function() {
                playerQueue.peek()["units"].push(unit);
                playerQueue.peek()["gold"] -= unit_dict[hireType]["cost"];
                console.log("Gold: " + playerQueue.peek()["gold"].toString());
-
-               //Visual
-               /*var unit_sprite = game.add.sprite(hexagons[x][y].hexagonX,hexagons[x][y].hexagonY, unit_dict[hireType]["image"]);
-               unit_sprite.scale.setTo(4,4);
-               hexagonGroup.add(unit_sprite);
-               hexagons[x][y].unit = unit_sprite;
-               refreshText(unit);*/
           }
 
           renderUnits();
-     }
-     function createUnitSprite(x, y, type) {
-
      }
      function renderUnits() {
           for(var i = 0; i < hexagons.length; i++) {
@@ -491,63 +510,47 @@ window.onload = function() {
                     continue;
                }
                //console.log(movements[i]);
-
+               let x, y;
                if(movements[i]["is_attack"])
                {
                     if(movements[i]["previous"] != null) {
-                         var x = movements[i]["previous"]["coords"][0];
-                         var y = movements[i]["previous"]["coords"][1];
+                         x = movements[i]["previous"]["coords"][0];
+                         y = movements[i]["previous"]["coords"][1];
                     } else {
-                         var x = units[i]["x"];
-                         var y = units[i]["y"];
+                         x = units[i]["x"];
+                         y = units[i]["y"];
                     }
                } else {
-                    var x = movements[i]["coords"][0];
-                    var y = movements[i]["coords"][1];
+                    x = movements[i]["coords"][0];
+                    y = movements[i]["coords"][1];
                }
-               var old_x = units[i]["x"];
-               var old_y = units[i]["y"];
+               let old_x = units[i]["x"];
+               let old_y = units[i]["y"];
 
                if(!(x == old_x && y == old_y)) {
                     units[i]["x"] = x;
                     units[i]["y"] = y;
-
-                    /*var consistency_check = unitMatrixAndHexagonsMatch();
-                    console.log(consistency_check);
-                    if(!consistency_check) {
-                         alert("Inconsistency");
-                    }*/
 
                     game.unitMatrix[old_x][old_y] = null;
                     game.unitMatrix[x][y] = units[i];
 
                     units[i]["move_points"] = movements[i]["is_attack"] ? movements[i]["previous"]["remaining_movement"] : movements[i]["remaining_movement"];
 
-                    if(game.graphical) {
-                         console.log(x, y, " | ", old_x, old_y, " | ", units[i]["x"], units[i]["y"]);
-                         if(hexagons[old_x][old_y].unit == null) {
-                              console.log("Unit", units[i]);
-                              console.log("Movement command", movements[i]);
-                              console.log("Old hexagon", hexagons[old_x][old_y]);
-                              console.log(unitMatrix);
+                    if(game.village_matrix[x][y] != null) {
+                         if(game.village_matrix[x][y] != -1) {
+                              let previously_owning_player = game.playerQueue.getPlayerByID(game.village_matrix[x][y]);
+                              if(previously_owning_player != null) {
+                                   previously_owning_player["income"] -= village_income;
+                              }
                          }
-
-                         /*hexagons[x][y].unit = hexagons[old_x][old_y].unit;
-                         hexagons[old_x][old_y].unit = null;
-                         hexagons[x][y].unit.x = hexagons[x][y].hexagonX;
-                         hexagons[x][y].unit.y = hexagons[x][y].hexagonY;
-
-                         clearText(hexagons[old_x][old_y]);
-                         refreshText(units[i]);*/
+                         game.playerQueue.peek()["income"] += village_income;
+                         game.village_matrix[x][y] = game.playerQueue.peek()["id"];
                     }
                }
                if(movements[i]["is_attack"]) {
                     console.log("Attack with sharpened steel");
 
                     units[i]["move_points"] = 0;
-                    /*console.log("Attacking");
-                    console.log(movements[i]["attack_id"]);
-                    console.log(units[i]["attack"]);*/
 
                     performAttack(
                          units[i]["x"],
@@ -556,13 +559,7 @@ window.onload = function() {
                          movements[i]["coords"][1],
                          movements[i]["attack_id"],
                          game
-                    ); 
-                    if(game.graphical) {/*
-                         // Attacker
-                         refreshText(unitMatrix[units[i]["x"]][units[i]["y"]]);
-                         // Defender
-                         refreshText(unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);*/
-                    }
+                    );
 
                     playerDeathCheck(game);
                }
@@ -677,14 +674,6 @@ window.onload = function() {
           }
 
           if(game.unitMatrix[x][y]["hp"] <= 0) {
-               if(game.graphical) {
-                    /*var hexagon = hexagons[x][y];
-
-                    hexagon.unit.destroy();
-                    hexagon.unit = null;
-                    clearText(hexagon);*/
-               }
-
                game.unitMatrix[x][y]["dead"] = true;
                game.unitMatrix[x][y] = null;
                               
@@ -702,20 +691,28 @@ window.onload = function() {
           return result;
      }
      function refreshText(x, y) {
-          var hexagon = hexagons[x][y];
+          let hexagon = hexagons[x][y];
 
           if(hexagon.text != null) {
                hexagon.text.destroy();
           }
           hexagon.text = null;
 
-          if(unitMatrix[x][y] == null) {
+          let text = "";
+          let unit = unitMatrix[x][y];
+          if(village_matrix[x][y] != null && village_matrix[x][y] != -1) {
+               text += "Owner: P" + village_matrix[x][y].toString() + "\n";
+          }
+          if(unitMatrix[x][y] != null) {
+               text += "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString() + "\nMP: " + unit["move_points"].toString();
+          }
+          if(text == "") {
                return;
           }
-          var unit = unitMatrix[x][y];
+          let player_id = unit == null ? village_matrix[x][y] : unit["player_id"];
 
-          var style = { font: "30px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: hexagons[x][y].width, align: "center", backgroundColor: "#ffffff" };
-          hexagons[x][y].text = PhaserGameObject.add.text(hexagons[x][y].hexagonX, hexagons[x][y].hexagonY, "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString() + "\nMP: " + unit["move_points"].toString(), style);
+          let style = { font: "30px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: hexagons[x][y].width, align: "center", backgroundColor: colors[player_id] };
+          hexagons[x][y].text = PhaserGameObject.add.text(hexagons[x][y].hexagonX, hexagons[x][y].hexagonY, text, style);
           hexagonGroup.add(hexagons[x][y].text);
      }
      
@@ -876,9 +873,11 @@ window.onload = function() {
           // Copying playerQueue and UnitMatrix
           var copiedPlayerQueue = new Queue();
           var copiedUnitMatrix = Create2DArray(gridSizeX, gridSizeY);
+          var copiedVillageMatrix = Create2DArray(gridSizeX, gridSizeY);
           for(var i = 0; i < copiedUnitMatrix.length; i++) {
                for(var j = 0; j < copiedUnitMatrix[i].length; j++) {
                     copiedUnitMatrix[i][j] = null;
+                    copiedVillageMatrix[i][j] = game.village_matrix[i][j];
                }
           }
           var first_player_id = -1;
@@ -895,6 +894,7 @@ window.onload = function() {
                copiedPlayer["id"] = currentPlayer["id"];
                copiedPlayer["side"] = currentPlayer["side"];
                copiedPlayer["gold"] = currentPlayer["gold"];
+               copiedPlayer["income"] = currentPlayer["income"];
                copiedPlayer["units"] = [];
 
                currentPlayer["units"].forEach(unit => {
@@ -908,12 +908,16 @@ window.onload = function() {
                game.playerQueue.shift();
           }
           copiedPlayerQueue.shift = playerQueue.shift;
+          copiedPlayerQueue.getPlayerByID = playerQueue.getPlayerByID;
           copiedGame.playerQueue = copiedPlayerQueue;
           copiedGame.unitMatrix = copiedUnitMatrix;
+          copiedGame.village_matrix = copiedVillageMatrix;
 
           // Copying primitives
           copiedGame.gameOver = game["gameOver"];
-          copiedGame.graphical = false;
+          copiedGame.village_count = game["village_count"];
+          copiedGame.village_income = game["village_income"];
+          copiedGame.base_income = game["base_income"];
 
           // Copying dict references
           copiedGame["unit_dict"] = game["unit_dict"];
