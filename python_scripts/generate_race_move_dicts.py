@@ -156,11 +156,55 @@ for movement_type in movedict:
         movedict[movement_type]["defense"]["deep_water"] = "100"
         movedict[movement_type]["defense"]["swamp_water"] = "80"
         movedict[movement_type]["defense"]["fungus"] = "60"
+    if movement_type == "undeadspirit":
+        movedict[movement_type]["defense"] = {}
+        movedict[movement_type]["defense"]["mountains"] = "50"
+        movedict[movement_type]["defense"]["flat"] = "50"
+        movedict[movement_type]["defense"]["forest"] = "50"
+        movedict[movement_type]["defense"]["hills"] = "50"
+        movedict[movement_type]["defense"]["village"] = "50"
+        movedict[movement_type]["defense"]["shallow_water"] = "50"
+        movedict[movement_type]["defense"]["castle"] = "50"
+        movedict[movement_type]["defense"]["deep_water"] = "50"
+        movedict[movement_type]["defense"]["swamp_water"] = "50"
+        movedict[movement_type]["defense"]["fungus"] = "50"
+    if movement_type == "drakeglide":
+        movedict[movement_type]["defense"] = {}
+        movedict[movement_type]["defense"]["mountains"] = "60"
+        movedict[movement_type]["defense"]["flat"] = "60"
+        movedict[movement_type]["defense"]["forest"] = "60"
+        movedict[movement_type]["defense"]["hills"] = "60"
+        movedict[movement_type]["defense"]["village"] = "60"
+        movedict[movement_type]["defense"]["shallow_water"] = "60"
+        movedict[movement_type]["defense"]["castle"] = "60"
+        movedict[movement_type]["defense"]["deep_water"] = "60"
+        movedict[movement_type]["defense"]["swamp_water"] = "60"
+        movedict[movement_type]["defense"]["fungus"] = "60"
+    if movement_type == "drakeglide2":
+        movedict[movement_type]["defense"] = {}
+        movedict[movement_type]["defense"]["mountains"] = "50"
+        movedict[movement_type]["defense"]["flat"] = "50"
+        movedict[movement_type]["defense"]["forest"] = "50"
+        movedict[movement_type]["defense"]["hills"] = "50"
+        movedict[movement_type]["defense"]["village"] = "50"
+        movedict[movement_type]["defense"]["shallow_water"] = "50"
+        movedict[movement_type]["defense"]["castle"] = "50"
+        movedict[movement_type]["defense"]["deep_water"] = "50"
+        movedict[movement_type]["defense"]["swamp_water"] = "50"
+        movedict[movement_type]["defense"]["fungus"] = "60"
 
 
 f = open("Movement.js", "w+")
 f.write("function createMovementDict() {\n\tmovement_dict = {};\n\n")
 for movement in movedict:
+        for terrain_type in known_terrain_types:
+            if "defense" not in movedict[movement]:
+                print("No defense of " + movement)
+            if "defense" in movedict[movement] and terrain_type not in movedict[movement]["defense"]:
+                print("We dont have defense bonus for " + movement + " in " + terrain_type)
+        if movement == "dwarvishfoot":
+            print(movedict[movement])
+
         f.write("\tmovement_dict[\"" + movement + "\"] = {};\n")
         for key in movedict[movement]:
             f.write("\tmovement_dict[\"" + movement + "\"][\"" + key + "\"] = " + to_string(movedict[movement][key]) + ";\n")

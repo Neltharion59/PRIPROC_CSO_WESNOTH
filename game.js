@@ -3,7 +3,7 @@ window.onload = function() {
      
      const village_income = 2;
      const base_income = 2;
-     const xp_modifier = 0.10;
+     const xp_modifier = 0.70;
 
      var mapDict = getMaps();
      var mapName = "PRIPOC_MAPA_1";
@@ -44,7 +44,7 @@ window.onload = function() {
      for(var i = 0; i < starting_positions.length; i++) {
           var player = {"id": i+1, "units":[], "side": sides_list[Math.floor(Math.random() * sides_list.length)], "gold":100, "income": base_income};
           if(i == 0) {
-               player["AI"] = false;
+               player["AI"] = true;
           } else {
                player["AI"] = true;
           }
@@ -161,15 +161,23 @@ window.onload = function() {
           }
           
           UniqueSides.forEach(side => {
-               sides_dict[side]["recruit"].forEach(unit => {
-                    PhaserGameObject.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
-                    unit_dict[unit]["attack"].forEach(attack => {
-                         if(attack["icon"]) {
-                              PhaserGameObject.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
-                         } else {
-                              attack["icon"] = "attacks/blank-attack.png";
+               sides_dict[side]["recruit"].forEach(current_unit => {
+                    let unit_buffer = [current_unit];
+                    while(unit_buffer.length > 0) {
+                         let unit = unit_buffer.pop();
+                         PhaserGameObject.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
+                         unit_dict[unit]["attack"].forEach(attack => {
+                              if(attack["icon"]) {
+                                   PhaserGameObject.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
+                              } else {
+                                   attack["icon"] = "attacks/blank-attack.png";
+                              }
+                         });
+
+                         if(unit_dict[unit]["advances_to"] != null) {
+                              unit_buffer = unit_buffer.concat(unit_dict[unit]["advances_to"]);
                          }
-                    });
+                    }
                });
                sides_dict[side]["leader"].forEach(unit => {
                     PhaserGameObject.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
@@ -577,7 +585,6 @@ window.onload = function() {
                          game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]["xp"] += calculateExperience(game, attacker_type, units[i]["dead"]);
                     }
                     
-                    console.log("About to try lvl up");
                     // Level up units
                     tryPromoteUnit(game, units[i]);
                     tryPromoteUnit(game, game.unitMatrix[movements[i]["coords"][0]][movements[i]["coords"][1]]);
@@ -719,11 +726,7 @@ window.onload = function() {
                return;
           }
 
-          console.log("xp gain", unit["xp"], Math.floor(game.unit_dict[unit["type"]]["experience"] * game.xp_modifier));
-
           if(unit["xp"] >= Math.floor(game.unit_dict[unit["type"]]["experience"] * game.xp_modifier)) {
-               console.log("Promotion");
-
                if(game.unit_dict[unit["type"]]["advances_to"] == null) {
                     unit["max_hp"] += 3;
                } else {

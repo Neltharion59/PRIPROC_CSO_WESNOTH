@@ -302,7 +302,7 @@ function createMovementDict() {
 	movement_dict["undeadspirit"]["frozen"] = 1;
 	movement_dict["undeadspirit"]["unwalkable"] = 1;
 	movement_dict["undeadspirit"]["fungus"] = 1;
-	movement_dict["undeadspirit"]["defense"] = {'cave': 50, 'fungus': 50, 'deep_water': 100, 'mountains': 100};
+	movement_dict["undeadspirit"]["defense"] = {'mountains': 50, 'flat': 50, 'forest': 50, 'hills': 50, 'village': 50, 'shallow_water': 50, 'castle': 50, 'deep_water': 50, 'swamp_water': 50, 'fungus': 50};
 	movement_dict["undeadspirit"]["resistance"] = {'blade': 50, 'pierce': 50, 'impact': 50, 'fire': 90, 'cold': 30, 'arcane': 110};
 
 	movement_dict["spirit"] = {};
@@ -389,14 +389,14 @@ function createMovementDict() {
 
 	movement_dict["drakeglide"] = {};
 	movement_dict["drakeglide"]["#flying"] = true;
-	movement_dict["drakeglide"]["defense"] = {'cave': 70, 'fungus': 60, 'deep_water': 100, 'mountains': 100};
+	movement_dict["drakeglide"]["defense"] = {'mountains': 60, 'flat': 60, 'forest': 60, 'hills': 60, 'village': 60, 'shallow_water': 60, 'castle': 60, 'deep_water': 60, 'swamp_water': 60, 'fungus': 60};
 	movement_dict["drakeglide"]["resistance"] = {};
 
 	movement_dict["drakeglide2"] = {};
 	movement_dict["drakeglide2"]["#flying"] = true;
 	movement_dict["drakeglide2"]["cave"] = 3;
 	movement_dict["drakeglide2"]["fungus"] = 2;
-	movement_dict["drakeglide2"]["defense"] = {'cave': 70, 'fungus': 60, 'deep_water': 100, 'mountains': 100};
+	movement_dict["drakeglide2"]["defense"] = {'mountains': 50, 'flat': 50, 'forest': 50, 'hills': 50, 'village': 50, 'shallow_water': 50, 'castle': 50, 'deep_water': 50, 'swamp_water': 50, 'fungus': 60};
 	movement_dict["drakeglide2"]["resistance"] = {};
 
 	movement_dict["drakefoot"] = {};
