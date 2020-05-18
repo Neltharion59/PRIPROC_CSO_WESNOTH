@@ -1,5 +1,5 @@
 window.onload = function() {
-     var game = new Phaser.Game("100%", "120%", Phaser.CANVAS, "", {preload: onPreload, create: onCreate});                
+     var PhaserGameObject = new Phaser.Game("100%", "120%", Phaser.CANVAS, "", {preload: onPreload, create: onCreate});                
      
      var mapDict = getMaps();
      var mapName = "PRIPOC_MAPA_1";
@@ -112,30 +112,31 @@ window.onload = function() {
      var CSO = this.createCSOObject(Game);
 
 	function onPreload() {
-          game.load.image("marker", "images/marker.png");
-          game.load.image("end_turn", "images/sword.png");
-          game.load.image("attacks/blank-attack.png", "images/attacks/blank-attack.png");
+          PhaserGameObject.load.image("marker", "images/marker.png");
+          PhaserGameObject.load.image("end_turn", "images/sword.png");
+          PhaserGameObject.load.image("attacks/blank-attack.png", "images/attacks/blank-attack.png");
+          PhaserGameObject.load.image("endgame", "images/end_of_game.png");
 
           for(key in terrain_dict) {
-               game.load.image(terrain_dict[key]["symbol_image"], image_path_prefix_terrain + terrain_dict[key]["symbol_image"] + image_path_postfix);
+               PhaserGameObject.load.image(terrain_dict[key]["symbol_image"], image_path_prefix_terrain + terrain_dict[key]["symbol_image"] + image_path_postfix);
           }
           
           UniqueSides.forEach(side => {
                sides_dict[side]["recruit"].forEach(unit => {
-                    game.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
+                    PhaserGameObject.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
                     unit_dict[unit]["attack"].forEach(attack => {
                          if(attack["icon"]) {
-                              game.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
+                              PhaserGameObject.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
                          } else {
                               attack["icon"] = "attacks/blank-attack.png";
                          }
                     });
                });
                sides_dict[side]["leader"].forEach(unit => {
-                    game.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
+                    PhaserGameObject.load.image(unit_dict[unit]["image"], image_path_prefix_units + unit_dict[unit]["image"]);
                     unit_dict[unit]["attack"].forEach(attack => {
                          if(attack["icon"]) {
-                              game.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
+                              PhaserGameObject.load.image(attack["icon"], image_path_prefix_units + attack["icon"]);
                          } else {
                               attack["icon"] = "attacks/blank-attack.png";
                          }
@@ -145,8 +146,8 @@ window.onload = function() {
 	}
 
 	function onCreate() {
-		hexagonGroup = game.add.group();
-          game.stage.backgroundColor = "#ffffff";
+		hexagonGroup = PhaserGameObject.add.group();
+          PhaserGameObject.stage.backgroundColor = "#ffffff";
 
 	     for(var i = 0; i < gridSizeY; i ++) {
 			for(var j = 0; j < gridSizeX; j ++) {
@@ -155,12 +156,12 @@ window.onload = function() {
                     
                     var image = terrain_dict[map[i][j]]["symbol_image"];
 
-                    var hexagon = game.add.sprite(hexagonX,hexagonY,image);
+                    var hexagon = PhaserGameObject.add.sprite(hexagonX,hexagonY,image);
                     hexagon.scale.setTo(4,4)
 
-                    var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
-                    text = game.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
-                    hexagonGroup.add(text);
+                    /*var style = { font: "30px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: hexagon.width, align: "center", backgroundColor: "#ffff00" };
+                    text = PhaserGameObject.add.text(hexagonX, hexagonY, "\n" + i + ","+ j, style);
+                    hexagonGroup.add(text);*/
 
                     hexagon.grid_x = j;
                     hexagon.grid_y = i;
@@ -180,7 +181,7 @@ window.onload = function() {
           var x = hexagonGroup.width/2;
           var y = -500;
 
-          end_turn_button = game.add.sprite(x,y,"end_turn");
+          end_turn_button = PhaserGameObject.add.sprite(x,y,"end_turn");
           hexagonGroup.add(end_turn_button);
           end_turn_button.inputEnabled = true;
           end_turn_button.events.onInputDown.add(clickEndTurn, this);
@@ -207,11 +208,11 @@ window.onload = function() {
                playerQueue.shift();
           }
 
-		hexagonGroup.y = (game.height-hexagonHeight*Math.ceil(gridSizeY/2))/2;
+		hexagonGroup.y = (PhaserGameObject.height-hexagonHeight*Math.ceil(gridSizeY/2))/2;
           if(gridSizeY%2==0){
                hexagonGroup.y-=hexagonHeight/4;
           }
-		hexagonGroup.x = (game.width-Math.ceil(gridSizeX/2)*hexagonWidth-Math.floor(gridSizeX/2)*hexagonWidth/2)/2;
+		hexagonGroup.x = (PhaserGameObject.width-Math.ceil(gridSizeX/2)*hexagonWidth-Math.floor(gridSizeX/2)*hexagonWidth/2)/2;
           if(gridSizeX%2==0){
                hexagonGroup.x-=hexagonWidth/8;
           }
@@ -247,6 +248,23 @@ window.onload = function() {
           if(game.playerQueue.getLength() <= 1) {
                game.gameOver = true;
                console.log("Game over");
+               //PhaserGameObject.destroy();
+
+               //$("body").append("<p size=\"100px\">End</p>");
+               //hexagonGroup.destroy(true, true);
+               hexagonGroup.destroy();
+               PhaserGameObject.width = window.innerWidth * window.devicePixelRatio * 3;
+               PhaserGameObject.height = window.innerHeight * window.devicePixelRatio * 3;
+               let endgame_banner = PhaserGameObject.add.sprite(0, 0, "endgame");
+               endgame_banner.scale.setTo(4,4);
+               //hexagonGroup.add(endgame_banner);
+
+               let end_text = game.playerQueue.peek()["AI"] ? "You have lost!" : "You have won!";
+               end_text += "\nPlayer " + game.playerQueue.peek()["id"] + " is victorious!";
+
+               let style = { font: "150px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: PhaserGameObject.width, align: "center"};
+               let text_sprite = PhaserGameObject.add.text(0, 0, end_text, style);
+               //hexagonGroup.add(text_sprite);
           }
      }
 
@@ -432,7 +450,7 @@ window.onload = function() {
                     }
 
                     if(unitMatrix[i][j] != null) {
-                         let unit_sprite = game.add.sprite(hexagons[i][j].hexagonX,hexagons[i][j].hexagonY, unit_dict[unitMatrix[i][j]["type"]]["image"]);
+                         let unit_sprite = PhaserGameObject.add.sprite(hexagons[i][j].hexagonX,hexagons[i][j].hexagonY, unit_dict[unitMatrix[i][j]["type"]]["image"]);
                          unit_sprite.scale.setTo(4,4);
                          hexagonGroup.add(unit_sprite);
                          hexagons[i][j].unit = unit_sprite;
@@ -697,7 +715,7 @@ window.onload = function() {
           var unit = unitMatrix[x][y];
 
           var style = { font: "30px Arial", fill: "#000000", wordWrap: true, wordWrapWidth: hexagons[x][y].width, align: "center", backgroundColor: "#ffffff" };
-          hexagons[x][y].text = game.add.text(hexagons[x][y].hexagonX, hexagons[x][y].hexagonY, "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString() + "\nMP: " + unit["move_points"].toString(), style);
+          hexagons[x][y].text = PhaserGameObject.add.text(hexagons[x][y].hexagonX, hexagons[x][y].hexagonY, "HP: " + unit["hp"].toString() + "\nXP: " + unit["xp"].toString() + "\nMP: " + unit["move_points"].toString(), style);
           hexagonGroup.add(hexagons[x][y].text);
      }
      
@@ -807,7 +825,7 @@ window.onload = function() {
 
           var i = 0;
           unit_type_dict["attack"].forEach(attack => {
-               var attackButton = game.add.sprite(-600, i * 500, attack["icon"]);
+               var attackButton = PhaserGameObject.add.sprite(-600, i * 500, attack["icon"]);
                hexagonGroup.add(attackButton);
                attackButton.scale.setTo(10,10)
 
