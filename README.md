@@ -1,6 +1,6 @@
 # AI player of TBS game based on cat swarm optimization
 
-The game is implemented as TBS browser game, based on open-source project [Battle for Wesnoth](https://www.wesnoth.org/). AI players are driven by cat swarm optimization (CSO).
+The game is implemented as TBS browser game, based on open-source project [Battle for Wesnoth](https://www.wesnoth.org/). AI players are driven by cat swarm optimization (CSO). The project is available at [Github](https://github.com/Neltharion59/PRIPROC_CSO_WESNOTH).
 
 The project includes 4 separately executable parts:
 
