@@ -2,6 +2,8 @@
 
 The game is implemented as TBS browser game, based on open-source project [Battle for Wesnoth](https://www.wesnoth.org/). AI players are driven by cat swarm optimization (CSO). The project is available at [Github](https://github.com/Neltharion59/PRIPROC_CSO_WESNOTH).
 
+![GitHub Logo](Wesnoth_screen.png)
+
 The project includes 4 separately executable parts:
 
 - **Game:** The game itself is the part which most people will want to execute. It is wrapped in html page, so you need to open the html page. When the game is over, just refresh the browser to play again. There are two options of running the game:
@@ -40,6 +42,3 @@ The project includes 4 separately executable parts:
 - *game.js* - runs the game with graphical output
 - *index.html* - wraps the game into web page
 - *index_grid_search.html* - wraps the grid search into web page
-
-
-![GitHub Logo](Wesnoth_screen.png)
