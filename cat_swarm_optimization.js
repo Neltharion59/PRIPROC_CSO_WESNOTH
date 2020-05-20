@@ -2,6 +2,7 @@ function createCSOObject(Game) {
     var CSO = {};
 
     CSO.Game = Game;
+    CSO.weights = [1, 1, 1, 2, 2, 4, 2, 1.5, 1.5, 1.5];
 
     // Number of agents
     CSO.cat_count = 50;
@@ -31,6 +32,9 @@ function createCSOObject(Game) {
     // CUSTOM PARAMETERS
     // Selection probability zero division preventor
     CSO.zdp1 = 0.000001;
+
+    // Recording
+    CSO.run_records = [];
 
     return CSO;
 }
@@ -71,6 +75,7 @@ function cat_swarm_optimization(CSO, possible_movements) {
             cat["fitness"] = evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks);
             if(cat["fitness"] > best_cat["fitness"]) {
                 best_cat = create_cat_copy_all_properties(cat);
+                best_cat["iteration"] = i; 
             }
         });
 
@@ -78,7 +83,7 @@ function cat_swarm_optimization(CSO, possible_movements) {
         cats.forEach(cat => {
             //console.log(cat);
             if(cat["mode"] == "SEEK") {
-                performSeeking(CSO, cat, best_cat, movement_caps, attack_caps, possible_movements, possible_attacks);
+                performSeeking(CSO, cat, movement_caps, attack_caps, possible_movements, possible_attacks);
             } else if(cat["mode"] == "TRACE") {
                 performTracing(CSO, cat, best_cat, movement_velocity_caps, attack_velocity_caps, movement_caps, attack_caps, possible_movements);
             }
@@ -87,7 +92,10 @@ function cat_swarm_optimization(CSO, possible_movements) {
         // Step 5 - Shuffle cat modes
         updateCatModes(CSO, cats);
     }
-    //console.log(best_cat["fitness"]);
+    CSO.run_records.push({
+        "best_fitness": best_cat["fitness"],
+        "iteration": best_cat["iteration"]
+    });
 
     return turnCatIntoMovements(best_cat, possible_movements, possible_attacks);
 }
@@ -156,11 +164,7 @@ function getRandom(arr, n) {
     return result;
 }
 function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks) {
-    if("fitness" in cat) {
-        return cat["fitness"];
-    }
     var GameCopy = CSO.Game.createCopy(CSO.Game);
-    //console.log(Game);
     
     var selected_movements = turnCatIntoMovements(cat, possible_movements, possible_attacks);
     GameCopy.performMoving(selected_movements, GameCopy.playerQueue.peek()["units"], GameCopy);
@@ -197,12 +201,6 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
                 if(!unit["is_leader"]) {
                     current_unit_terrain_bonus = 100 - GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"][GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]];
                     current_unit_max_terrain_bonus = 100 - Math.min(...Object.values(GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"]));
-                    /*if(isNaN(current_unit_terrain_bonus)) {
-                        console.log("terrain_bonus_screwed");
-                        console.log(GameCopy.unit_dict[unit["type"]]["movement_type"]);
-                        console.log(GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]);
-                        console.log(GameCopy.movement_type_dict[GameCopy.unit_dict[unit["type"]]["movement_type"]]["defense"][GameCopy.terrain_dict[GameCopy.map[unit["x"]][unit["y"]]]["name"]]);
-                    }*/
 
                     if(unit["player_id"] == player_id) {
                         total_unit_health_player += unit["hp"];
@@ -233,19 +231,19 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     // Player total unit health
     if(total_unit_max_health_player > 0) {
         let player_unit_health_fitness = total_unit_health_player / total_unit_max_health_player;
-        components.push({"value": player_unit_health_fitness, "weight": 1, "name": "Total player unit health"});
+        components.push({"value": player_unit_health_fitness, "weight": CSO.weights[0], "name": "Total player unit health"});
     }
 
     // Enemy total unit health
     if(total_unit_max_health_enemy > 0) {
         let enemy_unit_health_fitness = 1 - (total_unit_health_enemy / total_unit_max_health_enemy);
-        components.push({"value": enemy_unit_health_fitness, "weight": 1, "name": "Total enemy unit health"});
+        components.push({"value": enemy_unit_health_fitness, "weight": CSO.weights[1], "name": "Total enemy unit health"});
     }
 
     // Player total terrain bonus
     if(total_unit_max_terrain_bonus_player > 0) {
         let player_unit_terrain_fitness = total_unit_terrain_bonus_player / total_unit_max_terrain_bonus_player;
-        components.push({"value": player_unit_terrain_fitness, "weight": 1, "name": "Total player unit terrain bonus"});
+        components.push({"value": player_unit_terrain_fitness, "weight": CSO.weights[2], "name": "Total player unit terrain bonus"});
     }
 
     // Unit distance from enemy leader
@@ -260,7 +258,7 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
         if(GameCopy.playerQueue.peek()["units"].length > 1) {
             unit_leader_distance_fitness = unit_leader_distance / (GameCopy.playerQueue.peek()["units"].length - 1);
         }
-        components.push({"value": unit_leader_distance_fitness, "weight": 2, "name": "Total player unit distance from enemy leader"});
+        components.push({"value": unit_leader_distance_fitness, "weight": CSO.weights[3], "name": "Total player unit distance from enemy leader"});
     }
 
     // Attack count
@@ -271,28 +269,28 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
         }
     }
     var attack_count_fitness = attack_count/cat["movements"].length;
-    components.push({"value": attack_count_fitness, "weight": 3, "name": "Count of attack commands"});
+    components.push({"value": attack_count_fitness, "weight": CSO.weights[4], "name": "Count of attack commands"});
 
     // Enemy leader health
-    var enemy_leader_health_fitness = enemy_leader == null ?  0 : 1 - (enemy_leader["hp"] / enemy_leader["max_hp"]);
-    components.push({"value": enemy_leader_health_fitness, "weight": 3, "name": "Enemy leader health"});
+    var enemy_leader_health_fitness = enemy_leader == null ?  100 : 1 - (enemy_leader["hp"] / enemy_leader["max_hp"]);
+    components.push({"value": enemy_leader_health_fitness, "weight": CSO.weights[5], "name": "Enemy leader health"});
 
     // Player leader health
     var player_leader_health_fitness = player_leader == null ? 0 : (player_leader["hp"] / player_leader["max_hp"]);
-    components.push({"value": player_leader_health_fitness, "weight": 2, "name": "Player leader health"});
+    components.push({"value": player_leader_health_fitness, "weight": CSO.weights[6], "name": "Player leader health"});
 
     // Player income
     var player_income_fitness = GameCopy.playerQueue.peek()["income"] / (GameCopy.base_income + GameCopy.village_count * GameCopy.village_income);
-    components.push({"value": player_income_fitness, "weight": 1.5, "name": "Player income"});
+    components.push({"value": player_income_fitness, "weight": CSO.weights[7], "name": "Player income"});
 
     if(unit_count_player > 0) {
         // Player unit experience
         var player_unit_xp_fitness = total_unit_xp_progress_player / unit_count_player;
-        components.push({"value": player_unit_xp_fitness, "weight": 1.5, "name": "Player unit xp"});
+        components.push({"value": player_unit_xp_fitness, "weight": CSO.weights[8], "name": "Player unit xp"});
 
         // Enemy unit experience
         var enemy_unit_xp_fitness = 1 - (total_unit_xp_progress_enemy / unit_count_player);
-        components.push({"value": enemy_unit_xp_fitness, "weight": 1.5, "name": "Enemy unit xp"});
+        components.push({"value": enemy_unit_xp_fitness, "weight": CSO.weights[9], "name": "Enemy unit xp"});
     }
 
     // Aggregating all the components of fitness function
@@ -300,7 +298,6 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     components.forEach(component => {
         fitness += component["value"] * component["weight"];
     });
-
     if(isNaN(fitness)) {
         console.log("Fitness fail");
         console.log("Components", components);
@@ -309,7 +306,7 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
 
     return fitness;
 }
-function performSeeking(CSO, cat, best_cat, movement_caps, attack_caps, possible_movements, possible_attacks) {
+function performSeeking(CSO, cat, movement_caps, attack_caps, possible_movements, possible_attacks) {
     // Step 1 - Create cat copies
     var potential_positions = [];
     var cat_count = CSO.seeking_memory_pool;
@@ -359,7 +356,7 @@ function performSeeking(CSO, cat, best_cat, movement_caps, attack_caps, possible
     var selection_probabilities = [];
     var probability;
     potential_positions.forEach(potential_position => {
-        probability = Math.abs(potential_position["fitness"] - best_cat["fitness"]) / Math.max(best_local_cat["fitness"] - worst_local_cat["fitness"] + CSO.zdp1);
+        probability = Math.abs(potential_position["fitness"] - best_local_cat["fitness"]) / Math.max(best_local_cat["fitness"] - worst_local_cat["fitness"] + CSO.zdp1);
         selection_probabilities.push(probability);
     });
 

@@ -5,6 +5,7 @@ function CreateGameObject() {
     GameObject.village_income = 2;
     GameObject.base_income = 2;
     GameObject.xp_modifier = 0.70;
+    GameObject.turn_limit = 200;
 
     // Basic map-related
     GameObject.mapDict = getMaps();
@@ -71,6 +72,8 @@ function CreateGameObject() {
 
         // Game wrapper - for creating duplicate battlefields for CSO
         this.Game = {
+            "isCopy": false,
+
             "playerQueue": this.playerQueue,
             "gameOver": false,
             "unitMatrix": this.unitMatrix,
@@ -92,6 +95,21 @@ function CreateGameObject() {
 
         // CSO object
         this.CSO = createCSOObject(this.Game);
+
+        let first_player_id = null;
+        while(first_player_id != GameObject.playerQueue.peek()["id"]) {
+            let current_player = GameObject.playerQueue.peek();
+
+            if(first_player_id == undefined) {
+                 first_player_id = current_player["id"];
+            }
+
+            let x = current_player["units"][0]["x"];
+            let y = current_player["units"][0]["y"];
+            GameObject.unitMatrix[x][y] = current_player["units"][0];
+
+            GameObject.playerQueue.shift();
+        }
     }
 
     // Convenient map dimensions
@@ -131,6 +149,7 @@ function CreateGameObject() {
     }
 
     GameObject.playerDeathCheck = function(game) {
+
         var checked_player_ids = [];
         while(true) {
             if(checked_player_ids.includes(game.playerQueue.peek()["id"])) {
@@ -145,6 +164,7 @@ function CreateGameObject() {
                 }
             };
             if(player_died) {
+                //console.log("Player died in ", game.isCopy ? "copy" : "original" );
                 GameObject.destroyAllPlayerUnits(game.playerQueue.dequeue(), game);
             } else {
                 checked_player_ids.push(game.playerQueue.peek()["id"]);
@@ -154,7 +174,6 @@ function CreateGameObject() {
 
         if(game.playerQueue.getLength() <= 1) {
             game.gameOver = true;
-
             GameObject.playerDeathCheckRender(game);
         }
     }
@@ -173,14 +192,19 @@ function CreateGameObject() {
         }
         game.gameOver = (game.playerQueue.getLength() <= 1);
 
-        while(this.nextTurn(game) && !game.gameOver) {}
+        
+        while(this.nextTurn(game)) {
+            if(game.gameOver || this.turn_count > this.turn_limit) {
+                break;
+            }
+        }
     }
 
     GameObject.nextTurn = function(game) {
 
         if(game.playerQueue.peek()["id"] == 1) {
             this.turn_count++;
-            console.log("Turn number:" + this.turn_count);
+            //console.log("Turn number:" + this.turn_count);
         }
 
         this.performHealing(game.playerQueue.peek()["id"], game);
@@ -404,6 +428,7 @@ function CreateGameObject() {
         }
     }
     GameObject.performAttack = function(atk_x, atk_y, def_x, def_y, atk_id, game) {
+
         if(game.unitMatrix[atk_x][atk_y] == null || game.unitMatrix[def_x][def_y] == null) {
             return;
         }
@@ -493,14 +518,15 @@ function CreateGameObject() {
     }
     GameObject.tryKillUnit = function(x, y, game) {
         if(game.unitMatrix[x][y] == null) {
-             return;
+            return;
         }
 
         if(game.unitMatrix[x][y]["hp"] <= 0) {
-             game.unitMatrix[x][y]["dead"] = true;
-             game.unitMatrix[x][y] = null;
-                            
-             return true;
+
+            game.unitMatrix[x][y]["dead"] = true;
+            game.unitMatrix[x][y] = null;
+                        
+            return true;
         }
 
         return false;
@@ -545,6 +571,7 @@ function CreateGameObject() {
     }
     GameObject.CreateGameCopy = function(game) {
         var copiedGame = {};
+        copiedGame.isCopy = true;
 
         // Copying playerQueue and UnitMatrix
         var copiedPlayerQueue = new Queue();

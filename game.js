@@ -3,7 +3,7 @@ window.onload = function() {
      
      var GameObject = CreateGameObject();
      GameObject.setup_session([0,1]);
-     GameObject.playerQueue.peek()["AI"] = false;
+     //GameObject.playerQueue.peek()["AI"] = false;
 
      const image_path_prefix_terrain = "images/terrain/";
      const image_path_prefix_units = "images/";
@@ -115,11 +115,11 @@ window.onload = function() {
                }
 
                var image = GameObject.unit_dict[current_player["units"][0]["type"]]["image"];
-               var x = current_player["units"][0]["x"];
+              /* var x = current_player["units"][0]["x"];
                var y = current_player["units"][0]["y"];
                GameObject.unitMatrix[x][y] = current_player["units"][0];
 
-               GameObject.playerQueue.shift();
+               GameObject.playerQueue.shift();*/
           }
 
 		hexagonGroup.y = (PhaserGameObject.height-hexagonHeight*Math.ceil(GameObject.gridSizeY/2))/2;
@@ -136,20 +136,17 @@ window.onload = function() {
 	}
 
      GameObject.playerDeathCheckRender = function(game) {
-          if(game.playerQueue.getLength() <= 1) {
+          hexagonGroup.destroy();
+          PhaserGameObject.width = window.innerWidth * window.devicePixelRatio * 3;
+          PhaserGameObject.height = window.innerHeight * window.devicePixelRatio * 3;
+          let endgame_banner = PhaserGameObject.add.sprite(0, 0, "endgame");
+          endgame_banner.scale.setTo(4,4);
 
-               hexagonGroup.destroy();
-               PhaserGameObject.width = window.innerWidth * window.devicePixelRatio * 3;
-               PhaserGameObject.height = window.innerHeight * window.devicePixelRatio * 3;
-               let endgame_banner = PhaserGameObject.add.sprite(0, 0, "endgame");
-               endgame_banner.scale.setTo(4,4);
+          let end_text = game.playerQueue.peek()["AI"] ? "You have lost!" : "You have won!";
+          end_text += "\nPlayer " + game.playerQueue.peek()["id"] + " is victorious!";
 
-               let end_text = game.playerQueue.peek()["AI"] ? "You have lost!" : "You have won!";
-               end_text += "\nPlayer " + game.playerQueue.peek()["id"] + " is victorious!";
-
-               let style = { font: "150px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: PhaserGameObject.width, align: "center"};
-               let text_sprite = PhaserGameObject.add.text(0, 0, end_text, style);
-          }
+          let style = { font: "150px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: PhaserGameObject.width, align: "center"};
+          let text_sprite = PhaserGameObject.add.text(0, 0, end_text, style);
      }
      GameObject.humanEndTurnGUIActions = function() {
           end_turn_button.visible = false;
