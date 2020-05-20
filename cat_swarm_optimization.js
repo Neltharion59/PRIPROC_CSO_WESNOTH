@@ -11,7 +11,7 @@ function createCSOObject(Game) {
     // MR
     CSO.mixture_ratio = 0.2;
     // SMP
-    CSO.seeking_memory_pool = 10;
+    CSO.seeking_memory_pool = 20;
     // c1
     CSO.c1 = 2;
     // SPC
