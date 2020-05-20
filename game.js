@@ -2,7 +2,10 @@ window.onload = function() {
      var PhaserGameObject = new Phaser.Game("100%", "120%", Phaser.CANVAS, "", {preload: onPreload, create: onCreate});                
      
      var GameObject = CreateGameObject();
-     GameObject.setup_session([0,1]);
+     GameObject.setup_session([
+          Math.floor((Math.random() * GameObject.sides_list.length) % GameObject.sides_list.length),
+          Math.floor((Math.random() * GameObject.sides_list.length) % GameObject.sides_list.length)
+     ]);
      GameObject.playerQueue.peek()["AI"] = false;
 
      const image_path_prefix_terrain = "images/terrain/";

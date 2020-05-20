@@ -5,9 +5,9 @@ function createCSOObject(Game) {
     CSO.weights = [1, 1, 1, 2, 2, 4, 2, 1.5, 1.5, 1.5];
 
     // Number of agents
-    CSO.cat_count = 50;
+    CSO.cat_count = 40;
     // Termination condition
-    CSO.iteration_cap = 200;
+    CSO.iteration_cap = 300;
     // MR
     CSO.mixture_ratio = 0.2;
     // SMP
@@ -15,11 +15,11 @@ function createCSOObject(Game) {
     // c1
     CSO.c1 = 2;
     // SPC
-    CSO.self_position_considering = true;
+    CSO.self_position_considering = false;
     // SRD
-    CSO.seeking_range_of_selected_dimensions = 0.4;
+    CSO.seeking_range_of_selected_dimensions = 0.3;
     // CDC
-    CSO.count_of_dimensions_2_change = 0.5;
+    CSO.count_of_dimensions_2_change = 0.4;
     CSO.get_movement_CDC = function(cat) {
         var dimension_count = Math.round(cat["movements"].length * CSO.count_of_dimensions_2_change);
         return dimension_count;
