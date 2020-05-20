@@ -303,7 +303,7 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     components.forEach(component => {
         fitness += component["value"] * component["weight"];
     });
-   // fitness /= CSO.weights.reduce((sum, current) => sum + current);
+
     if(isNaN(fitness)) {
         console.log("Fitness fail");
         console.log("Components", components);
