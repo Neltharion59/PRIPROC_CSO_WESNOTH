@@ -3,7 +3,7 @@ window.onload = function() {
      
      var GameObject = CreateGameObject();
      GameObject.setup_session([0,1]);
-     //GameObject.playerQueue.peek()["AI"] = false;
+     GameObject.playerQueue.peek()["AI"] = false;
 
      const image_path_prefix_terrain = "images/terrain/";
      const image_path_prefix_units = "images/";

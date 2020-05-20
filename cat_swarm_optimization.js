@@ -7,7 +7,7 @@ function createCSOObject(Game) {
     // Number of agents
     CSO.cat_count = 50;
     // Termination condition
-    CSO.iteration_cap = 400;
+    CSO.iteration_cap = 200;
     // MR
     CSO.mixture_ratio = 0.2;
     // SMP
@@ -229,16 +229,18 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     });
 
     // Player total unit health
+    let player_unit_health_fitness = 0;
     if(total_unit_max_health_player > 0) {
-        let player_unit_health_fitness = total_unit_health_player / total_unit_max_health_player;
-        components.push({"value": player_unit_health_fitness, "weight": CSO.weights[0], "name": "Total player unit health"});
+        player_unit_health_fitness = total_unit_health_player / total_unit_max_health_player;
     }
+    components.push({"value": player_unit_health_fitness, "weight": CSO.weights[0], "name": "Total player unit health"});
 
     // Enemy total unit health
+    let enemy_unit_health_fitness = 1;  
     if(total_unit_max_health_enemy > 0) {
-        let enemy_unit_health_fitness = 1 - (total_unit_health_enemy / total_unit_max_health_enemy);
-        components.push({"value": enemy_unit_health_fitness, "weight": CSO.weights[1], "name": "Total enemy unit health"});
+        enemy_unit_health_fitness = 1 - (total_unit_health_enemy / total_unit_max_health_enemy);
     }
+    components.push({"value": enemy_unit_health_fitness, "weight": CSO.weights[1], "name": "Total enemy unit health"});
 
     // Player total terrain bonus
     if(total_unit_max_terrain_bonus_player > 0) {
@@ -247,6 +249,7 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
     }
 
     // Unit distance from enemy leader
+    let unit_leader_distance_fitness = 1;
     if(enemy_leader != null) {
         let unit_leader_distance = 0;
         GameCopy.playerQueue.peek()["units"].forEach(unit => {
@@ -254,50 +257,53 @@ function evaluateFitnessFunction(CSO, cat, possible_movements, possible_attacks)
                 unit_leader_distance += 1 - ((Math.abs(unit["x"] - enemy_leader["x"]) + Math.abs(unit["y"] - enemy_leader["y"])) / (GameCopy.map.length + GameCopy.map[0].length));
             }
         });
-        let unit_leader_distance_fitness = 0;
+        unit_leader_distance_fitness = 0;
         if(GameCopy.playerQueue.peek()["units"].length > 1) {
             unit_leader_distance_fitness = unit_leader_distance / (GameCopy.playerQueue.peek()["units"].length - 1);
         }
-        components.push({"value": unit_leader_distance_fitness, "weight": CSO.weights[3], "name": "Total player unit distance from enemy leader"});
     }
+    components.push({"value": unit_leader_distance_fitness, "weight": CSO.weights[3], "name": "Total player unit distance from enemy leader"});
 
     // Attack count
-    var attack_count = 0;
+    let attack_count = 0;
     for(var i = 0; i < cat["movements"].length; i++) {
         if(possible_movements[i]["is_attack"]) {
             attack_count++;
         }
     }
-    var attack_count_fitness = attack_count/cat["movements"].length;
+    let attack_count_fitness = attack_count/cat["movements"].length;
     components.push({"value": attack_count_fitness, "weight": CSO.weights[4], "name": "Count of attack commands"});
 
     // Enemy leader health
-    var enemy_leader_health_fitness = enemy_leader == null ?  100 : 1 - (enemy_leader["hp"] / enemy_leader["max_hp"]);
+    let enemy_leader_health_fitness = enemy_leader == null ?  100 : 1 - (enemy_leader["hp"] / enemy_leader["max_hp"]);
     components.push({"value": enemy_leader_health_fitness, "weight": CSO.weights[5], "name": "Enemy leader health"});
 
     // Player leader health
-    var player_leader_health_fitness = player_leader == null ? 0 : (player_leader["hp"] / player_leader["max_hp"]);
+    let player_leader_health_fitness = player_leader == null ? 0 : (player_leader["hp"] / player_leader["max_hp"]);
     components.push({"value": player_leader_health_fitness, "weight": CSO.weights[6], "name": "Player leader health"});
 
     // Player income
-    var player_income_fitness = GameCopy.playerQueue.peek()["income"] / (GameCopy.base_income + GameCopy.village_count * GameCopy.village_income);
+    let player_income_fitness = GameCopy.playerQueue.peek()["income"] / (GameCopy.base_income + GameCopy.village_count * GameCopy.village_income);
     components.push({"value": player_income_fitness, "weight": CSO.weights[7], "name": "Player income"});
 
+    // Unit experience
+    let player_unit_xp_fitness = 0;
+    let enemy_unit_xp_fitness = 0;
     if(unit_count_player > 0) {
         // Player unit experience
-        var player_unit_xp_fitness = total_unit_xp_progress_player / unit_count_player;
-        components.push({"value": player_unit_xp_fitness, "weight": CSO.weights[8], "name": "Player unit xp"});
-
+        player_unit_xp_fitness = total_unit_xp_progress_player / unit_count_player;
         // Enemy unit experience
-        var enemy_unit_xp_fitness = 1 - (total_unit_xp_progress_enemy / unit_count_player);
-        components.push({"value": enemy_unit_xp_fitness, "weight": CSO.weights[9], "name": "Enemy unit xp"});
+        enemy_unit_xp_fitness = 1 - (total_unit_xp_progress_enemy / unit_count_player);
     }
+    components.push({"value": player_unit_xp_fitness, "weight": CSO.weights[8], "name": "Player unit xp"});
+    components.push({"value": enemy_unit_xp_fitness, "weight": CSO.weights[9], "name": "Enemy unit xp"});
 
     // Aggregating all the components of fitness function
-    var fitness = 0;
+    let fitness = 0;
     components.forEach(component => {
         fitness += component["value"] * component["weight"];
     });
+   // fitness /= CSO.weights.reduce((sum, current) => sum + current);
     if(isNaN(fitness)) {
         console.log("Fitness fail");
         console.log("Components", components);
