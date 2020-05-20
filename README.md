@@ -40,3 +40,6 @@ The project includes 4 separately executable parts:
 - *game.js* - runs the game with graphical output
 - *index.html* - wraps the game into web page
 - *index_grid_search.html* - wraps the grid search into web page
+
+
+![GitHub Logo](Wesnoth_screen.png)
